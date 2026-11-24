@@ -28,6 +28,8 @@ history of robots.txt). Crawling after that date would fall outside the TDM exce
 | **DE-COP** (Duarte et al., ICML 2024, arXiv 2402.09910) | Black-box | Multiple choice: the verbatim passage vs. 3 paraphrases. Models pick the verbatim one far above the 25% chance rate on seen texts | ★★★★ "It recognizes our exact wording". Has a clean control |
 | **Min-K% Prob / Min-K%++** (Shi et al., ICLR 2024; arXiv 2404.02936) | Logprobs | Seen text has fewer very-low-probability tokens | ★★ Needs logprobs (only some APIs or open-weight models) |
 | **Dataset inference** (Maini et al., NeurIPS 2024, arXiv 2406.06443) | Logprobs | Aggregates many MIA signals over ~1000 docs into a statistical test with a p-value. Built for **"did you train on my dataset"** | ★★★ Gives a p-value, but needs a well-matched held-out set |
+| **Neighbour / rewrite calibration** (Mattern et al. 2023 "neighbourhood attack"; tested here as M7) | Logprobs | Compare the loss on the original with the loss on rewrites that keep the facts. Cancels time drift **and** knowledge of the events; only memorized wording survives | ★★★★ Directly maps to "facts are free, wording is protected" |
+| **Two-model difference-in-differences** (same family, different cutoffs; tested here as M8 with Llama 3 vs 3.1) | Logprobs (2 models) | The familiarity gain from the older to the newer model should be larger only for articles published between the two cutoffs. Same articles, so drift cancels | ★★★ Elegant, but needs same-tokenizer model pairs |
 | **Copyright traps / canaries** (Meeus et al., ICML 2024, arXiv 2402.09363) | Requires publishing | Insert unique fictitious sequences into future articles and detect them later | ★★★★★ for the *future*, but useless for past training |
 | **Knowledge / "cloze" probes** (name cloze, Chang et al. 2023 "Speak, Memory") | Black-box | Mask a unique detail (quote, name, number) only that article contained, and ask the model to fill it | ★★★★ Good for exclusive content such as interviews and scoops |
 | **Style/attribution probes** | Black-box | Ask "which newspaper published: <passage>". Model names La Vanguardia, with date and author | ★★★ Supporting evidence only |
@@ -37,6 +39,10 @@ Known pitfalls (Duan et al. 2024 "Do MIAs work on LLMs?"; Maini et al.): members
 members and non-members differ in **distribution or date**. Controls must be matched on topic, length, section and language,
 differing only in the "could have been seen" variable. Using articles from just after the cutoff (same sections and authors)
 is the standard fix, and it is still imperfect because topics drift over time.
+Lessons from our own experiments (sessions 4–5, see PROGRESS.md): (1) a 2018 model "passes" dataset inference with
+date-based controls; (2) matching on section and length removes most of the signal; (3) a learned (logistic) combination can turn
+reference-model miscalibration into significance, so the direction must be pre-registered; (4) a surviving signal can still be
+knowledge of the *events*; a wording-specific test (neighbour gap, or same-period never-crawled controls) is required.
 
 ## 3. Data-availability findings (2026-11-24)
 - **Common Crawl contains lavanguardia.com articles**. Spot check: CC-MAIN-2019-09 and CC-MAIN-2023-14 have

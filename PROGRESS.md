@@ -225,3 +225,29 @@ All local and free (no API quota). Scripts: `src/di_summary.py`, `src/di_placebo
 **Next (free):** generate same-facts rewrites of the 249 mid-2023 articles + controls with a local instruct model and run
 the neighbour test on Llama-3 vs 3.1 (separates wording from events); larger open models; with the Godó archive,
 crawled vs never-crawled same-period controls.
+
+### State at end of session 5 (2026-11-24, ~18:30 CET) — RESUME HERE
+**Where we stand (one paragraph for a judge-facing summary):** no commercial model tested reproduces La Vanguardia text
+(Claude 4.5/5.5, Gemini 3.x). Collection-level tests on four open-weight models (Qwen2.5, Llama-3.1, Mistral, Gemma-2)
+look positive at first but are mostly time drift; after matching + pre-registered combination only Gemma-2 survives, and
+the neighbour test shows it is knowledge of events, not wording. The cleanest design (Llama 3 vs 3.1, same articles) shows
+the predicted pattern (p=0.007) but small and still not separated from event knowledge. Paper (`paper/paper.pdf`) is up to date
+with all of this (tables tab:dimulti, tab:neigh, tab:did).
+
+**Background runs interrupted at session exit** (both resumable: rerun the same command, they skip finished items):
+- `.venv/bin/python -I src/m1_continuation.py --model gemini-3-flash-preview --n 60 --workers 1` (22/120 done, free-tier quota).
+- `.venv/bin/python -I src/m2b_pairwise.py --model gemini-3.1-flash-lite --n 60 --workers 3` (352 rows; target 120×6=720).
+- Anthropic credit is exhausted; Sonnet 4.5 retires 2026-11-30 (La Contra M1 for Sonnet/Opus 4.5 at 65/70).
+
+**Next step (do first, free, local):** neighbour test inside the Llama 3 vs 3.1 design.
+1. Generate 3 same-facts rewrites (full) of the first ~70-word passage for the 249 mid-2023 articles (`data/cc/mid2023.jsonl`),
+   plus ~250 "both" members and ~250 controls, with a local instruct model via MLX (e.g. `mlx-community/Qwen2.5-7B-Instruct-4bit`;
+   NOT Llama, to avoid self-preference). Write to `data/decop/paraphrases_mid2023.jsonl` in the same format as `paraphrases.jsonl`.
+   (Expect ~10–20 s per passage: run as one sequential background script, no pgrep waits.)
+2. Score originals + rewrites with Llama-3 and Llama-3.1 (`src/m5_neighbour.py`, add a `--src` argument).
+3. DiD on the neighbour gap: does the 3.1-only group's ORIGINAL wording gain more than its rewrites? If yes → evidence about
+   the text, not the events. Add to the paper (sec:di, after tab:did) and conclusions.
+
+**After that:** larger open models if memory allows (16 GB RAM: ≤ ~14B at 4-bit); retrieval test (M4) design; when the Godó
+archive arrives: crawled vs never-crawled same-period controls (check CC index per article), with matching + pre-registered
+sign-constrained DI + neighbour test + placebos as the standard battery.
