@@ -43,17 +43,19 @@ def main():
     ap.add_argument("--n", type=int, default=60)
     ap.add_argument("--inputs", nargs="+", default=["data/cc/members.jsonl", "data/cc/controls.jsonl"])
     ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--tag", default="")
     a = ap.parse_args()
     # same article sample as DE-COP when available
     ids = None
-    if os.path.exists("data/decop/paraphrases.jsonl"):
-        ids = {json.loads(l)["id"] for l in open("data/decop/paraphrases.jsonl")}
+    pp = f"data/decop/paraphrases_minimal_{a.tag}.jsonl" if a.tag else "data/decop/paraphrases.jsonl"
+    if os.path.exists(pp):
+        ids = {json.loads(l)["id"] for l in open(pp)}
     docs = [d for d in load(a.inputs) if ids is None or d["id"] in ids]
     by = defaultdict(list)
     for d in docs:
         by[d["set"]].append(d)
     docs = by["member"][: a.n] + by["control"][: a.n]
-    out = f"results/m1_continuation_{a.model}.jsonl"
+    out = f"results/m1_continuation_{a.tag + '_' if a.tag else ''}{a.model}.jsonl"
     done = {json.loads(l)["id"] for l in open(out)} if os.path.exists(out) else set()
 
     def work(d):
@@ -61,11 +63,15 @@ def main():
         prefix, true = " ".join(w[:PREFIX]), " ".join(w[PREFIX:PREFIX + 200])
         txt, rec = ask(EXP, a.model, PROMPT.format(title=d["title"], prefix=prefix), max_tokens=400,
                        meta={"id": d["id"], "set": d["set"]})
+        if rec["stop_reason"] == "api_error":
+            return None
         return {"id": d["id"], "set": d["set"], "pub_date": d["pub_date"], "model": a.model,
                 "request_id": rec["request_id"], "stop_reason": rec["stop_reason"], **score(txt, true)}
 
     with open(out, "a", encoding="utf-8") as f, cf.ThreadPoolExecutor(a.workers) as ex:
         for r in ex.map(work, [d for d in docs if d["id"] not in done]):
+            if r is None:
+                continue
             f.write(json.dumps(r, ensure_ascii=False) + "\n"); f.flush()
     rows = [json.loads(l) for l in open(out)]
     for s in ("member", "control"):

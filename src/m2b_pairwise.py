@@ -30,13 +30,15 @@ def main():
     ap.add_argument("--model", required=True)
     ap.add_argument("--n", type=int, default=60)
     ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--tag", default="")
     a = ap.parse_args()
-    items = [json.loads(l) for l in open(SRC, encoding="utf-8")]
+    src = SRC.replace(".jsonl", f"_{a.tag}.jsonl") if a.tag else SRC
+    items = [json.loads(l) for l in open(src, encoding="utf-8")]
     by = defaultdict(list)
     for it in items:
         by[it["set"]].append(it)
     items = by["member"][: a.n] + by["control"][: a.n]
-    out = f"results/m2b_pairwise_{a.model}.jsonl"
+    out = f"results/m2b_pairwise_{a.tag + '_' if a.tag else ''}{a.model}.jsonl"
     done = {(json.loads(l)["id"], json.loads(l)["k"], json.loads(l)["orig_pos"]) for l in open(out)} if os.path.exists(out) else set()
     jobs = [(it, k, pos) for it in items for k in range(3) for pos in "AB" if (it["id"], k, pos) not in done]
 
@@ -48,11 +50,15 @@ def main():
         t = txt.strip()
         m = re.match(r"^\**([AB])\b", t) or re.search(r"(?:respuesta|opci[oó]n)\W+(?:es\W+)?\**([AB])\b", t, re.I)
         ans = m.group(1) if m else None
+        if rec["stop_reason"] == "api_error":
+            return None
         return {"id": it["id"], "set": it["set"], "pub_date": it["pub_date"], "k": k, "orig_pos": pos,
                 "model": a.model, "answer": ans, "raw": t[:40], "correct": ans == pos, "request_id": rec["request_id"]}
 
     with open(out, "a", encoding="utf-8") as f, cf.ThreadPoolExecutor(a.workers) as ex:
         for r in ex.map(work, jobs):
+            if r is None:
+                continue
             f.write(json.dumps(r, ensure_ascii=False) + "\n"); f.flush()
     report(out)
 

@@ -35,8 +35,58 @@ def _log(experiment, record):
 ALWAYS_THINK = ("claude-opus-5-5", "claude-fable", "claude-opus-5", "claude-sonnet-5", "claude-haiku-5-5")
 
 
+_gclient = None
+
+
+def gemini_client():
+    global _gclient
+    if _gclient is None:
+        from dotenv import dotenv_values
+        from google import genai
+        from google.genai import types
+        key = os.environ.get("GEMINI_API_KEY") or dotenv_values(".env").get("GEMINI_API_KEY")
+        _gclient = genai.Client(api_key=key, http_options=types.HttpOptions(api_version="v1beta"))
+    return _gclient
+
+
+def ask_gemini(experiment, model, user, system=None, max_tokens=1024, meta=None):
+    from google.genai import types
+    params = {"model": model, "contents": user,
+              "config": {"temperature": 0, "max_output_tokens": max(max_tokens, 2048),
+                         **({"system_instruction": system} if system else {})}}
+    t0 = time.time()
+    raw, text, rmodel, stop, rid = None, "", None, None, None
+    for attempt in range(8):
+        try:
+            r = gemini_client().models.generate_content(model=model, contents=user,
+                                                        config=types.GenerateContentConfig(**params["config"]))
+            raw = r.model_dump(mode="json", exclude_none=True)
+            text = r.text or ""
+            rmodel, rid = r.model_version, r.response_id
+            stop = str(r.candidates[0].finish_reason) if r.candidates else "no_candidates"
+            break
+        except Exception as e:
+            msg = str(e)
+            raw, stop = {"error": msg[:500]}, "api_error"
+            if "client has been closed" in msg:
+                global _gclient
+                _gclient = None
+                continue
+            if any(c in msg for c in ("429", "503", "500", "RESOURCE_EXHAUSTED", "UNAVAILABLE")):
+                time.sleep(min(120, 10 * (attempt + 1)))
+                continue
+            break
+    rec = {"ts_utc": dt.datetime.now(dt.timezone.utc).isoformat(), "provider": "google",
+           "model_requested": model, "model_reported": rmodel, "request_id": rid, "stop_reason": stop,
+           "latency_s": round(time.time() - t0, 2), "meta": meta or {}, "request": params, "response": raw}
+    _log(experiment, rec)
+    return text, rec
+
+
 def ask(experiment, model, user, system=None, max_tokens=1024, meta=None):
     """Single-turn text call. Returns (text, record)."""
+    if model.startswith("gemini"):
+        return ask_gemini(experiment, model, user, system, max_tokens, meta)
     params = {"model": model, "max_tokens": max_tokens, "messages": [{"role": "user", "content": user}]}
     if system:
         params["system"] = system

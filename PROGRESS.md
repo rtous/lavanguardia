@@ -129,3 +129,39 @@ Supporting facts: Common Crawl presence by date, and robots.txt opt-out history 
 - [ ] Retrieval test (M4) design: web-search-enabled products and paywalled articles.
 - [ ] Implement dataset inference (aggregate several MIA features, t-test) on Qwen and others.
 - [ ] Commit code and docs (ask the user first). `data/` stays out of git; decide whether `evidence/` goes in git (good for custody, but it contains article text).
+
+## 2026-11-24 — Session 3: paper draft, Gemini, La Contra
+**Done**
+- `paper/`: research-paper-style draft (`paper.tex` → `paper.pdf`, figures from `paper/make_figures.py`). Covers sessions 1–2.
+- **Gemini**: key stored in `.env` (gitignored). `probe.py` supports `gemini-*` (google-genai, v1beta, temperature 0, logged like Anthropic).
+  - Gemini 2.5 models: "no longer available to new users". Pro models give 429 (free-tier key, no billing).
+  - **Logprobs are not enabled** for any accessible Gemini model ("Logprobs is not enabled for this model"), so only black-box tests are possible.
+  - Usable: `gemini-3.1-flash-lite` (knowledge cutoff Jan 2025, so our controls are valid) and `gemini-3-flash-preview`
+    (Gemini 3 family, cutoff Jan 2025, but its free-tier daily quota is very small).
+  - M1 on gemini-3.1-flash-lite (60+60): members median LCS 3, max 7; controls median 3, max 11 (a generic "la gran triunfadora
+    de la 31ª edición de los premios Forqué"). **No signal.**
+  - M2b pairwise on flash-lite: running (slow, rate-limited); results in `results/m2b_pairwise_gemini-3.1-flash-lite.jsonl`.
+- **High-duplication sample: La Contra** (`src/collect_lacontra.sh`): 212 members (2011–2023) and 41 controls (2025-09..2026-03).
+  Few controls exist because 2025–26 crawls have few La Contra captures. For M1 that matters little: long verbatim runs are
+  self-evident memorization, and controls only give the base rate.
+  - M1 on La Contra (results `results/m1_continuation_lacontra_*.jsonl`): Sonnet 4.5 (n=65), Opus 4.5 (70), Haiku 4.5 (100),
+    **Opus 5.5 (99), Sonnet 5.5 (100)**: max LCS 6–8 words, 0% 8-gram overlap, all generic phrases. No refusals (the models write
+    real continuations of 130–180 words). **No verbatim memorization even of La Contra.**
+- Scripts take `--tag` (sample name) and `--inputs`; failed API calls are no longer written as results.
+- **Anthropic credit exhausted** (about $20 spent in total), so the remaining Claude calls failed with 400 "credit balance too low".
+  Top up before continuing. Sonnet 4.5 retires 2026-11-30.
+
+**Updated assessment**
+Across 7 commercial models (Claude Haiku/Sonnet/Opus 4.5, Opus/Sonnet 5.5, Gemini 3.1 Flash-Lite, partial Gemini 3 Flash), neither
+ordinary articles nor La Contra interviews are reproduced verbatim from a neutral 60-word prompt. Per-article "regurgitation" evidence
+in the GEMA/NYT style does not look obtainable for this newspaper with these models. Remaining routes, ranked:
+1. **Retrieval-time use** (web-enabled ChatGPT / Gemini / Claude / Perplexity reproducing paywalled articles). This is testable now.
+2. **Dataset inference** with the Godó corpus (thousands of articles), on models that expose logprobs (open-weight; OpenAI API).
+3. **Stronger extraction prompts** (more context, longer prefixes, Best-of-N as in Ahmed et al. 2026). More sensitive, but open to the "manipulated prompts" objection.
+4. **Copyright traps** for future content.
+
+**Next steps**
+- [ ] Top up Anthropic credit; finish La Contra M1 for Sonnet/Opus 4.5 (before 2026-11-30).
+- [ ] Finish Gemini M2b and Gemini 3 Flash M1 (quota permitting); consider enabling billing on the Gemini project.
+- [ ] Update the paper with sessions 3 results.
+- [ ] Design the retrieval test (M4).

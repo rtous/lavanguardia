@@ -42,7 +42,7 @@ def passage(text, target=70):
 def load(paths):
     out = []
     for p in paths:
-        label = "member" if "members" in p else "control"
+        label = "member" if "member" in os.path.basename(p) else "control"
         for l in open(p, encoding="utf-8"):
             d = json.loads(l)
             if label == "control" and d["pub_date"] < CONTROL_MIN_DATE:
@@ -72,9 +72,12 @@ Fragmento:
 
 
 def cmd_paraphrase(a):
-    global PARA_PATH, PARA_PROMPT
+    global PARA_PATH, PARA_PROMPT, PARA_PATH_FULL
     if a.style == "minimal":
         PARA_PATH, PARA_PROMPT = PARA_PATH_MIN, PARA_PROMPT_MIN
+    if a.tag:
+        PARA_PATH = PARA_PATH.replace(".jsonl", f"_{a.tag}.jsonl")
+        PARA_PATH_FULL = PARA_PATH_FULL.replace(".jsonl", f"_{a.tag}.jsonl")
     os.makedirs(os.path.dirname(PARA_PATH), exist_ok=True)
     done = {json.loads(l)["id"] for l in open(PARA_PATH)} if os.path.exists(PARA_PATH) else set()
     docs = load(a.inputs)
@@ -152,12 +155,16 @@ def cmd_test(a):
         t = txt.strip()
         m = re.match(r"^\**([ABCD])\b", t) or re.search(r"(?:respuesta|opci[oó]n)\W+(?:es\W+)?\**([ABCD])\b", t, re.I)
         ans = m.group(1) if m else None
+        if rec["stop_reason"] == "api_error":
+            return None
         return {"id": it["id"], "set": it["set"], "pub_date": it["pub_date"], "rot": r, "model": a.model,
                 "style": a.style, "prompt": "v2",
                 "answer": ans, "raw": txt[:50], "correct": ans == LETTERS[r], "request_id": rec["request_id"]}
 
     with open(out_path, "a", encoding="utf-8") as f, cf.ThreadPoolExecutor(a.workers) as ex:
         for i, res in enumerate(ex.map(work, jobs)):
+            if res is None:
+                continue
             f.write(json.dumps(res, ensure_ascii=False) + "\n"); f.flush()
             if i % 50 == 0:
                 print(i, len(jobs), res, flush=True)
@@ -197,6 +204,7 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     p = sub.add_parser("paraphrase"); p.add_argument("--inputs", nargs="+", required=True); p.add_argument("--n", type=int, default=60)
     p.add_argument("--style", choices=["full", "minimal"], default="full")
+    p.add_argument("--tag", default="")
     t = sub.add_parser("test"); t.add_argument("--model", required=True); t.add_argument("--n", type=int, default=60); t.add_argument("--workers", type=int, default=6)
     t.add_argument("--style", choices=["full", "minimal"], default="full")
     sub.add_parser("report")

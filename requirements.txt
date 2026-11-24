@@ -4,3 +4,9 @@ trafilatura
 mlx-lm
 scipy
 numpy
+google-genai
+python-dotenv
+anthropic
+matplotlib
+torch
+transformers
