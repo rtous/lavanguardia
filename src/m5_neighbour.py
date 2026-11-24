@@ -22,13 +22,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", required=True); ap.add_argument("--out", required=True)
     ap.add_argument("--max-tokens", type=int, default=384)
+    ap.add_argument("--src", nargs="+", default=None, help="path:style pairs (default: the DE-COP paraphrase files)")
     a = ap.parse_args()
     model, tok = load(a.model)
     done = set()
     if os.path.exists(a.out):
         done = {(r["id"], r["set"], r["style"]) for r in map(json.loads, open(a.out))}
     with open(a.out, "a") as f:
-        for style, path in SRC.items():
+        src = dict(reversed(x.rsplit(":", 1)) for x in a.src) if a.src else SRC
+        for style, path in src.items():
             for d in map(json.loads, open(path, encoding="utf-8")):
                 if (d["id"], d["set"], style) in done:
                     continue
@@ -36,7 +38,7 @@ def main():
                 ps = [scores(model, tok, p, a.max_tokens) for p in d["paraphrases"]]
                 if o is None or any(p is None for p in ps):
                     continue
-                f.write(json.dumps({"id": d["id"], "set": d["set"], "pub_date": d["pub_date"], "style": style,
+                f.write(json.dumps({"id": d["id"], "set": d["set"], "pub_date": d["pub_date"], "style": style, "group": d.get("group"),
                                     "model": a.model, "orig": o, "paras": ps}) + "\n")
                 f.flush()
     print("done", a.out)

@@ -251,3 +251,15 @@ with all of this (tables tab:dimulti, tab:neigh, tab:did).
 **After that:** larger open models if memory allows (16 GB RAM: ≤ ~14B at 4-bit); retrieval test (M4) design; when the Godó
 archive arrives: crawled vs never-crawled same-period controls (check CC index per article), with matching + pre-registered
 sign-constrained DI + neighbour test + placebos as the standard battery.
+
+### 2026-11-24 evening — overnight run started (~20:15 CET)
+- Gemini runs stopped (stuck on free-tier quota since ~13:00). Rerun tomorrow; both resume.
+- **Started `src/run_queue3.sh` → `logs/queue3.log`** (the "Next step" above, implemented):
+  1. `src/local_paraphrase.py`: 3 same-facts rewrites per ~70-word passage with local Qwen2.5-7B-Instruct (MLX, temp 0.7,
+     validated: no non-Latin script, length ratio 0.6–1.5, retries) for 249 NEW (Apr–Nov 2023) + 250 BOTH (<2023-03)
+     + 250 NONE (controls) → `data/decop/paraphrases_mid2023.jsonl` (~15–25 s per passage, ~4–5 h).
+  2. `src/m5_neighbour.py --src` scores originals + rewrites with Llama-3.1 and Llama-3.
+  3. `src/did_neighbour.py` → `results/did_neighbour.json`: dgap = gap(3.1) − gap(3); prediction if trained on the TEXT:
+     dgap(NEW) < dgap(BOTH), dgap(NONE). Pre-registered: loss (Mann–Whitney/Welch, one-sided) + equal-weight combination.
+- **On resume:** check `tail logs/queue3.log` for "QUEUE3 done". If interrupted, rerun `./src/run_queue3.sh` (all steps resume).
+  Then add the result to the paper (sec:di after tab:did; abstract/conclusions), commit and push.
