@@ -11,6 +11,18 @@
   "matched_calibrated": 0.2930172542671542,
   "placebo_P1_calibrated": 0.6524409580485583
  },
+ "Qwen2.5-7B | XGLM-2.9B (<=2020)": {
+  "n_members": 598,
+  "n_controls": 448,
+  "n_pairs": 423,
+  "unmatched_target": 0.004617919895604306,
+  "matched_target": 0.0059424998018501405,
+  "unmatched_reference": 5.81210368700268e-06,
+  "matched_reference": 2.734975752979736e-06,
+  "unmatched_calibrated": 0.0022452814328098635,
+  "matched_calibrated": 0.003445770482347785,
+  "placebo_P1_calibrated": 0.4575429741620316
+ },
  "Llama-3.1-8B | GPT-2-es (2018)": {
   "n_members": 693,
   "n_controls": 448,
@@ -22,6 +34,18 @@
   "unmatched_calibrated": 0.02652082905361161,
   "matched_calibrated": 0.2867468574975175,
   "placebo_P1_calibrated": 0.5617179793903906
+ },
+ "Llama-3.1-8B | XGLM-2.9B (<=2020)": {
+  "n_members": 598,
+  "n_controls": 448,
+  "n_pairs": 423,
+  "unmatched_target": 0.007147624516165765,
+  "matched_target": 0.012120579139542554,
+  "unmatched_reference": 5.81210368700268e-06,
+  "matched_reference": 2.734975752979736e-06,
+  "unmatched_calibrated": 0.0008647779885357153,
+  "matched_calibrated": 0.003308405861529872,
+  "placebo_P1_calibrated": 0.49038955989308486
  },
  "Mistral-7B-v0.3 | GPT-2-es (2018)": {
   "n_members": 693,
@@ -35,6 +59,18 @@
   "matched_calibrated": 0.12535262625383287,
   "placebo_P1_calibrated": 0.44594275196772304
  },
+ "Mistral-7B-v0.3 | XGLM-2.9B (<=2020)": {
+  "n_members": 598,
+  "n_controls": 448,
+  "n_pairs": 423,
+  "unmatched_target": 0.0010129783298479626,
+  "matched_target": 0.0006238892239286133,
+  "unmatched_reference": 5.81210368700268e-06,
+  "matched_reference": 2.734975752979736e-06,
+  "unmatched_calibrated": 0.0002488761232759164,
+  "matched_calibrated": 0.000720786047533452,
+  "placebo_P1_calibrated": 0.32173468876772593
+ },
  "Gemma-2-9B | GPT-2-es (2018)": {
   "n_members": 693,
   "n_controls": 448,
@@ -46,5 +82,17 @@
   "unmatched_calibrated": 2.1520225011687953e-05,
   "matched_calibrated": 0.009084396343289702,
   "placebo_P1_calibrated": 0.33414352869121955
+ },
+ "Gemma-2-9B | XGLM-2.9B (<=2020)": {
+  "n_members": 598,
+  "n_controls": 448,
+  "n_pairs": 423,
+  "unmatched_target": 0.0050283266069858015,
+  "matched_target": 0.009847633526490578,
+  "unmatched_reference": 5.81210368700268e-06,
+  "matched_reference": 2.734975752979736e-06,
+  "unmatched_calibrated": 3.0742050935036753e-07,
+  "matched_calibrated": 8.15044322763245e-05,
+  "placebo_P1_calibrated": 0.3556304747635068
  }
 }

@@ -759,6 +759,22 @@ rewrites); negative would mean members' original wording is specifically more fa
 No model shows a wording-specific signal.}\label{tab:neigh}
 \end{table}
 
+\paragraph{A second reference model, and a trap in the learned combination.} We repeated the test with a larger
+reference, XGLM-2.9B (Meta; Common Crawl data up to 2020; members before June 2020 dropped). With it, the learned test
+declared \emph{all four} models significant even after matching (calibrated $p=0.0001$--$0.003$). The reason is
+instructive. XGLM reacts to the time gap more strongly than the targets on one score (Min-K\%), so after
+subtraction members look \emph{less} familiar than expected on that score. The logistic regression is free to give
+any score a negative weight, so it treats ``less familiar than expected'' as evidence too. A miscalibrated reference
+thus manufactures significance. We therefore also ran a \emph{pre-registered, sign-constrained} version: each score
+is oriented in advance so that higher means more familiar, standardized, and averaged with equal weights; nothing is
+learned from the data. With matched groups, the reference model alone is then not significant ($p=0.20$--$0.32$).
+Results for the targets (calibrated, GPT-2 / XGLM reference) are: Qwen2.5 $p=0.06$ / $0.59$; Llama-3.1 $0.06$ /
+$0.61$; Mistral $0.03$ / $0.37$; Gemma-2 $10^{-4}$ / $0.002$. Only Gemma-2 is significant under both references,
+and the neighbour test above shows its signal is not about wording.
+
+\emph{Lesson for court use:} the direction of the test and the way scores are combined must be fixed \emph{before}
+looking at the data, and the conclusion must not depend on the choice of reference model.
+
 %DID_PLACEHOLDER
 
 \paragraph{Designing a sound validation set.} The method's power depends on a validation set that differs from the

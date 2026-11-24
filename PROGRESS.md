@@ -209,3 +209,11 @@ All local and free (no API quota). Scripts: `src/di_summary.py`, `src/di_placebo
 - **Lesson:** a matched + calibrated DI result can still reflect *world knowledge* (members describe events the model
   knows from any source; controls describe events after its cutoff). A wording-specific test (neighbour gap, or
   same-period never-crawled controls) is required before claiming use of the publisher's text.
+- **XGLM-2.9B reference** (`results/m5_xglm29.jsonl`; members < 2020-06 dropped): learned DI declares ALL four targets
+  significant after matching (cal p 7e-4..3e-3), but XGLM-only is p≈3e-6, and calibrated Min-K% points the WRONG way
+  (members less familiar than predicted) → logistic exploits negative weights; miscalibration manufactures significance.
+- **Sign-constrained DI** (`src/di_fixed.py`, `results/di_fixed.json`): pre-oriented, standardised, equal-weight average,
+  matched groups. Reference-only p=0.20–0.32 (clean). Calibrated GPT-2/XGLM: Qwen 0.06/0.59, Llama-3.1 0.06/0.61,
+  Mistral 0.03/0.37, **Gemma-2 1e-4/0.002**. Gemma robust to reference, but neighbour test says not wording.
+- Neighbour test, all models (`results/neighbour_summary.json`): null for Qwen, Llama-3.1, Mistral (p ≥ 0.15) and Gemma.
+- Rule: pre-register direction and combination; conclusions must not depend on the reference model.

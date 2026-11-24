@@ -1,0 +1,52 @@
+{
+ "tolerance": {
+  "0.1": {
+   "n_pairs": 390,
+   "median_p": 0.0003672387854474975
+  },
+  "0.2": {
+   "n_pairs": 407,
+   "median_p": 8.620516972394229e-05
+  },
+  "0.3": {
+   "n_pairs": 423,
+   "median_p": 8.15044322763245e-05
+  },
+  "0.5": {
+   "n_pairs": 440,
+   "median_p": 5.107371979909102e-05
+  }
+ },
+ "single_feature": {
+  "loss": 0.005337012450249897,
+  "zlib_ratio": NaN,
+  "mink": 0.1440759297759358,
+  "minkpp": 0.01199845050617318
+ },
+ "drop_section": {
+  "opinion": {
+   "n_pairs": 351,
+   "median_p": 0.00012037122352005148
+  },
+  "economia": {
+   "n_pairs": 353,
+   "median_p": 0.0001838375428200039
+  },
+  "politica": {
+   "n_pairs": 354,
+   "median_p": 0.000135853674137079
+  },
+  "vida": {
+   "n_pairs": 358,
+   "median_p": 0.0012302035290402498
+  },
+  "internacional": {
+   "n_pairs": 372,
+   "median_p": 0.002614231537521849
+  },
+  "cultura": {
+   "n_pairs": 373,
+   "median_p": 0.0002455455045496152
+  }
+ }
+}
