@@ -1,0 +1,6 @@
+requests
+warcio
+trafilatura
+mlx-lm
+scipy
+numpy
