@@ -1,0 +1,62 @@
+{
+ "P1_controls_2025Q4_vs_2026Q1": {
+  "target": {
+   "median_p": 0.04380602282849987,
+   "frac_p_lt_0.05": 0.53,
+   "n_members": 287,
+   "n_controls": 161
+  },
+  "reference": {
+   "median_p": 0.3871393218671129,
+   "frac_p_lt_0.05": 0.04,
+   "n_members": 287,
+   "n_controls": 161
+  },
+  "calibrated": {
+   "median_p": 0.44594275196772304,
+   "frac_p_lt_0.05": 0.0,
+   "n_members": 287,
+   "n_controls": 161
+  }
+ },
+ "P2_members_2020_vs_2022H2-2023": {
+  "target": {
+   "median_p": 0.11453922706841903,
+   "frac_p_lt_0.05": 0.32,
+   "n_members": 222,
+   "n_controls": 118
+  },
+  "reference": {
+   "median_p": 0.1834375408465969,
+   "frac_p_lt_0.05": 0.1,
+   "n_members": 222,
+   "n_controls": 118
+  },
+  "calibrated": {
+   "median_p": 0.6946079564616948,
+   "frac_p_lt_0.05": 0.0,
+   "n_members": 222,
+   "n_controls": 118
+  }
+ },
+ "P3_members_2020-21_vs_2022-23": {
+  "target": {
+   "median_p": 0.613182523486885,
+   "frac_p_lt_0.05": 0.0,
+   "n_members": 458,
+   "n_controls": 237
+  },
+  "reference": {
+   "median_p": 0.4375716127860476,
+   "frac_p_lt_0.05": 0.0,
+   "n_members": 458,
+   "n_controls": 237
+  },
+  "calibrated": {
+   "median_p": 0.3272912669112074,
+   "frac_p_lt_0.05": 0.04,
+   "n_members": 458,
+   "n_controls": 237
+  }
+ }
+}

@@ -10,3 +10,4 @@ anthropic
 matplotlib
 torch
 transformers
+scikit-learn

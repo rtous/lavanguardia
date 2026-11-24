@@ -165,3 +165,47 @@ in the GEMA/NYT style does not look obtainable for this newspaper with these mod
 - [ ] Finish Gemini M2b and Gemini 3 Flash M1 (quota permitting); consider enabling billing on the Gemini project.
 - [ ] Update the paper with sessions 3 results.
 - [ ] Design the retrieval test (M4).
+
+## 2026-11-24 — Session 4: free local experiments (no API quota)
+- M5 on La Contra (Qwen2.5-7B + GPT-2-spanish reference): raw zlib AUC 0.605 (p=0.02), but the reference gives the same (0.593).
+  **Calibrated: no signal** (AUC 0.45–0.54, p≥0.23). Only 41 controls, so estimates are imprecise.
+- **M6 dataset inference** (`src/dataset_inference.py`; Maini et al. with calibrated features, logistic combination, 200 splits,
+  Welch t-test). Results in `results/di_*.json`:
+  - Random sample (695 vs 448): raw p=0.0004 (100% of splits); **reference-only p=0.007 (82%)**, so date-based controls alone
+    produce false positives; calibrated p=0.02 (69%); null check (controls vs controls) p=0.53 (2%), which passes.
+  - Sample-size curve (calibrated): splits with p<0.05 reach 0% at n=50, 10% at 100, 15% at 200, 20% at 300 and 45% at 448 per group.
+  - La Contra: calibrated p=0.07 (44%), not significant.
+- **Key design insight:** dataset inference needs a *same-period* validation set. With the Godó archive: crawled vs never-crawled
+  articles (check the CC index per article), print-only content, or a two-model difference-in-differences.
+- Paper updated: method families labeled (A)–(F) with an experiment→family table; dataset inference explained in plain language
+  (loaded-die analogy, 4 steps, validation-set requirement); new results section with a table, the sample-size curve and validation-set designs;
+  conclusions, abstract and next steps updated. Note in the premises on which providers expose probabilities.
+
+**Next (free):** more open-weight targets (Llama 3.x, Mistral, Gemma) for M5/M6; a two-model difference-in-differences design;
+matched (section/length) controls.
+
+## 2026-11-24 — Session 5: multi-model dataset inference, placebos, matching, neighbour test
+All local and free (no API quota). Scripts: `src/di_summary.py`, `src/di_placebo.py`, `src/di_matched.py`,
+`src/di_robust.py`, `src/m5_neighbour.py` + `src/neighbour_analysis.py`, `src/did_llama.py`; GPU queue `src/run_queue2.sh`
+(an earlier pgrep-based queue deadlocked because waiter shells matched their own pattern, so never wait on `pgrep -f <script name>`).
+- **New targets** (MLX 4-bit, all 1,143 articles + La Contra): Llama-3.1-8B, Mistral-7B-v0.3, Gemma-2-9B (`results/m5_<tag>.jsonl`).
+- **DI summary** (`results/di_summary.json`, GPT-2-es reference, R=100). Columns: raw / reference-only / calibrated.
+  | target | unmatched | matched (440 pairs, same section, ±30% length, no live blogs) | placebo P1 |
+  |---|---|---|---|
+  | Qwen2.5-7B | 0.0005 / 0.007 / 0.039 | 0.0018 / 0.006 / 0.29 | 0.65 |
+  | Llama-3.1-8B | 0.0009 / 0.007 / 0.027 | 0.0036 / 0.006 / 0.29 | 0.56 |
+  | Mistral-7B-v0.3 | 0.0001 / 0.007 / 0.0096 | 0.0004 / 0.006 / 0.13 | 0.45 |
+  | Gemma-2-9B | 0.0008 / 0.007 / 2e-5 | 0.012 / 0.006 / **0.009** | 0.33 |
+- Placebos (`results/di_placebo_*.json`) clean for all models on calibrated scores (P1/P2/P3 p ≥ 0.26).
+- Gemma robustness (`results/di_robust_gemma2_9b.json`): survives match tolerance 0.1–0.5 (p 0.007–0.011), single features
+  (loss p=0.002, Min-K p=0.007) and dropping most sections, but **dropping "internacional" → p=0.09**. Qwen stays null (0.29–0.34).
+- La Contra DI: reference-only already p=0.0095 (only 41 controls) → drift dominates; calibrated Qwen 0.07, Llama 0.010,
+  Mistral 0.038, Gemma 0.23. Not interpretable.
+- **Neighbour (paraphrase) test** (family B, new): score = loss(original) − mean loss(rewrites with same facts). Cancels
+  both drift AND world knowledge of the events; only memorised *wording* survives. Uses the 60+60 DE-COP passages.
+  Gemma: members do NOT prefer original wording more than controls (full: diff +0.048 [−0.02, 0.11]; minimal: +0.034
+  [0.010, 0.057], i.e. opposite direction). ⇒ Gemma's matched-DI signal is knowledge of the period's events/topics, not
+  of La Vanguardia's text.
+- **Lesson:** a matched + calibrated DI result can still reflect *world knowledge* (members describe events the model
+  knows from any source; controls describe events after its cutoff). A wording-specific test (neighbour gap, or
+  same-period never-crawled controls) is required before claiming use of the publisher's text.

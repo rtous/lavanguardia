@@ -39,11 +39,15 @@ most likely to be memorized, is not reproduced verbatim by any of five Claude mo
 and Sonnet~5.5. The longest match is 6--8 generic words.
 \item \emph{Token-probability tests} on an open-weight commercial model (Qwen2.5-7B) show a weak signal
 (AUC $=0.56$, $p<10^{-3}$). It shrinks to AUC $\approx0.53$ once calibrated against a model trained on 2018 data.
+\item \emph{Dataset inference}, which tests the collection as a whole, reaches borderline significance after
+calibration ($p\approx0.02$). However, it also flags the 2018 reference model ($p=0.007$), which shows that date-based
+controls alone create false positives.
 \end{itemize}
-We also report two methodological pitfalls that inflate apparent evidence. We conclude that neither randomly sampled
+We also report two methodological pitfalls in recognition tests that inflate apparent evidence. We conclude that neither randomly sampled
 articles nor the newspaper's most-copied interviews are memorized strongly enough to give per-article evidence with
-defensible prompts. Viable routes are dataset-level statistical inference over thousands of articles, retrieval-time
-use by web-enabled assistants, and copyright traps for future content.
+defensible prompts. The most promising route is dataset inference over thousands of archive articles with same-period
+controls (articles never captured by web crawlers), on models whose word probabilities are accessible. Other routes
+are retrieval-time use by web-enabled assistants and copyright traps for future content.
 \end{abstract}
 
 %======================================================================
@@ -85,7 +89,12 @@ after its training data was collected. Without it, a high score can be an artifa
 \item Texts written at different times differ in topics and vocabulary. Part of any difference between old and new
 articles is due to time, not to training, and must be subtracted.
 \item Most commercial models do not reveal the probabilities they assign to words, which are the most sensitive
-signal. With them we can only use ``black-box'' tests (asking questions and reading answers).
+signal. With them we can only use ``black-box'' tests (asking questions and reading answers). Full access exists only
+for \emph{open-weight} models, whose parameters are published and can be run locally: for example Meta's Llama,
+Alibaba's Qwen, Mistral's open models, DeepSeek and Google's Gemma. Among hosted APIs, OpenAI has offered word
+probabilities for some non-reasoning models (e.g.\ GPT-4o, GPT-4.1), but only for the words the model generates, not
+for a text supplied by the user. The Claude API does not offer them, and none of the Gemini models available to us did
+(Section~\ref{sec:setup}).
 \item A signal too weak to show for one article can become statistically clear when thousands of articles are
 combined.
 \item \emph{Copyright traps}, which are unique invented phrases planted in future articles, make later detection far
@@ -250,10 +259,11 @@ the lawful origin of the copies have been decisive. Output regurgitation is trea
 
 %======================================================================
 \section{Technical methods for detecting training use}\label{sec:methods-bg}
-This section describes each family of methods: what it measures, what it can and cannot prove, and how it relates to
-the cases above.
+This section describes six families of methods, labeled \textbf{(A)}--\textbf{(F)}: what each measures, what it can
+and cannot prove, and how it relates to the cases above. Table~\ref{tab:tests} in Section~\ref{sec:setup} maps each
+of our experiments to one of these families.
 
-\paragraph{Extraction (regurgitation).} The model is given the beginning of a document and asked to continue. If the
+\paragraph{(A) Extraction (regurgitation).} The model is given the beginning of a document and asked to continue. If the
 continuation matches the original word for word over a long span, the model must have memorized the text, because
 the chance of producing dozens of identical words by coincidence is negligible. This is the method behind
 \emph{GEMA} and NYT Exhibit~J. It is the most persuasive for a judge, because the result is a side-by-side text
@@ -264,7 +274,7 @@ extracted near-complete books from production assistants \cite{ahmed2026}. As Se
 open to the ``manipulation'' objection.
 \emph{Limitation:} a negative result does not prove absence of training, only absence of \emph{strong} memorization.
 
-\paragraph{Membership inference with token probabilities.} When a model reads a text, it assigns a probability to
+\paragraph{(B) Membership inference with token probabilities.} When a model reads a text, it assigns a probability to
 each next word. Texts seen during training tend to look slightly more ``predictable'' to the model. Standard scores
 are the average loss (how surprised the model is), the zlib ratio (surprise relative to how compressible the text
 is \cite{carlini2021}), Min-K\% (the average over the 20\% most surprising words \cite{shi2024}) and Min-K\%++ (a
@@ -274,23 +284,51 @@ commercial APIs do not (Section~\ref{sec:setup}). In litigation, this could come
 expert. A known trap is that comparing old (``seen'') with new (``unseen'') texts mixes membership with
 \emph{temporal drift} \cite{duan2024,das2024}. We address this in Section~\ref{sec:stats}.
 
-\paragraph{Recognition tests (DE-COP).} For black-box models, DE-COP \cite{duarte2024} asks the model to identify the
+\paragraph{(C) Recognition tests (DE-COP).} For black-box models, DE-COP \cite{duarte2024} asks the model to identify the
 original passage among several paraphrases. If the model has memorized the text, it should pick the exact wording
 more often than chance. It was proposed for books, in the context of authors' lawsuits. We show in
 Section~\ref{sec:results} that it can be fooled by stylistic cues.
 
-\paragraph{Dataset inference.} Instead of deciding for each document, dataset inference \cite{maini2024} asks whether
-a \emph{collection} was used. It combines many weak per-document signals over hundreds or thousands of documents into
-a single statistical test, with a known risk of false accusation. This matches the question in most publisher and
-author suits (``did you train on our catalogue?''). It is the natural use of the full God\'o archive.
+\paragraph{(D) Dataset inference.} Dataset inference \cite{maini2024} changes the question. Instead of asking ``was
+\emph{this article} used?'', which requires a strong signal on a single text, it asks ``was \emph{this collection}
+used?''. That matches the question in most publisher and author suits (``did you train on our catalogue?''). The
+intuition is an analogy with a loaded die. One throw cannot reveal a slightly loaded die, but a thousand throws can.
+Likewise, a model may find each of its training articles only marginally more familiar than an unseen one, too
+little to decide about any single article, yet over thousands of articles the small, consistent difference becomes
+statistically unmistakable.
 
-\paragraph{Copyright traps.} Map makers have long inserted fictitious streets to detect copying. The analogue for
+The procedure needs two sets of documents:
+\begin{itemize}
+\item a \emph{suspect set}: the publisher's articles that may have been used;
+\item a \emph{validation set}: comparable articles that the model certainly did \emph{not} see.
+\end{itemize}
+It then runs in four steps.
+\begin{enumerate}
+\item For each article, compute several membership scores (family B).
+\item Using half of each set, learn how to combine those scores into a single number that best separates suspect
+from validation articles.
+\item On the other half, which was not used in step~2, apply the combined score and test whether suspect articles
+score higher than validation articles.
+\item Repeat with many random splits. The output is a $p$-value: the probability of seeing such a difference if the
+suspect set had \emph{not} been used.
+\end{enumerate}
+Because the decision is made on data not used to build the score, the procedure controls the risk of false
+accusation. Its authors report that about 1{,}000 documents suffice for clear results on several open models
+\cite{maini2024}.
+
+Its weak point is the \emph{validation set}. The method assumes that suspect and validation articles differ
+\emph{only} in whether the model saw them. If they also differ in date, topic or style, the test can detect that
+difference instead and produce a false positive. We show in Section~\ref{sec:di} that this happens with date-based
+controls. The method still needs token probabilities, so it applies to open-weight models, or to commercial models
+whose probabilities are made available (e.g.\ by court order to an expert).
+
+\paragraph{(E) Copyright traps.} Map makers have long inserted fictitious streets to detect copying. The analogue for
 text is to insert unique, meaningless sequences into published content and later test whether a model has learned
 them \cite{meeus2024}. Because the sequence exists nowhere else, its reproduction is unambiguous. The watermarks in
 \emph{Getty} played a similar role, as tell-tale marks of the source. Traps must be repeated and long to be learned,
 and they only protect content published after they are introduced.
 
-\paragraph{Retrieval tests.} For assistants with web access, one can ask about a specific recent or paywalled article
+\paragraph{(F) Retrieval tests.} For assistants with web access, one can ask about a specific recent or paywalled article
 and check whether the answer reproduces its text and cites the source. This tests answer-time use (the ``grounding''
 claims in the NYT case), not training.
 
@@ -422,32 +460,63 @@ Anthropic API no longer accepts sampling parameters (temperature) since API vers
 guaranteed to be identical when repeated. Gemini calls used temperature~0.
 
 \subsection{Tests}
-\paragraph{M1: verbatim continuation.} The model receives the headline and the first 60 words of the body with the
+Table~\ref{tab:tests} maps each experiment to the method families of Section~\ref{sec:methods-bg}.
+
+\begin{table}[h]\centering\small
+\fitbox{\begin{tabular}{llll}
+\toprule
+Experiment & Family & Needs & Run on\\
+\midrule
+M1 verbatim continuation & (A) Extraction & black-box & Claude 4.5/5.5, Gemini 3.x; random + \emph{La Contra}\\
+M2 DE-COP multiple choice & (C) Recognition & black-box & Claude 4.5\\
+M2b pairwise minimal edits & (C) Recognition & black-box & Claude 4.5, Gemini 3.1 Flash-Lite (partial)\\
+M5 per-article scores + drift calibration & (B) Membership inference & token probabilities & Qwen2.5-7B (+ GPT-2 reference)\\
+M6 dataset inference & (D) Dataset inference & token probabilities & Qwen2.5-7B (+ GPT-2 reference)\\
+-- & (E) Copyright traps & publishing traps & not yet (requires future articles)\\
+-- & (F) Retrieval & web-enabled product & not yet\\
+\bottomrule
+\end{tabular}}
+\caption{Experiments by method family.}\label{tab:tests}
+\end{table}
+
+\paragraph{M1 (family A): verbatim continuation.} The model receives the headline and the first 60 words of the body with the
 neutral instruction ``Contin\'ua el siguiente texto (unas 150 palabras), sin comentarios previos''. We measure the
 \emph{longest common substring} (LCS): the longest run of consecutive words shared by the continuation and the true
 next 200 words. We also measure the share of the model's 8-word sequences that occur in the original. Runs of 3--8
 words occur by coincidence (names, set phrases). Runs of several dozen words do not.
 
-\paragraph{M2: DE-COP.} A passage of about 70 words (extended to the end of the sentence) is taken from the start of
+\paragraph{M2 (family C): DE-COP.} A passage of about 70 words (extended to the end of the sentence) is taken from the start of
 the body. Claude Opus~5.5 generated three paraphrases preserving meaning, facts and length. The target model is asked
 which option is the literal text of the article (title given). The verbatim passage is rotated through positions A--D,
 giving 4 queries per article (chance 25\%). A forced-choice instruction is included, because otherwise Haiku~4.5
 declined in about 40\% of queries.
 
-\paragraph{M2b: pairwise minimal edits.} The original is shown against \emph{one} variant in which only 6--8 words were
+\paragraph{M2b (family C): pairwise minimal edits.} The original is shown against \emph{one} variant in which only 6--8 words were
 replaced by synonyms. There are three variants per article and both orders, so 6 queries per article (chance 50\%).
 
-\paragraph{M5: token probabilities with drift calibration.} For the first 384 tokens of each article we compute loss,
-zlib ratio, Min-K\% and Min-K\%++ ($k=20\%$). We compare members and controls by AUC (with a bootstrap 95\% CI) and
-by a one-sided Mann--Whitney test. We repeat this with the 2018 reference model and on the calibrated score
-(Section~\ref{sec:stats}).
+\paragraph{M5 (family B): token probabilities with drift calibration.} For the first 384 tokens of each article we
+compute loss, zlib ratio, Min-K\% and Min-K\%++ ($k=20\%$). We compare members and controls by AUC (with a bootstrap
+95\% CI) and by a one-sided Mann--Whitney test. We repeat this with the 2018 reference model and on the calibrated
+score (Section~\ref{sec:stats}).
 
-API tests on the random sample (M1, M2, M2b) use a random subset of 60 members and 60 controls. M5 uses all 1,143
-articles.
+\paragraph{M6 (family D): dataset inference.} We follow the four steps of Section~\ref{sec:methods-bg}. The four M5
+scores are the features, combined by a logistic regression fitted on half of the articles and tested with a one-sided
+Welch $t$-test on the other half. We use 200 random splits and report the median $p$-value and the share of splits
+with $p<0.05$. We run it three ways: on the target's raw scores, on the reference model's scores alone (which can only
+reflect time), and on the calibrated scores. Two checks accompany it:
+\begin{itemize}
+\item a \emph{null check}, which splits the controls into two arbitrary halves and treats one as ``suspect''. It must
+find nothing; otherwise the procedure produces false accusations.
+\item a \emph{sample-size curve}, which repeats the test on random subsets of 50--448 articles per group to see how
+evidence grows with the size of the collection.
+\end{itemize}
+
+API tests on the random sample (M1, M2, M2b) use a random subset of 60 members and 60 controls. M5 and M6 use all
+1,143 articles, and are repeated on the \emph{La Contra} sample (212 + 41).
 
 %======================================================================
 \section{Results}\label{sec:results}
-\subsection{Verbatim continuation}
+\subsection{Verbatim continuation (M1, family A)}
 No model reproduces article text (Table~\ref{tab:m1}). The longest overlaps are short generic or factual phrases,
 such as ``la Administraci\'on de Alimentos y Medicamentos (FDA) de Estados Unidos'' or ``el derecho de una mujer a
 elegir es fundamental''. Overlaps of the same length appear for controls, which the model cannot have seen. Gemini's
@@ -492,7 +561,7 @@ Claude Opus 5.5 & 99 & 2 / 7 & 0.0\% & --\\
 \label{tab:lacontra}
 \end{table}
 
-\subsection{Recognition tests}
+\subsection{Recognition tests (M2, M2b, family C)}
 Figure~\ref{fig:rec} and Table~\ref{tab:rec} summarize M2 and M2b. Read naively, the results look like strong
 evidence: every model picks the original far above chance, with $p$-values as small as $10^{-90}$. But the models do
 this \emph{equally well on controls}, articles they cannot have seen. Opus~4.5 picks the original among paraphrases of
@@ -540,7 +609,7 @@ each variant changes \emph{different} words. The original is then the ``consensu
 most options, and a simple majority vote recovers it without any memory. This explains the 85--97\% accuracy on
 controls. The pairwise design, which shows one variant at a time, removes the leak.
 
-\subsection{Token-probability tests}
+\subsection{Token-probability tests (M5, family B)}
 Figure~\ref{fig:auc} reports AUCs on all 695 members and 448 controls. Uncalibrated, Qwen2.5-7B separates members from
 controls weakly but significantly (Min-K\% AUC $0.560$, 95\% CI $[0.527,0.597]$, $p=3\times10^{-4}$). The
 2018-data reference model, which cannot have seen either group, also shows a gap (Min-K\% $0.533$, $p=0.03$). This is
@@ -558,6 +627,69 @@ removing the time effect.}
 \label{fig:auc}
 \end{figure}
 
+On \emph{La Contra} (212 members, 41 controls) the raw scores show a weak gap for some metrics (zlib ratio AUC
+$0.605$, $p=0.02$), but the reference model shows the same gap ($0.593$). After calibration no signal remains (AUC
+$0.45$--$0.54$, all $p\ge0.23$). The highly reposted interviews are therefore no more ``familiar'' to Qwen2.5 than
+ordinary articles. The small number of controls makes these estimates imprecise.
+
+\subsection{Dataset inference (M6, family D)}\label{sec:di}
+Table~\ref{tab:di} reports the dataset-inference test. Read row by row:
+\begin{itemize}
+\item On Qwen2.5's raw scores the collection test is overwhelmingly ``significant'' ($p=0.0004$, significant in all
+splits).
+\item The \emph{reference model alone}, which cannot have seen either group, is \emph{also} significant
+($p=0.007$, 82\% of splits). This is the decisive observation. With date-based controls, dataset inference detects
+the passage of time, not training. Taken at face value it would ``prove'' that a 2018 model was trained on articles
+written in 2020--2023, which is impossible.
+\item After calibration (removing what the reference model explains) the result is weaker ($p=0.02$, significant in
+69\% of splits). It is suggestive, but not robust, and it may contain residual drift that the small reference model
+does not capture.
+\item The null check behaves as it should: splitting controls against controls gives no signal (median $p=0.53$; only
+2\% of runs below 0.05). The procedure does not invent differences where none exist.
+\end{itemize}
+
+\begin{table}[h]\centering\small
+\fitbox{\begin{tabular}{llccc}
+\toprule
+Sample & Scores used & Median $p$ & Splits with $p<0.05$ & Interpretation\\
+\midrule
+Random (695 vs 448) & Qwen2.5 raw & 0.0004 & 100\% & membership + time\\
+ & Reference (2018 model) only & 0.007 & 82\% & time alone\\
+ & Calibrated (Qwen2.5 $-$ reference) & 0.02 & 69\% & membership (approx.)\\
+ & Null: controls vs controls & 0.53 & 2\% & sanity check passed\\
+\emph{La Contra} (212 vs 41) & Qwen2.5 raw & 0.03 & 65\% & \\
+ & Reference only & 0.010 & 81\% & time alone\\
+ & Calibrated & 0.07 & 44\% & not significant\\
+\bottomrule
+\end{tabular}}
+\caption{Dataset inference (200 random splits each). The reference-only rows show that date-based controls alone
+produce ``significant'' results.}\label{tab:di}
+\end{table}
+
+\paragraph{How many articles are needed?} On calibrated scores, the share of subsampled runs reaching $p<0.05$ grows
+with collection size: 0\% with 50 articles per group, 10\% with 100, 15\% with 200, 20\% with 300 and 45\% with 448.
+If the calibrated signal is real, a few thousand articles per group would make it reliably significant, which is
+within reach of the God\'o archive. But size cannot fix a biased validation set: more articles make \emph{any}
+systematic difference significant, including drift.
+
+\paragraph{Designing a sound validation set.} The method's power depends on a validation set that differs from the
+suspect set \emph{only} in exposure to the model. The publisher's archive makes much better designs possible than ours:
+\begin{enumerate}
+\item \emph{Crawled vs never-crawled, same period.} For each archive article, the Common Crawl index tells whether it
+was ever captured. Articles from the same months, sections and authors that were \emph{never} captured (for example
+paywalled or print-only pieces) form a natural validation set with no time gap. Residual differences, such as why some
+articles were not captured, can be checked by matching on section, length and author.
+\item \emph{Print-only or unpublished content.} Material that never appeared online (some print supplements, archived
+but unpublished texts) is certainly unseen and comes from the same newsroom and period.
+\item \emph{Two models, same articles.} The same suspect and validation sets can be scored with two models of the
+same family with different cutoffs. A model trained before the validation articles existed and a model trained after
+both sets were online should show different gaps only if training matters. This difference-in-differences design
+cancels drift without needing a perfect validation set.
+\end{enumerate}
+With design~1 or~2 and a few thousand articles, dataset inference on open-weight commercial models (Llama, Qwen,
+Mistral, Gemma, DeepSeek) is the most promising route to a statistically sound statement. That statement would take
+the form ``this model was trained on La Vanguardia's archive, with a false-positive risk below X\%''.
+
 %======================================================================
 \section{Discussion}
 \paragraph{Feasibility.} For ordinary, randomly sampled news articles, today's frontier models do not exhibit the
@@ -573,8 +705,9 @@ would support a memorization claim more than an output claim.
 
 \paragraph{What may work.}
 \begin{enumerate}
-\item \emph{Dataset-level inference.} Weak per-article signals can become significant when aggregated over thousands
-of articles \cite{maini2024}. This is feasible with the licensed archive on models that expose token probabilities
+\item \emph{Dataset-level inference} (Section~\ref{sec:di}). Weak per-article signals can become significant when
+aggregated over thousands of articles \cite{maini2024}. Our pilot shows both the promise and the main risk: date-based
+controls create false positives, so the validation set must come from the same period. This is feasible with the licensed archive on models that expose token probabilities
 (open-weight models, some commercial APIs), provided that controls are matched on section, author and length and the
 time effect is calibrated as above. The result is a statement about the \emph{collection}. Under \emph{GEMA} reasoning
 that may be less directly actionable than a reproduced article, but it is relevant to disclosure requests and to the
@@ -626,7 +759,14 @@ even for articles they cannot have seen. Any claim based on such tests must be c
 after the model's training.
 \item \textbf{There is a faint statistical trace.} An open-weight model (Qwen2.5) finds older \emph{La Vanguardia}
 articles very slightly more familiar than new ones, even after correcting for changes over time. This is too weak for
-a single article, but it could become meaningful when thousands of articles from the archive are analyzed together.
+a single article.
+\item \textbf{Testing the collection as a whole (dataset inference) is the most promising route.} Small differences
+that are invisible in one article add up over thousands. Our pilot reaches borderline significance with about 450
+articles per group. It also shows the main danger: comparing old with new articles ``proves'' training even for a model
+that cannot have seen them. The comparison articles must come from the \emph{same period}. The publisher's archive
+allows this, for example by comparing articles that web crawlers captured with articles from the same months that
+were never online. This approach requires models whose word probabilities are accessible: open-weight models, or
+commercial models under court-ordered expert access.
 \item \textbf{Answer-time use is a separate and promising avenue.} Assistants that browse the web may reproduce
 articles at answer time. This is a different legal act, easier to observe.
 \item \textbf{Copyright traps are the most reliable option for the future.} Inserting unique, invented phrases into
@@ -635,8 +775,8 @@ recommend starting now, since traps cannot protect content published before thei
 \end{itemize}
 
 \paragraph{Next steps.} Complete the truncated runs; measure duplication to select test passages; evaluate models from
-other providers that expose token probabilities (OpenAI, further open-weight models); implement dataset inference on
-the licensed archive with matched controls; design a retrieval test for web-enabled assistants; and agree with the
+other providers that expose token probabilities (OpenAI, further open-weight models); run dataset inference on the
+licensed archive with same-period controls (crawled vs never-crawled articles) and on several open-weight models; design a retrieval test for web-enabled assistants; and agree with the
 publisher on a copyright-trap protocol.
 
 \paragraph{Reproducibility.} Code is in \texttt{src/}; figures are regenerated by \texttt{paper/make\_figures.py}

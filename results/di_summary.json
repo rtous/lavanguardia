@@ -1,0 +1,50 @@
+{
+ "Qwen2.5-7B | GPT-2-es (2018)": {
+  "n_members": 693,
+  "n_controls": 448,
+  "n_pairs": 440,
+  "unmatched_target": 0.0005261789342749605,
+  "matched_target": 0.0017874334018344285,
+  "unmatched_reference": 0.007129794519520963,
+  "matched_reference": 0.006113599208723152,
+  "unmatched_calibrated": 0.03895462717126004,
+  "matched_calibrated": 0.2930172542671542,
+  "placebo_P1_calibrated": 0.6524409580485583
+ },
+ "Llama-3.1-8B | GPT-2-es (2018)": {
+  "n_members": 693,
+  "n_controls": 448,
+  "n_pairs": 440,
+  "unmatched_target": 0.0009068588639935663,
+  "matched_target": 0.003595857637838747,
+  "unmatched_reference": 0.007129794519520963,
+  "matched_reference": 0.006113599208723152,
+  "unmatched_calibrated": 0.02652082905361161,
+  "matched_calibrated": 0.2867468574975175,
+  "placebo_P1_calibrated": 0.5617179793903906
+ },
+ "Mistral-7B-v0.3 | GPT-2-es (2018)": {
+  "n_members": 693,
+  "n_controls": 448,
+  "n_pairs": 440,
+  "unmatched_target": 0.00013720410673643136,
+  "matched_target": 0.00038939303607542415,
+  "unmatched_reference": 0.007129794519520963,
+  "matched_reference": 0.006113599208723152,
+  "unmatched_calibrated": 0.009553518013822683,
+  "matched_calibrated": 0.12535262625383287,
+  "placebo_P1_calibrated": 0.44594275196772304
+ },
+ "Gemma-2-9B | GPT-2-es (2018)": {
+  "n_members": 693,
+  "n_controls": 448,
+  "n_pairs": 440,
+  "unmatched_target": 0.0007825336456007845,
+  "matched_target": 0.012368283805504119,
+  "unmatched_reference": 0.007129794519520963,
+  "matched_reference": 0.006113599208723152,
+  "unmatched_calibrated": 2.1520225011687953e-05,
+  "matched_calibrated": 0.009084396343289702,
+  "placebo_P1_calibrated": 0.33414352869121955
+ }
+}

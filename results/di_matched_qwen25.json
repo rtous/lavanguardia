@@ -1,0 +1,22 @@
+{
+ "n_pairs": 440,
+ "excluded_live": 2,
+ "target": {
+  "median_p": 0.0017716797362942087,
+  "frac_p_lt_0.05": 0.965,
+  "n_members": 440,
+  "n_controls": 440
+ },
+ "reference": {
+  "median_p": 0.006113599208723152,
+  "frac_p_lt_0.05": 0.835,
+  "n_members": 440,
+  "n_controls": 440
+ },
+ "calibrated": {
+  "median_p": 0.30039187693158453,
+  "frac_p_lt_0.05": 0.02,
+  "n_members": 440,
+  "n_controls": 440
+ }
+}

@@ -340,3 +340,13 @@
 {"id": "6213931", "set": "member", "pub_date": "20210201", "k": 1, "orig_pos": "B", "model": "gemini-3.1-flash-lite", "answer": "B", "raw": "B", "correct": true, "request_id": "S3UFa-vsJvP0vdIPqqC_kQo"}
 {"id": "6213931", "set": "member", "pub_date": "20210201", "k": 2, "orig_pos": "A", "model": "gemini-3.1-flash-lite", "answer": "A", "raw": "A", "correct": true, "request_id": "ZnUFa5v_Bt-3nsEPiLuX4Qw"}
 {"id": "6213931", "set": "member", "pub_date": "20210201", "k": 2, "orig_pos": "B", "model": "gemini-3.1-flash-lite", "answer": "A", "raw": "A", "correct": false, "request_id": "aXUFa5vJJYW7kdUPp46ToAc"}
+{"id": "8629601", "set": "member", "pub_date": "20221201", "k": 0, "orig_pos": "B", "model": "gemini-3.1-flash-lite", "answer": "B", "raw": "B", "correct": true, "request_id": "kHUFa8SZHqOCkdUPs-HHiA8"}
+{"id": "8629601", "set": "member", "pub_date": "20221201", "k": 1, "orig_pos": "A", "model": "gemini-3.1-flash-lite", "answer": "A", "raw": "A", "correct": true, "request_id": "mXUFa4yYCtTsxs0P3eqBgQk"}
+{"id": "8629601", "set": "member", "pub_date": "20221201", "k": 1, "orig_pos": "B", "model": "gemini-3.1-flash-lite", "answer": "A", "raw": "A", "correct": false, "request_id": "nXUFa-O9JpnBvdIPxPWluAw"}
+{"id": "8629601", "set": "member", "pub_date": "20221201", "k": 2, "orig_pos": "A", "model": "gemini-3.1-flash-lite", "answer": "A", "raw": "A", "correct": true, "request_id": "rXUFa-28CP77xs0Py6DimAE"}
+{"id": "483399817502", "set": "member", "pub_date": "20200911", "k": 0, "orig_pos": "A", "model": "gemini-3.1-flash-lite", "answer": "A", "raw": "A", "correct": true, "request_id": "snUFa5elO_SovdIP07ib2Ag"}
+{"id": "483399817502", "set": "member", "pub_date": "20200911", "k": 1, "orig_pos": "A", "model": "gemini-3.1-flash-lite", "answer": "A", "raw": "A", "correct": true, "request_id": "8nYFa47HLITrkdUPz7ugqQc"}
+{"id": "483399817502", "set": "member", "pub_date": "20200911", "k": 2, "orig_pos": "A", "model": "gemini-3.1-flash-lite", "answer": "A", "raw": "A", "correct": true, "request_id": "HncFa5KVA9mN7M8PlIys-Ak"}
+{"id": "483399817502", "set": "member", "pub_date": "20200911", "k": 2, "orig_pos": "B", "model": "gemini-3.1-flash-lite", "answer": "A", "raw": "A", "correct": false, "request_id": "RHcFa_uLKJDqkdUPy-PX8Q4"}
+{"id": "11214973", "set": "control", "pub_date": "20251030", "k": 0, "orig_pos": "B", "model": "gemini-3.1-flash-lite", "answer": "B", "raw": "B", "correct": true, "request_id": "8HoFa7WIK-vi7M8Ptqzw0As"}
+{"id": "11214973", "set": "control", "pub_date": "20251030", "k": 2, "orig_pos": "A", "model": "gemini-3.1-flash-lite", "answer": "A", "raw": "A", "correct": true, "request_id": "o3sFa9lN15iR1Q-f9ojZDA"}
