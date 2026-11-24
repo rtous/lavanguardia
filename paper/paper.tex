@@ -44,7 +44,8 @@ and Sonnet~5.5. The longest match is 6--8 generic words.
 so date-based controls alone create false positives. With groups matched by section and length, only Gemma-2 stays
 significant ($p=0.009$), and a \emph{neighbour test} shows that this reflects knowledge of the period's events, not
 of the newspaper's wording: no model prefers the original text over same-facts rewrites more for members than for
-controls.
+controls. A comparison of two versions of Llama with different cutoffs (same articles, so time effects cancel) shows
+the pattern training predicts ($p=0.007$), but it is small and is also explained by knowledge of the events.
 \end{itemize}
 We also report two methodological pitfalls in recognition tests that inflate apparent evidence. We conclude that neither randomly sampled
 articles nor the newspaper's most-copied interviews are memorized strongly enough to give per-article evidence with
@@ -775,7 +776,39 @@ and the neighbour test above shows its signal is not about wording.
 \emph{Lesson for court use:} the direction of the test and the way scores are combined must be fixed \emph{before}
 looking at the data, and the conclusion must not depend on the choice of reference model.
 
-%DID_PLACEHOLDER
+\paragraph{Two models, same articles (M8).} Table~\ref{tab:did} reports the Llama-3 vs Llama-3.1 comparison. For
+each article we measure how much \emph{more} familiar it is to Llama-3.1 than to Llama-3. If training on the
+newspaper leaves a trace, this gain should be larger for articles that only Llama-3.1 could have seen (April--November
+2023) than for articles both saw (2020--February 2023) or neither saw (controls). This is exactly what we observe. The
+April--November 2023 group gains more on three of the four scores, and the pre-registered equal-weight combination is
+significant against both comparison groups ($p=0.007$ each). The two groups that should \emph{not} differ (seen by
+both vs seen by neither) do not ($p=0.42$), and a placebo splitting the ``seen by both'' group by date is clean
+($p=0.63$). Because the same articles are scored by both models, time drift cancels by design.
+
+The effect is small: about 0.17 standard deviations, or 0.01 in average loss on a scale of about 2.3. It also shares
+the limitation of Gemma-2's result. Llama-3.1's extra training data covers the \emph{events} of mid-2023 from all
+sources, so a larger gain on mid-2023 articles is what knowledge of those events alone would also produce. The
+learned (logistic) version of the test is only borderline ($p=0.06$ and $0.21$). The design is the cleanest we have,
+but to attribute the gain to \emph{La Vanguardia's text} it must be combined with the neighbour test on the mid-2023
+articles, or with same-period articles that were never online.
+
+\begin{table}[h]\centering\small
+\fitbox{\begin{tabular}{lccccc}
+\toprule
+ & \multicolumn{3}{c}{Mean gain in familiarity, Llama-3.1 vs Llama-3} & \multicolumn{2}{c}{Combined test (pre-registered)}\\
+\cmidrule(lr){2-4}\cmidrule(lr){5-6}
+Score & Seen by both (695) & Seen by 3.1 only (249) & Seen by neither (448) & comparison & $p$\\
+\midrule
+Loss & 0.013 & \textbf{0.019} & 0.009 & 3.1-only vs neither & 0.007\\
+zlib ratio ($\times10^3$) & 0.3 & \textbf{0.5} & 0.3 & 3.1-only vs both & 0.007\\
+Min-K\% & $-0.015$ & \textbf{0.007} & $-0.015$ & both vs neither & 0.42\\
+Min-K\%++ & $-0.087$ & $-0.069$ & $-0.074$ & placebo (both, by date) & 0.63\\
+\bottomrule
+\end{tabular}}
+\caption{Two-model difference-in-differences (M8). Gains are oriented so that larger = more familiar to Llama-3.1.
+Per-score tests, 3.1-only vs neither (one-sided Mann--Whitney): loss $p=0.001$, zlib $p=0.003$, Min-K\% $p=0.02$,
+Min-K\%++ $p=0.30$.}\label{tab:did}
+\end{table}
 
 \paragraph{Designing a sound validation set.} The method's power depends on a validation set that differs from the
 suspect set \emph{only} in exposure to the model. The publisher's archive makes much better designs possible than ours:
@@ -868,6 +901,10 @@ older \emph{La Vanguardia} articles slightly more familiar than new ones. After 
 section, similar length) the trace disappears for three of them. For the fourth (Google's Gemma-2) it remains, but it
 comes from knowing the \emph{events} of 2020--2023, not the newspaper's \emph{wording}: the model does not prefer the
 original sentences over rewrites with the same facts. Facts are not protected; wording is.
+\item \textbf{The best design compares two versions of the same model.} Articles that only the newer Llama could have
+seen became slightly more familiar to it than the others did, exactly as training would predict and with time effects
+cancelled. The effect is small, and it still has to be separated from knowledge of the events before it can count as
+evidence about the text.
 \item \textbf{Testing the collection as a whole (dataset inference) is the most promising route.} Small differences
 that are invisible in one article add up over thousands. Our pilot shows the main dangers: comparing old with new articles ``proves'' training even for a model
 that cannot have seen them, and a model's knowledge of past events can pass for knowledge of the text. Every result

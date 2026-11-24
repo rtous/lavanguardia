@@ -217,3 +217,11 @@ All local and free (no API quota). Scripts: `src/di_summary.py`, `src/di_placebo
   Mistral 0.03/0.37, **Gemma-2 1e-4/0.002**. Gemma robust to reference, but neighbour test says not wording.
 - Neighbour test, all models (`results/neighbour_summary.json`): null for Qwen, Llama-3.1, Mistral (p ≥ 0.15) and Gemma.
 - Rule: pre-register direction and combination; conclusions must not depend on the reference model.
+- **M8 Llama-3 vs Llama-3.1 difference-in-differences** (`results/did_llama.json`; 695 both / 249 Apr–Nov 2023 / 448 neither).
+  Familiarity gain (3.1 over 3) larger for 3.1-only group: loss p=0.001, zlib 0.003, Min-K 0.02, Min-K++ 0.30.
+  Pre-registered equal-weight combo: 3.1-only vs neither p=0.007, vs both p=0.007; both vs neither p=0.42; placebo 0.63.
+  Learned DI borderline (0.06 / 0.21). Effect ≈0.17 SD (0.01 loss). Still confounded with knowledge of mid-2023 events.
+
+**Next (free):** generate same-facts rewrites of the 249 mid-2023 articles + controls with a local instruct model and run
+the neighbour test on Llama-3 vs 3.1 (separates wording from events); larger open models; with the Godó archive,
+crawled vs never-crawled same-period controls.
