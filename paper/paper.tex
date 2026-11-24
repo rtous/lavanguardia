@@ -39,9 +39,12 @@ most likely to be memorized, is not reproduced verbatim by any of five Claude mo
 and Sonnet~5.5. The longest match is 6--8 generic words.
 \item \emph{Token-probability tests} on an open-weight commercial model (Qwen2.5-7B) show a weak signal
 (AUC $=0.56$, $p<10^{-3}$). It shrinks to AUC $\approx0.53$ once calibrated against a model trained on 2018 data.
-\item \emph{Dataset inference}, which tests the collection as a whole, reaches borderline significance after
-calibration ($p\approx0.02$). However, it also flags the 2018 reference model ($p=0.007$), which shows that date-based
-controls alone create false positives.
+\item \emph{Dataset inference}, which tests the collection as a whole, flags all four open-weight models tested
+(Qwen2.5, Llama-3.1, Mistral, Gemma-2). It also flags a 2018 model that cannot have seen the articles ($p=0.007$),
+so date-based controls alone create false positives. With groups matched by section and length, only Gemma-2 stays
+significant ($p=0.009$), and a \emph{neighbour test} shows that this reflects knowledge of the period's events, not
+of the newspaper's wording: no model prefers the original text over same-facts rewrites more for members than for
+controls.
 \end{itemize}
 We also report two methodological pitfalls in recognition tests that inflate apparent evidence. We conclude that neither randomly sampled
 articles nor the newspaper's most-copied interviews are memorized strongly enough to give per-article evidence with
@@ -443,6 +446,11 @@ Claude Sonnet 5.5 (\texttt{claude-sonnet-5-5}) & API, black-box & Jun 2026 & M1 
 Gemini 3.1 Flash-Lite (\texttt{gemini-3.1-flash-lite}) & API, black-box & Jan 2025 (knowledge) & target\\
 Gemini 3 Flash (\texttt{gemini-3-flash-preview}) & API, black-box & Jan 2025 (knowledge) & target (partial)\\
 Qwen2.5-7B base (Alibaba), 4-bit MLX & local, probabilities & $\le$ 2024 & target\\
+Llama-3.1-8B base (Meta), 4-bit MLX & local, probabilities & Dec 2023 & target\\
+Llama-3-8B base (Meta), 4-bit MLX & local, probabilities & Mar 2023 & earlier-cutoff twin of Llama-3.1\\
+Mistral-7B-v0.3 base (Mistral AI), 4-bit MLX & local, probabilities & $\le$ 2024 & target\\
+Gemma-2-9B base (Google), 4-bit MLX & local, probabilities & $\le$ mid-2024 & target\\
+\texttt{facebook/xglm-2.9B} (Meta) & local, probabilities & CC100-XL ($\le$ 2020) & second, larger drift reference\\
 \texttt{flax-community/gpt-2-spanish} & local, probabilities & OSCAR 2019 (CC Nov 2018) & drift reference\\
 \bottomrule
 \end{tabular}}
@@ -470,8 +478,10 @@ Experiment & Family & Needs & Run on\\
 M1 verbatim continuation & (A) Extraction & black-box & Claude 4.5/5.5, Gemini 3.x; random + \emph{La Contra}\\
 M2 DE-COP multiple choice & (C) Recognition & black-box & Claude 4.5\\
 M2b pairwise minimal edits & (C) Recognition & black-box & Claude 4.5, Gemini 3.1 Flash-Lite (partial)\\
-M5 per-article scores + drift calibration & (B) Membership inference & token probabilities & Qwen2.5-7B (+ GPT-2 reference)\\
-M6 dataset inference & (D) Dataset inference & token probabilities & Qwen2.5-7B (+ GPT-2 reference)\\
+M5 per-article scores + drift calibration & (B) Membership inference & token probabilities & Qwen2.5, Llama-3.1, Mistral, Gemma-2\\
+M6 dataset inference (+ matching, placebos) & (D) Dataset inference & token probabilities & same four (+ GPT-2 / XGLM references)\\
+M7 neighbour (rewrite) gap & (B) Membership inference & token probabilities & same four\\
+M8 two-model difference-in-differences & (D) Dataset inference & token probabilities & Llama-3 vs Llama-3.1\\
 -- & (E) Copyright traps & publishing traps & not yet (requires future articles)\\
 -- & (F) Retrieval & web-enabled product & not yet\\
 \bottomrule
@@ -510,6 +520,29 @@ find nothing; otherwise the procedure produces false accusations.
 \item a \emph{sample-size curve}, which repeats the test on random subsets of 50--448 articles per group to see how
 evidence grows with the size of the collection.
 \end{itemize}
+
+\paragraph{M6 extensions: matching and placebos.} Because the first M6 pilot showed that date alone produces
+``significant'' results, we added three safeguards. (i) \emph{Matching}: each control is paired with a member of the
+same section and similar length (within 30\%), and live blogs are excluded, so the groups differ in date but not in
+the mix of topics and formats. (ii) \emph{Placebos}: the same test is run on two groups that differ in date but
+\emph{not} in exposure, for instance controls from late 2025 against controls from early 2026 (both unseen), or
+members from 2020 against members from 2022--23 (both seen). A placebo must come out non-significant; if it does not,
+the procedure confuses time with training. (iii) \emph{Robustness}: the result must survive changes in the matching
+tolerance, the use of single scores, and the removal of any one section.
+
+\paragraph{M7 (family B): neighbour (rewrite) gap.} For each passage we compare the model's loss on the
+\emph{original} text with its average loss on three rewrites that keep the same facts and names but change the
+wording (the DE-COP paraphrases, and separately the minimal-edit variants). A model that knows the \emph{events}
+(from any source) finds both versions easier; only a model that has seen the \emph{wording} finds the original
+specifically easier. The member-minus-control difference of this gap therefore isolates memorized wording from both
+time drift and world knowledge. It was run on the 60 members and 60 controls used in the API tests.
+
+\paragraph{M8 (family D): two-model difference-in-differences.} Llama-3-8B (data to March 2023) and Llama-3.1-8B
+(data to December 2023) share architecture and tokenizer. For each article we compute how much more familiar it is to
+Llama-3.1 than to Llama-3. Articles from April--November 2023 (249, collected for this purpose) were available only
+to Llama-3.1; articles from 2020--February 2023 were available to both; controls to neither. Training on the
+newspaper predicts an extra familiarity gain only for the April--November 2023 group. Because both models score the
+very same articles, time drift cancels.
 
 API tests on the random sample (M1, M2, M2b) use a random subset of 60 members and 60 controls. M5 and M6 use all
 1,143 articles, and are repeated on the \emph{La Contra} sample (212 + 41).
@@ -672,6 +705,62 @@ If the calibrated signal is real, a few thousand articles per group would make i
 within reach of the God\'o archive. But size cannot fix a biased validation set: more articles make \emph{any}
 systematic difference significant, including drift.
 
+\paragraph{Four models, matched groups and placebos.} Table~\ref{tab:dimulti} repeats the test on four
+open-weight models from four providers. Without matching, every model looks ``guilty'' on raw scores and three of
+four remain significant after calibration. Once the groups are matched by section and length, the calibrated result
+disappears for Qwen2.5, Llama-3.1 and Mistral ($p=0.13$--$0.29$). Only Gemma-2 (Google) remains significant
+($p=0.009$). All placebos are clean (calibrated $p\ge0.26$), so the procedure does not confuse a few months of
+time difference with training.
+
+\begin{table}[h]\centering\small
+\fitbox{\begin{tabular}{lccccccc}
+\toprule
+ & \multicolumn{3}{c}{Unmatched (695 vs 448)} & \multicolumn{3}{c}{Matched (440 pairs)} & Placebo\\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Target & raw & ref.\ only & calibrated & raw & ref.\ only & calibrated & (calibrated)\\
+\midrule
+Qwen2.5-7B (Alibaba) & 0.0005 & 0.007 & 0.04 & 0.002 & 0.006 & 0.29 & 0.65\\
+Llama-3.1-8B (Meta) & 0.0009 & 0.007 & 0.03 & 0.004 & 0.006 & 0.29 & 0.56\\
+Mistral-7B-v0.3 (Mistral AI) & 0.0001 & 0.007 & 0.010 & 0.0004 & 0.006 & 0.13 & 0.45\\
+Gemma-2-9B (Google) & 0.0008 & 0.007 & $2\times10^{-5}$ & 0.012 & 0.006 & \textbf{0.009} & 0.33\\
+\bottomrule
+\end{tabular}}
+\caption{Dataset inference, median $p$ over 100 splits (reference: GPT-2-spanish, 2018 data). ``Ref.\ only'' uses
+the reference model alone, which cannot have seen either group: its significance measures the time effect.
+Placebo: controls Sep--Dec 2025 vs Jan--Mar 2026, both unseen.}\label{tab:dimulti}
+\end{table}
+
+\paragraph{Is the Gemma-2 result evidence of training on \emph{La Vanguardia}?} It is robust to the matching
+tolerance (10--50\%: $p=0.007$--$0.011$), to using loss or Min-K\% alone ($p=0.002$, $0.007$), and to removing the
+opinion, economy, politics or culture sections. But it falls to $p=0.09$ when the \emph{international} section is
+removed. Members' international news (pandemic, war in Ukraine) concerns events that any model trained in 2024
+knows from thousands of sources; controls describe events after its cutoff. The neighbour test (M7) settles the
+question. It asks whether the model prefers \emph{La Vanguardia's wording} over a rewrite with the same facts, and
+for all four models members show no stronger preference than controls (Table~\ref{tab:neigh}). For Gemma-2 the
+difference even points the other way. The Gemma-2 signal therefore reflects knowledge of the \emph{period's events},
+not of the newspaper's text. In legal terms, it is evidence about facts, which are free, not about the protected
+expression.
+
+\begin{table}[h]\centering\small
+\fitbox{\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{Full rewrites} & \multicolumn{2}{c}{Minimal edits}\\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+Target & member $-$ control (95\% CI) & $p$ & member $-$ control (95\% CI) & $p$\\
+\midrule
+Qwen2.5-7B & $-0.013$ [$-0.064$, $0.036$] & 0.23 & $+0.004$ [$-0.014$, $0.023$] & 0.71\\
+Llama-3.1-8B & $-0.022$ [$-0.073$, $0.031$] & 0.15 & $+0.001$ [$-0.019$, $0.021$] & 0.61\\
+Mistral-7B-v0.3 & $-0.009$ [$-0.056$, $0.036$] & 0.29 & $-0.006$ [$-0.027$, $0.015$] & 0.34\\
+Gemma-2-9B & $+0.048$ [$-0.021$, $0.111$] & 0.89 & $+0.034$ [$0.010$, $0.057$] & 1.00\\
+\bottomrule
+\end{tabular}}
+\caption{Neighbour test (M7), 60 members vs 60 controls. Value: difference in the loss gap (original minus mean of
+rewrites); negative would mean members' original wording is specifically more familiar. One-sided Mann--Whitney $p$.
+No model shows a wording-specific signal.}\label{tab:neigh}
+\end{table}
+
+%DID_PLACEHOLDER
+
 \paragraph{Designing a sound validation set.} The method's power depends on a validation set that differs from the
 suspect set \emph{only} in exposure to the model. The publisher's archive makes much better designs possible than ours:
 \begin{enumerate}
@@ -733,8 +822,9 @@ and memorization may be concentrated in a few highly duplicated pieces that our 
 target and was trained on a different corpus, so the time correction is approximate.
 \item Paraphrases were produced by a Claude model, which may interact with Claude targets.
 \item Claude outputs are not deterministic (Gemini calls used temperature 0).
-\item Only one open-weight target was evaluated. Claude 5.x models could only be tested where controls are not
-essential.
+\item Four open-weight targets were evaluated, all of 7--9 billion parameters; larger models memorize more. Claude
+5.x models could only be tested where controls are not essential.
+\item The neighbour test used only 60+60 passages, so it can miss a small effect.
 \item Gemini evaluation was limited by free-tier quotas and by the lack of token probabilities. Several runs were cut
 short by API credit and quota limits (marked in the tables). OpenAI models have not been evaluated yet.
 \end{itemize}
@@ -757,13 +847,15 @@ facts, but not the wording.
 \item \textbf{Some popular tests give false positives.} Models identify the original text among AI-written rewordings
 even for articles they cannot have seen. Any claim based on such tests must be checked against articles published
 after the model's training.
-\item \textbf{There is a faint statistical trace.} An open-weight model (Qwen2.5) finds older \emph{La Vanguardia}
-articles very slightly more familiar than new ones, even after correcting for changes over time. This is too weak for
-a single article.
+\item \textbf{The faint statistical traces are explained by time and world knowledge.} Four open-weight models find
+older \emph{La Vanguardia} articles slightly more familiar than new ones. After comparing like with like (same
+section, similar length) the trace disappears for three of them. For the fourth (Google's Gemma-2) it remains, but it
+comes from knowing the \emph{events} of 2020--2023, not the newspaper's \emph{wording}: the model does not prefer the
+original sentences over rewrites with the same facts. Facts are not protected; wording is.
 \item \textbf{Testing the collection as a whole (dataset inference) is the most promising route.} Small differences
-that are invisible in one article add up over thousands. Our pilot reaches borderline significance with about 450
-articles per group. It also shows the main danger: comparing old with new articles ``proves'' training even for a model
-that cannot have seen them. The comparison articles must come from the \emph{same period}. The publisher's archive
+that are invisible in one article add up over thousands. Our pilot shows the main dangers: comparing old with new articles ``proves'' training even for a model
+that cannot have seen them, and a model's knowledge of past events can pass for knowledge of the text. Every result
+must therefore pass placebo groups and a wording-specific check. The comparison articles must come from the \emph{same period}. The publisher's archive
 allows this, for example by comparing articles that web crawlers captured with articles from the same months that
 were never online. This approach requires models whose word probabilities are accessible: open-weight models, or
 commercial models under court-ordered expert access.
