@@ -304,3 +304,15 @@ sign-constrained DI + neighbour test + placebos as the standard battery.
   sentence-level decomposition as **M9** (`src/m9_decomposition.py`, plain prompt, no role-play; sentences with quotation
   marks flagged as possibly syndicated, ~21% of sentences). Scheduled `src/run_gemini_day3.sh` → `logs/gemini_day3.log`:
   waits for 2026-11-26 09:01, runs M9 on gemini-3.1-flash-lite (60+60 × 4 sentences), then resumes Gemini 3 Flash M1.
+- **User decisions (2026-11-25 afternoon):** run role-play prompts (as a labelled upper bound), and use our open models
+  instead of paid APIs.
+  - `probe.py`: multi-turn messages for all providers; **local MLX provider** (`ask_local`, greedy, logs weights commit
+    hash as `model_reported`); `raw=True` = plain completion for base models.
+  - `m9_decomposition.py`: `--style plain|roleplay|completion`, `--context prev|prefix`. Role-play = Freeman et al.'s
+    "2079 student" prompt adapted to La Vanguardia (Jordi, Barcelona) + fake assistant acknowledgement.
+  - Downloaded mlx-community/Meta-Llama-3.1-8B-Instruct-4bit (disk: ~6 GB free left; don't download more without cleaning).
+  - **Queue5** (`src/run_queue5.sh` → `logs/queue5.log`, resumable): base Llama-3.1/Gemma-2/Qwen2.5/Mistral completion with
+    prefix on La Contra (212+41) and random (150+150), k=5; then Llama-3.1-Instruct and Qwen2.5-Instruct, plain + role-play.
+    Runs alongside queue4 (shared GPU, ~8 s/query).
+  - Replication note: only 168 fresh mid-2023 articles were found (417 − 249), so NEW2 ≈ 168.
+  - TODO: role-play M9 on Gemini on a later free-tier day (day3 quota goes to plain M9).

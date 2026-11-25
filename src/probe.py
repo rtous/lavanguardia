@@ -56,6 +56,8 @@ GEMINI_TOOLS = {"google_search": lambda t: t.Tool(google_search=t.GoogleSearch()
 def ask_gemini(experiment, model, user, system=None, max_tokens=1024, meta=None, tools=()):
     """tools: names from GEMINI_TOOLS (retrieval tests, M4). Empty = no browsing (default)."""
     from google.genai import types
+    contents = user if isinstance(user, str) else [
+        types.Content(role="model" if m["role"] == "assistant" else "user", parts=[types.Part(text=m["content"])]) for m in user]
     params = {"model": model, "contents": user, "tools": list(tools),
               "config": {"temperature": 0, "max_output_tokens": max(max_tokens, 2048),
                          **({"system_instruction": system} if system else {})}}
@@ -63,7 +65,7 @@ def ask_gemini(experiment, model, user, system=None, max_tokens=1024, meta=None,
     raw, text, rmodel, stop, rid = None, "", None, None, None
     for attempt in range(8):
         try:
-            r = gemini_client().models.generate_content(model=model, contents=user,
+            r = gemini_client().models.generate_content(model=model, contents=contents,
                                                         config=types.GenerateContentConfig(
                                                             **params["config"],
                                                             **({"tools": [GEMINI_TOOLS[n](types) for n in tools]} if tools else {})))
@@ -92,12 +94,50 @@ def ask_gemini(experiment, model, user, system=None, max_tokens=1024, meta=None,
     return text, rec
 
 
-def ask(experiment, model, user, system=None, max_tokens=1024, meta=None, tools=()):
-    """Single-turn text call. Returns (text, record). `tools` only supported for Gemini for now."""
+_local = {}
+
+
+def ask_local(experiment, model, user, system=None, max_tokens=1024, meta=None, raw=False):
+    """Open-weight model run locally with MLX (model = Hugging Face id, e.g. mlx-community/...). Greedy decoding, so
+    outputs are deterministic. raw=True: `user` is a plain-text prompt continued as-is (base models, no chat template).
+    The exact snapshot (commit hash) of the weights is logged for chain of custody. Not thread-safe: use 1 worker."""
+    from huggingface_hub import try_to_load_from_cache
+    from mlx_lm import load, generate
+    from mlx_lm.sample_utils import make_sampler
+    if model not in _local:
+        _local.clear()
+        cfg = try_to_load_from_cache(model, "config.json")
+        rev = os.path.basename(os.path.dirname(cfg)) if isinstance(cfg, str) else "unknown"
+        _local[model] = (*load(model), rev)
+    m, tok, rev = _local[model]
+    if raw:
+        prompt = user
+    else:
+        msgs = [{"role": "user", "content": user}] if isinstance(user, str) else list(user)
+        if system:
+            msgs = [{"role": "system", "content": system}] + msgs
+        prompt = tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False)
+    t0 = time.time()
+    text = generate(m, tok, prompt=prompt, max_tokens=max_tokens, sampler=make_sampler(temp=0.0))
+    params = {"model": model, "revision": rev, "raw": raw, "system": system, "user": user, "prompt": prompt,
+              "max_tokens": max_tokens, "decoding": "greedy (temp 0)"}
+    rec = {"ts_utc": dt.datetime.now(dt.timezone.utc).isoformat(), "provider": "local-mlx", "model_requested": model,
+           "model_reported": f"{model}@{rev}", "request_id": None, "stop_reason": "end", "latency_s": round(time.time() - t0, 2),
+           "meta": meta or {}, "request": params, "response": {"text": text}}
+    _log(experiment, rec)
+    return text, rec
+
+
+def ask(experiment, model, user, system=None, max_tokens=1024, meta=None, tools=(), raw=False):
+    """Text call. `user` is a string (single turn) or a list of {"role": "user"|"assistant", "content"} (multi-turn).
+    Returns (text, record). `tools` only for Gemini; `raw` (plain completion) only for local models."""
     if model.startswith("gemini"):
         return ask_gemini(experiment, model, user, system, max_tokens, meta, tools)
+    if "/" in model:
+        return ask_local(experiment, model, user, system, max_tokens, meta, raw)
     assert not tools, "tools not implemented for this provider"
-    params = {"model": model, "max_tokens": max_tokens, "messages": [{"role": "user", "content": user}]}
+    msgs = [{"role": "user", "content": user}] if isinstance(user, str) else list(user)
+    params = {"model": model, "max_tokens": max_tokens, "messages": msgs}
     if system:
         params["system"] = system
     if model.startswith(ALWAYS_THINK):
