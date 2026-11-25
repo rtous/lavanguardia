@@ -29,13 +29,21 @@ def ok(orig, t):
     return 0.6 <= r <= 1.5 and t != orig
 
 
-def items(n_both, n_none, seed=0):
+def items(n_both, n_none, seed=0, rep=False):
+    """rep=False: first run. rep=True: replication set = articles NOT used in the first run (fresh mid-2023 articles
+    from data/cc/mid2023_rep.jsonl, and the complement of the first run's BOTH/NONE samples)."""
     rd = lambda f: [json.loads(l) for l in open(f, encoding="utf-8")]
     rng = random.Random(seed)
-    new = [(d, "member", "NEW") for d in rd("data/cc/mid2023.jsonl")]
+    new = rd("data/cc/mid2023.jsonl")
     both = [d for d in rd("data/cc/members.jsonl") if d["pub_date"] < "20230301"]
     none = rd("data/cc/controls.jsonl")
-    return new + [(d, "member", "BOTH") for d in rng.sample(both, n_both)] + [(d, "control", "NONE") for d in rng.sample(none, n_none)]
+    sb, sn = rng.sample(both, n_both), rng.sample(none, n_none)
+    if not rep:
+        return [(d, "member", "NEW") for d in new] + [(d, "member", "BOTH") for d in sb] + [(d, "control", "NONE") for d in sn]
+    used = {d["id"] for d in new + sb + sn}
+    new2 = [d for d in rd("data/cc/mid2023_rep.jsonl") if d["id"] not in used]
+    return ([(d, "member", "NEW") for d in new2] + [(d, "member", "BOTH") for d in both if d["id"] not in used]
+            + [(d, "control", "NONE") for d in none if d["id"] not in used])
 
 
 def main():
@@ -44,11 +52,12 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--n-both", type=int, default=250); ap.add_argument("--n-none", type=int, default=250)
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--rep", action="store_true", help="replication set (articles not used in the first run)")
     a = ap.parse_args()
     model, tok = load(a.model)
     sampler = make_sampler(temp=0.7, top_p=0.95)
     done = {(r["id"], r["group"]) for r in map(json.loads, open(a.out))} if os.path.exists(a.out) else set()
-    todo = [x for x in items(a.n_both, a.n_none) if (x[0]["id"], x[2]) not in done]
+    todo = [x for x in items(a.n_both, a.n_none, rep=a.rep) if (x[0]["id"], x[2]) not in done]
     if a.limit:
         todo = todo[: a.limit]
     with open(a.out, "a") as f:
