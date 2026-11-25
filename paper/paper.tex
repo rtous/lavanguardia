@@ -90,8 +90,9 @@ and fully logged. In the \emph{New York Times} case, OpenAI attacked the evidenc
 only if it has seen that text \emph{many times} during training. Song lyrics are copied thousands of times on the
 web; a typical news article is not.
 \item The articles are not only in raw Common Crawl. They survive the standard quality filters and are inside
-ready-made, publicly distributed training datasets. For example, the Catalan part of FineWeb-2 contains thousands of
-\texttt{lavanguardia.com} pages in each data file (Section~\ref{sec:presence}).
+ready-made, publicly distributed training datasets. The FineWeb-2 dataset contains about 18,000
+\texttt{lavanguardia.com} documents in its Catalan part and an estimated 330,000 in its Spanish part, apparently
+including essentially all the articles we test (Section~\ref{sec:presence}).
 \item Knowing the \emph{facts} of an article proves nothing, because facts appear in many sources. Only the
 \emph{wording} can identify the source.
 \item Every test needs a comparison group: texts the model \emph{could not} have seen, because they were published
@@ -409,12 +410,22 @@ retrieval by AI assistants at answer time is not opted out.
 Model developers rarely train on raw Common Crawl. They use filtered, deduplicated derivatives. To check that
 \emph{La Vanguardia}'s pages survive this filtering, we scanned the \texttt{url} column of FineWeb-2
 (HuggingFaceFW/fineweb-2), a widely used multilingual pre-training dataset built from Common Crawl
-(\texttt{src/dataset\_presence.py}; only the URL column is read, by HTTP range request). The two Catalan data files
-scanned so far (of five, about 4.1 million documents each) contain 5,289 and 3,323 \texttt{lavanguardia.com} pages,
-about one document in a thousand. The scan of the remaining Catalan files and a sample of the Spanish files is in
-progress (\texttt{results/dataset\_presence.json}). This does not show that any particular commercial model was
-trained on FineWeb-2. It shows that the newspaper's articles are inside the kind of ready-made corpus such models
-are trained on.
+(\texttt{src/dataset\_presence.py}; only the URL column is read, by HTTP range request). Results
+(\texttt{results/dataset\_presence.json}):
+\begin{itemize}
+\item \emph{Catalan} (all 5 files, 17.1 million documents): 17,947 \texttt{lavanguardia.com} documents (17,179 distinct
+URLs), about one document in a thousand, taken from crawls of 2017--2024.
+\item \emph{Spanish} (6 of 146 files, 18.2 million documents): 13,779 documents, which extrapolates to about
+330,000 in the whole Spanish part.
+\item \emph{Our own test articles} (\texttt{src/presence\_overlap.py}): the scanned files, about 4\% of the Spanish
+part, already contain 37 of our 695 members (5.3\%), 13 of the 249 mid-2023 articles and 12 of the 212 \emph{La
+Contra} interviews, and none of the controls. FineWeb-2 is deduplicated, so each article appears about once. A hit
+rate equal to the scanned share is what one expects if essentially \emph{every} member article is in the dataset. A
+scan of all files, which will list each article's document identifier, is running.
+\end{itemize}
+This does not show that any particular commercial model was trained on FineWeb-2. It shows that the newspaper's
+articles survive the standard filtering and deduplication steps and are distributed inside the kind of ready-made
+corpus such models are trained on.
 
 \subsection{Article collection}
 Articles were fetched from Common Crawl by HTTP range request on the exact WARC record. For each one we store the

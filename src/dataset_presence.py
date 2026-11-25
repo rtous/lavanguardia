@@ -5,7 +5,7 @@ Catalan configs) over HTTP range requests (column projection, no full download),
 lavanguardia.com, and extrapolates from the sampled shards to the whole config. For a few hits it also fetches the
 text, so the record can be compared with the article. Output: results/dataset_presence.json (+ hits list).
 
-Usage: python -I src/dataset_presence.py --config spa_Latn --shards 6 [--seed 0]
+Usage: python -I src/dataset_presence.py --config spa_Latn --shards 6 [--seed 0]   (resumable; --shards 999 = all)
 """
 import argparse, json, os, random, re, time
 
@@ -43,8 +43,11 @@ def main():
     paths = sorted(files)
     sample = sorted(random.Random(a.seed).sample(paths, min(a.shards, len(paths))))
     res = json.load(open(a.out)) if os.path.exists(a.out) else {}
-    per = []
+    per = list(res.get(a.config, {}).get("per_shard", []))  # resume: keep shards already scanned
+    seen = {x["shard"] for x in per}
     for p in sample:
+        if p in seen:
+            continue
         t0 = time.time()
         rows, hits = scan(fs, p)
         per.append({"shard": p, "bytes": files[p]["size"], "rows": rows, "hits": len(hits), "secs": round(time.time() - t0)})
@@ -52,14 +55,20 @@ def main():
         with open(a.out.replace(".json", f"_hits_{a.config}.jsonl"), "a") as f:
             for h in hits:
                 f.write(json.dumps({"shard": p, **h}, ensure_ascii=False) + "\n")
+        _save(res, a, per, files, paths)  # after the hits, so a crash never marks a shard done without them
+    _save(res, a, per, files, paths)
+    print({k: v for k, v in res[a.config].items() if k != "per_shard"})
+
+
+def _save(res, a, per, files, paths):
     tot_bytes = sum(v["size"] for v in files.values())
     s_rows, s_hits, s_bytes = (sum(x[k] for x in per) for k in ("rows", "hits", "bytes"))
     res[a.config] = {"dataset": DS, "config": a.config, "n_shards_total": len(paths), "n_shards_scanned": len(per),
                      "rows_scanned": s_rows, "hits_scanned": s_hits, "hit_rate": s_hits / max(1, s_rows),
                      "est_total_hits": round(s_hits * tot_bytes / max(1, s_bytes)), "per_shard": per,
                      "scanned_utc": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "seed": a.seed}
-    json.dump(res, open(a.out, "w"), indent=1)
-    print({k: v for k, v in res[a.config].items() if k != "per_shard"})
+    json.dump(res, open(a.out + ".tmp", "w"), indent=1)
+    os.replace(a.out + ".tmp", a.out)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,107 @@
+{
+ "cat_Latn": {
+  "dataset": "HuggingFaceFW/fineweb-2",
+  "config": "cat_Latn",
+  "n_shards_total": 5,
+  "n_shards_scanned": 5,
+  "rows_scanned": 17136414,
+  "hits_scanned": 17947,
+  "hit_rate": 0.0010473019617756668,
+  "est_total_hits": 17947,
+  "per_shard": [
+   {
+    "shard": "datasets/HuggingFaceFW/fineweb-2/data/cat_Latn/train/000_00000.parquet",
+    "bytes": 4849412202,
+    "rows": 4106000,
+    "hits": 3323,
+    "secs": 385
+   },
+   {
+    "shard": "datasets/HuggingFaceFW/fineweb-2/data/cat_Latn/train/001_00000.parquet",
+    "bytes": 4849777067,
+    "rows": 4222000,
+    "hits": 3812,
+    "secs": 391
+   },
+   {
+    "shard": "datasets/HuggingFaceFW/fineweb-2/data/cat_Latn/train/002_00000.parquet",
+    "bytes": 4849556271,
+    "rows": 4226000,
+    "hits": 4982,
+    "secs": 426
+   },
+   {
+    "shard": "datasets/HuggingFaceFW/fineweb-2/data/cat_Latn/train/003_00000.parquet",
+    "bytes": 4849299051,
+    "rows": 4165000,
+    "hits": 5289,
+    "secs": 293
+   },
+   {
+    "shard": "datasets/HuggingFaceFW/fineweb-2/data/cat_Latn/train/004_00000.parquet",
+    "bytes": 487468607,
+    "rows": 417414,
+    "hits": 541,
+    "secs": 31
+   }
+  ],
+  "scanned_utc": "2026-11-25T08:09:56Z",
+  "seed": 0
+ },
+ "spa_Latn": {
+  "dataset": "HuggingFaceFW/fineweb-2",
+  "config": "spa_Latn",
+  "n_shards_total": 146,
+  "n_shards_scanned": 6,
+  "rows_scanned": 18163715,
+  "hits_scanned": 13779,
+  "hit_rate": 0.0007586003193729917,
+  "est_total_hits": 328603,
+  "per_shard": [
+   {
+    "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00010.parquet",
+    "bytes": 4846946581,
+    "rows": 3373000,
+    "hits": 1816,
+    "secs": 448
+   },
+   {
+    "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00000.parquet",
+    "bytes": 4846735410,
+    "rows": 3424000,
+    "hits": 2450,
+    "secs": 341
+   },
+   {
+    "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00032.parquet",
+    "bytes": 4846650357,
+    "rows": 3318000,
+    "hits": 2667,
+    "secs": 402
+   },
+   {
+    "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00008.parquet",
+    "bytes": 4844493562,
+    "rows": 3219000,
+    "hits": 2630,
+    "secs": 404
+   },
+   {
+    "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00025.parquet",
+    "bytes": 3891059594,
+    "rows": 2561760,
+    "hits": 2230,
+    "secs": 213
+   },
+   {
+    "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00031.parquet",
+    "bytes": 3460442768,
+    "rows": 2267955,
+    "hits": 1986,
+    "secs": 190
+   }
+  ],
+  "scanned_utc": "2026-11-25T08:43:15Z",
+  "seed": 0
+ }
+}
