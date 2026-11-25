@@ -49,9 +49,14 @@ def gemini_client():
     return _gclient
 
 
-def ask_gemini(experiment, model, user, system=None, max_tokens=1024, meta=None):
+GEMINI_TOOLS = {"google_search": lambda t: t.Tool(google_search=t.GoogleSearch()),
+                "url_context": lambda t: t.Tool(url_context=t.UrlContext())}
+
+
+def ask_gemini(experiment, model, user, system=None, max_tokens=1024, meta=None, tools=()):
+    """tools: names from GEMINI_TOOLS (retrieval tests, M4). Empty = no browsing (default)."""
     from google.genai import types
-    params = {"model": model, "contents": user,
+    params = {"model": model, "contents": user, "tools": list(tools),
               "config": {"temperature": 0, "max_output_tokens": max(max_tokens, 2048),
                          **({"system_instruction": system} if system else {})}}
     t0 = time.time()
@@ -59,7 +64,9 @@ def ask_gemini(experiment, model, user, system=None, max_tokens=1024, meta=None)
     for attempt in range(8):
         try:
             r = gemini_client().models.generate_content(model=model, contents=user,
-                                                        config=types.GenerateContentConfig(**params["config"]))
+                                                        config=types.GenerateContentConfig(
+                                                            **params["config"],
+                                                            **({"tools": [GEMINI_TOOLS[n](types) for n in tools]} if tools else {})))
             raw = r.model_dump(mode="json", exclude_none=True)
             text = r.text or ""
             rmodel, rid = r.model_version, r.response_id
@@ -83,10 +90,11 @@ def ask_gemini(experiment, model, user, system=None, max_tokens=1024, meta=None)
     return text, rec
 
 
-def ask(experiment, model, user, system=None, max_tokens=1024, meta=None):
-    """Single-turn text call. Returns (text, record)."""
+def ask(experiment, model, user, system=None, max_tokens=1024, meta=None, tools=()):
+    """Single-turn text call. Returns (text, record). `tools` only supported for Gemini for now."""
     if model.startswith("gemini"):
-        return ask_gemini(experiment, model, user, system, max_tokens, meta)
+        return ask_gemini(experiment, model, user, system, max_tokens, meta, tools)
+    assert not tools, "tools not implemented for this provider"
     params = {"model": model, "max_tokens": max_tokens, "messages": [{"role": "user", "content": user}]}
     if system:
         params["system"] = system
