@@ -1,20 +1,124 @@
 {
  "scanned_fraction": {
   "cat_Latn": 1.0,
-  "spa_Latn": 0.0410958904109589
+  "spa_Latn": 0.5342465753424658
  },
  "sets": {
   "members": {
    "n": 695,
-   "found": 37,
-   "share": 0.0532,
+   "found": 292,
+   "share": 0.4201,
    "hits": {
+    "481000541787": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4deb870f-e6b1-43e2-a1e6-c716621d0a5f>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/politica/20200506/481000541787/vox-ayuda-difundir-bulo-asegura-okupas-podran-empadronarse-vivan.html"
+     }
+    ],
+    "481600548682": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c6ff040b-8f8e-4ff0-a80f-d2613a4de9a4>",
+      "dump": "CC-MAIN-2021-31",
+      "url": "https://www.lavanguardia.com/politica/20200605/481600548682/dictamen-wgad-caso-presos-politicos-catalanes.html"
+     }
+    ],
+    "482189481653": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:7d980967-e528-423a-91a1-7842fd368a63>",
+      "dump": "CC-MAIN-2021-49",
+      "url": "https://www.lavanguardia.com/politica/20200708/482189481653/consellera-vilallonga-demasiado-castellano-parlament.html"
+     }
+    ],
+    "483889156162": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:3fd6e270-bf04-4f60-b073-bdff2bf2cb74>",
+      "dump": "CC-MAIN-2020-45",
+      "url": "https://www.lavanguardia.com/politica/20201006/483889156162/esperanza-aguirre-isabel-diaz-ayuso-crack-gobierno-coronavirus-comunidad-de-madrid.html"
+     }
+    ],
     "49150850623": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:acda959b-bcd3-4a26-80d7-6bb26cdb01dd>",
       "dump": "CC-MAIN-2023-14",
       "url": "https://www.lavanguardia.com/politica/20201102/49150850623/pp-pablo-casado-derecha-vox-ciudadanos.html"
+     }
+    ],
+    "49837307870": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:43db183d-2d7f-4564-93af-b695f73311e5>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/politica/20201201/49837307870/treintena-eurodiputados-acusan-dolors-montserrat-partidista-comision-peticiones.html"
+     }
+    ],
+    "6161893": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:7245166b-e45f-4297-bcdb-9ae2ae2ad118>",
+      "dump": "CC-MAIN-2021-39",
+      "url": "https://www.lavanguardia.com/politica/20210102/6161893/pdecat-rechaza-pacto-gobierno-cataluna-erc-cup-diferencias-insalvables.html"
+     }
+    ],
+    "6263524": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:cc97286a-c26d-44c9-91ee-c3da247d61cd>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/politica/20210304/6263524/delegacion-gobierno-madrid-prohibe-todas-manifestaciones-8m.html"
+     }
+    ],
+    "6629184": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:69c4b4ae-a6ba-4e80-aa3c-5949798b4f5d>",
+      "dump": "CC-MAIN-2021-17",
+      "url": "https://www.lavanguardia.com/politica/20210405/6629184/junta-electoral-da-razon-pp-admite-candidatura-toni-canto.html"
+     }
+    ],
+    "7424032": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:7ec17a2f-c194-47cd-a25c-42da7457739a>",
+      "dump": "CC-MAIN-2021-25",
+      "url": "https://www.lavanguardia.com/politica/20210502/7424032/sanchez-advierte-pacto-pp-vox-principio-democracia.html"
+     }
+    ],
+    "7779581": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:ee69341e-466e-43d7-b19a-bd879feabbd6>",
+      "dump": "CC-MAIN-2022-05",
+      "url": "https://www.lavanguardia.com/politica/20211009/7779581/aena-permitira-libre-acceso-aeropuertos-proximos-dias.html"
+     }
+    ],
+    "7972873": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4ff0c474-c90f-4a4b-90c3-288fdf6c10f3>",
+      "dump": "CC-MAIN-2022-05",
+      "url": "https://www.lavanguardia.com/politica/20220107/7972873/sanchez-tilda-reforma-laboral-ejemplo-cumplimiento-socialista-pide-apoyo-unanime.html"
+     }
+    ],
+    "8241353": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:2a441497-ae57-4fe7-b53c-26857fa90c41>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/politica/20220504/8241353/pegasus-margarita-robles-congreso-hoy-comparecencia-espionaje-marruecos-directo-ultima-hora.html"
+     }
+    ],
+    "8328831": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:7df3c232-e12c-4e96-8a32-ac0e30ddbff3>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/politica/20220611/8328831/teresa-rodriguez-guerrera-independiente.html"
      }
     ],
     "473285099081": [
@@ -25,12 +129,148 @@
       "url": "https://www.lavanguardia.com/politica/20200204/473285099081/acte-solemne-duna-cambra-frivola.html"
      }
     ],
+    "48266460893": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:856c6d35-ec35-4156-a25a-1cdcad58db7d>",
+      "dump": "CC-MAIN-2021-17",
+      "url": "https://www.lavanguardia.com/politica/20200402/48266460893/catalunya-sanidad-medicos-cubanos-coronavirus.html?fbclid=IwAR0IJaYq7xFxgVFARYeX-v4YtQnsnBDIu7cTUhz7Qi32We7c5_6QXPfdBhY"
+     }
+    ],
+    "49250442128": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:b2e6cbea-2ee8-47e7-b9ba-8fe16c384ae9>",
+      "dump": "CC-MAIN-2021-10",
+      "url": "https://www.lavanguardia.com/politica/20201105/49250442128/aragones-niega-contrataciones-irregulares-para-afrontar-la-pandemia.html"
+     }
+    ],
+    "482191488364": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:7dbb1126-d3ec-40d5-a64a-8841caaf6f67>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/politica/20200708/482191488364/direccion-crida-jordi-sanchez-disolucion-puigdemont-partido.html"
+     }
+    ],
+    "483947537297": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:b5ea0ea2-3ec0-4d89-b6cc-3cb4f9be86cc>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/politica/20201009/483947537297/decisiones-judiciales-rearman-pp-frente-gobierno-sanchez.html"
+     }
+    ],
+    "49858185972": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4ce0ac6e-c7c2-4fd1-8206-f594a48aec6c>",
+      "dump": "CC-MAIN-2021-39",
+      "url": "https://www.lavanguardia.com/politica/20201203/49858185972/ministerio-de-trabajo-estudia-reduccion-jornada-laboral-cuatro-dias.html"
+     }
+    ],
+    "481148818341": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f6c76aa2-222c-4fa2-ba0d-8f769ad6406b>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/politica/20200515/481148818341/estado-alarma-prorroga-negociaciones-gobierno-erc-sanchez.html"
+     }
+    ],
+    "6228107": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:b47ee84f-8658-4dc4-96bd-be8dae8a72d6>",
+      "dump": "CC-MAIN-2021-10",
+      "url": "https://www.lavanguardia.com/politica/20210206/6228107/sanchez-campana-salou-psc.html"
+     }
+    ],
+    "7785690": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4aacb940-0b15-4ec8-b1d0-49b6c27aaa91>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/politica/20211013/7785690/gobierno-vasco-medidas-alivien-coste-electrico-industria.html"
+     }
+    ],
+    "8559526": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:63c4dcf4-25d0-4b3a-a947-1e45731381d3>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/politica/20221010/8559526/peligra-mayoria-independentista.html"
+     }
+    ],
+    "8303923": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:75f1a7a4-708e-4c3e-8010-7bde52e60089>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/politica/20220530/8303923/govern-aprueba-decreto-rechaza-porcentajes-lenguas-escuelas.html"
+     }
+    ],
+    "8516454": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:126e7035-6a23-4882-a976-3e1ea7376ed1>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/politica/20220911/8516454/ofrenda-floral-monumento-rafael-casanova-imagenes.html"
+     }
+    ],
+    "8720163": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:804ae403-c5fb-4ba5-95fa-68225155cd08>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/politica/20230201/8720163/govern-psc-cierran-acuerdo-presupuestos.html"
+     }
+    ],
+    "473933270360": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f953e92e-22e9-446d-a375-5d762bdecaeb>",
+      "dump": "CC-MAIN-2021-43",
+      "url": "https://www.lavanguardia.com/opinion/20200303/473933270360/la-verdadera-amenaza.html"
+     }
+    ],
+    "48275151709": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:eb4105d2-233c-4894-8f2b-048f33966a20>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/opinion/20200402/48275151709/lecciones-ebola-combatir-covid-19.html"
+     }
+    ],
     "48894047874": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:ef5e5dac-7e7e-44b9-b7d1-4e008d5a3dae>",
       "dump": "CC-MAIN-2023-14",
       "url": "https://www.lavanguardia.com/opinion/20200502/48894047874/muguet-resiste-virus.html"
+     }
+    ],
+    "483383172895": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:eb32eefd-6ebc-4530-8bd0-ace4bce283ce>",
+      "dump": "CC-MAIN-2020-40",
+      "url": "https://www.lavanguardia.com/opinion/20200908/483383172895/golpe-de-timon.html"
+     }
+    ],
+    "6264599": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:1cfe826b-8558-4f63-bf29-e7ccd3657200>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/opinion/20210306/6264599/bipartidismo-moderados.html"
+     }
+    ],
+    "7762568": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a9f520f0-46c5-400a-96e2-d29d55f4514d>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/opinion/20211002/7762568/pequenas-revelaciones.html"
      }
     ],
     "7891912": [
@@ -41,12 +281,36 @@
       "url": "https://www.lavanguardia.com/opinion/20211127/7891912/dia-hoy.html"
      }
     ],
+    "7911442": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c8c18309-2b00-45cf-9b7a-1b5f0be7093b>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/opinion/20211206/7911442/maneras-sobrevivir.html"
+     }
+    ],
+    "8633952": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:b3c7cc0e-21ed-4e39-af37-2104cb0e77a0>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/opinion/20221205/8633952/abrazo-perdido.html"
+     }
+    ],
     "473962090863": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:c26c0c1f-c174-4753-be3d-0b60dfa1359a>",
       "dump": "CC-MAIN-2023-14",
       "url": "https://www.lavanguardia.com/internacional/20200304/473962090863/primarias-democratas-supermartes-virginia-candidatos-eeuu.html"
+     }
+    ],
+    "48857707703": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f1d1a4fe-5644-4832-a6f9-24048960c626>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/internacional/20200501/48857707703/coronavirus-eeuu-mas-muertos-vietnam.html"
      }
     ],
     "481585544048": [
@@ -57,12 +321,76 @@
       "url": "https://www.lavanguardia.com/internacional/20200603/481585544048/italia-reabre-fronteras-europeos-turismo.html"
      }
     ],
+    "49167872335": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c3cfc4b8-7214-4813-8d73-2cf442c58999>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/internacional/20201102/49167872335/vladimir-putin-kremlin-consejo-de-la-federacion-senado-duma-dimitri-medvedev-reforma-constitucion.html"
+     }
+    ],
+    "49842054920": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:7fc2b51f-f42b-4c30-a956-a8be777ee5aa>",
+      "dump": "CC-MAIN-2021-04",
+      "url": "https://www.lavanguardia.com/internacional/20201201/49842054920/libro-blanco-desconcierta-admiradores-salvini-italia.html"
+     }
+    ],
     "473985825834": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:78acb47a-4fbb-4381-a165-9458ec043ce7>",
       "dump": "CC-MAIN-2023-14",
       "url": "https://www.lavanguardia.com/internacional/20200402/473985825834/europeos-territorio-pais-vecino-anexion-fronteras-irredentismo-ultranacionalismo.html"
+     }
+    ],
+    "6219752": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c1939312-9561-472f-aa6d-09d6a6d4d560>",
+      "dump": "CC-MAIN-2021-31",
+      "url": "https://www.lavanguardia.com/internacional/20210203/6219752/ararat-reabierto-para-alpinismo.html"
+     }
+    ],
+    "6261996": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a6f6dbc0-e6f8-4743-8e2b-f74aa448739a>",
+      "dump": "CC-MAIN-2021-17",
+      "url": "https://www.lavanguardia.com/internacional/20210302/6261996/lluvia-barro-cesio-137-francia.html?utm_source=newsletter&utm_medium=email&utm_content=claves_de_hoy"
+     }
+    ],
+    "7429520": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:e99d8551-894e-4fb3-b3a6-906846063c46>",
+      "dump": "CC-MAIN-2021-43",
+      "url": "https://www.lavanguardia.com/internacional/20210505/7429520/francia-dara-astrazeneca-menores-55-anos-firman-documento.html"
+     }
+    ],
+    "7714729": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a6649d59-1f3f-4fce-98a7-1e352c90b81b>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/internacional/20210912/7714729/11s-biden-unidad-miedo-bush-trump.html"
+     }
+    ],
+    "7778819": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:5bb298b4-e377-4dc9-954c-20bb877ac813>",
+      "dump": "CC-MAIN-2021-43",
+      "url": "https://www.lavanguardia.com/internacional/20211009/7778819/china-ocupara-taiwan.html"
+     }
+    ],
+    "7875502": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:26d5e612-4f06-4b44-b082-2cac8ba5a214>",
+      "dump": "CC-MAIN-2022-05",
+      "url": "https://www.lavanguardia.com/internacional/20211119/7875502/confinamiento-europa-central-coronavirus-austria-alemania.amp.html"
      }
     ],
     "7926802": [
@@ -81,12 +409,108 @@
       "url": "https://www.lavanguardia.com/internacional/20220202/8028026/ucrania-rusia-washinton-blinken-lavrov-dialogo-desescalada.html"
      }
     ],
+    "8089917": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:00968f47-f034-4ebd-ba9c-fdff274f8a9b>",
+      "dump": "CC-MAIN-2024-18",
+      "url": "https://www.lavanguardia.com/internacional/20220302/8089917/ucrania-rusia-guerra-invasion-ultima-hora-noticias-directo.html"
+     }
+    ],
+    "8384473": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:2c097326-54cb-452e-9120-7d9b77f6a1c3>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/internacional/20220704/8384473/uzbekistan-karakalpakistan-karakalpakia-18-muertos-manifestaciones-reforma-constitucion-autonomia-soberania-independencia-mirziyoyev.html"
+     }
+    ],
+    "8453701": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:93662045-7a51-443d-b088-ab5a97287135>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/internacional/20220807/8453701/montserrat-mikolaiv.html"
+     }
+    ],
+    "8632474": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c83be83d-5ab7-4cd7-b70b-20716f3d9b87>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/internacional/20221203/8632474/ue-victima-colateral-pulso-ee-uu-china.html"
+     }
+    ],
+    "481571698950": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:614c7c87-4c07-45f2-ab93-fdbeef78d8c7>",
+      "dump": "CC-MAIN-2022-05",
+      "url": "https://www.lavanguardia.com/economia/20200602/481571698950/ibex-bolsa-apertura-paro.html"
+     }
+    ],
+    "482631396652": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:581b791a-a1db-4b81-9354-25657e157850>",
+      "dump": "CC-MAIN-2021-04",
+      "url": "https://www.lavanguardia.com/economia/20200802/482631396652/calvino-calvino-reformas-estructurales-impuestos-ministra-economia.html"
+     }
+    ],
+    "483329476157": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:db92706c-4d03-4151-9579-6dc86c9bd856>",
+      "dump": "CC-MAIN-2023-06",
+      "url": "https://www.lavanguardia.com/economia/20200906/483329476157/el-turismo-preve-un-efecto-rebote-a-partir-de-semana-santa-del-2021.html?utm_term=botones_sociales&utm_source=whatsapp&utm_medium=social"
+     }
+    ],
     "483805937834": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:6aafc1c4-d495-45fb-a9c7-23698bd0e4f6>",
       "dump": "CC-MAIN-2023-14",
       "url": "https://www.lavanguardia.com/economia/20201003/483805937834/desplome-aaereo-arrecia-otono-sin-ferias-congresos.html"
+     }
+    ],
+    "49217450134": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:84ad4bc9-dc9c-4725-b404-95866a1195ea>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/economia/20201104/49217450134/erte-govern-ataluna-deduccion-renta-irpf.html"
+     }
+    ],
+    "49782427875": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:70782e4c-3811-4413-afe5-160f16139b96>",
+      "dump": "CC-MAIN-2021-17",
+      "url": "https://www.lavanguardia.com/economia/20201201/49782427875/bitcoin-invertir-comprar-vender-record.html"
+     }
+    ],
+    "6162819": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d535691c-3b8b-438d-a4ae-3556193fa5ee>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/economia/20210109/6162819/2021-pide-altas-dosis-optimismo.html"
+     }
+    ],
+    "6213344": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:36830a9f-f189-4d97-a343-2e85cf3a316b>",
+      "dump": "CC-MAIN-2021-10",
+      "url": "https://www.lavanguardia.com/economia/20210201/6213344/gestion-patrimonial-clave-futuro-empresa-familiar-brl.html"
+     }
+    ],
+    "7421417": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:eeccf9ae-24ee-4824-86e8-e70e02c055a1>",
+      "dump": "CC-MAIN-2022-05",
+      "url": "https://www.lavanguardia.com/economia/20210502/7421417/api-colau.html"
      }
     ],
     "7700174": [
@@ -97,12 +521,68 @@
       "url": "https://www.lavanguardia.com/economia/20210905/7700174/camioneros-gran-bretana-brexit-pandemia-covid.html"
      }
     ],
+    "7840161": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:2a7b3b52-4bd1-4a83-9b2a-04f2a262b0c5>",
+      "dump": "CC-MAIN-2021-49",
+      "url": "https://www.lavanguardia.com/economia/20211105/7840161/espana-segundo-productor-mundial-vino-superar-francia-2021.html"
+     }
+    ],
+    "7916833": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:ec3e4630-1859-4648-8943-b2b93e3bce12>",
+      "dump": "CC-MAIN-2022-05",
+      "url": "https://www.lavanguardia.com/economia/20211209/7916833/criptomonedas-bitcoins-brl.html"
+     }
+    ],
+    "6264027": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:870fe81f-968b-44e6-8724-441c4ee9e2b9>",
+      "dump": "CC-MAIN-2021-31",
+      "url": "https://www.lavanguardia.com/economia/20210305/6264027/empresariado-alza-voz-inaccion-politica-frente-crisis.html"
+     }
+    ],
     "7518328": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:a445ebdd-3bd0-463c-a447-b08d24c51152>",
       "dump": "CC-MAIN-2023-14",
       "url": "https://www.lavanguardia.com/economia/20210610/7518328/wallbox-cotizara-nueva-york-sera-tercer-unicornio-espanol.html"
+     }
+    ],
+    "7583265": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:ce824da9-a81c-4a0d-96e9-44f50ed4218d>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/economia/20210708/7583265/pequenas-compras-grandes-cambios-el-comercio-local-se-agita-sin-efectivo-brl.html"
+     }
+    ],
+    "7962928": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:787c7d36-d500-43a3-8a3c-f20c40b8d0f8>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/economia/20220102/7962928/arboles-reconquistan-cultivos-agrarios.html"
+     }
+    ],
+    "8098767": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:02f94a25-a3d8-4a5e-83df-8ae22a8ba115>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/economia/20220304/8098767/ue-planea-reducir-ano-dependencia-gas-ruso-30.html"
+     }
+    ],
+    "8168496": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:35a77e8e-d25a-4877-a08b-2b8873496da8>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/economia/20220401/8168496/espana-portugal-plantean-topar-gas-30-euros-bajar-recibo-luz.html"
      }
     ],
     "8309661": [
@@ -113,12 +593,60 @@
       "url": "https://www.lavanguardia.com/economia/20220603/8309661/china-intenta-proteger-economia-presion-occidental.html"
      }
     ],
+    "8452343": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:e3eacb24-bb81-4308-adb9-3b5419af8dcf>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/economia/20220807/8452343/detalles-empresas-direccion-trabajadores.html"
+     }
+    ],
+    "8632537": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:66b4c64c-3d63-4bdf-851c-9f7f48a7bbc0>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/economia/20221203/8632537/multinacionales-ocultan-37-beneficios-paraisos-fiscales.html"
+     }
+    ],
+    "8561930": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:67f67d75-44b6-4902-ac9a-3dec70843158>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/economia/20221011/8561930/factorial-convierte-nuevo-unicornio-barcelona.html"
+     }
+    ],
+    "8726634": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:cca0116c-5227-4c28-ad26-8f458cef03a0>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/economia/20230201/8726634/fed-rebaja-ritmo-sube-tipos-interes-0-25-puntos.html"
+     }
+    ],
+    "472806188955": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:1f271d8f-0ecb-4e0a-a43a-5dcbaaf215f5>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/cultura/20200110/472806188955/caza-excesiva-morsa-groenlandia-vikingos-marfil-edad-media.html"
+     }
+    ],
     "473862852967": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:4914fa95-3f48-4f98-bee7-c18a3a316e6c>",
       "dump": "CC-MAIN-2023-14",
       "url": "https://www.lavanguardia.com/cultura/20200301/473862852967/hoy-todo-es-yo-estamos-llenos-de-yo.html"
+     }
+    ],
+    "48893157548": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:01d9f653-39d4-4866-8433-ac8bbf93ae6d>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/cultura/20200503/48893157548/barcelona-turismo-ciudad-pandemia-cultura-canadell-terrazas.html"
      }
     ],
     "6623322": [
@@ -129,12 +657,124 @@
       "url": "https://www.lavanguardia.com/cultura/20210403/6623322/mortadelo-filemon-mision-espana-comic-ibanez.html?fbclid=IwAR20LL2uiJuLGfOnIy7NR15gHI8Q4Yh1jG-2pnMh_o-qioMKUq0GEP_qhHY"
      }
     ],
+    "7499080": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:ebcb1a3a-8f71-41c6-b497-2277af0c86f7>",
+      "dump": "CC-MAIN-2021-25",
+      "url": "https://www.lavanguardia.com/cultura/20210602/7499080/amenazas-bloqueo-instagram-denuncia-feminista-museo-picasso.html"
+     }
+    ],
+    "7836296": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:fde1b102-af06-4796-acfc-fc536d1801c0>",
+      "dump": "CC-MAIN-2021-49",
+      "url": "https://www.lavanguardia.com/cultura/20211103/7836296/manon-steffan-ros-el-libro-azul-de-nebo.html?utm_medium=social&utm_source=twitter&utm_content=cultura"
+     }
+    ],
+    "7978633": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:15c91020-a771-434a-8d3c-92ae81307232>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/cultura/20220111/7978633/artemi-aiguader-guerra-civil-joan-esculies-erc-cnt.html"
+     }
+    ],
+    "8047935": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:49a67306-1fb1-4f0f-8c34-8def49e9d5b0>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/cultura/20220210/8047935/cineasta-pere-portabella-investido-doctor-honoris-causa-udg.html"
+     }
+    ],
+    "8176766": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:40ff4164-33ee-43ec-9897-b043f059a2c7>",
+      "dump": "CC-MAIN-2022-21",
+      "url": "https://www.lavanguardia.com/cultura/20220405/8176766/pamuk-erdogan-peste-novela.html"
+     }
+    ],
     "8235401": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:b99280aa-d30a-4935-a951-a395d35a21df>",
       "dump": "CC-MAIN-2023-14",
       "url": "https://www.lavanguardia.com/cultura/20220502/8235401/conciertos-actividades-planes-acudir-hoy-madrid-celebrar-2-mayo-pmv.html"
+     }
+    ],
+    "8524662": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c288594c-668f-4800-b97e-852b005b8487>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/cultura/20220914/8524662/biennal-pensament-barcelona-presenta-programa-critico.html"
+     }
+    ],
+    "473258679943": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:9b11a817-6abe-4c8e-b18a-6f867ffb0e9e>",
+      "dump": "CC-MAIN-2020-16",
+      "url": "https://www.lavanguardia.com/vida/20200202/473258679943/coronavirus-china-wuhan-kwoloon-hong-kong-epidemia.html"
+     }
+    ],
+    "481520512316": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a4e69ada-a38c-41bb-9d45-d48611b213bc>",
+      "dump": "CC-MAIN-2020-29",
+      "url": "https://www.lavanguardia.com/vida/20200601/481520512316/coronavirus-espana-desescalada-fase-1-fase-2-contagios-muertes-madrid-catalunya-estado-alarma-ultimas-noticias-hoy-en-directo.html"
+     }
+    ],
+    "49122032248": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:0a0ae7d8-f634-4c96-95a5-05ff4b6c259a>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/vida/20201101/49122032248/cambio-generativo.html"
+     }
+    ],
+    "483279158488": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:82853a3e-c84f-4593-98b9-3061ee7543ff>",
+      "dump": "CC-MAIN-2021-21",
+      "url": "https://www.lavanguardia.com/vida/20200903/483279158488/madrid-covid-foco-principal.html"
+     }
+    ],
+    "49854258596": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:6a06d356-bcf2-4244-9f4a-8efc1cb54696>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/vida/20201203/49854258596/poblacion-rural-espana-vaciada-origen-extranjero-migrantes.html"
+     }
+    ],
+    "483842723337": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:df7b3c5a-53df-47d7-8730-35dda2cfa8ec>",
+      "dump": "CC-MAIN-2021-49",
+      "url": "https://www.lavanguardia.com/vida/20201004/483842723337/la-vanguardia-lanza-modelo-suscripcion-digital.html"
+     }
+    ],
+    "6161049": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:1cc2da52-7f60-4e13-b702-39bb83268037>",
+      "dump": "CC-MAIN-2021-39",
+      "url": "https://www.lavanguardia.com/vida/20210103/6161049/inmigrantes-extutelados-18-anos-menas-menores-extranjeros.html"
+     }
+    ],
+    "6623454": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:e2b7242f-87c9-4ac6-b50e-a7d98a789f02>",
+      "dump": "CC-MAIN-2021-31",
+      "url": "https://www.lavanguardia.com/vida/20210403/6623454/filosofia-cinismo-libro-profesor-perfil-eduardo-infante.html"
      }
     ],
     "6265337": [
@@ -159,12 +799,356 @@
       "url": "https://www.lavanguardia.com/vida/20220103/7965162/abuso-farmacos-problemas-emocionales-fuerza-respuesta-salut.html"
      }
     ],
+    "8550266": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:23027c23-492c-4b0b-8874-1786c81813f9>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/vida/20221001/8550266/mundo-deberia-programar-graduarse.html"
+     }
+    ],
+    "8629601": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:ab6fda83-94e7-4284-80ae-a2e964833554>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/vida/20221201/8629601/neuralink-elon-musk-espera-implantar-ordenador-cerebro-humano-6-meses.html"
+     }
+    ],
+    "8663472": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d466cbdd-c50e-4aab-8f02-3f2f464e62d0>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/vida/20230101/8663472/ue-cerca-iphone.html"
+     }
+    ],
+    "8727438": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:fd02a9fa-f3ec-4afa-ad28-604bf13529b7>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/vida/20230202/8727438/que-prediccion-hara-hoy-marmota-phil-punto-alargara-invierno.html"
+     }
+    ],
+    "473275470654": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:da0f54b6-f382-4616-bca9-6d5b778cd71b>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/deportes/20200203/473275470654/super-bowl-futbol-americano-mahones-kansas-city-chiefs-san-francisco-49ers.html"
+     }
+    ],
+    "49274840993": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:2fd82369-efb4-4589-9cb5-b0ef9b142dea>",
+      "dump": "CC-MAIN-2021-25",
+      "url": "https://www.lavanguardia.com/deportes/20201107/49274840993/contruirnos-espanyol.html"
+     }
+    ],
+    "4861777307": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:0d822824-1769-45d3-a060-81f7d91830aa>",
+      "dump": "CC-MAIN-2020-40",
+      "url": "https://www.lavanguardia.com/deportes/20200323/4861777307/fernando-martin-real-madrid-coronavirus.html"
+     }
+    ],
+    "482466618153": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:478d69db-0fe5-4466-ae7c-a5dd06b4f6a7>",
+      "dump": "CC-MAIN-2020-45",
+      "url": "https://www.lavanguardia.com/deportes/20200722/482466618153/escandalo-nacional-john-carlin.html"
+     }
+    ],
+    "491463023": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:9a1d0e54-f39f-43b9-85fa-2c8d0e9a2dca>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/deportes/20201025/491463023/real-madrid-zidane-hazard-clasico-borussia-huesca.html"
+     }
+    ],
+    "6374285": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:79c48436-c25e-45ce-b9e5-2324879aa36a>",
+      "dump": "CC-MAIN-2021-43",
+      "url": "https://www.lavanguardia.com/deportes/20210313/6374285/ansu-fati-empieza-ver-luz.html?utm_medium=social&utm_source=twitter&utm_content=deportes"
+     }
+    ],
+    "7566820": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:0d207e4f-673c-479d-8868-eb91235c6954>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/deportes/20210630/7566820/temporada-basura.html"
+     }
+    ],
+    "7576650": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:0e1f0acd-5adc-4c07-8015-3106091480f2>",
+      "dump": "CC-MAIN-2021-43",
+      "url": "https://www.lavanguardia.com/deportes/20210704/7576650/espana-centro.html"
+     }
+    ],
+    "6226987": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:1b62c433-c9d4-40cf-92b8-fba638dcce13>",
+      "dump": "CC-MAIN-2021-43",
+      "url": "https://www.lavanguardia.com/deportes/20210206/6226987/ansu-fati-lesion-fecha-vuelta-barcelona-operacion-tratamiento-biologico.html"
+     }
+    ],
+    "8594705": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:7f830d4e-c7c9-4031-815b-ac386e5ec9ad>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/deportes/20221105/8594705/detalles-despedida-gerard-pique-barca-liga-camp-nou-almeria.html"
+     }
+    ],
+    "8635399": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f884519b-95f1-47e9-ace1-fa94debb932b>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/deportes/20221206/8635399/mundial-qatar-2022-portugal-suiza-cristiano-ronaldo-continuidad-elite-sombra-mbappe-messi.html"
+     }
+    ],
+    "8698249": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:5bc514e3-e6ff-49b9-8c5f-ce2fcb82e298>",
+      "dump": "CC-MAIN-2024-18",
+      "url": "https://www.lavanguardia.com/deportes/20230120/8698249/claves-agresion-sexual-dani-alves-joven-discoteca.html"
+     }
+    ],
+    "7499724": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:3ea0491f-2e90-4917-b353-78160baf22c6>",
+      "dump": "CC-MAIN-2021-39",
+      "url": "https://www.lavanguardia.com/local/20210602/7499724/alcalde-de-noche-ocio-vecinos-ciudades-pandemia.html"
+     }
+    ],
+    "472669506681": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:35e34538-1ef7-4b82-9522-a7caa37907b6>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/politica/20200102/472669506681/investidura-pedro-sanchez-erc-acuerdo-psoe-ultima-hora-hoy-en-directo.html"
+     }
+    ],
+    "48275774625": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:80d53f84-d701-47d4-afca-110c8c46e780>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/politica/20200402/48275774625/coronavirus-repatriacion-turistas-espanoles-india-ecuador-peru-exteriores.html"
+     }
+    ],
     "481018144351": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:a63ec433-3690-4e72-81fa-9980f8c43e8b>",
       "dump": "CC-MAIN-2023-50",
       "url": "https://www.lavanguardia.com/politica/20200508/481018144351/tratara-retirar-medallas-billy-nino-titulo-postumo.html"
+     }
+    ],
+    "482953229650": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:cf8be501-c260-49c1-86c8-c558f00aaddc>",
+      "dump": "CC-MAIN-2020-40",
+      "url": "https://www.lavanguardia.com/politica/20200905/482953229650/josep-burgaya-proces-pujol-independentismo.html"
+     }
+    ],
+    "473292668382": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:891a9a72-0291-4faf-98ea-e3f717748246>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/politica/20200204/473292668382/unidas-podemos-rectifica-publicar-historial-billy-el-nino.html"
+     }
+    ],
+    "481834032064": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:2bbafff6-926a-4d79-bd49-8dab0d44f833>",
+      "dump": "CC-MAIN-2022-21",
+      "url": "https://www.lavanguardia.com/politica/20200618/481834032064/reyes-spain-for-sure-museo-del-prado-turismo.html"
+     }
+    ],
+    "6261882": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:8660bf5e-a90b-4992-b8f5-a892f01c1519>",
+      "dump": "CC-MAIN-2022-05",
+      "url": "https://www.lavanguardia.com/politica/20210302/6261882/quienes-son-anarquistas-italianos-implicados-disturbios-barcelona.html"
+     }
+    ],
+    "7433023": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4f7e4616-0a54-412b-99d9-16439f338615>",
+      "dump": "CC-MAIN-2021-25",
+      "url": "https://www.lavanguardia.com/politica/20210506/7433023/ione-belarra-liderazgo-made-in.html"
+     }
+    ],
+    "7924538": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:5a3b0b59-91a5-4ae4-bb8d-615086ff079d>",
+      "dump": "CC-MAIN-2022-21",
+      "url": "https://www.lavanguardia.com/politica/20211213/7924538/diaz-ganar-psoe-78-escanos.html"
+     }
+    ],
+    "7596154": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:0943ebca-b77f-4820-bef5-60786157b701>",
+      "dump": "CC-MAIN-2022-49",
+      "url": "https://www.lavanguardia.com/politica/20210713/7596154/nuevo-gobierno-bienvenidas-entusiastas-amargas-despedidas.html"
+     }
+    ],
+    "7768592": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:fa9f48cb-6626-464e-914b-5123dabc7c92>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/politica/20211005/7768592/conversacion-exministro-asuncion-implica-corcuera-envio-cartas-bomba-hb.amp.html"
+     }
+    ],
+    "8093268": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:6cff3232-0d62-4376-acb6-d1c52234ef7e>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/politica/20220302/8093268/unidas-ve-error-envio-armas-ucrania-eficaz.html"
+     }
+    ],
+    "8167833": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:3c4138ce-4fe9-4c8c-a939-2d034cbf69e3>",
+      "dump": "CC-MAIN-2022-27",
+      "url": "https://www.lavanguardia.com/politica/20220401/8167833/spiderman-roto.html"
+     }
+    ],
+    "8236469": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:bc040d47-b53d-4728-84d7-3e9054823213>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/politica/20220502/8236469/wonderwall.html"
+     }
+    ],
+    "8450927": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d1c96b37-e64f-4f06-b29f-d6f2e12a8575>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/politica/20220804/8450927/alambre.html"
+     }
+    ],
+    "8602359": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:65442929-6495-4521-9163-eab0b20d5ee3>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/politica/20221110/8602359/erc-ve-acreditada-estrategia-dialogo-moncloa.html"
+     }
+    ],
+    "8046417": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d4f0a6bb-d636-40bb-b174-21ae189c832c>",
+      "dump": "CC-MAIN-2022-27",
+      "url": "https://www.lavanguardia.com/politica/20220210/8046417/espana-baja-segunda-calidad-democratica-the-economist.html"
+     }
+    ],
+    "8728807": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:db3fcfc9-c2b1-48ea-b6ee-9ef397a9a720>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/politica/20230202/8728807/espana-recupera-estatus-democracia-plena.html"
+     }
+    ],
+    "483527486256": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:ad228860-6024-4c36-82ee-241c6006b0d6>",
+      "dump": "CC-MAIN-2021-21",
+      "url": "https://www.lavanguardia.com/opinion/20200918/483527486256/a-por-el-regimen-del-78.html"
+     }
+    ],
+    "49549937049": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:80566742-a023-4075-9970-414184435a85>",
+      "dump": "CC-MAIN-2022-49",
+      "url": "https://www.lavanguardia.com/opinion/20201120/49549937049/espanoles-franco-ha-muerto.html"
+     }
+    ],
+    "6249938": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:82159368-36fb-4267-82a6-7c1506b1d7b5>",
+      "dump": "CC-MAIN-2022-40",
+      "url": "https://www.lavanguardia.com/opinion/20210216/6249938/que.html"
+     }
+    ],
+    "7647575": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4e4c31ca-f97d-444a-97a5-c441ac2b5275>",
+      "dump": "CC-MAIN-2021-39",
+      "url": "https://www.lavanguardia.com/opinion/20210805/7647575/tiovivo-laboral.html"
+     }
+    ],
+    "7726608": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:0adc4d11-5d69-40d5-9d51-ca5cab91ff16>",
+      "dump": "CC-MAIN-2021-43",
+      "url": "https://www.lavanguardia.com/opinion/20210917/7726608/china-ee-uu-alianza-australia.html"
+     }
+    ],
+    "8048784": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:9b7faf8f-9b09-41db-b34c-d632ab27a503>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/opinion/20220211/8048784/ovejas-lobos-hombres.html"
+     }
+    ],
+    "8458409": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:aadaa136-33cc-4496-9f6f-ba362cd83464>",
+      "dump": "CC-MAIN-2022-40",
+      "url": "https://www.lavanguardia.com/opinion/20220810/8458409/turismointerior-2.amp.html"
+     }
+    ],
+    "8500077": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:2e208446-4c95-4d68-93a6-e20275424f1a>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/opinion/20220902/8500077/division-llega-onze-setembre.html"
+     }
+    ],
+    "8608235": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:e3a4a32d-e396-4185-a0ab-fc9569cf1cd5>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/opinion/20221116/8608235/costes-mal-gobierno.html"
      }
     ],
     "8630411": [
@@ -175,12 +1159,92 @@
       "url": "https://www.lavanguardia.com/opinion/20221202/8630411/edadismo.html"
      }
     ],
+    "48232542600": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d7ad3711-6686-43c8-9693-8645c9b6c8d0>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/internacional/20200401/48232542600/eeuu-venezuela-maduro-guaido-estrategia.html"
+     }
+    ],
+    "48924144609": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:555692ed-805e-4200-9314-0721624c2598>",
+      "dump": "CC-MAIN-2020-40",
+      "url": "https://www.lavanguardia.com/internacional/20200503/48924144609/estados-unidos-coche-drive-thru-covid-coronavirus.html"
+     }
+    ],
+    "482453441829": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:cde2d979-e841-4c30-85d3-deebd79037f8>",
+      "dump": "CC-MAIN-2021-31",
+      "url": "https://www.lavanguardia.com/internacional/20200721/482453441829/coronavirus-bajo-control-cinco-meses-italia.html"
+     }
+    ],
+    "483847787098": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:94448bbe-08a6-4703-80d3-7f066a62ffe5>",
+      "dump": "CC-MAIN-2020-50",
+      "url": "https://www.lavanguardia.com/internacional/20201004/483847787098/papa-llama-romper-dogma-neoliberal-mundo-justo-pandemia-enciclica-fratelli-tutti.html"
+     }
+    ],
+    "49845305651": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:5b28fc52-37b5-4e28-8a34-e1a7ce6866cd>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/internacional/20201202/49845305651/barr-fiscal-general-eeuu-niega-fraude-electoral-trump.html"
+     }
+    ],
+    "6255897": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:750899db-af34-4135-95a6-73a27763682a>",
+      "dump": "CC-MAIN-2021-10",
+      "url": "https://www.lavanguardia.com/internacional/20210219/6255897/texas-muestra-declive-eeuu-gran-apagon.html"
+     }
+    ],
+    "7422707": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c2c09c26-f134-4267-b5f7-ea6bb700b3b2>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/internacional/20210502/7422707/diez-anos-bin-laden-final-petrificante.html"
+     }
+    ],
+    "7831583": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a7e3c11f-30b9-4c34-b65c-7af6cfe78017>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/internacional/20211102/7831583/australia-tailandia-reabren-fronteras-18-meses-aislamiento.html"
+     }
+    ],
+    "6265475": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:45219935-7dab-472e-a3ca-825227dd651f>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/internacional/20210308/6265475/cristiana-emociono-papa-qaraqosh.html"
+     }
+    ],
     "8090341": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:1a6383ad-86de-4141-9002-d751fd512da6>",
       "dump": "CC-MAIN-2023-50",
       "url": "https://www.lavanguardia.com/internacional/20220301/8090341/agencia-noticias-rusa-publica-error-editorial-victoria.html"
+     }
+    ],
+    "8172570": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:ed702815-311d-47c1-bb2b-9ab5a4891f15>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/internacional/20220403/8172570/legionarios-ucrania.html"
      }
     ],
     "8307791": [
@@ -191,6 +1255,134 @@
       "url": "https://www.lavanguardia.com/internacional/20220601/8307791/rusia-avanza-donbass-entra-ciudad-clave-severodonetsk.html"
      }
     ],
+    "8381171": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:562a8be4-820f-4fae-b853-434cf9098d3c>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/internacional/20220702/8381171/supremo-biden-estados-unidos-poder-contrapoder-politizado-mayoria-conservadora.html"
+     }
+    ],
+    "8512292": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:1ef4facf-e698-4301-b2c4-18cc4c50d036>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/internacional/20220909/8512292/muere-isabel-ii.html"
+     }
+    ],
+    "8452779": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:652da12f-f657-499c-9596-f04dfe26ccab>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/internacional/20220806/8452779/senadora-sinema-apoya-inversion-cambio-climatico-ee-uu.html"
+     }
+    ],
+    "473405008103": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:ecd30b8c-7283-43ae-a020-6ce6a777fb3c>",
+      "dump": "CC-MAIN-2022-49",
+      "url": "https://www.lavanguardia.com/economia/20200210/473405008103/pronokal.html"
+     }
+    ],
+    "48271356617": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:8eb79ea2-56a4-4bba-bad0-07ae58aa68d5>",
+      "dump": "CC-MAIN-2022-49",
+      "url": "https://www.lavanguardia.com/economia/20200402/48271356617/paro-registrado-afiliacion-empleo-marzo-2020-coronavirus.html"
+     }
+    ],
+    "48978692688": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:6b61243f-0998-4af4-a3e7-fe4fc3814689>",
+      "dump": "CC-MAIN-2020-24",
+      "url": "https://www.lavanguardia.com/economia/20200505/48978692688/supermega--monopolios.html"
+     }
+    ],
+    "482629076813": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:22d64e57-f3b5-44e2-ab8a-8a7a22496837>",
+      "dump": "CC-MAIN-2021-25",
+      "url": "https://www.lavanguardia.com/economia/20200803/482629076813/y-tu-negocio-cuanto-co2-emite.html"
+     }
+    ],
+    "483785733419": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:bc693081-f001-4cf2-ab09-9604f9d833e2>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/economia/20201002/483785733419/banco-de-espana-fusiones-bancarias.html"
+     }
+    ],
+    "49151655183": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:272d32e7-e89d-45fb-a52c-0f05a7136ef0>",
+      "dump": "CC-MAIN-2020-50",
+      "url": "https://www.lavanguardia.com/economia/20201102/49151655183/dioxido-de-carbono-co2-elaboracion-cerveza.html"
+     }
+    ],
+    "49838412000": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:22316793-3950-4d13-9d18-7404fdadcc8b>",
+      "dump": "CC-MAIN-2021-17",
+      "url": "https://www.lavanguardia.com/economia/20201201/49838412000/banco-espana-insolvencia-empresas-liquidacion-covid-crisis.html"
+     }
+    ],
+    "481799137866": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:abe6a267-ad63-4e42-8b0a-2a7fcd5f6be7>",
+      "dump": "CC-MAIN-2020-34",
+      "url": "https://www.lavanguardia.com/economia/20200615/481799137866/verse-twitter-square.html"
+     }
+    ],
+    "6170726": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:263d51cc-a3df-4498-8450-2c4bf8ad3d3f>",
+      "dump": "CC-MAIN-2021-10",
+      "url": "https://www.lavanguardia.com/economia/20210107/6170726/restricciones-condenan-rebajas-acercan-cierre-tiendas-coronavirus.html"
+     }
+    ],
+    "6227316": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:09c82d3a-0408-4951-81b0-94e0936970ae>",
+      "dump": "CC-MAIN-2021-39",
+      "url": "https://www.lavanguardia.com/economia/20210206/6227316/amazon-google-facebook-apple-resultados-coronavirus.html"
+     }
+    ],
+    "6261671": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:6b91af4e-9771-4378-920a-e4fe428e56ba>",
+      "dump": "CC-MAIN-2022-21",
+      "url": "https://www.lavanguardia.com/economia/20210301/6261671/catalunya-juega-futuro-economico-inversion-fondos-europeos-brl.html"
+     }
+    ],
+    "6621522": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:6bff77e4-3010-4c05-9091-d64f75b13cd9>",
+      "dump": "CC-MAIN-2022-21",
+      "url": "https://www.lavanguardia.com/economia/20210401/6621522/glovo-ronda-inversion-espana-2020-crecimiento.html"
+     }
+    ],
+    "7575069": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:5f7dcc47-2ff4-44ae-8d9b-aefd1df61b19>",
+      "dump": "CC-MAIN-2022-27",
+      "url": "https://www.lavanguardia.com/economia/20210703/7575069/zazume-proptech-airbnb-casero-digital.html"
+     }
+    ],
     "7637839": [
      {
       "config": "spa_Latn",
@@ -199,12 +1391,140 @@
       "url": "https://www.lavanguardia.com/economia/20210804/7637839/inteligencia-artificial-mundo-real.html"
      }
     ],
+    "7747249": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c802db24-1887-4167-b391-7e84851c8a2f>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/economia/20211001/7747249/teletrabajo-empresas-oficina-trabajadores.html"
+     }
+    ],
+    "7893748": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:69aaabdf-a084-43ab-9bac-e51a53564f67>",
+      "dump": "CC-MAIN-2022-21",
+      "url": "https://www.lavanguardia.com/economia/20211201/7893748/paro-juvenil-jovenes-espana-crisis-pandemia-empleo.html"
+     }
+    ],
+    "8032107": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:bc7aeaad-7749-41b9-9aea-ab2911a6ef09>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/economia/20220203/8032107/criptomonedas-piratas-robo-wormhole.html"
+     }
+    ],
+    "8089201": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:76d5256d-bded-4b27-a9ed-9d5d2e753f84>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/economia/20220302/8089201/madrid-barcelona-ciudades-desafios-siglo-xxi-streaming-brl.html"
+     }
+    ],
+    "8456443": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:9d681162-118e-4fab-91c7-fb0174ca8642>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/economia/20220809/8456443/agricultura-regenerativa-mundo-crisis-energetica-climatica-alimentaria.html"
+     }
+    ],
+    "8501376": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:b48b18af-0bf5-4a74-be38-d2490df07ae7>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/economia/20220904/8501376/coste-transporte-maritimo-baja-menor-demanda-mercancias.html"
+     }
+    ],
+    "8595460": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:ed6c1e37-ace7-4a30-9b24-6b7485fe83c3>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/economia/20221106/8595460/guerra-chips-estados-unidos-china-semiconductores.html"
+     }
+    ],
+    "8672843": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:b9076154-a00c-4340-890b-48ef9341f720>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/economia/20230110/8672843/amazon-cierra-almacenes-reino-unido-empleados.html"
+     }
+    ],
     "474091074509": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:ffd9b138-e68a-4dd3-bc55-697b720447bb>",
       "dump": "CC-MAIN-2021-10",
       "url": "https://www.lavanguardia.com/cultura/20200312/474091074509/coronavirus-cultura-cierres-museos-cine-festivales-opera-teatros.html"
+     }
+    ],
+    "48259150663": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:42600a74-c418-4989-a2d8-1c86cde85118>",
+      "dump": "CC-MAIN-2020-29",
+      "url": "https://www.lavanguardia.com/cultura/20200402/48259150663/relatos-confinamiento-lilian-neuman-en-la-ciudad-desnuda.html"
+     }
+    ],
+    "481007388824": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:7b59be62-7ec2-4fc7-b7e1-5e481557b017>",
+      "dump": "CC-MAIN-2021-10",
+      "url": "https://www.lavanguardia.com/cultura/20200507/481007388824/socavon-panteon-roma-pavimento.html"
+     }
+    ],
+    "482063563411": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:61f0a776-1c37-4339-8870-ee42d7a06fc3>",
+      "dump": "CC-MAIN-2020-34",
+      "url": "https://www.lavanguardia.com/cultura/20200704/482063563411/el-reto-miles-davis-louis-malle-ascensor-para-el-cadalso.html"
+     }
+    ],
+    "482908113743": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:7636e8b5-6cc8-4698-a7d1-932d5d78350b>",
+      "dump": "CC-MAIN-2020-50",
+      "url": "https://www.lavanguardia.com/cultura/20200819/482908113743/enigmatico-edificio-desierto-arabia-prospero-pastores-lluvia-arqueologia-mustatil.html"
+     }
+    ],
+    "49198913313": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a1c30ae5-9aa8-40d4-8fec-06e3561d3640>",
+      "dump": "CC-MAIN-2021-39",
+      "url": "https://www.lavanguardia.com/cultura/20201103/49198913313/guerra-humano-homo-sapiens-neandertal-supremacia.html"
+     }
+    ],
+    "6212731": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:bfdd7fce-8548-4c09-a137-f3912f248303>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/cultura/20210201/6212731/pineiro-gimenez-bartlett-cliches-femeninos-son-cosa-pasado.html"
+     }
+    ],
+    "6261579": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f4262757-8611-448e-a997-244ec6194ced>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/cultura/20210301/6261579/glbos-oro-nomadland-crown.html"
+     }
+    ],
+    "7496291": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:93b137f3-3051-4e72-8f2d-9cb0ac5a7f55>",
+      "dump": "CC-MAIN-2021-43",
+      "url": "https://www.lavanguardia.com/cultura/20210601/7496291/estudiantes-arte-denuncian-museo-picasso-barcelona-misoginia-pintor-maltratador.html"
      }
     ],
     "7637751": [
@@ -223,12 +1543,212 @@
       "url": "https://www.lavanguardia.com/cultura/20210918/7729850/fallece-director-cine-mario-camus.html"
      }
     ],
+    "7765046": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a6dcde33-1e51-4488-b50e-0b4b503f51a5>",
+      "dump": "CC-MAIN-2021-43",
+      "url": "https://www.lavanguardia.com/cultura/20211004/7765046/me-escribo-me-edito.html"
+     }
+    ],
+    "8035915": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:de8ced17-c67b-45b2-8daf-3189944ccbe4>",
+      "dump": "CC-MAIN-2022-27",
+      "url": "https://www.lavanguardia.com/cultura/20220205/8035915/siguiendo-rastro-carvalho.html"
+     }
+    ],
+    "8166469": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:5e8a8ef6-506e-46a7-8f7a-80a2ecae35e3>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/cultura/20220401/8166469/johanna-hedman-trio-sueca.html"
+     }
+    ],
+    "8239843": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:0376fc96-c088-40f1-aa13-e80117e5a52f>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/cultura/20220504/8239843/pintura-rupestre-nativo-americana-mas-grande-mas-1-000-anos-antigueedad.html"
+     }
+    ],
+    "8378993": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:1ad58e8b-2dba-461e-8909-cb561e5ffe40>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/cultura/20220701/8378993/gilda-cantando-en-las-azoteas-cine-estreno.html"
+     }
+    ],
+    "8595412": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:aeb7e6cd-44ea-489c-834c-893f8778c9a3>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/cultura/20221106/8595412/jordi-pujola-novela-darknet.html"
+     }
+    ],
+    "8648216": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:58f69c99-db20-47b5-8085-8473b3aa5f2a>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/cultura/20221217/8648216/severa-sequia-llevo-atila-hunos-atacar-imperio-romano.html"
+     }
+    ],
+    "481526719223": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c401855d-4dd3-449f-b4c1-c35374e063a4>",
+      "dump": "CC-MAIN-2021-25",
+      "url": "https://www.lavanguardia.com/vida/20200601/481526719223/b3a-el-coronavirus-espanol.html"
+     }
+    ],
+    "48266706374": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4d4e1cae-5274-4079-ad2c-2c7ca074f7d0>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/vida/20200402/48266706374/erte-alerta-delincuencia-internet-coronavirus-fact-check.html?facet=amp"
+     }
+    ],
+    "482786070423": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a5f09113-2c5b-49dd-8382-0551d56617dd>",
+      "dump": "CC-MAIN-2022-27",
+      "url": "https://www.lavanguardia.com/vida/20200811/482786070423/coronavirus-espana-brotes-rebrotes-contagios-fallecidos-datos-cataluna-madrid-aragon-ultimas-noticias-hoy-en-directo.html"
+     }
+    ],
+    "483347827261": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:e45ca4d9-a071-408a-bd87-444e4acbd52b>",
+      "dump": "CC-MAIN-2022-21",
+      "url": "https://www.lavanguardia.com/vida/20200907/483347827261/espana-lider-trasplantes.html"
+     }
+    ],
+    "49863278626": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:97092603-2217-413d-89b5-6fa66d56eeeb>",
+      "dump": "CC-MAIN-2021-25",
+      "url": "https://www.lavanguardia.com/vida/20201204/49863278626/casinos-sienten-discriminados-piden-entrar-plan-desescalada.html"
+     }
+    ],
+    "473971761575": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:5363025a-0b90-448e-8618-f3b6722e4acd>",
+      "dump": "CC-MAIN-2020-29",
+      "url": "https://www.lavanguardia.com/vida/20200305/473971761575/sistema-sanitario-nuevas-tecnologias.html"
+     }
+    ],
+    "7901382": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:39bc4709-ce4a-4360-879e-d0649aee3373>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/vida/20211201/7901382/constitucional-respalda-mujer-inss-nego-incapacidad-discapacitada.html"
+     }
+    ],
+    "7576465": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:52e68c25-5eb9-446f-80c2-977b8b7c546c>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/vida/20210704/7576465/la-marina-planeta-barrio-art-for-change-adolescentes.html"
+     }
+    ],
+    "6188607": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:16456fa6-8e8d-4295-a9ca-ac528ab81877>",
+      "dump": "CC-MAIN-2022-27",
+      "url": "https://www.lavanguardia.com/vida/20210202/6188607/que-hidrogeno-verde-sera-combustible-futuro-brl.html?utm_term=botones_sociales_app&utm_source=social-otros&utm_medium=social"
+     }
+    ],
+    "8229509": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:165a3804-e7d4-49d5-a751-a0e893cb8a37>",
+      "dump": "CC-MAIN-2022-21",
+      "url": "https://www.lavanguardia.com/vida/20220501/8229509/duelo-muerte-neonatal-perinatal-bebe-embarazo.html"
+     }
+    ],
+    "8551027": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:00fcfa11-70ba-4ce2-933c-d137f8b312f8>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/vida/20221002/8551027/libertad-religiosa-cordoba-congreso.html"
+     }
+    ],
     "8593561": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:a70fc943-478f-4f13-9fa9-a35a7da54a1f>",
       "dump": "CC-MAIN-2023-50",
       "url": "https://www.lavanguardia.com/vida/20221104/8593561/7-noticias-tienes-viernes-4-octubre-manana-pmv.html"
+     }
+    ],
+    "8500016": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:9aec6121-02ab-47a4-81c9-048902b4c5dc>",
+      "dump": "CC-MAIN-2022-49",
+      "url": "https://www.lavanguardia.com/vida/20220903/8500016/ucis-encuentran-minimos-toda-pandemia-210-pacientes-covid-espana.html"
+     }
+    ],
+    "8665949": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:721473cb-46cc-4761-b809-edf73a792c4f>",
+      "dump": "CC-MAIN-2023-06",
+      "url": "https://www.lavanguardia.com/vida/20230103/8665949/cuenta-productores-tabaco-recojan-filtros-cigarrillos.html"
+     }
+    ],
+    "6266111": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:5b3b806c-e44c-4c50-a126-c652b13c56f9>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/deportes/20210309/6266111/cassius-clay-tio-tom.html"
+     }
+    ],
+    "7703845": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d116789a-b570-4983-878b-1320faad6908>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/deportes/20210907/7703845/tal-como-eramos-el-corner-ingles.html"
+     }
+    ],
+    "7799237": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:2808d291-2085-4e98-9c63-cd88c95b70a6>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/deportes/20211019/7799237/nostalgia-siempre.html"
+     }
+    ],
+    "7880721": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:ff3fa828-7c5c-4797-8ec3-9459da7d6448>",
+      "dump": "CC-MAIN-2021-49",
+      "url": "https://www.lavanguardia.com/deportes/20211122/7880721/ladrones-roban-casa-ansu-fati-sant-cugat.html"
+     }
+    ],
+    "8279868": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:b751562e-bf73-40da-afa0-a4baf12435ce>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/deportes/20220520/8279868/circuit-barcelona-catalunya-volvera-rugir-gradas.html"
      }
     ],
     "7559503": [
@@ -239,12 +1759,148 @@
       "url": "https://www.lavanguardia.com/local/20210627/7559503/barcelona-metropolis-metropolitana-ciutats.html"
      }
     ],
+    "8272333": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:3f52a37e-41df-40bf-ae75-3903f48e998c>",
+      "dump": "CC-MAIN-2022-27",
+      "url": "https://www.lavanguardia.com/local/20220523/8272333/vascos-madrilenos-barrios-ricos-extremenos-pobres.html"
+     }
+    ],
+    "472672406732": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:9366124f-b7db-48f4-a0e0-565891d45c14>",
+      "dump": "CC-MAIN-2020-45",
+      "url": "https://www.lavanguardia.com/politica/20200102/472672406732/erc-consejo-nacional-abstencion-investidura-pedro-sanchez.html"
+     }
+    ],
+    "48906936044": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f24f6899-00b0-416a-aed4-85fb8c219098>",
+      "dump": "CC-MAIN-2024-18",
+      "url": "https://www.lavanguardia.com/politica/20200502/48906936044/pedro-sancez-cogobernar-desescalada-gobiernos-comunidades-autonomas-prorroga-estado-alarma-no-plan-b.html"
+     }
+    ],
+    "483254726168": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:08e16377-4918-4f10-8030-08d88cf846cb>",
+      "dump": "CC-MAIN-2021-25",
+      "url": "https://www.lavanguardia.com/politica/20200901/483254726168/puigdemont-carnet-pdecat-junts-per-catalunya-escision.html"
+     }
+    ],
+    "48372446353": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:b276dbf7-8d2c-41b1-9f20-9bcb51347903>",
+      "dump": "CC-MAIN-2021-31",
+      "url": "https://www.lavanguardia.com/politica/20200407/48372446353/gobierno-limitar-precios-mascarillas-productos-proteccion.html"
+     }
+    ],
+    "482877825528": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:24ed5d59-2ad6-4db5-839c-cda3f5f65dda>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/politica/20200817/482877825528/zarzuela-confirma-rey-juan-carlos-esta-emiratos-arabes-unidos.html"
+     }
+    ],
+    "49469099036": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:dfc5455d-ec1f-4c73-82a5-e6915e6d755b>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/politica/20201115/49469099036/alianzas-para-la-pospandemia.html"
+     }
+    ],
+    "6172991": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f3dbd90f-4be9-47ea-8922-3880a01f0394>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/politica/20210108/6172991/movilizar-mintiendo.html"
+     }
+    ],
+    "7910270": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:99eafd60-392c-4c73-b295-39c65a8c857c>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/politica/20211205/7910270/derecha-catalana-catalunya-pp-ciudadanos.html"
+     }
+    ],
+    "7709299": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:b48415f9-a8ad-42b2-8c40-a9872a33a52f>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/politica/20210909/7709299/ampliacion-aeropuerto-el-prat-barcelona-cataluna-esi.html"
+     }
+    ],
+    "8002983": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:56a20105-4adb-4398-ac8b-9c4a783ed823>",
+      "dump": "CC-MAIN-2022-21",
+      "url": "https://www.lavanguardia.com/politica/20220121/8002983/juvilla-seguira-diputado-agotara-todas-vias-legales-resolucion-jec.html"
+     }
+    ],
     "8172802": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:31a6adc4-2b3f-4ca4-a4aa-119176d29c58>",
       "dump": "CC-MAIN-2022-33",
       "url": "https://www.lavanguardia.com/politica/20220403/8172802/feijoo-giro-pp-apuesta-espana-diversa.html"
+     }
+    ],
+    "472713209545": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d9368ee5-d6f5-4a87-8cea-668156f92d59>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/opinion/20200105/472713209545/trump-soleimani-estados-unidos-iran.html"
+     }
+    ],
+    "48287455984": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4b21ba48-c084-41df-ba97-328a49190f8a>",
+      "dump": "CC-MAIN-2021-10",
+      "url": "https://www.lavanguardia.com/opinion/20200404/48287455984/cuanto-disenso-permite-el-virus.html"
+     }
+    ],
+    "481612804146": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:227d2900-dd3d-4dc8-81a2-5cb003a9a3dc>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/opinion/20200606/481612804146/caos.html"
+     }
+    ],
+    "482049462972": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:48e43ffb-6518-4898-a228-1adc01e988fa>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/opinion/20200702/482049462972/cambio-de-piel.html"
+     }
+    ],
+    "482659375894": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4cc87133-9dcd-410f-8b84-f93521f0e24c>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/opinion/20200803/482659375894/fernando-onega-el-ultimo-exiliado.html"
+     }
+    ],
+    "483279127021": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:447c6927-740a-48bb-a0f9-a6d74fcec1a8>",
+      "dump": "CC-MAIN-2021-04",
+      "url": "https://www.lavanguardia.com/opinion/20200903/483279127021/la-mami-y-los-mamarrachos.html"
      }
     ],
     "483947623764": [
@@ -255,12 +1911,236 @@
       "url": "https://www.lavanguardia.com/opinion/20201009/483947623764/bon-retorn-al-passat.html"
      }
     ],
+    "6105207": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d7965d1c-e0f2-44e3-8a4d-c02e341d8188>",
+      "dump": "CC-MAIN-2021-10",
+      "url": "https://www.lavanguardia.com/opinion/20201209/6105207/fornicando-bildu.html"
+     }
+    ],
+    "6168981": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:5945de53-de6f-4417-bb57-17c0b5dd66d0>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/opinion/20210105/6168981/reyes-oriente.html"
+     }
+    ],
+    "6218571": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:b0f839e1-f404-4384-b007-fb0efb2d3a07>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/opinion/20210202/6218571/cambiarse-cara.html"
+     }
+    ],
+    "6263851": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:b1764800-706b-4a92-8421-c68b76fc3c76>",
+      "dump": "CC-MAIN-2021-17",
+      "url": "https://www.lavanguardia.com/opinion/20210305/6263851/esto-largo.html"
+     }
+    ],
+    "7422735": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:337d5d91-093f-49bc-be56-a54b4a63bf29>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/opinion/20210502/7422735/sociedad-necesita-govern.html"
+     }
+    ],
+    "7532257": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:fef61116-bc48-415e-b851-ff0a0f828822>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/opinion/20210615/7532257/casado-junqueras.html"
+     }
+    ],
+    "7669629": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:71ba69c7-0159-4d2f-9b84-7c03f85906bb>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/opinion/20210818/7669629/desinhibicion.html"
+     }
+    ],
+    "7764089": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:e72cef8b-345d-4307-af17-c8580fbf5bd7>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/opinion/20211003/7764089/vote.html"
+     }
+    ],
+    "8240822": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:6e3e8f48-86a3-4cbc-834c-b6982bfff536>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/opinion/20220504/8240822/asesinen-memoria.html"
+     }
+    ],
+    "8381216": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:dea76638-7624-4695-8912-cdf8b0e1da67>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/opinion/20220701/8381216/justicia-ideologizada.html"
+     }
+    ],
+    "473312262274": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:1a9ced3e-31dd-4b91-84ea-bc5274d5c701>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/internacional/20200206/473312262274/democratas-recuento-caucus-iowa.html"
+     }
+    ],
+    "482054120510": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a68f246c-71e7-48cc-ad82-61078ce061f9>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/internacional/20200702/482054120510/fbi-detiene-ghislane-maxwell-jeffrey-epstein.html"
+     }
+    ],
+    "483859997374": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:5660845d-b7bb-4a4c-bafa-f3ebac36040f>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/internacional/20201005/483859997374/venezuela-maduro-no-detiene-elecciones.html"
+     }
+    ],
+    "49844783189": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:ea0d8e3e-903a-4755-a1d5-51707d62b7c8>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/internacional/20201202/49844783189/joe-biden-equipo-economico-figuras-estados-unidos-gobierno.html"
+     }
+    ],
+    "6219436": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:7ba57a23-5e86-4854-a5e2-8099dcdad4a9>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/internacional/20210203/6219436/mario-draghi-salvador-euro-rescate-italia.html"
+     }
+    ],
+    "7424407": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:493ff679-6de0-40ce-a22e-6d89b76715f0>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/internacional/20210503/7424407/san-diego-barca-accidente-trafico-de-personas.html"
+     }
+    ],
+    "7730764": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:96169c41-ca3d-4cd8-934d-efc2cda0d062>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/internacional/20210919/7730764/bluf-capitolio-convocatoria-apoyo-asaltantes-6-enero.amp.html"
+     }
+    ],
+    "8236489": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f51e0995-ec87-4f3a-886e-368799cce296>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/internacional/20220502/8236489/polemica-mensajes-prorusos-tv-italiana.html"
+     }
+    ],
+    "473438077445": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:1fcbc0c4-2191-40ad-aac7-010be2e5ec65>",
+      "dump": "CC-MAIN-2021-10",
+      "url": "https://www.lavanguardia.com/economia/20200211/473438077445/coronavirus-impacto-economia-mundial-sars.html"
+     }
+    ],
+    "48847501410": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:033d1310-2106-4781-a5b5-794ea11a7e3f>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/economia/20200501/48847501410/renovables-sacan-pecho-coronavirus.html"
+     }
+    ],
+    "481527155284": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:1c272764-9d5f-4594-849c-d509442d4fdc>",
+      "dump": "CC-MAIN-2021-04",
+      "url": "https://www.lavanguardia.com/economia/20200601/481527155284/nissan-calcula-1450-millones-coste-abandonar-barcelona.html"
+     }
+    ],
     "48376751995": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:6f523a1d-1ed2-4380-97c4-12b18e3008b0>",
       "dump": "CC-MAIN-2020-24",
       "url": "https://www.lavanguardia.com/economia/20200407/48376751995/campo-inmigrantes-parados-erte-empleo-trabajar-trabajo.html"
+     }
+    ],
+    "6211225": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:192dec8e-89b1-40f4-935d-cf3fc1df2220>",
+      "dump": "CC-MAIN-2021-17",
+      "url": "https://www.lavanguardia.com/economia/20210204/6211225/futbol-ingresos-crisis-coronavirus-cuentas-barcelona-madrid.html"
+     }
+    ],
+    "6263088": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d3c91798-3c61-4f95-900f-85c8810a9e1a>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/economia/20210304/6263088/pymes-ganan-competitividad-gracias-teletrabajo-orange-brl.html"
+     }
+    ],
+    "7429794": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:91b1516e-be1a-4582-bc49-bc994a0e9f17>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/economia/20210505/7429794/afiliacion-crece-134-000-trabajadores-cae-terminos-desestacionalizados.html"
+     }
+    ],
+    "7498184": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4fe444c1-38b0-4849-9202-a797a4b8aaa3>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/economia/20210602/7498184/gobierno-recortara-1000-millones-electricas-abaratar-luz.html"
+     }
+    ],
+    "8443174": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d0dab973-c5bf-4b8e-95e9-7e68a17753e7>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/economia/20220801/8443174/inmobiliario-bajan-compras-alarga-plazo-venta.html"
+     }
+    ],
+    "48405471465": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:10674dd7-5a82-4ecc-a902-20763d4de902>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/cultura/20200410/48405471465/lluis-pasqual-carta-abiera-ministro-apagon-cultural.html"
+     }
+    ],
+    "481007267524": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:912797c6-2c88-4f09-b205-ea3c007daaba>",
+      "dump": "CC-MAIN-2022-40",
+      "url": "https://www.lavanguardia.com/cultura/20200507/481007267524/autocines-madrid-espana-coronavirus-moda.html"
      }
     ],
     "481704085849": [
@@ -279,6 +2159,14 @@
       "url": "https://www.lavanguardia.com/cultura/20200701/482040815783/guerrilla-fans.html"
      }
     ],
+    "473324283721": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:0bbf911e-fdb5-45c9-912f-ec68c63cbad3>",
+      "dump": "CC-MAIN-2020-10",
+      "url": "https://www.lavanguardia.com/cultura/20200207/473324283721/altamira-catalana-espluga-de-francoli-cien-grabados-paleolitico.html"
+     }
+    ],
     "6106175": [
      {
       "config": "spa_Latn",
@@ -287,12 +2175,156 @@
       "url": "https://www.lavanguardia.com/cultura/20201209/6106175/neandertales-enterrar-muertos-nino-bebe-francia-la-ferrasie-arqueologia.html"
      }
     ],
+    "474180245780": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:343856f3-6d9c-4f48-98f1-1f6cc6ccde46>",
+      "dump": "CC-MAIN-2021-04",
+      "url": "https://www.lavanguardia.com/cultura/20200316/474180245780/agenda-cultural-confinamiento-coronavirus-musica-cine-series-quedate-en-casa.html"
+     }
+    ],
     "6244218": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:68f62069-81c8-487c-a99e-a43a02e33ae8>",
       "dump": "CC-MAIN-2021-17",
       "url": "https://www.lavanguardia.com/cultura/20210214/6244218/sastreria-cornejo-cien-anos-cine-hollywood-oscars.html"
+     }
+    ],
+    "7422382": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a8735268-47de-415a-8cc2-7eabb16e04cc>",
+      "dump": "CC-MAIN-2021-21",
+      "url": "https://www.lavanguardia.com/cultura/20210502/7422382/mama-papa-revolucion.html"
+     }
+    ],
+    "7912794": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:9536667f-fad3-42f7-a275-c77826c9d4bb>",
+      "dump": "CC-MAIN-2022-21",
+      "url": "https://www.lavanguardia.com/cultura/20211207/7912794/tebeos-sin-nostalgia-francisco-ibanez.html"
+     }
+    ],
+    "7592165": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:2090094a-67a2-4584-9915-ae99068f7642>",
+      "dump": "CC-MAIN-2024-18",
+      "url": "https://www.lavanguardia.com/cultura/20210711/7592165/libros-verano-lecturas-novedades.html"
+     }
+    ],
+    "481526856584": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:e7d16ac7-8fde-4a0a-aed1-e08d16325a4b>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/vida/20200601/481526856584/zakaria-ya-tiene-un-techo.html?fbclid=IwAR0QByONWRu4j2pfjhzbS1En1mr1veIJltLIh_UYrj8XOfYshOuLgweP0Rg&utm_source=emailing-manual&utm_medium=email&utm_campaign=20200909-News_familiesBAC.Actius"
+     }
+    ],
+    "472723811394": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:0771647c-0d6d-4ee5-b89f-3401703b3800>",
+      "dump": "CC-MAIN-2020-05",
+      "url": "https://www.lavanguardia.com/vida/20200106/472723811394/ano-contra-el-tabaco.html"
+     }
+    ],
+    "48909431118": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:ad402bd4-1637-4210-a9ac-213a45e0c906>",
+      "dump": "CC-MAIN-2020-40",
+      "url": "https://www.lavanguardia.com/vida/20200502/48909431118/ataque-tos-fernando-simon-almendra-coronavirus.html"
+     }
+    ],
+    "49412498979": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:70219f55-5b2b-44af-89cf-2e1c4ee2dd39>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/vida/20201112/49412498979/maxima-presion-salut-relaje-medidas-contra-bares.html"
+     }
+    ],
+    "473305139240": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a2bcf5d8-6209-47f2-b0aa-8eebf86c1ca2>",
+      "dump": "CC-MAIN-2021-04",
+      "url": "https://www.lavanguardia.com/vida/20200206/473305139240/uso-movil-ulas-educacion-expertos.html"
+     }
+    ],
+    "48435165596": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f454b5f7-d978-4b67-91f5-bd3add056cb9>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/vida/20200412/48435165596/desde-casa-por-fin.html"
+     }
+    ],
+    "7421529": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c6182d54-86cc-4de1-9fc3-15dd3a86aa24>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/vida/20210502/7421529/mediamorphosis-rupert-murdoch-news-corp-sucesion.html"
+     }
+    ],
+    "8016328": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:08685375-b0fd-4719-b485-3bb01f6b347a>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/vida/20220201/8016328/covid-argumentos-discutir-antivacunas.html"
+     }
+    ],
+    "49122285855": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:1b014404-2e9e-4958-89cb-b004ec4a6bba>",
+      "dump": "CC-MAIN-2021-04",
+      "url": "https://www.lavanguardia.com/deportes/20201101/49122285855/los-pretendientes.html"
+     }
+    ],
+    "481139793676": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:70a76cc8-3aba-40d6-8759-7d75281052c9>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/deportes/20200514/481139793676/barca-calcula-impacto-caida-ingresos-154-millones-menos.html"
+     }
+    ],
+    "482104768870": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:378c30a0-21a7-4edd-90a9-c2f72b8b41f5>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/deportes/20200705/482104768870/menos-que-un-club-mas-que-amigos.html"
+     }
+    ],
+    "483910857351": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f1557604-61ad-47f9-a2aa-303c00355493>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/deportes/20201010/483910857351/turismo-deportivo-girona-costa-brava-pirineu-golf-futbol-tenis-vela-ciclismo-senderismo-brl.html"
+     }
+    ],
+    "7504132": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:bd4d24d7-bba2-4def-826c-dba7738eea7e>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/deportes/20210604/7504132/paraguas-koeman.html"
+     }
+    ],
+    "8098952": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:215a01d0-17c0-4bbd-860e-584a014ae7a9>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/deportes/20220304/8098952/expulsados-olimpismo.html"
      }
     ],
     "8364728": [
@@ -310,14 +2342,70 @@
       "dump": "CC-MAIN-2022-33",
       "url": "https://www.lavanguardia.com/deportes/20220410/8189673/historia-caida-barca-libros.html"
      }
+    ],
+    "7941976": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:8917a429-b386-4976-9757-864e78e27a7d>",
+      "dump": "CC-MAIN-2022-21",
+      "url": "https://www.lavanguardia.com/local/20211220/7941976/grupo-punk-polla-records-invita-escenario-colectivo-bizitza-antivacunas.html"
+     }
     ]
    }
   },
   "mid2023": {
    "n": 249,
-   "found": 13,
-   "share": 0.0522,
+   "found": 69,
+   "share": 0.2771,
    "hits": {
+    "8884278": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:926dc1d3-edd6-4bf5-80d4-600f4a4cbc6d>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/politica/20230409/8884278/temor-junts-impacto-causa-borras-municipales.html"
+     }
+    ],
+    "9225213": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f38179bf-2202-46a9-8542-5dcbfbcf00c4>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/politica/20230914/9225213/aznar-amnistia-indultos-historia-condenados.html"
+     }
+    ],
+    "9381331": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f6111b08-d787-4898-9914-942278aae231>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/politica/20231115/9381331/yolanda-diaz-pone-nuevos-deberes-sanchez-reforma-fiscal-financiacion-desigualdad-vivienda.html"
+     }
+    ],
+    "8940546": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:12662525-0d8e-4a5c-869a-5c19b8901e2e>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/opinion/20230504/8940546/politica-punky-viene.html"
+     }
+    ],
+    "9009805": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:2883ed0a-2b7c-4e5e-b14b-21c0523218e1>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/opinion/20230601/9009805/audacia-temeridad.html"
+     }
+    ],
+    "9362335": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:0b64baa1-69f7-46fc-8427-a908c25e682c>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/opinion/20231109/9362335/trabajo-sera-ganarse-vida.html"
+     }
+    ],
     "9089552": [
      {
       "config": "spa_Latn",
@@ -342,6 +2430,38 @@
       "url": "https://www.lavanguardia.com/internacional/20230601/9010881/trump-retuvo-documento-secreto-plan-atacar-iran-cnn.html"
      }
     ],
+    "8904126": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:5909b3aa-0695-4f3c-b67b-1e0eec64a72f>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/internacional/20230503/8904126/wagner-recluta-mercenarios-latinoamerica.html"
+     }
+    ],
+    "9390146": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:fe4030a0-c035-4fd3-a121-621b21e464c6>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/internacional/20231120/9390146/izquierda-alemania-die-linke-wagenknecht-escision-ultraderecha.html"
+     }
+    ],
+    "9270164": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c995b756-97e6-4ed5-b1b5-107582a0ea9b>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/internacional/20231002/9270164/fiscal-alude-pruebas-acusar-trump-fraude.html"
+     }
+    ],
+    "8943707": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:42a95479-901e-4acf-9ac4-1ff90df455c5>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/economia/20230505/8943707/bce-modera-alza-tipos-asegura-continuaran-subiendo.html"
+     }
+    ],
     "8884333": [
      {
       "config": "spa_Latn",
@@ -350,12 +2470,44 @@
       "url": "https://www.lavanguardia.com/economia/20230412/8884333/crisis-climatica-obliga-nuevo-turismo-sequia.html"
      }
     ],
+    "8891109": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:3b06f7b3-1928-400a-a787-d3e4a3946a69>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/economia/20230412/8891109/desperdicio-electricidad-renovable-multiplico-10-espana-peor-ano-crisis-energetica.html"
+     }
+    ],
+    "9010164": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:423a0a5c-78de-4808-bc40-216afcaffd94>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/cultura/20230601/9010164/repertorio-plural-femenino.html"
+     }
+    ],
+    "9266128": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:88540b14-13c6-4d03-83a0-e0aeab376d30>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/cultura/20231001/9266128/robots-vietnam.html"
+     }
+    ],
     "8890768": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:e6ecb9c0-18c0-4571-96d4-1aefc1053894>",
       "dump": "CC-MAIN-2023-50",
       "url": "https://www.lavanguardia.com/cultura/20230412/8890768/escritor-pascal-quignard-premio-formentor-letras-2023.html"
+     }
+    ],
+    "9155409": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:369ca437-47c9-4e02-ab0f-d40b923098d6>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/cultura/20230807/9155409/barbie-recauda-1-000-millones-dolares-logra-film-mas-taquillero-dirigido-mujer.html"
      }
     ],
     "9145103": [
@@ -374,12 +2526,76 @@
       "url": "https://www.lavanguardia.com/deportes/20230902/9199789/motogp-gp-catalunya-montmelo-motorhome-durmiendo-lado-marc-marquez-airbnb-pareja.html"
      }
     ],
+    "9267601": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:bd3a10ea-7fb3-4c55-b684-73e897ef1c47>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/deportes/20231002/9267601/autogoles-karma.html"
+     }
+    ],
     "9177151": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:bfdcb470-25c1-4f2c-8989-08ecc828db09>",
       "dump": "CC-MAIN-2023-50",
       "url": "https://www.lavanguardia.com/deportes/20230820/9177151/demostrando-poderio-economico-hilal-envia-paris-boeing-747-llevar-brasileno-riad.html"
+     }
+    ],
+    "9201648": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:767c2064-f267-4cef-a1a5-61b8a6592e71>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/deportes/20230903/9201648/ducati-me-dice-tenga-cuidado-bagnaia-le-hare-caso.html"
+     }
+    ],
+    "9390303": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:676e00a2-7a62-441c-ba94-1e48eabe4b4f>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/deportes/20231120/9390303/biblioteca-paron.html"
+     }
+    ],
+    "9393631": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:2502aa2b-0ac3-47f2-9460-44529c52ec5a>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/deportes/20231120/9393631/victima-verdugos-corbella.html"
+     }
+    ],
+    "8899582": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:e5121c08-5855-4768-8363-95beb3c7385e>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/politica/20230417/8899582/yolanda-diaz.html"
+     }
+    ],
+    "9353120": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:fd996386-c33f-427a-8302-30da1864e35e>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/politica/20231104/9353120/admiten-tramite-demanda-parar-tramitacion-amnistia.amp.html"
+     }
+    ],
+    "9206585": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:70c289ff-150f-49a2-8010-6a6ee079c344>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/politica/20230905/9206585/exigencias-puigdemont-investidura-detalle.html"
+     }
+    ],
+    "9277705": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:fb13b358-426d-4fed-b878-6c210c865486>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/politica/20231005/9277705/junts-descarta-abstencion-investidura-pedro-sanchez-formacion-votara.html"
      }
     ],
     "8880398": [
@@ -390,12 +2606,108 @@
       "url": "https://www.lavanguardia.com/opinion/20230406/8880398/gpt-pilla-ironia.html"
      }
     ],
+    "9198781": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4bb8b79e-9e71-46a1-96ea-562f6485761d>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/opinion/20230902/9198781/joder-que-tropa.html"
+     }
+    ],
+    "9354686": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f985969a-326e-49d2-8b7d-4f5d0e7e80d8>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/opinion/20231106/9354686/just-do-it-esperanza.html"
+     }
+    ],
+    "8906057": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:1df75bbc-34ae-4aec-828b-30276dfd9ce7>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/internacional/20230419/8906057/estados-unidos-pierde-brasil-lula-ucrania-rusia-china.html"
+     }
+    ],
     "9354708": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:c812af54-d42a-43a8-80be-461aa668e087>",
       "dump": "CC-MAIN-2024-10",
       "url": "https://www.lavanguardia.com/internacional/20231105/9354708/multitud-pro-palestinas-intentan-asaltar-base-aerea-tropas-turquia.html"
+     }
+    ],
+    "8909526": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:92f35f19-56fa-4950-9f5c-c4897321d0cf>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/internacional/20230420/8909526/secretario-general-otan-jens-stoltenberg-viaja-kyiv-visita-sorpresa.html"
+     }
+    ],
+    "9090599": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:80936a84-e384-4e5b-bfbb-3ccb1f3fbcef>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/internacional/20230706/9090599/le-pen-calla-estallido-social-francia-sondeos-sonrien.html"
+     }
+    ],
+    "9192189": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:44f87807-d47e-49a7-8e40-5f4d3168c811>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/internacional/20230829/9192189/papa-ensalza-gran-rusia-e-irrita-kyiv.html"
+     }
+    ],
+    "9200967": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:0aa312b7-d3c0-49b8-a135-6adde7d5c353>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/internacional/20230902/9200967/fundacion-nobel-premios-rusia-ceremonia-rectifica-estocolmo.html"
+     }
+    ],
+    "9373767": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:65d59c23-a76d-4f1d-b639-f575b09fbc83>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/internacional/20231113/9373767/david-cameron-padre-brexit-vuelve-downing-street.html"
+     }
+    ],
+    "8938977": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d9f386d6-641b-45ae-83e3-9bff51db6c6e>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/economia/20230504/8938977/comunidades-solares-como-ahorrar-dinero-compartiendo-energia-renovable-solar-brl.html"
+     }
+    ],
+    "9019855": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:bdc8926e-31fc-4ddb-9c43-35a08b5fca07>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/economia/20230606/9019855/caida-natalidad-economia-mundial.html"
+     }
+    ],
+    "9144785": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d0f79d4f-62bc-4899-8ea1-6575088d5c92>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/economia/20230801/9144785/hipotecas-comenzaran-bajar-partir-proximo-abril-2024.html"
+     }
+    ],
+    "9265854": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:b022b0dc-bbba-439b-b6f5-8680570e5256>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/economia/20231001/9265854/corriendo.html"
      }
     ],
     "9336942": [
@@ -406,6 +2718,78 @@
       "url": "https://www.lavanguardia.com/economia/20231101/9336942/satelites-espacio-europa-elon-musk-space-x.html"
      }
     ],
+    "8880593": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4839ec7c-694b-4d5b-b399-a4510077b531>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/economia/20230406/8880593/mas-ricos-hablan-frances.html"
+     }
+    ],
+    "9348968": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:85ab0d8d-b46a-44c5-9168-85b2cbbe7d74>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/economia/20231103/9348968/icf-caixabank-bbva-afectados-presunto-fraude-creditos-covid.html"
+     }
+    ],
+    "9141348": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:7d6969bb-392a-4709-9f82-211a5b471e93>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/economia/20230729/9141348/catalunya-impuestos-modelo-financiacion-modelo-madrid.html"
+     }
+    ],
+    "9210850": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:818d1943-9250-4453-930f-7ca046cdc512>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/cultura/20230907/9210850/preseleccionadas-oscar-espana-erice-bayona-urresola.html"
+     }
+    ],
+    "9215007": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:5a67a405-d09a-421e-9342-b15c3b0af63d>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/cultura/20230909/9215007/dan-lyons-callate-entrevista.html"
+     }
+    ],
+    "9202959": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f5fbad3c-cadb-45cc-8cbc-3bcb6120fcfb>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/vida/20230904/9202959/dana-descarga-sobre-renfe.html"
+     }
+    ],
+    "9267329": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:51d000e1-90c4-4396-a006-6db3f109d3f7>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/vida/20231001/9267329/siniestros-discotecas-horror-alcala-20-madrid-fuego-murcia.html"
+     }
+    ],
+    "9031991": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:1ebd0866-9afa-4d4b-b413-146d958bb1cd>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/vida/20230611/9031991/verdad-oculta-sant-roc.html"
+     }
+    ],
+    "8915570": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c79e49fb-ea39-46af-844d-2fdffbad94f0>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/vida/20230423/8915570/cheque-escolar-debate.html"
+     }
+    ],
     "8881365": [
      {
       "config": "spa_Latn",
@@ -414,12 +2798,116 @@
       "url": "https://www.lavanguardia.com/politica/20230406/8881365/pique-derecha-pudo-haber-sido.html"
      }
     ],
+    "8942282": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d026d4e4-b428-4e0c-89b4-33e65bdb56e3>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/politica/20230504/8942282/fiscalia-pide-ponsati-calendario-asistencia-eurocamara-cuando-volver-citar.html"
+     }
+    ],
+    "9011681": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:0b7f842f-fe48-4c5b-a2b3-69827c300db4>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/politica/20230601/9011681/ines-arrimadas-deja-politica-rueda-prensa-ultima-hora-directo.html"
+     }
+    ],
+    "9217747": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:5698ed00-18a3-4e22-8344-627d4fcc800a>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/politica/20230911/9217747/cuando-amnistia-clamor-calle.html"
+     }
+    ],
+    "9229012": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c3043f9d-e686-4b80-9111-e9496c11b809>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/opinion/20230916/9229012/abyeccion.html"
+     }
+    ],
+    "8935511": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:3d6e772b-1b4e-4106-91af-2218953175a5>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/internacional/20230501/8935511/paraguay-elecciones-pena-alegre-partido-colorado-latinoamerica-lugo-horacio-cartes.html"
+     }
+    ],
+    "8935561": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f334d0d2-88ad-42d1-8243-fc90955c0d81>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/internacional/20230502/8935561/presidente-uzbekistan-reforma-constitucion-extender.html"
+     }
+    ],
+    "8869330": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f5f6fb4b-03d7-4c8b-b9fd-cd874f27172a>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/economia/20230402/8869330/restaurar-suelo-cultivar-agua-agricultura-sequia.html"
+     }
+    ],
+    "8872946": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:7cdef149-ea23-4e53-94cf-faf282aa0a97>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/economia/20230403/8872946/ue-espera-ingresar-14-500-millones-arancel-carbono.amp.html"
+     }
+    ],
+    "9224935": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:ae474de5-ae9e-4228-be67-b54ca93173e9>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/economia/20230915/9224935/gran-desafio-empresa-familiar-que-pasara-fundador-brl.html"
+     }
+    ],
+    "9200883": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a4f016aa-0f10-45f9-a77c-1f377fe21b29>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/cultura/20230903/9200883/videojuegos-peligro-extincion-legado-cultural.html"
+     }
+    ],
+    "9213789": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:cab0671e-046e-4113-90a0-fcba36281fd9>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/vida/20230913/9213789/cruilla-asi-suena-musica-alimentada-energia-renovable-brl.html"
+     }
+    ],
     "8943341": [
      {
       "config": "spa_Latn",
       "fineweb_id": "<urn:uuid:0f7c5525-616a-4c48-917c-34dfe9b2884e>",
       "dump": "CC-MAIN-2023-40",
       "url": "https://www.lavanguardia.com/vida/20230504/8943341/14-jovenes-17-anos-han-dejado-estudios-catalunya.html"
+     }
+    ],
+    "9093980": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:328b9368-566d-4b3b-a728-f4adb545c26c>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/vida/20230709/9093980/oportunidades-vulnerables-badalona-centre-sant-jaume.html"
+     }
+    ],
+    "9236067": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:104f93fe-91c0-4847-9a2d-9473dd3ee0fc>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/deportes/20230919/9236067/queremos-volver-ser-grandes-barcelona-amberes-champions-league.html"
      }
     ]
    }
@@ -432,15 +2920,71 @@
   },
   "lacontra_members": {
    "n": 212,
-   "found": 12,
-   "share": 0.0566,
+   "found": 67,
+   "share": 0.316,
    "hits": {
+    "54129413633": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:839f5fba-d462-487c-8271-ade36af50d46>",
+      "dump": "CC-MAIN-2020-34",
+      "url": "https://www.lavanguardia.com/lacontra/20110317/54129413633/eche-al-guarda-y-les-deje-que-se-casaran-ante-el-van-gogh.html"
+     }
+    ],
+    "54215255883": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d0d9c47c-6677-4bba-8d15-3d49da0c220b>",
+      "dump": "CC-MAIN-2022-05",
+      "url": "https://www.lavanguardia.com/lacontra/20110914/54215255883/nuestros-dirigentes-tienen-poder-pero-no-autoridad.html"
+     }
+    ],
+    "54238767853": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:47ae360d-cec3-4b6a-9949-451164dea08b>",
+      "dump": "CC-MAIN-2017-26",
+      "url": "http://www.lavanguardia.com/lacontra/20111111/54238767853/si-quieres-subir-los-ingresos-del-estado-baja-los-impuestos.html"
+     }
+    ],
+    "54355365278": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f402fbd1-8d80-439c-af3b-ec7b77739b03>",
+      "dump": "CC-MAIN-2013-48",
+      "url": "http://www.lavanguardia.com/lacontra/20121119/54355365278/la-contra-kevin-warwick.html"
+     }
+    ],
+    "54394979114": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:1b7f5470-b8a6-4b98-9ffb-c662550baa0a>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/lacontra/20131129/54394979114/como-padres-compensamos-el-trato-que-nos-dan-de-hijos.html"
+     }
+    ],
+    "54437816873": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4505adb8-6559-4584-8675-7a31ad70bb9c>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/lacontra/20151002/54437816873/la-contra-nathalie-nanzer.html"
+     }
+    ],
     "401662156783": [
      {
       "config": "cat_Latn",
       "fineweb_id": "<urn:uuid:5cf5ce74-67c5-4754-b384-4657799c6a2a>",
       "dump": "CC-MAIN-2023-14",
       "url": "https://www.lavanguardia.com/lacontra/20160509/401662156783/el-patriarcat-destruira-el-planeta-si-no-el-frenem.html"
+     }
+    ],
+    "413037863029": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c9c39d5b-b6b3-400d-9bca-306fc1fd0a27>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/lacontra/20170102/413037863029/la-caza-esta-convirtiendo-los-cotos-en-granjas-intensivas.html"
      }
     ],
     "413991490673": [
@@ -451,6 +2995,22 @@
       "url": "https://www.lavanguardia.com/lacontra/20170204/413991490673/coneix-el-teu-propi-cos-i-no-somiaras-tenir-ne-un-altre.html"
      }
     ],
+    "422261641123": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d9f7b015-894a-44cc-8ed4-569c37a32c53>",
+      "dump": "CC-MAIN-2017-39",
+      "url": "http://www.lavanguardia.com/lacontra/20170504/422261641123/los-partidos-a-menudo-dan-poder-a-gente-incompetente.html"
+     }
+    ],
+    "432707919361": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:8b150de2-6cdb-4dec-823d-333580305290>",
+      "dump": "CC-MAIN-2021-21",
+      "url": "https://www.lavanguardia.com/lacontra/20171108/432707919361/discriminamos-a-los-viejos-lo-que-seremos-es-una-locura.html"
+     }
+    ],
     "433617181886": [
      {
       "config": "cat_Latn",
@@ -459,12 +3019,148 @@
       "url": "https://www.lavanguardia.com/lacontra/20171214/433617181886/la-bondat-i-la-maldat-tenen-motius-ocults.html"
      }
     ],
+    "42966540516": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:6faa3d49-8709-4b1f-bde5-648f8901a83a>",
+      "dump": "CC-MAIN-2017-39",
+      "url": "http://www.lavanguardia.com/lacontra/20170318/42966540516/a-los-diarios-de-papel-les-quedan-al-menos-diez-anos.html"
+     }
+    ],
+    "434210453618": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:81bb9f8f-438d-461d-8589-d4d1a4166123>",
+      "dump": "CC-MAIN-2018-09",
+      "url": "http://www.lavanguardia.com/lacontra/20180111/434210453618/los-seres-humanos-no-somos-fluimos.html"
+     }
+    ],
+    "441365510687": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:6b0b04a9-38cc-45cc-bf1d-0880180f5170>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/lacontra/20180309/441365510687/su-casa-esta-entre-2-y-5-veces-mas-contaminada-que-la-calle.html"
+     }
+    ],
+    "443990985293": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:794a8382-9609-4f85-9ee9-8a85491a0526>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/lacontra/20180602/443990985293/espana-italia-y-la-ue-son-un-imperio-y-obedecen-a-berlin.html"
+     }
+    ],
+    "452282675075": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:0c155aa2-d104-4c97-a616-cf8d8ab6c873>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/lacontra/20181010/452282675075/llegue-a-prometer-elevar-cuatro-grados-la-temperatura-de-islandia.html"
+     }
+    ],
+    "46137105084": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:75339325-a191-4314-a6e9-2b89c59a899e>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/lacontra/20190201/46137105084/el-dia-que-paguemos-por-un-organo-el-sistema-se-degradara.html"
+     }
+    ],
+    "461371111044": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:20e1bbdc-49be-4b32-9155-b7707e73e8ec>",
+      "dump": "CC-MAIN-2021-04",
+      "url": "https://www.lavanguardia.com/lacontra/20190401/461371111044/me-enorgullece-haber-perdido-el-miedo-a-que-me-digan-que-no.html"
+     }
+    ],
     "47179985641": [
      {
       "config": "cat_Latn",
       "fineweb_id": "<urn:uuid:cb9de882-9ed8-4ae3-986a-96725fb62f2b>",
       "dump": "CC-MAIN-2020-05",
       "url": "https://www.lavanguardia.com/lacontra/20190904/47179985641/cal-sortir-de-larmari-dels-parkinsonians.html"
+     }
+    ],
+    "482687683592": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:34a71d1f-9654-4490-9cbb-4cf05fb00f00>",
+      "dump": "CC-MAIN-2023-14",
+      "url": "https://www.lavanguardia.com/lacontra/20200806/482687683592/vivimos-sopa-sustancias-toxicas-engordan-enferman.html"
+     }
+    ],
+    "6213028": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c7eb68ad-66ff-4364-bb57-40ad108cb48b>",
+      "dump": "CC-MAIN-2023-06",
+      "url": "https://www.lavanguardia.com/lacontra/20210201/6213028/etica-jugar-limpio.html?utm_term=botones_sociales&fbclid=IwAR1uqpqAFwaMBcKjagqtv_Qg8bQ2Xcz2o3jwSGMJpdeGHTsPtwa7YZI7VDM"
+     }
+    ],
+    "7718942": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:bf7ceaeb-7c42-4a2f-a497-98d4bee73b3f>",
+      "dump": "CC-MAIN-2021-39",
+      "url": "https://www.lavanguardia.com/lacontra/20210914/7718942/teletrabajo-ayuda-conciliar-relega-mujer-hogar.html"
+     }
+    ],
+    "7889734": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:b4784114-55d0-4c2b-b51f-b340ea68c8f1>",
+      "dump": "CC-MAIN-2021-49",
+      "url": "https://www.lavanguardia.com/lacontra/20211126/7889734/nuestra-justicia-alcanza-rato-urdangarin-injusta.html"
+     }
+    ],
+    "54188505699": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:d8d8e12e-7f66-4e76-a4ff-c3389d4ba6f2>",
+      "dump": "CC-MAIN-2021-39",
+      "url": "https://www.lavanguardia.com/lacontra/20110720/54188505699/no-desconfie-del-empleado-crea-en-el-o-despidalo.html"
+     }
+    ],
+    "54244461745": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:64c31c2e-eb56-4990-b214-02b8cb7f15d9>",
+      "dump": "CC-MAIN-2020-45",
+      "url": "https://www.lavanguardia.com/lacontra/20120116/54244461745/james-attlee-estamos-disenados-para-responder-al-influjo-de-la-luna.html"
+     }
+    ],
+    "54354781520": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:9904adb3-d9d5-4c94-abae-d6328780f8bd>",
+      "dump": "CC-MAIN-2021-17",
+      "url": "https://www.lavanguardia.com/lacontra/20121103/54354781520/la-contra-qian-anhua.html"
+     }
+    ],
+    "54429782744": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a5cc1789-edfa-49bf-962c-271f7190b1a7>",
+      "dump": "CC-MAIN-2020-24",
+      "url": "https://www.lavanguardia.com/lacontra/20150410/54429782744/la-contra-carmine-saccu.html"
+     }
+    ],
+    "54432871350": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:68e05293-ca52-4b84-bae0-e0f63e87f17b>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/lacontra/20150617/54432871350/la-contra-nestor-garcia-canclini.html"
+     }
+    ],
+    "302294751924": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c84c78e5-ed73-4231-b05e-8d592e97eee2>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/lacontra/20160220/302294751924/los-que-creen-que-no-es-posible-que-no-molesten-a-los-que-lo-intentan.html"
      }
     ],
     "40629040507": [
@@ -491,12 +3187,132 @@
       "url": "https://www.lavanguardia.com/lacontra/20161011/41910049003/ser-princep-majuda-a-millorar-el-benestar-comu.html"
      }
     ],
+    "43405838049": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:301291c1-c89a-4727-b3a3-10c6dc044d97>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/lacontra/20170807/43405838049/la-bolsa-es-tan-segura-como-comprar-un-piso-y-alquilarlo.html"
+     }
+    ],
     "433237785933": [
      {
       "config": "cat_Latn",
       "fineweb_id": "<urn:uuid:53ad4cf9-f2a8-4118-bc0c-9f251df31ff2>",
       "dump": "CC-MAIN-2021-25",
       "url": "https://www.lavanguardia.com/lacontra/20171127/433237785933/tots-som-fulles-dun-mateix-arbre-ens-diu-la-fe-bahai.html"
+     }
+    ],
+    "431214261964": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:39f1c376-5bd5-4023-9eee-6dffea92ae46>",
+      "dump": "CC-MAIN-2021-43",
+      "url": "https://www.lavanguardia.com/lacontra/20170912/431214261964/la-desigualdad-en-un-pais-hace-vivir-menos-y-peor-a-los-ricos.html"
+     }
+    ],
+    "44632769576": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:10978df3-d9bb-405c-9960-e0c2d0cfc422>",
+      "dump": "CC-MAIN-2022-21",
+      "url": "https://www.lavanguardia.com/lacontra/20180209/44632769576/al-espacio-en-vez-de-enviar-cuerpos-enviaremos-sentidos.html"
+     }
+    ],
+    "441387028686": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:7c74c771-fdb5-40eb-9de0-d7912f5973b2>",
+      "dump": "CC-MAIN-2019-26",
+      "url": "https://www.lavanguardia.com/lacontra/20180310/441387028686/su-sanidad-es-mas-barata-justa-y-eficiente-que-la-nuestra.html"
+     }
+    ],
+    "451381751987": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a45bc539-7ae6-4dc6-b2d0-5ac0a4b1690e>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/lacontra/20180820/451381751987/hoy-la-inquisicion-en-ciencia-es-el-ansia-de-beneficio.html"
+     }
+    ],
+    "451609306675": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:59a7618a-9e38-4695-808c-7d9f17b096c1>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/lacontra/20180904/451609306675/hay-que-ensenar-a-aprender.html"
+     }
+    ],
+    "453497528481": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:15e6cc1f-a160-4b16-9c40-cedae2611566>",
+      "dump": "CC-MAIN-2019-22",
+      "url": "https://www.lavanguardia.com/lacontra/20181211/453497528481/los-europeos-estamos-siendo-colonizados-tecnologicamente.html"
+     }
+    ],
+    "454080223181": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:97affa17-8775-460f-9972-d0ef71b1c3fb>",
+      "dump": "CC-MAIN-2020-05",
+      "url": "https://www.lavanguardia.com/lacontra/20190112/454080223181/los-peces-son-inteligentes-sensibles-y-emocionales.html"
+     }
+    ],
+    "46872941176": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:bf26d6ee-7f6d-434b-bf0d-859dc4481165>",
+      "dump": "CC-MAIN-2019-26",
+      "url": "https://www.lavanguardia.com/lacontra/20190306/46872941176/la-victima-es-el-heroe-de-nuestro-tiempo.html"
+     }
+    ],
+    "461682839746": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:3fd77afa-64d3-4454-9bde-3028f88d39b2>",
+      "dump": "CC-MAIN-2021-39",
+      "url": "https://www.lavanguardia.com/lacontra/20190416/461682839746/si-aprende-a-tomar-conciencia-cambiara-de-sitio-sin-moverse.html"
+     }
+    ],
+    "463063232452": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:bb8c73ce-b370-42b2-bd3c-a6dd0cb0c79b>",
+      "dump": "CC-MAIN-2021-39",
+      "url": "https://www.lavanguardia.com/lacontra/20190624/463063232452/debemos-cubrir-nuestras-ciudades-de-vegetacion.html?fbclid=IwAR1ZLdrgpT8qgZqZaycXACZpQQcOgxm8r8cCvc1cbUxaEAuGGPOKLgKTgDs"
+     }
+    ],
+    "463534410881": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:feffbdd7-ec2e-483b-a231-a0c93174d494>",
+      "dump": "CC-MAIN-2019-43",
+      "url": "https://www.lavanguardia.com/lacontra/20190717/463534410881/la-influencia-catalana-hace-a-los-cubanos-fundamentalistas.html"
+     }
+    ],
+    "464197065501": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:6d76adb9-68a1-4346-aa2e-2aeee283a093>",
+      "dump": "CC-MAIN-2020-29",
+      "url": "https://www.lavanguardia.com/lacontra/20190821/464197065501/el-consumo-es-femenino-y-la-economia-masculina.html"
+     }
+    ],
+    "47204890027": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:7817fb04-4bab-4921-abb6-641e50a8df7f>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/lacontra/20190907/47204890027/los-humanos-necesitamos-sabiduria-no-religion.html"
+     }
+    ],
+    "472052195139": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:8123cf16-9e86-4b71-ab54-98f79f0c451e>",
+      "dump": "CC-MAIN-2019-51",
+      "url": "https://www.lavanguardia.com/lacontra/20191204/472052195139/a-los-portugueses-puigdemont-nos-parece-un-cobarde.html"
      }
     ],
     "482799086814": [
@@ -507,12 +3323,84 @@
       "url": "https://www.lavanguardia.com/lacontra/20200813/482799086814/la-lluita-pel-clima-es-guanya-casa-per-casa-i-aqui-lestan-perdent.html"
      }
     ],
+    "483539876466": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:c84cd021-6a18-4ab5-8fd7-1e72e8c16120>",
+      "dump": "CC-MAIN-2020-50",
+      "url": "https://www.lavanguardia.com/lacontra/20200919/483539876466/la-actual-locura-digital-es-un-veneno-para-los-ninos.html?utm_term=botones_sociales_app&utm_source=social-otros&utm_medium=social"
+     }
+    ],
+    "484055810323": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:2247bf6f-f895-40ab-8040-bfd3d7c97f52>",
+      "dump": "CC-MAIN-2022-49",
+      "url": "https://www.lavanguardia.com/lacontra/20201014/484055810323/si-no-te-abren-la-puerta-entra-por-la-ventana.html"
+     }
+    ],
+    "6218708": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4c3ac643-bec4-40a8-a880-7eb2d009e7d1>",
+      "dump": "CC-MAIN-2023-50",
+      "url": "https://www.lavanguardia.com/lacontra/20210203/6218708/capitalismo-popular-digital-acaba-nacer-justo-necesario.html"
+     }
+    ],
+    "7636724": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:073900c4-9a41-4fda-bec5-36aabe989de9>",
+      "dump": "CC-MAIN-2022-21",
+      "url": "https://www.lavanguardia.com/lacontra/20210731/7636724/pedimos-ue-moratoria-deje-edificar.html"
+     }
+    ],
+    "8060097": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:a3566d3c-5eba-4bb6-a9b1-9398d0464664>",
+      "dump": "CC-MAIN-2022-27",
+      "url": "https://www.lavanguardia.com/lacontra/20220216/8060097/vox-preocupa-mas-vinculos-europeos-franquismo.amp.html"
+     }
+    ],
+    "54147997146": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:336e97d7-b2fe-4d80-8751-fab8acc02e2d>",
+      "dump": "CC-MAIN-2024-10",
+      "url": "https://www.lavanguardia.com/lacontra/20110503/54147997146/contra-la-pobreza-nos-sobran-teorias-y-faltan-experimentos.html"
+     }
+    ],
+    "54239940848": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:4965d58f-cccb-47a1-82a9-123ab602ccc8>",
+      "dump": "CC-MAIN-2014-10",
+      "url": "http://www.lavanguardia.com/lacontra/20111208/54239940848/maria-blasco-durante-unos-instantes-de-nuestra-vida-somos-inmortales.html"
+     }
+    ],
+    "54352740274": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:e6377b67-94f8-4b83-a447-3bbe823771ef>",
+      "dump": "CC-MAIN-2021-31",
+      "url": "https://www.lavanguardia.com/lacontra/20121008/54352740274/la-contra-cesar-molinas.html"
+     }
+    ],
     "40793102994": [
      {
       "config": "cat_Latn",
       "fineweb_id": "<urn:uuid:7c2501ee-957e-49d5-85be-a1ea80605c41>",
       "dump": "CC-MAIN-2021-31",
       "url": "https://www.lavanguardia.com/lacontra/20160401/40793102994/felicos-els-fracturats-perque-deixen-passar-la-llum.html"
+     }
+    ],
+    "452412336076": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:db04916b-0a7e-44f4-b62d-26ec249cfb45>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/lacontra/20181018/452412336076/si-italia-deja-la-ue-no-seria-el-fin-de-la-ue-pero-si-el-de-italia.html"
      }
     ],
     "453884754534": [
@@ -523,12 +3411,52 @@
       "url": "https://www.lavanguardia.com/lacontra/20190102/453884754534/hi-ha-plaer-quan-ajudem-quan-resolem-problemes.html"
      }
     ],
+    "471588157283": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:ef644720-8b12-49bc-8c33-681747e2a7e3>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/lacontra/20191114/471588157283/preparense-para-trabajar-y-estudiar-cada-dia-hasta-los-70.html"
+     }
+    ],
+    "48652613248": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:f4544351-0315-4929-88c4-2be780941af4>",
+      "dump": "CC-MAIN-2020-40",
+      "url": "https://www.lavanguardia.com/lacontra/20200421/48652613248/los-empresarios-podemos-hacer-de-este-mundo-un-lugar-mejor.html"
+     }
+    ],
+    "484022770596": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:53dff864-5486-4eeb-95b2-9955817178d2>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/lacontra/20201013/484022770596/sueno-con-mezclar-radio-tele-prensa-redes-un-medio-total.html"
+     }
+    ],
     "49217504644": [
      {
       "config": "cat_Latn",
       "fineweb_id": "<urn:uuid:131242da-cff1-4c40-a697-2620f33f35c1>",
       "dump": "CC-MAIN-2020-50",
       "url": "https://www.lavanguardia.com/lacontra/20201104/49217504644/he-apres-a-acceptar-a-perdonar-i-a-perdonar-me-a-ser-lliure.html"
+     }
+    ],
+    "7986182": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:dff0cae1-1091-4622-a540-6299451c678d>",
+      "dump": "CC-MAIN-2022-33",
+      "url": "https://www.lavanguardia.com/lacontra/20220114/7986182/cincuenta-estas-iniciar-gran-carrera.amp.html"
+     }
+    ],
+    "8381008": [
+     {
+      "config": "spa_Latn",
+      "fineweb_id": "<urn:uuid:2c4f27ca-97e1-45b9-99e6-0d0d1e5c19cc>",
+      "dump": "CC-MAIN-2023-40",
+      "url": "https://www.lavanguardia.com/lacontra/20220702/8381008/india-aborto-masivo-ninas-genera-problemas-economicos.html"
      }
     ]
    }

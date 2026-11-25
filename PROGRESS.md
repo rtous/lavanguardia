@@ -316,3 +316,19 @@ sign-constrained DI + neighbour test + placebos as the standard battery.
     Runs alongside queue4 (shared GPU, ~8 s/query).
   - Replication note: only 168 fresh mid-2023 articles were found (417 − 249), so NEW2 ≈ 168.
   - TODO: role-play M9 on Gemini on a later free-tier day (day3 quota goes to plain M9).
+
+### State at end of session 6 (2026-11-25, ~18:00 CET) — ALL JOBS STOPPED (user request: too slow)
+No background jobs, no schedulers (run_gemini_day3.sh removed; no crontab). Final numbers are in the paper.
+- **FineWeb-2** stopped at 78/146 Spanish shards (53%) + all Catalan: Spanish 164,568 LV docs (est. ~280k, 0.06%);
+  Catalan 17,947 (0.10%). Overlap: members 292/695 (42% at 53% → ~80% projected), mid2023 69/249, La Contra 67/212,
+  controls 0/489. Hits concentrated in crawls 2019–2023 (81%), pub years 2017–2021. Resume: rerun
+  `src/dataset_presence.py --config spa_Latn --shards 999` (resumable), then `src/presence_overlap.py`.
+- **M9 local** (Llama-3.1-8B base, completion + prefix): La Contra 100 members (460 sents) max LCS 4, 41 controls (164)
+  max 5, median 1; random 31 members (123) max 7. No exact sentence. Instruct / role-play / other models NOT run.
+- **Neighbour-DiD replication**: stopped at 247/~811 rewrites (`data/decop/paraphrases_mid2023_rep.jsonl`), no scoring.
+  Resume with `./src/run_queue4.sh` (resumable; CC fetch step will just re-check). Only 168 fresh NEW2 articles.
+- Paper: new sec:m9, sec:status (tab:status: missing items + costs/problems), conclusions on most suspicious models
+  (Gemma-2 > Llama-3.1 > Mistral/Qwen; closed models plausible but untested at power) and most exposed content
+  (crawled 2019–2023 / published 2017–2021; Catalan edition proportionally most exposed; not post-2024, post-opt-out,
+  paywalled/print-only; quotes are not evidence).
+- **Highest-value next step:** finish the pre-registered Llama 3 vs 3.1 replication (≈1 day local, or hours on a rented GPU).

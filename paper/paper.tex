@@ -28,8 +28,8 @@ We study whether it is feasible to produce evidence, intelligible to a court, th
 newspaper \emph{La Vanguardia} were used to train commercial large language models (LLMs). We first establish the
 provenance facts. The newspaper's full article text is present in Common Crawl, the web corpus underlying most LLM
 pre-training sets. The pages also survive standard filtering into ready-made training datasets: the FineWeb-2
-dataset holds about 18,000 of them in Catalan and an estimated 330,000 in Spanish, apparently including essentially
-all of our test articles. The site's \texttt{robots.txt} did not exclude AI crawlers from news content until
+dataset holds about 18,000 of them in Catalan and an estimated 280,000 in Spanish, projected to include about
+80\% of our test articles. The site's \texttt{robots.txt} did not exclude AI crawlers from news content until
 17 March 2026. We then build a dataset of 1,143 signed, non-agency articles split by publication date into
 \emph{members} (2020--2023, before the training-data cutoff of the evaluated models) and \emph{controls}
 (September 2025--March 2026, after it). On it we apply four families of tests.
@@ -49,7 +49,7 @@ of the newspaper's wording: no model prefers the original text over same-facts r
 controls. A comparison of two versions of Llama with different cutoffs (same articles, so time effects cancel) shows
 the pattern training predicts ($p=0.007$), but it is small and is also explained by knowledge of the events. A
 version restricted to wording (original text vs same-facts rewrites) points the same way but is not significant
-($p\approx0.07$). A pre-registered replication on new articles is under way.
+($p\approx0.07$). A pre-registered replication on new articles was designed but not completed.
 \item A \emph{retrieval test} on the Gemini API shows no answer-time reuse, because its URL tool could not fetch the
 site's pages. Without access, the model sometimes invented ``literal'' paragraphs and attributed them to the
 newspaper.
@@ -98,8 +98,8 @@ only if it has seen that text \emph{many times} during training. Song lyrics are
 web; a typical news article is not.
 \item The articles are not only in raw Common Crawl. They survive the standard quality filters and are inside
 ready-made, publicly distributed training datasets. The FineWeb-2 dataset contains about 18,000
-\texttt{lavanguardia.com} documents in its Catalan part and an estimated 330,000 in its Spanish part, apparently
-including essentially all the articles we test (Section~\ref{sec:presence}).
+\texttt{lavanguardia.com} documents in its Catalan part and an estimated 280,000 in its Spanish part, projected to
+include about 80\% of the articles we test (Section~\ref{sec:presence}).
 \item Knowing the \emph{facts} of an article proves nothing, because facts appear in many sources. Only the
 \emph{wording} can identify the source.
 \item Every test needs a comparison group: texts the model \emph{could not} have seen, because they were published
@@ -427,13 +427,17 @@ Model developers rarely train on raw Common Crawl. They use filtered, deduplicat
 \begin{itemize}
 \item \emph{Catalan} (all 5 files, 17.1 million documents): 17,947 \texttt{lavanguardia.com} documents (17,179 distinct
 URLs), about one document in a thousand, taken from crawls of 2017--2024.
-\item \emph{Spanish} (6 of 146 files, 18.2 million documents): 13,779 documents, which extrapolates to about
-330,000 in the whole Spanish part.
-\item \emph{Our own test articles} (\texttt{src/presence\_overlap.py}): the scanned files, about 4\% of the Spanish
-part, already contain 37 of our 695 members (5.3\%), 13 of the 249 mid-2023 articles and 12 of the 212 \emph{La
-Contra} interviews, and none of the controls. FineWeb-2 is deduplicated, so each article appears about once. A hit
-rate equal to the scanned share is what one expects if essentially \emph{every} member article is in the dataset. A
-scan of all files, which will list each article's document identifier, is running.
+\item \emph{Spanish} (78 of 146 files, 265 million documents): 164,568 documents, which extrapolates to about
+280,000 in the whole Spanish part (0.06\% of documents). In Catalan the share is almost twice as high.
+\item \emph{Our own test articles} (\texttt{src/presence\_overlap.py}): the scanned files (53\% of the Spanish part,
+plus all of the Catalan part) contain 292 of our 695 members (42\%), 69 of the 249 mid-2023 articles (28\%), 67 of
+the 212 \emph{La Contra} interviews (32\%), and none of the 489 controls. FineWeb-2 is deduplicated, so each article
+appears about once. If the remaining files contain the same share, about 80\% of the members are in the dataset,
+each identifiable by its FineWeb-2 document identifier (\texttt{results/dataset\_presence\_overlap.json}). The scan
+was stopped at 53\% for time reasons; completing it takes about 8 hours of downloading.
+\item \emph{What is most represented.} By crawl date, 2019--2023 crawls account for 81\% of the Spanish hits. By
+publication date, articles from 2017--2021 dominate (2019 and 2020 alone: 27\%). The most frequent sections are
+local news, \emph{Vida} (society), politics and economy. In Catalan, the \emph{encatala} edition is the largest source.
 \end{itemize}
 This does not show that any particular commercial model was trained on FineWeb-2. It shows that the newspaper's
 articles survive the standard filtering and deduplication steps and are distributed inside the kind of ready-made
@@ -519,7 +523,7 @@ Table~\ref{tab:tests} maps each experiment to the method families of Section~\re
 Experiment & Family & Needs & Run on\\
 \midrule
 M1 verbatim continuation & (A) Extraction & black-box & Claude 4.5/5.5, Gemini 3.x; random + \emph{La Contra}\\
-M9 sentence-by-sentence extraction \cite{su2024} & (A) Extraction & black-box & Gemini 3.1 Flash-Lite (scheduled)\\
+M9 sentence-by-sentence extraction \cite{su2024} & (A) Extraction & black-box or local & Llama-3.1-8B (partial)\\
 M2 DE-COP multiple choice & (C) Recognition & black-box & Claude 4.5\\
 M2b pairwise minimal edits & (C) Recognition & black-box & Claude 4.5, Gemini 3.1 Flash-Lite\\
 M5 per-article scores + drift calibration & (B) Membership inference & token probabilities & Qwen2.5, Llama-3.1, Mistral, Gemma-2\\
@@ -639,6 +643,22 @@ Claude Opus 5.5 & 99 & 2 / 7 & 0.0\% & --\\
 \caption{M1 on \emph{La Contra} interviews. $^\ddagger$Runs were cut short when the API credit was exhausted.}
 \label{tab:lacontra}
 \end{table}
+
+\subsection{Sentence-by-sentence extraction (M9, family A)}\label{sec:m9}
+Following \cite{su2024}, M9 asks for one sentence at a time. A base (non-chat) open-weight model receives a plain
+page: the newspaper's name, the title, byline and date, and the article up to the previous sentence. It simply
+continues the page. There is no instruction, so there is nothing to refuse and nothing that could be called a
+manipulated prompt. Llama-3.1-8B, run locally with greedy decoding, was tested on 100 \emph{La Contra} interviews
+(460 sentences), 41 \emph{La Contra} controls (164 sentences) and 31 random member articles (123 sentences).
+\begin{itemize}
+\item No sentence was reproduced. The longest common run was 4 words on \emph{La Contra} members and 5 on controls
+(median 1 for both). On random members it was 7 (median 2), all generic phrases.
+\item The model writes plausible sentences on the right topic, in the series' style. It knows what the interviews
+are about, but not how they were written.
+\end{itemize}
+Planned but not run because of compute time: the same test on Gemma-2, Qwen2.5 and Mistral; the chat versions of
+Llama-3.1 and Qwen2.5 with the plain prompt of \cite{su2024}; the role-play prompt of \cite{freeman2024} as an upper
+bound; and Gemini 3.1 Flash-Lite through the API (Section~\ref{sec:status}).
 
 \subsection{Recognition tests (M2, M2b, family C)}
 Figure~\ref{fig:rec} and Table~\ref{tab:rec} summarize M2 and M2b. Read naively, the results look like strong
@@ -909,7 +929,10 @@ difference is not statistically significant ($p\approx0.07$), so on its own it d
 newspaper's wording. With about 250 articles per group, the test can only detect effects of about 0.2 SD. We have
 therefore pre-registered an independent replication on articles not used in this run
 (\texttt{docs/prereg/did\_neighbour\_replication.md}), committed before any replication data was collected. Simply
-adding articles until the $p$-value drops below 0.05 would inflate false positives.
+adding articles until the $p$-value drops below 0.05 would inflate false positives. The replication was stopped after
+the rewrites of 247 of about 810 passages, before any scoring, so it has no result yet. Only 168 fresh mid-2023
+articles could be found in the three crawls, so the replication's ``seen only by Llama-3.1'' group is smaller than
+the original's.
 
 \paragraph{Designing a sound validation set.} The method's power depends on a validation set that differs from the
 suspect set \emph{only} in exposure to the model. The publisher's archive makes much better designs possible than ours:
@@ -972,7 +995,8 @@ and memorization may be concentrated in a few highly duplicated pieces that our 
 target and was trained on a different corpus, so the time correction is approximate.
 \item Paraphrases were produced by a Claude model, which may interact with Claude targets.
 \item Claude outputs are not deterministic (Gemini calls used temperature 0).
-\item Four open-weight targets were evaluated, all of 7--9 billion parameters; larger models memorize more. Claude
+\item Four open-weight targets were evaluated, all of 7--9 billion parameters; larger models memorize more. M9 was
+run on only one of them. Claude
 5.x models could only be tested where controls are not essential.
 \item The neighbour test used only 60+60 passages, so it can miss a small effect.
 \item The retrieval test covered only the Gemini API's URL tool (25 articles). Search grounding and consumer
@@ -980,6 +1004,41 @@ products with web access are untested.
 \item Gemini evaluation was limited by free-tier quotas and by the lack of token probabilities. Several runs were cut
 short by API credit and quota limits (marked in the tables). OpenAI models have not been evaluated yet.
 \end{itemize}
+
+\section{Status: what is missing, and what it would cost}\label{sec:status}
+The study was stopped at the stage described above. Table~\ref{tab:status} lists the work that was designed but not
+completed, and what each item needs. As a reference for API costs, our Claude experiments cost about \$20 for 6,220
+calls (about \$0.003 per call). Prices change, so these are orders of magnitude.
+
+\begin{table}[h]\centering\small
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}X}
+\toprule
+Missing item & What it needs, and its cost or problem\\
+\midrule
+Claude tests (M1 \emph{La Contra} for Sonnet/Opus 4.5, M9, role-play) & Anthropic API credit (exhausted). Sonnet~4.5 is
+retired on 30~Nov.~2026, after which it can no longer be tested. Tens of dollars for the planned runs.\\
+Gemini: M9 (plain and role-play), M1 controls for Gemini~3 Flash & The free tier allows about 500 requests per model per
+day, so each run takes days. A billed key removes the limit; the runs cost a few dollars.\\
+Retrieval with search (Gemini with Google Search, ChatGPT search, Perplexity, Claude web search) & Search grounding
+requires a billed Gemini key. Consumer products need accounts and either manual sessions or browser automation, which
+may conflict with terms of service. The protocol should be agreed with counsel and the sessions recorded (for
+example before a notary).\\
+OpenAI models & An API key. Word probabilities are only returned for generated text, not for supplied text, so only
+black-box tests apply.\\
+M9 at a scale where a 1--2\% hit rate becomes visible & About 30 queries per article over 1,000 or more articles: some
+30,000 queries per model, roughly \$100 per model at the rate above.\\
+Local open-weight runs (M9 on four more models, neighbour-test replication) & On the 16~GB laptop used here, about
+9 seconds per query when two jobs share the GPU: about 1--2 days in total. Free, but slow.\\
+Larger open-weight models (70B and up) & Memorization grows with model size \cite{carlini2023,freeman2024}, so these
+matter most. They do not fit on a laptop: a rented cloud GPU for a few days, or a workstation with 64~GB or more of
+memory. Disk space must also be freed (about 6~GB is left).\\
+FineWeb-2 scan (remaining 47\%) & About 8 hours of downloading. Free.\\
+Same-period controls & The publisher's archive, to compare crawled with never-crawled articles of the same months.\\
+Copyright traps & A decision by the publisher. They only protect future content.\\
+\bottomrule
+\end{tabularx}
+\caption{Work designed but not completed.}\label{tab:status}
+\end{table}
 
 %======================================================================
 \section{Conclusions}
@@ -1008,7 +1067,7 @@ original sentences over rewrites with the same facts. Facts are not protected; w
 seen became slightly more familiar to it than the others did, exactly as training would predict and with time effects
 cancelled. The effect is small. When only the \emph{wording} is compared (original sentences vs rewrites with the
 same facts), the result still points the same way but is not statistically significant ($p\approx0.07$). An
-independent replication, with its analysis fixed in advance, is running.
+independent replication, with its analysis fixed in advance, was designed but not completed.
 \item \textbf{Testing the collection as a whole (dataset inference) is the most promising route.} Small differences
 that are invisible in one article add up over thousands. Our pilot shows the main dangers: comparing old with new articles ``proves'' training even for a model
 that cannot have seen them, and a model's knowledge of past events can pass for knowledge of the text. Every result
@@ -1020,12 +1079,37 @@ commercial models under court-ordered expert access.
 answer time. This is a different legal act, easier to observe. In a first test, Google's Gemini API could not fetch
 \emph{La Vanguardia} pages and reproduced no text. Without access, it sometimes invented ``literal'' paragraphs and
 attributed them to the newspaper. Consumer products with web search remain to be tested.
+\item \textbf{Which models are most suspicious (no evidence yet).} ``Suspicious'' here means a statistical trace
+that points towards training on the newspaper but does not meet the standard of proof. In decreasing order:
+\begin{itemize}
+\item \emph{Google's Gemma-2.} It is the only model whose collection-level trace survived matched comparison groups,
+the pre-registered combination and both reference models ($p=10^{-4}$ and $p=0.002$). The neighbour test attributes
+this trace to knowledge of events, not wording, so it is not evidence of copying.
+\item \emph{Meta's Llama-3.1.} Articles published between the cutoffs of Llama-3 and Llama-3.1 became more familiar
+to the newer model ($p=0.007$). The wording-only version points the same way ($p\approx0.07$). This is the design
+closest to evidence about the text, and the pre-registered replication is the most valuable missing item.
+\item \emph{Mistral-7B and Qwen2.5} show weaker traces that depend on the reference model, so they are not robust.
+\item \emph{Closed commercial models} (Claude, Gemini, and untested GPT). Our black-box tests found nothing, but those
+tests have little power. Larger models memorize more, and corpora of the FineWeb-2 type contain most of our
+articles. Their use of the newspaper's text is plausible but unproven. Gemini additionally invents ``literal''
+passages and attributes them to the newspaper.
+\end{itemize}
+\item \textbf{Which content is most likely to have been used.} The articles most exposed to training are those
+captured by Common Crawl between 2019 and 2023 and published from 2017 to 2021. They dominate the newspaper's pages
+in FineWeb-2, and about 80\% of our 2020--2023 sample is projected to be in it. The Catalan edition is proportionally
+the most exposed: \emph{La Vanguardia} supplies about one document in a thousand in FineWeb-2's Catalan part, almost
+twice its share in Spanish. A newspaper this prominent in Catalan web text is likely to have contributed to the Catalan
+abilities of any model trained on such corpora. Less exposed are articles from 2024 onwards, which are rare in these
+datasets, and from 17~March~2026, after the opt-out. Paywalled and print-only pieces were never in public crawls.
+Quotations inside articles (statements, rulings) circulate in many outlets, so reproducing them proves nothing about
+the newspaper.
 \item \textbf{Copyright traps are the most reliable option for the future.} Inserting unique, invented phrases into
 future articles, repeated across many pages, would make later reproduction by a model unambiguous proof of use. We
 recommend starting now, since traps cannot protect content published before their introduction.
 \end{itemize}
 
-\paragraph{Next steps.} Complete the truncated runs; measure duplication to select test passages; evaluate models from
+\paragraph{Next steps.} See Table~\ref{tab:status}. In order of value: the Llama-3 vs 3.1 replication; M9 and
+role-play tests on commercial APIs with a paid key; tests on larger open-weight models; complete the truncated runs; measure duplication to select test passages; evaluate models from
 other providers that expose token probabilities (OpenAI, further open-weight models); run dataset inference on the
 licensed archive with same-period controls (crawled vs never-crawled articles) and on several open-weight models; extend the retrieval test to web-enabled consumer assistants; and agree with the
 publisher on a copyright-trap protocol.
