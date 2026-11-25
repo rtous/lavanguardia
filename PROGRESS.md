@@ -263,3 +263,20 @@ sign-constrained DI + neighbour test + placebos as the standard battery.
      dgap(NEW) < dgap(BOTH), dgap(NONE). Pre-registered: loss (Mann–Whitney/Welch, one-sided) + equal-weight combination.
 - **On resume:** check `tail logs/queue3.log` for "QUEUE3 done". If interrupted, rerun `./src/run_queue3.sh` (all steps resume).
   Then add the result to the paper (sec:di after tab:did; abstract/conclusions), commit and push.
+
+## 2026-11-25 — Session 6: resume after reboot; dataset presence; retrieval test (M4)
+- Queue3 had died after 2/749 rewrites (machine reboot). **Restarted `./src/run_queue3.sh`** (resumes; ~23 s/passage,
+  ~5 h). Anthropic credit still exhausted (checked 07:35 UTC). Gemini free tier: 500 requests/day for
+  gemini-3.1-flash-lite, resets 09:00 CET; failed calls (429) also burn quota, so probe.py no longer retries
+  daily/zero-limit 429s.
+- **robots.txt today (25 Nov 2026):** blocks only GPTBot, ClaudeBot, CCBot, Bytespider. No rule for Google-Extended,
+  OAI-SearchBot, ChatGPT-User, PerplexityBot → answer-time retrieval is not opted out. (Added to paper premises.)
+- **FineWeb-2 presence** (`src/dataset_presence.py`, URL column only via HTTP range reads; `results/dataset_presence.json`,
+  hit lists `results/dataset_presence_hits_<config>.jsonl`): Catalan shards hold 5,289 and 3,323 lavanguardia.com pages
+  each (~0.1% of documents). Full Catalan (5 shards) + 6/146 Spanish shards running → `logs/presence.log`.
+- **M4 retrieval** (`src/m4_retrieval.py`; post-cutoff controls; tools off / Google Search / URL context × QUOTE / ASK prompts):
+  - Google Search grounding: 429 on the free-tier key (needs billing). URL context works, but Google's fetcher gets
+    `URL_RETRIEVAL_STATUS_ERROR` on lavanguardia.com and the model then declines.
+  - Tools OFF + QUOTE: Gemini **fabricates** "the first two paragraphs" of a post-cutoff article and presents them as
+    La Vanguardia's text (LCS 3 words with the real one). Relevant as misattribution, not as copying.
+  - Running n=25 (off, url) then the remaining M2b pairwise → `logs/gemini_day2.log`.

@@ -38,6 +38,7 @@ def main():
     ap.add_argument("--n", type=int, default=25)
     ap.add_argument("--input", default="data/cc/controls.jsonl")
     ap.add_argument("--min-date", default="20250901")
+    ap.add_argument("--conds", default="off,search,url")
     a = ap.parse_args()
     docs = [json.loads(l) for l in open(a.input, encoding="utf-8")]
     docs = [d for d in docs if d["pub_date"] >= a.min_date and "directo" not in d["url"]]
@@ -49,13 +50,13 @@ def main():
             title = d["title"].split(" por ")[0] if d.get("author") else d["title"]
             for pk, pt in PROMPTS.items():
                 for ck, tools in CONDS.items():
-                    if (d["id"], pk, ck) in done:
+                    if ck not in a.conds.split(",") or (d["id"], pk, ck) in done:
                         continue
                     text, rec = ask(EXP, a.model, pt.format(title=title, url=d["url"]), max_tokens=1024,
                                     meta={"id": d["id"], "prompt": pk, "cond": ck}, tools=tools)
                     if rec["stop_reason"] == "api_error":
                         print("api_error", d["id"], pk, ck, str(rec["response"])[:200], flush=True)
-                        if "per day" in str(rec["response"]):
+                        if "per day" in str(rec["response"]).lower():
                             return
                         continue
                     row = {"id": d["id"], "url": d["url"], "pub_date": d["pub_date"], "prompt": pk, "cond": ck,

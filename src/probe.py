@@ -79,6 +79,8 @@ def ask_gemini(experiment, model, user, system=None, max_tokens=1024, meta=None,
                 global _gclient
                 _gclient = None
                 continue
+            if "limit: 0" in msg or "per day" in msg.lower():  # unrecoverable quota: do not retry
+                break
             if any(c in msg for c in ("429", "503", "500", "RESOURCE_EXHAUSTED", "UNAVAILABLE")):
                 time.sleep(min(120, 10 * (attempt + 1)))
                 continue
