@@ -299,3 +299,8 @@ sign-constrained DI + neighbour test + placebos as the standard battery.
   `src/run_queue4.sh` → `logs/queue4.log` (CC fetch of fresh mid-2023 articles → rewrites → Llama scoring →
   `results/did_neighbour_rep.json`). Resumable; on resume check for "QUEUE4 done". Report the replication alone as primary.
 - Gemini 3 Flash M1: 47/60 members (quota). Median LCS 3, max 13 = quoted Biden statement (syndicated), not LV wording. Controls pending (rerun same command next day).
+- **NYT-method literature** (user question): Freeman et al. 2024 (arXiv 2412.06370) and Su et al. 2024 (arXiv 2409.12367)
+  added to `docs/literature_review.md` and the paper (sec. methods (A), refs freeman2024, su2024). Implemented Su et al.'s
+  sentence-level decomposition as **M9** (`src/m9_decomposition.py`, plain prompt, no role-play; sentences with quotation
+  marks flagged as possibly syndicated, ~21% of sentences). Scheduled `src/run_gemini_day3.sh` → `logs/gemini_day3.log`:
+  waits for 2026-11-26 09:01, runs M9 on gemini-3.1-flash-lite (60+60 × 4 sentences), then resumes Gemini 3 Flash M1.

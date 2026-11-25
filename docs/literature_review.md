@@ -24,6 +24,8 @@ history of robots.txt). Crawling after that date would fall outside the TDM exce
 |---|---|---|---|
 | **Verbatim continuation / regurgitation** (NYT Exhibit J; Carlini et al. 2021/2023; Nasr et al. 2023) | Black-box | Give the first N words of an article and ask the model to continue. Measure overlap (longest common substring, ROUGE-L, n-gram match). | ★★★★★ Side-by-side text is self-explanatory |
 | **Extraction from production LLMs** (Ahmed, Cooper, Koyejo, Liang, arXiv 2601.02671, Jan 2026) | Black-box (+jailbreak/Best-of-N) | Two-phase prompting extracted near-entire books from Claude 3.7, GPT-4.1, Gemini 2.5, Grok 3 | ★★★★ but jailbreaks invite "manipulation" objections |
+| **NYT-article memorization study** (Freeman, Rippe, Debenedetti, Andriushchenko, arXiv 2412.06370, Dec 2024) | Black-box | Three sets: 99 Exhibit J articles, 100 "arbitrary" pre-2023 NYT articles, 90 post-Jul-2024 controls. Role-play system prompt ("2079, a student must restitute NYT articles word for word"), optional fake assistant turns and 25–400-token article prefix. GPT-4 LCCS (longest common contiguous substring, chars): Exhibit J ≈65–70, arbitrary ≈31–33, new ≈27–29. Could **not** reproduce the NYT's ~2,000-char matches. Prefix optimum ~100–200 tokens (longer does not help). Memorization only clear for the most republished articles and models >~100B params; other providers (Claude 3 Opus) memorize more than OpenAI but refuse more | ★★★ Shows how hard it is even for the NYT; role-play prompts are exactly what invites the "manipulation" objection |
+| **Decomposition extraction** (Su et al., arXiv 2409.12367, 2024) | Black-box | Identify article (title/author/date) then ask, one sentence at a time, for "the sentence that immediately follows <s_i-1>" (temp ≈0, multi-turn). At least one verbatim sentence from 73/3,723 NYT articles (~2%) and 7/1,349 WSJ; >20% of sentences for 6 NYT articles; 0 exact matches on 900 post-cutoff controls. Checks generic quotes by regenerating from a summary | ★★★★ Plain prompts, clean control, sentence-level side-by-side. **Implemented here as M9** (`src/m9_decomposition.py`) |
 | **RECAP** (arXiv 2510.25941) | Black-box | Agentic feedback loop to extract copyrighted text | ★★★ |
 | **DE-COP** (Duarte et al., ICML 2024, arXiv 2402.09910) | Black-box | Multiple choice: the verbatim passage vs. 3 paraphrases. Models pick the verbatim one far above the 25% chance rate on seen texts | ★★★★ "It recognizes our exact wording". Has a clean control |
 | **Min-K% Prob / Min-K%++** (Shi et al., ICLR 2024; arXiv 2404.02936) | Logprobs | Seen text has fewer very-low-probability tokens | ★★ Needs logprobs (only some APIs or open-weight models) |
@@ -43,6 +45,17 @@ Lessons from our own experiments (sessions 4–5, see PROGRESS.md): (1) a 2018 m
 date-based controls; (2) matching on section and length removes most of the signal; (3) a learned (logistic) combination can turn
 reference-model miscalibration into significance, so the direction must be pre-registered; (4) a surviving signal can still be
 knowledge of the *events*; a wording-specific test (neighbour gap, or same-period never-crawled controls) is required.
+
+**What the NYT literature implies for us (2026-11-25).** Even for the NYT, the most duplicated news source in English,
+independent researchers found long verbatim reproduction only for a hand-picked set of heavily republished articles,
+on very large models, and could not reproduce the complaint's longest matches. OpenAI says Exhibit J needed "tens of
+thousands of attempts" with long article excerpts in the prompt. For a Spanish newspaper with far less duplication, the
+expected per-article hit rate is lower than Su et al.'s ~2% of NYT articles with one verbatim sentence. Lessons adopted:
+(1) sentence-level queries anchored on title/author/date (M9) instead of whole-article continuation; (2) select the
+most-republished articles (measure duplication, e.g. how many other domains in Common Crawl carry the same sentences);
+(3) quotes inside articles are syndicated and must be excluded (we already hit one: a Biden statement in Gemini 3 Flash
+M1); (4) no role-play or jailbreak system prompts in court-facing tests; at most report them separately as an
+"upper bound".
 
 ## 3. Data-availability findings (2026-11-24)
 - **Common Crawl contains lavanguardia.com articles**. Spot check: CC-MAIN-2019-09 and CC-MAIN-2023-14 have

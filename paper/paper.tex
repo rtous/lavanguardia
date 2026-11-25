@@ -289,7 +289,12 @@ comparison. Research shows that memorization increases with model size and, cruc
 text is repeated in the training data \cite{carlini2023}. Text seen once is rarely reproduced; text seen hundreds of
 times often is \cite{carlini2021,nasr2023}. Stronger, adversarial procedures with many attempts and jailbreaks have
 extracted near-complete books from production assistants \cite{ahmed2026}. As Section~\ref{sec:nyt} explains, they are
-open to the ``manipulation'' objection.
+open to the ``manipulation'' objection. For news specifically, an independent study of the NYT case
+\cite{freeman2024} found that GPT-4 reproduced the Exhibit~J articles only modestly better than unseen articles (a
+longest common string of about 70 characters against about 28), and it could not reproduce the complaint's longest
+matches. A gentler procedure asks for an article one sentence at a time, given the previous sentence and the title,
+author and date \cite{su2024}. It recovered at least one verbatim sentence from about 2\% of 3,723 NYT articles and
+from none of 900 post-cutoff controls. We adopt this sentence-level design as M9.
 \emph{Limitation:} a negative result does not prove absence of training, only absence of \emph{strong} memorization.
 
 \paragraph{(B) Membership inference with token probabilities.} When a model reads a text, it assigns a probability to
@@ -514,6 +519,7 @@ Table~\ref{tab:tests} maps each experiment to the method families of Section~\re
 Experiment & Family & Needs & Run on\\
 \midrule
 M1 verbatim continuation & (A) Extraction & black-box & Claude 4.5/5.5, Gemini 3.x; random + \emph{La Contra}\\
+M9 sentence-by-sentence extraction \cite{su2024} & (A) Extraction & black-box & Gemini 3.1 Flash-Lite (scheduled)\\
 M2 DE-COP multiple choice & (C) Recognition & black-box & Claude 4.5\\
 M2b pairwise minimal edits & (C) Recognition & black-box & Claude 4.5, Gemini 3.1 Flash-Lite\\
 M5 per-article scores + drift calibration & (B) Membership inference & token probabilities & Qwen2.5, Llama-3.1, Mistral, Gemma-2\\
@@ -1036,6 +1042,8 @@ coding agent (Claude Code).
 \bibitem{carlini2023} N.~Carlini et al. Quantifying memorization across neural language models. \emph{ICLR}, 2023.
 \bibitem{nasr2023} M.~Nasr et al. Scalable extraction of training data from (production) language models. arXiv:2311.17035, 2023.
 \bibitem{ahmed2026} A.~Ahmed, A.~F.~Cooper, S.~Koyejo, P.~Liang. Extracting books from production language models. arXiv:2601.02671, 2026.
+\bibitem{freeman2024} J.~Freeman, C.~Rippe, E.~Debenedetti, M.~Andriushchenko. Exploring memorization and copyright violation in frontier LLMs: a study of the New York Times v.\ OpenAI 2023 lawsuit. arXiv:2412.06370, 2024.
+\bibitem{su2024} E.~Su et al. Extracting memorized training data via decomposition. arXiv:2409.12367, 2024.
 \bibitem{shi2024} W.~Shi et al. Detecting pretraining data from large language models. \emph{ICLR}, 2024.
 \bibitem{zhang2024} J.~Zhang et al. Min-K\%++: Improved baseline for detecting pre-training data from large language models. arXiv:2404.02936, 2024.
 \bibitem{duarte2024} A.~V.~Duarte et al. DE-COP: Detecting copyrighted content in language models training data. \emph{ICML}, 2024.
