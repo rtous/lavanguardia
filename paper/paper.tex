@@ -71,6 +71,9 @@ only its film and book sections were excluded.
 \item A Munich court ruled in November 2025 (\emph{GEMA v.\ OpenAI}) that a model that has \emph{memorized} a work
 contains a copy of it, and that the TDM exception does not cover this. The decision is at first instance and is under
 appeal.
+\item Even today, \texttt{robots.txt} blocks only crawlers that collect \emph{training} data (GPTBot, ClaudeBot,
+CCBot, Bytespider). It does not block the agents that fetch pages \emph{at answer time} for AI assistants
+(OAI-SearchBot, ChatGPT-User, PerplexityBot) or Google's AI opt-out token (Google-Extended).
 \item Therefore, for pre-2026 content, proving that articles were \emph{crawled} is weak. Proving that a model
 \emph{memorized} or \emph{reproduces} them is strong.
 \item Copies taken from illegal sources (pirate mirrors, paywall-bypass sites) do not meet the ``lawful access''
@@ -86,6 +89,9 @@ and fully logged. In the \emph{New York Times} case, OpenAI attacked the evidenc
 \item A language model does not store documents; it learns statistical patterns. It reproduces a text word for word
 only if it has seen that text \emph{many times} during training. Song lyrics are copied thousands of times on the
 web; a typical news article is not.
+\item The articles are not only in raw Common Crawl. They survive the standard quality filters and are inside
+ready-made, publicly distributed training datasets. For example, the Catalan part of FineWeb-2 contains thousands of
+\texttt{lavanguardia.com} pages in each data file (Section~\ref{sec:presence}).
 \item Knowing the \emph{facts} of an article proves nothing, because facts appear in many sources. Only the
 \emph{wording} can identify the source.
 \item Every test needs a comparison group: texts the model \emph{could not} have seen, because they were published
@@ -395,7 +401,20 @@ whole site.
 \end{itemize}
 A 2022 article page captured in 2023 carried no TDM-reservation meta tag or header, only
 \texttt{robots: index, follow}. Before March 2026 there was therefore no machine-readable reservation covering news
-articles (Section~\ref{sec:lawful}).
+articles (Section~\ref{sec:lawful}). The current file (checked 25~Nov.~2026) still names no answer-time agent
+(\texttt{OAI-SearchBot}, \texttt{ChatGPT-User}, \texttt{PerplexityBot}) and no \texttt{Google-Extended} rule, so
+retrieval by AI assistants at answer time is not opted out.
+
+\subsection{Presence in public training datasets}\label{sec:presence}
+Model developers rarely train on raw Common Crawl. They use filtered, deduplicated derivatives. To check that
+\emph{La Vanguardia}'s pages survive this filtering, we scanned the \texttt{url} column of FineWeb-2
+(HuggingFaceFW/fineweb-2), a widely used multilingual pre-training dataset built from Common Crawl
+(\texttt{src/dataset\_presence.py}; only the URL column is read, by HTTP range request). The two Catalan data files
+scanned so far (of five, about 4.1 million documents each) contain 5,289 and 3,323 \texttt{lavanguardia.com} pages,
+about one document in a thousand. The scan of the remaining Catalan files and a sample of the Spanish files is in
+progress (\texttt{results/dataset\_presence.json}). This does not show that any particular commercial model was
+trained on FineWeb-2. It shows that the newspaper's articles are inside the kind of ready-made corpus such models
+are trained on.
 
 \subsection{Article collection}
 Articles were fetched from Common Crawl by HTTP range request on the exact WARC record. For each one we store the
