@@ -47,7 +47,9 @@ so date-based controls alone create false positives. With groups matched by sect
 significant ($p=0.009$), and a \emph{neighbour test} shows that this reflects knowledge of the period's events, not
 of the newspaper's wording: no model prefers the original text over same-facts rewrites more for members than for
 controls. A comparison of two versions of Llama with different cutoffs (same articles, so time effects cancel) shows
-the pattern training predicts ($p=0.007$), but it is small and is also explained by knowledge of the events.
+the pattern training predicts ($p=0.007$), but it is small and is also explained by knowledge of the events. A
+version restricted to wording (original text vs same-facts rewrites) points the same way but is not significant
+($p\approx0.07$). A pre-registered replication on new articles is under way.
 \item A \emph{retrieval test} on the Gemini API shows no answer-time reuse, because its URL tool could not fetch the
 site's pages. Without access, the model sometimes invented ``literal'' paragraphs and attributed them to the
 newspaper.
@@ -869,6 +871,38 @@ Per-score tests, 3.1-only vs neither (one-sided Mann--Whitney): loss $p=0.001$, 
 Min-K\%++ $p=0.30$.}\label{tab:did}
 \end{table}
 
+\paragraph{Wording or events? The neighbour test inside the two-model design.} To separate the two explanations, we
+repeated the comparison on the neighbour gap of Section~\ref{sec:di}. For each passage, the gap is how much more
+familiar the \emph{original} wording is than three rewrites with the same facts, produced locally by a model of
+another family (Qwen2.5-7B-Instruct). Knowledge of the events lowers the loss of the original and of the rewrites
+alike, so it cancels in the gap. Time drift cancels because both models score the same passages. What remains is
+familiarity with the \emph{wording}. The prediction, if Llama-3.1 was trained on the newspaper's text, is that its
+gain in original-wording preference over Llama-3 is largest for the April--November 2023 articles.
+
+\begin{table}[h]\centering\small
+\fitbox{\begin{tabular}{lccc}
+\toprule
+Comparison & Loss: difference in gap change [95\% CI] & $p$ (loss) & $p$ (combined, pre-registered)\\
+\midrule
+3.1-only (248) vs neither (249) & $-0.012$ [$-0.025$, $0.002$] & 0.09 & 0.069\\
+3.1-only vs both (250) & $-0.011$ [$-0.025$, $0.004$] & 0.15 & 0.065\\
+both vs neither (check) & $-0.001$ [$-0.015$, $0.012$] & 0.40 & 0.53\\
+\bottomrule
+\end{tabular}}
+\caption{Neighbour test inside the Llama-3 vs Llama-3.1 design (\texttt{results/did\_neighbour.json}). Negative =
+Llama-3.1 gained more preference for the original wording. One-sided tests: Mann--Whitney (loss) and Welch on the
+equal-weight combination of four scores (effect $\approx0.12$ SD).}\label{tab:didneigh}
+\end{table}
+
+The result points in the predicted direction. Between the two model versions, the preference for the original wording
+shifts away by about the same amount for articles seen by both and by neither ($+0.012$ in loss). For the articles
+only Llama-3.1 could have seen, it barely shifts ($+0.001$). The check comparison is clean ($p=0.53$). But the
+difference is not statistically significant ($p\approx0.07$), so on its own it does not establish use of the
+newspaper's wording. With about 250 articles per group, the test can only detect effects of about 0.2 SD. We have
+therefore pre-registered an independent replication on articles not used in this run
+(\texttt{docs/prereg/did\_neighbour\_replication.md}), committed before any replication data was collected. Simply
+adding articles until the $p$-value drops below 0.05 would inflate false positives.
+
 \paragraph{Designing a sound validation set.} The method's power depends on a validation set that differs from the
 suspect set \emph{only} in exposure to the model. The publisher's archive makes much better designs possible than ours:
 \begin{enumerate}
@@ -964,8 +998,9 @@ comes from knowing the \emph{events} of 2020--2023, not the newspaper's \emph{wo
 original sentences over rewrites with the same facts. Facts are not protected; wording is.
 \item \textbf{The best design compares two versions of the same model.} Articles that only the newer Llama could have
 seen became slightly more familiar to it than the others did, exactly as training would predict and with time effects
-cancelled. The effect is small, and it still has to be separated from knowledge of the events before it can count as
-evidence about the text.
+cancelled. The effect is small. When only the \emph{wording} is compared (original sentences vs rewrites with the
+same facts), the result still points the same way but is not statistically significant ($p\approx0.07$). An
+independent replication, with its analysis fixed in advance, is running.
 \item \textbf{Testing the collection as a whole (dataset inference) is the most promising route.} Small differences
 that are invisible in one article add up over thousands. Our pilot shows the main dangers: comparing old with new articles ``proves'' training even for a model
 that cannot have seen them, and a model's knowledge of past events can pass for knowledge of the text. Every result

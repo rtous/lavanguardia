@@ -293,3 +293,8 @@ sign-constrained DI + neighbour test + placebos as the standard battery.
   - Paper: premises, sec:presence, sec:m4, tab:rec + figure, abstract, limitations, conclusions updated.
 - **Next:** queue3 → did_neighbour → paper (sec:di after tab:did). M4 on consumer products / search grounding needs
   billing or accounts (ask user). Anthropic top-up still needed (Sonnet 4.5 retires 2026-11-30).
+- **Neighbour-DiD first run** (`results/did_neighbour.json`, tab:didneigh): dgap loss BOTH +0.012, NONE +0.013, NEW +0.001
+  → predicted direction; combined p=0.069 (vs NONE), 0.065 (vs BOTH); check BOTH vs NONE p=0.53. Not significant.
+  **Pre-registered replication** (`docs/prereg/did_neighbour_replication.md`, commit 92a098f before data) running:
+  `src/run_queue4.sh` → `logs/queue4.log` (CC fetch of fresh mid-2023 articles → rewrites → Llama scoring →
+  `results/did_neighbour_rep.json`). Resumable; on resume check for "QUEUE4 done". Report the replication alone as primary.
