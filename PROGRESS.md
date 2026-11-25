@@ -298,3 +298,4 @@ sign-constrained DI + neighbour test + placebos as the standard battery.
   **Pre-registered replication** (`docs/prereg/did_neighbour_replication.md`, commit 92a098f before data) running:
   `src/run_queue4.sh` → `logs/queue4.log` (CC fetch of fresh mid-2023 articles → rewrites → Llama scoring →
   `results/did_neighbour_rep.json`). Resumable; on resume check for "QUEUE4 done". Report the replication alone as primary.
+- Gemini 3 Flash M1: 47/60 members (quota). Median LCS 3, max 13 = quoted Biden statement (syndicated), not LV wording. Controls pending (rerun same command next day).
