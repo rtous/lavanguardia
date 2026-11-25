@@ -280,3 +280,16 @@ sign-constrained DI + neighbour test + placebos as the standard battery.
   - Tools OFF + QUOTE: Gemini **fabricates** "the first two paragraphs" of a post-cutoff article and presents them as
     La Vanguardia's text (LCS 3 words with the real one). Relevant as misattribution, not as copying.
   - Running n=25 (off, url) then the remaining M2b pairwise → `logs/gemini_day2.log`.
+- **Results (session 6, morning):**
+  - FineWeb-2: Catalan (all 5 shards) 17,947 lavanguardia.com docs (17,179 URLs, crawls 2017–2024); Spanish 6/146
+    shards 13,779 → est. ~330k. Our sets in scanned data (`src/presence_overlap.py`): members 37/695 (5.3% in 4.1% of
+    Spanish data → consistent with ~all members present), mid2023 13/249, La Contra 12/212, controls 0. **Full Spanish
+    scan running** (`logs/presence_all.log`, ~15 h, resumable; rerun `src/presence_overlap.py` after it).
+  - M4 (Gemini 3.1 Flash-Lite, 25 controls, `results/m4_retrieval_*_summary.json`): URL tool fails on lavanguardia.com
+    49/50 (+ homepage), works on Wikipedia, fails on elperiodico.com → site-level bot blocking. No article text reproduced
+    (≥9-word matches are all the headline from the prompt). Tools OFF + QUOTE: 11 refusals, **13 fabricated "literal"
+    paragraphs** attributed to La Vanguardia. Search grounding needs a billed key.
+  - M2b Gemini complete: members 58.9% vs controls 65.5% (p=0.98), A-bias 78–89%. No signal.
+  - Paper: premises, sec:presence, sec:m4, tab:rec + figure, abstract, limitations, conclusions updated.
+- **Next:** queue3 → did_neighbour → paper (sec:di after tab:did). M4 on consumer products / search grounding needs
+  billing or accounts (ask user). Anthropic top-up still needed (Sonnet 4.5 retires 2026-11-30).

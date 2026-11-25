@@ -27,7 +27,9 @@
 We study whether it is feasible to produce evidence, intelligible to a court, that articles from the Spanish
 newspaper \emph{La Vanguardia} were used to train commercial large language models (LLMs). We first establish the
 provenance facts. The newspaper's full article text is present in Common Crawl, the web corpus underlying most LLM
-pre-training sets, and the site's \texttt{robots.txt} did not exclude AI crawlers from news content until
+pre-training sets. The pages also survive standard filtering into ready-made training datasets: the FineWeb-2
+dataset holds about 18,000 of them in Catalan and an estimated 330,000 in Spanish, apparently including essentially
+all of our test articles. The site's \texttt{robots.txt} did not exclude AI crawlers from news content until
 17 March 2026. We then build a dataset of 1,143 signed, non-agency articles split by publication date into
 \emph{members} (2020--2023, before the training-data cutoff of the evaluated models) and \emph{controls}
 (September 2025--March 2026, after it). On it we apply four families of tests.
@@ -46,6 +48,9 @@ significant ($p=0.009$), and a \emph{neighbour test} shows that this reflects kn
 of the newspaper's wording: no model prefers the original text over same-facts rewrites more for members than for
 controls. A comparison of two versions of Llama with different cutoffs (same articles, so time effects cancel) shows
 the pattern training predicts ($p=0.007$), but it is small and is also explained by knowledge of the events.
+\item A \emph{retrieval test} on the Gemini API shows no answer-time reuse, because its URL tool could not fetch the
+site's pages. Without access, the model sometimes invented ``literal'' paragraphs and attributed them to the
+newspaper.
 \end{itemize}
 We also report two methodological pitfalls in recognition tests that inflate apparent evidence. We conclude that neither randomly sampled
 articles nor the newspaper's most-copied interviews are memorized strongly enough to give per-article evidence with
@@ -508,13 +513,13 @@ Experiment & Family & Needs & Run on\\
 \midrule
 M1 verbatim continuation & (A) Extraction & black-box & Claude 4.5/5.5, Gemini 3.x; random + \emph{La Contra}\\
 M2 DE-COP multiple choice & (C) Recognition & black-box & Claude 4.5\\
-M2b pairwise minimal edits & (C) Recognition & black-box & Claude 4.5, Gemini 3.1 Flash-Lite (partial)\\
+M2b pairwise minimal edits & (C) Recognition & black-box & Claude 4.5, Gemini 3.1 Flash-Lite\\
 M5 per-article scores + drift calibration & (B) Membership inference & token probabilities & Qwen2.5, Llama-3.1, Mistral, Gemma-2\\
 M6 dataset inference (+ matching, placebos) & (D) Dataset inference & token probabilities & same four (+ GPT-2 / XGLM references)\\
 M7 neighbour (rewrite) gap & (B) Membership inference & token probabilities & same four\\
 M8 two-model difference-in-differences & (D) Dataset inference & token probabilities & Llama-3 vs Llama-3.1\\
 -- & (E) Copyright traps & publishing traps & not yet (requires future articles)\\
--- & (F) Retrieval & web-enabled product & not yet\\
+M4 answer-time retrieval (tools off vs on) & (F) Retrieval & web-enabled API & Gemini 3.1 Flash-Lite (URL fetch)\\
 \bottomrule
 \end{tabular}}
 \caption{Experiments by method family.}\label{tab:tests}
@@ -631,9 +636,9 @@ evidence: every model picks the original far above chance, with $p$-values as sm
 this \emph{equally well on controls}, articles they cannot have seen. Opus~4.5 picks the original among paraphrases of
 post-cutoff articles 80.8\% of the time. The only quantity that can indicate training is the difference between
 members and controls. That difference is small and not significant for any model (Opus +5.9 points, $p=0.15$;
-Sonnet $-0.8$; Haiku +7.0, $p=0.09$), and it is negative in the pairwise test. A pairwise run on Gemini 3.1 Flash-Lite
-is incomplete (324 member queries, no controls yet). In it the model answered ``A'' in 89\% of cases, so position bias
-dominates and the run carries little information.
+Sonnet $-0.8$; Haiku +7.0, $p=0.09$), and it is negative in the pairwise test. The pairwise run on Gemini 3.1
+Flash-Lite, now complete, shows the same: 58.9\% on members and 65.5\% on controls ($p=0.98$). Gemini also answered
+``A'' in 78--89\% of cases, so position bias dominates its answers.
 
 \begin{figure}[h]\centering
 \includegraphics[width=\linewidth]{figures/fig_recognition.pdf}
@@ -656,6 +661,7 @@ M2 minimal edits, 4 options (\emph{invalid}) & Opus 4.5 & 94.2\% & 96.6\% & 0.81
  & Haiku 4.5 & 78.8\% & 85.2\% & 0.90\\
 M2b pairwise minimal edits (chance 50\%) & Opus 4.5 & 74.4\% & 82.2\% & 0.99\\
  & Sonnet 4.5 & 71.1\% & 73.2\% & 0.47\\
+ & Gemini 3.1 Flash-Lite & 58.9\% & 65.5\% & 0.98\\
 \bottomrule
 \end{tabular}}
 \caption{Recognition tests (60 + 60 articles; 240 queries per cell for M2, 360 for M2b). The last column is a
@@ -672,6 +678,29 @@ subtle ways, and the models detect that difference. Absolute accuracy, or a test
 each variant changes \emph{different} words. The original is then the ``consensus'': every one of its words appears in
 most options, and a simple majority vote recovers it without any memory. This explains the 85--97\% accuracy on
 controls. The pairwise design, which shows one variant at a time, removes the leak.
+
+\subsection{Answer-time retrieval (M4, family F)}\label{sec:m4}
+This test asks whether an AI product fetches \emph{La Vanguardia} articles while answering and reuses their wording.
+We used 25 controls (September 2025--March 2026). They were published after the model's training cutoff, so any
+verbatim text in an answer would have to come from retrieval, not from training. Each article was requested with two
+prompts: an explicit request to copy its first two paragraphs (QUOTE), and a natural question about its content (ASK).
+Each prompt was run in two conditions: tools off, and Gemini's URL-fetching tool on (\texttt{src/m4\_retrieval.py};
+100 logged calls). Google Search grounding could not be tested, because the free-tier key has no quota for it.
+\begin{itemize}
+\item \emph{The URL tool could not read the newspaper.} Google's fetcher reported an error for 49 of the 50 requests
+on \texttt{lavanguardia.com} and for the site's homepage. The model then said it could not access the page. The same
+tool fetched and copied a Wikipedia page without difficulty, and it also failed on another Spanish newspaper
+(\emph{El Peri\'odico}). The site therefore appears to block this fetcher, whatever \texttt{robots.txt} says.
+\item \emph{No article text was reproduced.} The longest match in any answer was 13 words, and in every such case it
+was the article's own headline, which was in the prompt. The median match was 1--4 words.
+\item \emph{Fabrication with tools off.} Asked for the first two paragraphs of an article it had never seen and
+could not fetch, Gemini refused in 11 of 25 cases. In the other 13 it answered ``here are the first two paragraphs''
+and wrote invented text in the newspaper's style (longest overlap with the real article: a few words). This is not
+evidence of copying, but it is a separate issue: text the product falsely attributes to the newspaper.
+\end{itemize}
+For the Gemini API, then, we see no answer-time reuse, because the fetch fails. Consumer products (ChatGPT search,
+Perplexity, Gemini with Google Search, Claude with web search) use different fetchers and search indexes and need a
+separate test, ideally with accounts and a protocol agreed with counsel.
 
 \subsection{Token-probability tests (M5, family B)}
 Figure~\ref{fig:auc} reports AUCs on all 695 members and 448 controls. Uncalibrated, Qwen2.5-7B separates members from
@@ -904,6 +933,8 @@ target and was trained on a different corpus, so the time correction is approxim
 \item Four open-weight targets were evaluated, all of 7--9 billion parameters; larger models memorize more. Claude
 5.x models could only be tested where controls are not essential.
 \item The neighbour test used only 60+60 passages, so it can miss a small effect.
+\item The retrieval test covered only the Gemini API's URL tool (25 articles). Search grounding and consumer
+products with web access are untested.
 \item Gemini evaluation was limited by free-tier quotas and by the lack of token probabilities. Several runs were cut
 short by API credit and quota limits (marked in the tables). OpenAI models have not been evaluated yet.
 \end{itemize}
@@ -942,8 +973,10 @@ must therefore pass placebo groups and a wording-specific check. The comparison 
 allows this, for example by comparing articles that web crawlers captured with articles from the same months that
 were never online. This approach requires models whose word probabilities are accessible: open-weight models, or
 commercial models under court-ordered expert access.
-\item \textbf{Answer-time use is a separate and promising avenue.} Assistants that browse the web may reproduce
-articles at answer time. This is a different legal act, easier to observe.
+\item \textbf{Answer-time use is a separate avenue.} Assistants that browse the web may reproduce articles at
+answer time. This is a different legal act, easier to observe. In a first test, Google's Gemini API could not fetch
+\emph{La Vanguardia} pages and reproduced no text. Without access, it sometimes invented ``literal'' paragraphs and
+attributed them to the newspaper. Consumer products with web search remain to be tested.
 \item \textbf{Copyright traps are the most reliable option for the future.} Inserting unique, invented phrases into
 future articles, repeated across many pages, would make later reproduction by a model unambiguous proof of use. We
 recommend starting now, since traps cannot protect content published before their introduction.
@@ -951,7 +984,7 @@ recommend starting now, since traps cannot protect content published before thei
 
 \paragraph{Next steps.} Complete the truncated runs; measure duplication to select test passages; evaluate models from
 other providers that expose token probabilities (OpenAI, further open-weight models); run dataset inference on the
-licensed archive with same-period controls (crawled vs never-crawled articles) and on several open-weight models; design a retrieval test for web-enabled assistants; and agree with the
+licensed archive with same-period controls (crawled vs never-crawled articles) and on several open-weight models; extend the retrieval test to web-enabled consumer assistants; and agree with the
 publisher on a copyright-trap protocol.
 
 \paragraph{Reproducibility.} Code is in \texttt{src/}; figures are regenerated by \texttt{paper/make\_figures.py}

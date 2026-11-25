@@ -1,0 +1,42 @@
+{
+ "ASK/off": {
+  "n": 25,
+  "lcs_median": 4,
+  "lcs_max": 13,
+  "ngram8_mean": 0.001,
+  "refusals": 0,
+  "claims_verbatim_but_lcs<8": 0,
+  "fetch_status": {}
+ },
+ "ASK/url": {
+  "n": 25,
+  "lcs_median": 4,
+  "lcs_max": 13,
+  "ngram8_mean": 0.001,
+  "refusals": 24,
+  "claims_verbatim_but_lcs<8": 0,
+  "fetch_status": {
+   "URL_RETRIEVAL_STATUS_ERROR": 24
+  }
+ },
+ "QUOTE/off": {
+  "n": 25,
+  "lcs_median": 3,
+  "lcs_max": 13,
+  "ngram8_mean": 0.002,
+  "refusals": 11,
+  "claims_verbatim_but_lcs<8": 13,
+  "fetch_status": {}
+ },
+ "QUOTE/url": {
+  "n": 25,
+  "lcs_median": 1,
+  "lcs_max": 2,
+  "ngram8_mean": 0.0,
+  "refusals": 25,
+  "claims_verbatim_but_lcs<8": 0,
+  "fetch_status": {
+   "URL_RETRIEVAL_STATUS_ERROR": 25
+  }
+ }
+}

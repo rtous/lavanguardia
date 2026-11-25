@@ -25,12 +25,13 @@ def acc(path, key="correct"):
         out[s] = (p, 1.96 * se)
     return out
 
-M = {"claude-opus-4-5-20251101": "Opus 4.5", "claude-sonnet-4-5-20250929": "Sonnet 4.5", "claude-haiku-4-5-20251001": "Haiku 4.5"}
-tests = [("DE-COP, full paraphrases\n(4 options, chance 25%)", "m2_decop_full_v2_{}.jsonl", 0.25, list(M)),
-         ("Pairwise, minimal edits\n(2 options, chance 50%)", "m2b_pairwise_{}.jsonl", 0.50, list(M)[:2])]
+M = {"claude-opus-4-5-20251101": "Opus 4.5", "claude-sonnet-4-5-20250929": "Sonnet 4.5", "claude-haiku-4-5-20251001": "Haiku 4.5",
+     "gemini-3.1-flash-lite": "Gemini 3.1\nFlash-Lite"}
+tests = [("DE-COP, full paraphrases\n(4 options, chance 25%)", "m2_decop_full_v2_{}.jsonl", 0.25, list(M)[:3]),
+         ("Pairwise, minimal edits\n(2 options, chance 50%)", "m2b_pairwise_{}.jsonl", 0.50, [list(M)[0], list(M)[1], list(M)[3]])]
 
 # Figure 1: member vs control accuracy
-fig, axes = plt.subplots(1, 2, figsize=(6.6, 2.6), gridspec_kw={"width_ratios": [3, 2]})
+fig, axes = plt.subplots(1, 2, figsize=(6.6, 2.6), gridspec_kw={"width_ratios": [3, 3]})
 for ax, (title, pat, chance, models) in zip(axes, tests):
     for i, m in enumerate(models):
         a = acc(pat.format(m))
