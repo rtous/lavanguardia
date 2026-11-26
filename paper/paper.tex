@@ -281,6 +281,34 @@ of copying, but possibly relevant on its own (attribution, reputation).
 No model reproduced the newspaper's text or showed knowledge of its wording, including the most reposted interviews.
 
 %======================================================================
+\section{What the negative results do and do not show}\label{sec:negatives}
+\paragraph{They count against memorization.} With neutral prompts, none of the models tested reproduces ordinary
+articles or \emph{La Contra} interviews, or recalls their specific content. This weakens the route of
+\emph{GEMA}, which needs a model that \emph{contains} the work, and the argument that the models' outputs substitute
+for the newspaper. Both claims would need a different kind of content, larger models or stronger extraction.
+
+\paragraph{They do not count against training.}
+\begin{itemize}
+\item \textbf{One exposure rarely leaves a recallable trace.} Memorization grows with the number of times a text is
+repeated in training \cite{carlini2023}, and training pipelines remove duplicates. Each \emph{La Contra} page appears
+about once in a dataset such as FineWeb-2. A model can be trained on all of them and recall none. In the NYT study,
+GPT-4 barely reproduced articles that were certainly in its training data \cite{freeman2024}.
+\item \textbf{The models tested are small or filtered.} The open models have 7--9 billion parameters, and memorization
+grows with size. Commercial assistants may suppress verbatim output.
+\item \textbf{Several findings point to exposure, not away from it.} The models know the facts of the articles, write
+in \emph{La Contra}'s style, and Gemini knows the newspaper's web addresses. All of this is compatible with training
+without memorization.
+\end{itemize}
+
+\paragraph{What is missing: a positive control.} We never checked that our tests \emph{detect} the newspaper's text in
+a model known to have been trained on it. Without that check, a negative result cannot distinguish ``not trained''
+from ``trained, but the test cannot see it''. Models whose training data are fully published, such as AI2's OLMo,
+make the check possible: a public search service counts how many times an exact sentence appears in their training
+data. Running our tests on articles verifiably in that data would show how much repetition the tests need. If they
+fail there too, our negatives say nothing about training. If they succeed, the negatives on other models become a
+calibrated statement (``no memorization at the level a model shows after $N$ exposures'').
+
+%======================================================================
 \section{Promising avenues and where to spend}\label{sec:avenues}
 \begin{itemize}
 \item \textbf{Collection test with the publisher's archive: worth funding.} Compare articles that web crawlers
@@ -289,6 +317,9 @@ difference; add the wording check; run on several open-weight models, including 
 memorization grows with size. Needs the archive and a rented GPU for a few days (about \$100--300). This is the only
 route we see to a statistically sound statement of the form ``this model was trained on the archive''. It applies to
 open-weight models, or to commercial models through court-ordered expert access.
+\item \textbf{Positive control on a model with published training data: free, worth doing first.} Find
+\emph{La Contra} and other articles inside OLMo's training data, count their repetitions, and run our tests on OLMo
+(Section~\ref{sec:negatives}). It tells how to read every negative result in this study. Local compute only.
 \item \textbf{Finish the pre-registered Llama replication: cheap, worth doing.} It is the cleanest wording-level
 design we have. About a day on the laptop or a few hours on a rented GPU (about \$10--30).
 \item \textbf{Answer-time retrieval on consumer products: worth funding.} ChatGPT search, Perplexity, Gemini with
@@ -311,6 +342,8 @@ it, compared with other newspapers?) is designed and could be run at no cost if 
 2026.
 \item \textbf{We found no reproduction and no knowledge of the wording} in any model, including the newspaper's most
 reposted interviews. A \emph{GEMA}-style demonstration with defensible prompts is unlikely with ordinary articles.
+This counts against memorization, not against training: single-exposure articles are rarely memorized, and our tests
+still lack a positive control.
 \item \textbf{The weak traces we found} (Llama-3.1, Gemma-2, Gemini's article numbers) are explained by knowledge of
 events or by third-party links. They point to where to look, not to proof.
 \item \textbf{Several popular tests give false positives}; every claim must survive controls, matching and a

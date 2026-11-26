@@ -382,3 +382,7 @@ Recommended next steps if work resumes (see docs/experiment_status.md): (1) coll
 same-period never-crawled controls, incl. large open models on a rented GPU; (2) finish the pre-registered Llama
 replication (`./src/run_queue4.sh`, resumable); (3) retrieval tests on consumer assistants with a counsel protocol;
 (4) copyright traps.
+
+- Paper: new section "What the negative results do and do not show" (nulls count against memorization/GEMA route, not
+  against training; missing positive control). New first-priority avenue: positive control on OLMo (published training
+  data, infini-gram counts), free. Added to docs/experiment_status.md and CLAUDE.md rules. Not run.

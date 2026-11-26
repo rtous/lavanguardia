@@ -50,6 +50,8 @@ Two distinct things can be shown, and we keep them apart in every report:
 - Copies of LV text (reposts, scrapers, aggregators) still count as LV content: learning from them is training on LV's
   works. The confound is *independent* information: descriptions of LV, third-party links/URLs, the same facts reported
   independently, conventions shared with other Catalan outlets. Choose controls against those, not against copies.
+- Negative results bound memorization, not training (single-exposure text is rarely memorized). Until a positive
+  control exists (a model with published training data, e.g. OLMo), never present a null as evidence of non-use.
 - Never make shell queues wait on `pgrep -f <script name>`: waiter shells match their own pattern and deadlock. Use one sequential script.
 
 ## Working conventions

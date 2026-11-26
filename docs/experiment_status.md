@@ -59,5 +59,6 @@ Legend for "worth finishing": **Yes** (cheap and informative), **Only if** (cond
 
 | Item | Needs | Worth it? |
 |---|---|---|
+| **Positive control** on a model with published training data (AI2 OLMo; exact-sentence counts via the public infini-gram service) | Local compute only (~4–5 GB model) | **Yes, first**: without it, our negatives cannot distinguish "not trained" from "trained but undetectable" |
 | OpenAI models | API key; only black-box tests apply | **Only if** triage continues: the URL test costs cents |
 | Copyright traps | Publisher decision; protects only future content | **Yes** (no direct cost; start now) |
