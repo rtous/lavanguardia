@@ -1265,7 +1265,10 @@ future articles, repeated across many pages, would make later reproduction by a 
 recommend starting now, since traps cannot protect content published before their introduction.
 \end{itemize}
 
-\paragraph{Next steps.} See Table~\ref{tab:status}. In order of value: the
+\paragraph{Next steps.} See Table~\ref{tab:status}. In order of value: finish the pre-registered NYT-style
+extraction (M11, \texttt{docs/prereg/m11\_nyt\_style.md}: role-play prompt, 110-word opening, best of 10 attempts,
+identical for controls; an adversarial upper bound reported apart from the neutral tests), stopped after 7 of 200
+articles on Salamandra-7B-Instruct with no controls yet; the
 cheap article-number screening (M10) on all reachable models, to choose where to spend on extraction tests; M9 and
 role-play tests on commercial APIs with a paid key; tests on larger open-weight models; complete the truncated runs; measure duplication to select test passages; evaluate models from
 other providers that expose token probabilities (OpenAI, further open-weight models); run dataset inference on the

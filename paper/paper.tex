@@ -434,7 +434,8 @@ No model reproduced the newspaper's text or showed knowledge of its wording, inc
 \paragraph{They count against memorization.} With neutral prompts, none of the models tested reproduces ordinary
 articles or \emph{La Contra} interviews, or recalls their specific content. This weakens the route of
 \emph{GEMA}, which needs a model that \emph{contains} the work, and the argument that the models' outputs substitute
-for the newspaper. Both claims would need a different kind of content, larger models or stronger extraction.
+for the newspaper. Both claims would need a different kind of content, larger models or stronger extraction
+(the NYT-style test, Section~\ref{sec:avenues}, is pre-registered but not yet run).
 
 \paragraph{They do not count against training.}
 \begin{itemize}
@@ -495,7 +496,14 @@ Google Search and Claude with web search, using the newspaper's recent and paywa
 and a separate legal act, not blocked by the current \texttt{robots.txt}. Cost: subscriptions and a protocol agreed
 with counsel (recorded sessions).
 \item \textbf{Copyright traps: no direct cost, start now.} The most reliable evidence for future content.
-\item \textbf{More black-box extraction on frontier APIs: not worth it now.} Every attempt was negative. Spend on it
+\item \textbf{NYT-style extraction (adversarial upper bound): pre-registered, started, worth finishing.} Our extraction
+tests used neutral prompts and one attempt per article; the NYT case's tricks (role-play prompt, long article
+opening, many attempts) were not tried. Since they bear on whether a model \emph{can} output the wording, which is what
+matters for memorization and for outputs as reproductions, we pre-registered such a test
+(\texttt{docs/prereg/m11\_nyt\_style.md}): 10 attempts per article, identical for controls, reported apart from the
+neutral tests. On three open models it takes about 14 hours on a free GPU; on Gemini, an API key and a few dollars, or
+four days of free quota. Stopped after 7 of 200 articles on the first model (no controls yet, so no result).
+\item \textbf{More black-box extraction on frontier APIs: not worth it now.} Every neutral attempt was negative. Spend on it
 (about \$100 per model at a scale where a 1--2\% hit rate would show) only if another signal flags a specific model.
 \item \textbf{More triage on paid API tiers: not needed now.} The article-number test would cost cents per model, but
 it is explained by third-party links. A free ``collection fingerprint'' test (does a model reproduce \emph{La

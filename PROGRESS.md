@@ -497,3 +497,22 @@ Salamandra row in tab:models, commit + push. Copy new `evidence/` lines from Dri
 **Next:** when "M11 done" appears: `python -I src/m11_nyt_style.py summary` (already run at the end), inspect every member
 run ≥15 words side by side and check for copies elsewhere, write up as a labelled upper bound in the paper.
 - Paper, Legal context: paragraph on what proof of pre-opt-out training is worth without regurgitation.
+- Discussed (no code): how to run M11 on Gemini — needs GEMINI_API_KEY (Colab Secrets), sampling params + seed in
+  `probe.ask_gemini` (fixed at temperature 0 now), one API call per attempt, count `RECITATION` stops per set, and a
+  dated prereg amendment before the first query. Free tier ≈ 4 days (2,000 requests); paid ≈ a few dollars.
+
+### State at end of session 9 (2026-11-26, 22:30 UTC) — ALL JOBS STOPPED (user request)
+- No queue, no Python job, no sync loop running. Final Drive sync done after this entry (see below).
+- **M11**: stopped at 7/200 articles on Salamandra-7B-Instruct (La Contra members only; best LCS ≤3 words). No controls
+  yet → no result; not reported as one. Resume: `./src/run_colab_m11.sh` (skips finished articles; ~14 h for 3 models).
+- Everything else of this session is finished, committed and in the paper: replication (not confirmed), Salamandra
+  (no recall, rough URL-number knowledge), legal context (pre-opt-out training, training vs memorization, Like Company AG).
+**Next, in order of value** (see docs/experiment_status.md and the paper's "Promising avenues"):
+1. Finish M11 on the open models (free, ~14 h Colab), then optionally Gemini (key + prereg amendment).
+2. Copies-vs-trace test (does the collection trace grow with the number of crawl copies of each article?), CPU only.
+3. Literature: add Duan 2024, Kandpal 2022, Wei 2024, Puerto 2024, Jagielski 2023 to docs/literature_review.md;
+   Goldfish-loss caveat on the Apertus positive control in the paper (offered, not done).
+4. Needs money or the publisher: never-online archive collection test, ALIA-40b/70B on a rented GPU, retrieval tests
+   with a counsel protocol, copyright traps.
+5. Copy new `evidence/` lines from Drive to the Mac master log (append only).
+- Rotate the HF and GitHub tokens (they were pasted in chat); use Colab Secrets next time.

@@ -2,10 +2,12 @@
 
 Read `CLAUDE.md`, `PROGRESS.md` and `docs/experiment_status.md` first. Everything below is resumable.
 
-## Quick resume (state at 2026-11-26 ~22:10 UTC)
-Running: **M11 NYT-style extraction** (`src/run_colab_m11.sh`, log `logs/colab_m11.log`, resumable).
-After restoring (cell below, but launch `nohup ./src/run_colab_m11.sh >> logs/colab_m11.log 2>&1 &` instead of
-run_colab_resume.sh, and start `./src/colab_sync.sh loop 300` too). Replication and Salamandra are DONE.
+## Quick resume (state at 2026-11-26 22:30 UTC) — NOTHING RUNNING
+All jobs were stopped at the end of the session. Done: Llama replication, Salamandra, FineWeb-2 scan, positive control.
+Only open experiment: **M11 NYT-style extraction**, stopped at 7/200 articles on the first model (resumable, skips the 7).
+To continue it: run the cell below, but launch `nohup ./src/run_colab_m11.sh >> logs/colab_m11.log 2>&1 &` instead of
+`run_colab_resume.sh`, and start `nohup ./src/colab_sync.sh loop 300 >> logs/colab_sync.log 2>&1 &` first. ~14 h on a T4.
+After restoring from Drive run `chmod +x src/*.sh` (Drive drops the exec bit) and delete any `.last_sync_utc` in the repo.
 
 ## Previous quick resume (state at 2026-11-26 ~18:00 UTC; done)
 Pending, both resumable: (1) Llama 3 vs 3.1 neighbour replication (rewrites ~80% done, then scoring + DiD);
