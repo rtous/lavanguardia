@@ -336,6 +336,47 @@ it, compared with other newspapers?) is designed and could be run at no cost if 
 \end{itemize}
 
 %======================================================================
+\section{Which models can be tested at collection level, and until when}\label{sec:whichmodels}
+The collection-level test (dataset inference, Section~\ref{sec:methods}) needs the probability the model assigns to
+each word of a text \emph{we supply}. That limits it to the following models (status November 2026).
+
+\paragraph{Open-weight models: testable, by us, without anyone's permission.} Their parameters are published, so they
+can be run on our own hardware or a rented GPU:
+\begin{itemize}
+\item \emph{Meta} Llama 3, 3.1, 3.3 and 4 (behind Meta AI);
+\item \emph{Google} Gemma 2, 3 and 4 (open relatives of Gemini);
+\item \emph{Mistral AI} open models such as Mistral 7B, Mixtral, Mistral Small and Nemo (related to Le Chat);
+\item \emph{Alibaba} Qwen 2.5 and 3; \emph{DeepSeek} V3 and R1 (behind the DeepSeek app);
+\item \emph{OpenAI} gpt-oss (2025), its only open-weight family; \emph{Microsoft} Phi.
+\end{itemize}
+Small versions (7--9 billion parameters) run on a laptop; this study used four of them. The large versions (70 to
+several hundred billion parameters), which memorize more, need a rented GPU for a few days, or a hosted service that
+returns probabilities for a supplied text (Together AI documents this for its completions endpoint; support must be
+checked model by model).
+
+\emph{Deadline:} none in principle, but weights can be withdrawn or gated (licence changes, takedowns) and hosting
+services retire older models. The exact versions to be tested should be \textbf{downloaded and archived now} with
+their repository identifiers and hashes, which also strengthens the chain of custody.
+
+\paragraph{Closed commercial models: not testable by us.} ChatGPT, Claude and Gemini do not reveal probabilities for
+a supplied text.
+\begin{itemize}
+\item \emph{OpenAI} chat models return probabilities only for the words they generate. The last models that also
+returned them for supplied text (davinci-002, babbage-002, gpt-3.5-turbo-instruct) were shut down on 28 September
+2026, so that window has closed.
+\item \emph{Anthropic} returns no probabilities. \emph{Google} did not enable them on any Gemini model available to us.
+\end{itemize}
+For these models the collection test is possible only through \textbf{court-ordered access} by an expert, as with
+the output logs ordered disclosed in the NYT case. Black-box tests (extraction, knowledge probes) remain possible
+while a model version is online.
+
+\emph{Deadline:} providers retire model versions on a schedule, after which they can no longer be queried publicly.
+Claude Sonnet 4.5 is retired from Anthropic's API on 30 November 2026 (later on some cloud platforms); Gemini 2.5
+models were already closed to new users during this study; Anthropic commits to at least 60 days' notice. A model
+version that matters for a claim should be tested before its retirement, and counsel may consider asking the
+provider to \textbf{preserve} it (a litigation hold) so that court-ordered testing remains possible later.
+
+%======================================================================
 \section{Conclusions}
 \begin{itemize}
 \item \textbf{The articles were available for AI training} for years, without a machine-readable opt-out until March

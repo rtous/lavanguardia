@@ -62,3 +62,11 @@ Legend for "worth finishing": **Yes** (cheap and informative), **Only if** (cond
 | **Positive control** on a model with published training data (AI2 OLMo; exact-sentence counts via the public infini-gram service) | Local compute only (~4–5 GB model) | **Yes, first**: without it, our negatives cannot distinguish "not trained" from "trained but undetectable" |
 | OpenAI models | API key; only black-box tests apply | **Only if** triage continues: the URL test costs cents |
 | Copyright traps | Publisher decision; protects only future content | **Yes** (no direct cost; start now) |
+
+## Deadlines (see paper, "Which models can be tested at collection level, and until when")
+- Collection-level (probability) tests: open-weight models only (Llama, Gemma, Mistral open, Qwen, DeepSeek, gpt-oss,
+  Phi), or closed models through court-ordered expert access. Archive the exact open-weight versions now (repo
+  commit + hashes); hosted services and licences can change.
+- OpenAI prompt-probability models (davinci-002, babbage-002, gpt-3.5-turbo-instruct) shut down 2026-09-28: closed.
+- Claude Sonnet 4.5 API retirement 2026-11-30 (black-box tests on it are already logged in evidence/). Gemini 2.5
+  closed to new users. Consider a litigation hold for model versions relevant to a claim.
