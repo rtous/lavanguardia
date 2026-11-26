@@ -753,6 +753,30 @@ and the longest verbatim run was 5 words on members against 17 on controls. Gemm
 2/151 vs 0/51 (run stopped at 202 of 278 items). The other local models were not run, because they showed weaker signals than Gemma-2 in every earlier
 test. The interviews' specific answers are not known to these models.
 
+\subsection{Positive control on a model with published training data}\label{sec:posctrl}
+\emph{OLMo 2 (discarded).} The public infini-gram index of OLMo 2's pretraining mix (\texttt{v4\_olmo-mix-1124\_llama})
+contains almost no Spanish (``the city of Barcelona'' 56,500 occurrences; ``de la ciudad de Barcelona'' 658) and none
+of the first 42 articles checked (\texttt{src/olmo\_positive\_control.py}, \texttt{results/olmo/lookup.jsonl}).
+
+\emph{Apertus-8B} (\texttt{mlx-community/Apertus-8B-2509-4bit}, base). Pretrained on FineWeb-2 / FineWeb-2-HQ with
+robots.txt opt-outs applied as of January 2025 (news pages of the newspaper were not opted out then), and with the
+Goldfish objective, which suppresses verbatim recall. Groups (Spanish only): \emph{in} = found in FineWeb-2 (288 random,
+55 \emph{La Contra}); \emph{not found} in the scanned 53\% (403, 145; about a third truly absent); post-cutoff controls
+(448, 41). Scores with \texttt{src/m5\_logprob.py}, calibrated with GPT-2-spanish; analysis
+\texttt{src/positive\_control\_apertus.py} $\rightarrow$ \texttt{results/positive\_control\_apertus.json}.
+\begin{itemize}
+\item In vs not found (same period): AUC 0.48--0.51 raw, 0.48--0.51 calibrated, all $p\ge0.33$.
+\item In vs post-cutoff controls, calibrated: loss AUC 0.560 ($p=0.003$), zlib ratio 0.562 ($p=0.002$), Min-K\% 0.532
+($p=0.07$), Min-K\%++ 0.509 ($p=0.33$). The same split on the other open models, calibrated loss: Llama-3.1 0.539,
+Qwen2.5 0.538, Mistral 0.537 ($p\approx0.04$ each), Gemma-2 0.590.
+\item \emph{La Contra}: calibrated AUC 0.46--0.49 in both comparisons (none significant; 55 vs 145 / 41).
+\item Q$\rightarrow$A recall (page continuation): 0/63 facts for interviews in the data, 0/139 not found, 1/76 controls.
+\end{itemize}
+Reading: a model that (almost certainly) trained once on the articles shows no article-level knowledge and only a faint
+collection-level trace, of the same size as the other open models. Null results are therefore uninformative about
+training, and faint traces are what training looks like. Finishing the FineWeb-2 scan would give clean same-period
+groups.
+
 \subsection{Sentence-by-sentence extraction (M9, family A)}\label{sec:m9}
 Following \cite{su2024}, M9 asks for one sentence at a time. A base (non-chat) open-weight model receives a plain
 page: the newspaper's name, the title, byline and date, and the article up to the previous sentence. It simply

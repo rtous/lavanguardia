@@ -12,7 +12,7 @@ Legend for "worth finishing": **Yes** (cheap and informative), **Only if** (cond
 |---|---|---|---|---|
 | Common Crawl presence (`src/cc_fetch.py`) | Done | — | Full LV text is in every crawl 2019–Mar 2026 | — |
 | robots.txt history (`src/robots_history.py`) | Done | — | AI opt-out of news only from 2026-03-17 | — |
-| FineWeb-2 presence (`src/dataset_presence.py`) | Catalan 100%, Spanish 53% | Stopped for time (~8 h of downloading left) | ~80% of our members projected to be in FineWeb-2; the extrapolation is adequate | **No** (only if an exact count is needed in court) |
+| FineWeb-2 presence (`src/dataset_presence.py`) | Catalan 100%, Spanish 53% | Stopped for time (~8 h of downloading left) | ~80% of our members projected to be in FineWeb-2 | **Yes, now** (free, Colab): gives clean same-period in/out groups for the positive control and for any FineWeb-2-trained model |
 | LV URL mentions in FineWeb-2 (`src/m10_url_mentions.py`) | 1 of 146 Spanish files | Enough for an estimate | ~20k written-out LV URLs, all on third-party pages | **No** |
 
 ## Extraction and recognition (black-box)
@@ -59,7 +59,7 @@ Legend for "worth finishing": **Yes** (cheap and informative), **Only if** (cond
 
 | Item | Needs | Worth it? |
 |---|---|---|
-| **Positive control** on a model with published training data (AI2 OLMo; exact-sentence counts via the public infini-gram service) | Local compute only (~4–5 GB model) | **Yes, first**: without it, our negatives cannot distinguish "not trained" from "trained but undetectable" |
+| ~~Positive control~~ **Done** (see below) | — | — |
 | OpenAI models | API key; only black-box tests apply | **Only if** triage continues: the URL test costs cents |
 | Copyright traps | Publisher decision; protects only future content | **Yes** (no direct cost; start now) |
 
@@ -70,3 +70,9 @@ Legend for "worth finishing": **Yes** (cheap and informative), **Only if** (cond
 - OpenAI prompt-probability models (davinci-002, babbage-002, gpt-3.5-turbo-instruct) shut down 2026-09-28: closed.
 - Claude Sonnet 4.5 API retirement 2026-11-30 (black-box tests on it are already logged in evidence/). Gemini 2.5
   closed to new users. Consider a litigation hold for model versions relevant to a claim.
+
+## Positive control (done 2026-11-26)
+| Experiment | State | Implication |
+|---|---|---|
+| OLMo 2 (infini-gram lookup, `src/olmo_positive_control.py`) | Discarded after 42 articles | Its data is English-filtered: no LV articles, so unusable as positive control (usable as a known-negative) |
+| Apertus-8B base (`src/positive_control_apertus.py`, `results/positive_control_apertus.json`) | Done: probabilities on 1,143 + 253 articles, Q→A on 278 | A model trained (almost certainly, via FineWeb-2) on the articles shows no content recall (0/63) and only a faint calibrated collection-level trace (AUC 0.56 vs post-cutoff controls), the same size as Llama/Qwen/Mistral (0.54). Nulls are uninformative about training; faint traces are what training looks like. Caveats: Goldfish loss (no extraction test), FW2 membership assumed through Apertus's filters, same-period split diluted (scan 53%) |

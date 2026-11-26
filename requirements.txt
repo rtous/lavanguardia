@@ -1,7 +1,7 @@
 requests
 warcio
 trafilatura
-mlx-lm
+mlx-lm; sys_platform == "darwin"   # Apple Silicon only; on Colab use transformers (hf: models, src/m5_hf.py)
 scipy
 numpy
 google-genai

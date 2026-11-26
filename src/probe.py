@@ -128,11 +128,56 @@ def ask_local(experiment, model, user, system=None, max_tokens=1024, meta=None, 
     return text, rec
 
 
+_hf = {}
+
+
+def ask_hf(experiment, model, user, system=None, max_tokens=1024, meta=None, raw=False):
+    """Open-weight model with Hugging Face transformers on a CUDA GPU (e.g. Google Colab). model = "hf:<repo id>".
+    Greedy decoding (deterministic). The weights' commit hash is logged, as in ask_local. 1 worker."""
+    import torch
+    from huggingface_hub import HfApi
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+    repo = model[3:]
+    if repo not in _hf:
+        _hf.clear()
+        tok = AutoTokenizer.from_pretrained(repo)
+        dev = "cuda" if torch.cuda.is_available() else "cpu"
+        m = AutoModelForCausalLM.from_pretrained(repo, torch_dtype=torch.bfloat16 if dev == "cuda" else torch.float32)
+        m = m.to(dev).eval()
+        try:
+            rev = HfApi().model_info(repo).sha
+        except Exception:
+            rev = "unknown"
+        _hf[repo] = (m, tok, rev)
+    m, tok, rev = _hf[repo]
+    if raw or not getattr(tok, "chat_template", None):
+        prompt = user if isinstance(user, str) else "\n".join(x["content"] for x in user)
+    else:
+        msgs = [{"role": "user", "content": user}] if isinstance(user, str) else list(user)
+        if system:
+            msgs = [{"role": "system", "content": system}] + msgs
+        prompt = tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False)
+    t0 = time.time()
+    enc = tok(prompt, return_tensors="pt", add_special_tokens=raw).to(m.device)
+    with torch.no_grad():
+        out = m.generate(**enc, max_new_tokens=max_tokens, do_sample=False, pad_token_id=tok.eos_token_id)
+    text = tok.decode(out[0, enc["input_ids"].shape[1]:], skip_special_tokens=True)
+    params = {"model": repo, "revision": rev, "raw": raw, "system": system, "user": user, "prompt": prompt,
+              "max_tokens": max_tokens, "decoding": "greedy", "backend": "transformers"}
+    rec = {"ts_utc": dt.datetime.now(dt.timezone.utc).isoformat(), "provider": "hf-transformers", "model_requested": model,
+           "model_reported": f"{repo}@{rev}", "request_id": None, "stop_reason": "end", "latency_s": round(time.time() - t0, 2),
+           "meta": meta or {}, "request": params, "response": {"text": text}}
+    _log(experiment, rec)
+    return text, rec
+
+
 def ask(experiment, model, user, system=None, max_tokens=1024, meta=None, tools=(), raw=False):
     """Text call. `user` is a string (single turn) or a list of {"role": "user"|"assistant", "content"} (multi-turn).
     Returns (text, record). `tools` only for Gemini; `raw` (plain completion) only for local models."""
     if model.startswith(("gemini", "gemma-")):  # Gemma models served by the Gemini API
         return ask_gemini(experiment, model, user, system, max_tokens, meta, tools)
+    if model.startswith("hf:"):  # transformers on CUDA (Colab)
+        return ask_hf(experiment, model, user, system, max_tokens, meta, raw)
     if "/" in model:
         return ask_local(experiment, model, user, system, max_tokens, meta, raw)
     assert not tools, "tools not implemented for this provider"

@@ -300,13 +300,27 @@ in \emph{La Contra}'s style, and Gemini knows the newspaper's web addresses. All
 without memorization.
 \end{itemize}
 
-\paragraph{What is missing: a positive control.} We never checked that our tests \emph{detect} the newspaper's text in
-a model known to have been trained on it. Without that check, a negative result cannot distinguish ``not trained''
-from ``trained, but the test cannot see it''. Models whose training data are fully published, such as AI2's OLMo,
-make the check possible: a public search service counts how many times an exact sentence appears in their training
-data. Running our tests on articles verifiably in that data would show how much repetition the tests need. If they
-fail there too, our negatives say nothing about training. If they succeed, the negatives on other models become a
-calibrated statement (``no memorization at the level a model shows after $N$ exposures'').
+\paragraph{Positive control: what training on the articles looks like.} To read the negative results we need a
+model that \emph{certainly} learned from the newspaper. AI2's OLMo publishes its training data, but that data is
+filtered to English and contains almost none of our articles, so it cannot serve. We used \emph{Apertus-8B} (Swiss AI,
+2025), whose published training data is built on FineWeb-2, the dataset in which we located 288 of our 2020--2023
+articles and 55 \emph{La Contra} interviews. The result:
+\begin{itemize}
+\item \textbf{No knowledge of the articles' content.} Asked what an interviewee answered, Apertus recalled the
+specific fact for 0 of 63 interviews in its training data.
+\item \textbf{Only a faint collection-level trace.} Articles in its training data look slightly more familiar to it
+than articles published after its training, after removing the time effect: right about 56\% of the time, against
+50\% for a coin. This is the same size as the traces in Llama-3.1, Qwen2.5 and Mistral (about 54\%) and smaller than
+Gemma-2's (59\%).
+\item Comparing articles of the same period inside and outside its data gave nothing, but that comparison is diluted:
+we scanned only half of FineWeb-2, so most ``outside'' articles are probably inside too.
+\end{itemize}
+Two caveats: Apertus was trained with a technique that suppresses verbatim recall, so it says nothing about extraction
+tests; and its data filters may have removed some of our articles. Even so, the conclusion is clear. \textbf{A model
+trained on the articles behaves like the models we tested.} Our negative results are therefore no evidence that
+those models were \emph{not} trained on the newspaper, and their faint traces are what training on it looks like.
+Only a collection-level test with clean, same-period comparison groups and thousands of articles can turn such a
+faint trace into a firm statement.
 
 %======================================================================
 \section{Promising avenues and where to spend}\label{sec:avenues}
@@ -317,9 +331,9 @@ difference; add the wording check; run on several open-weight models, including 
 memorization grows with size. Needs the archive and a rented GPU for a few days (about \$100--300). This is the only
 route we see to a statistically sound statement of the form ``this model was trained on the archive''. It applies to
 open-weight models, or to commercial models through court-ordered expert access.
-\item \textbf{Positive control on a model with published training data: free, worth doing first.} Find
-\emph{La Contra} and other articles inside OLMo's training data, count their repetitions, and run our tests on OLMo
-(Section~\ref{sec:negatives}). It tells how to read every negative result in this study. Local compute only.
+\item \textbf{Positive control: done} (Section~\ref{sec:negatives}). It can be sharpened for free by finishing the
+FineWeb-2 scan (about 8 hours), which gives clean same-period ``in'' and ``out'' groups for Apertus and for any model
+trained on FineWeb-2.
 \item \textbf{Finish the pre-registered Llama replication: cheap, worth doing.} It is the cleanest wording-level
 design we have. About a day on the laptop or a few hours on a rented GPU (about \$10--30).
 \item \textbf{Answer-time retrieval on consumer products: worth funding.} ChatGPT search, Perplexity, Gemini with
@@ -388,10 +402,11 @@ provider to \textbf{preserve} it (a litigation hold) so that court-ordered testi
 2026.
 \item \textbf{We found no reproduction and no knowledge of the wording} in any model, including the newspaper's most
 reposted interviews. A \emph{GEMA}-style demonstration with defensible prompts is unlikely with ordinary articles.
-This counts against memorization, not against training: single-exposure articles are rarely memorized, and our tests
-still lack a positive control.
+This counts against memorization, not against training: a model known to have been trained on the articles
+(Apertus) behaves the same way.
 \item \textbf{The weak traces we found} (Llama-3.1, Gemma-2, Gemini's article numbers) are explained by knowledge of
-events or by third-party links. They point to where to look, not to proof.
+events or by third-party links. They point to where to look, not to proof. The collection-level traces are, however,
+as large as those of a model known to have been trained on the articles.
 \item \textbf{Several popular tests give false positives}; every claim must survive controls, matching and a
 wording-specific check.
 \item \textbf{The best routes forward} are a collection-level test with the publisher's archive and same-period

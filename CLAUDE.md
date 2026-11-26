@@ -50,8 +50,9 @@ Two distinct things can be shown, and we keep them apart in every report:
 - Copies of LV text (reposts, scrapers, aggregators) still count as LV content: learning from them is training on LV's
   works. The confound is *independent* information: descriptions of LV, third-party links/URLs, the same facts reported
   independently, conventions shared with other Catalan outlets. Choose controls against those, not against copies.
-- Negative results bound memorization, not training (single-exposure text is rarely memorized). Until a positive
-  control exists (a model with published training data, e.g. OLMo), never present a null as evidence of non-use.
+- Negative results bound memorization, not training. Positive control (Apertus-8B, trained on FineWeb-2 which holds
+  our articles): no content recall and only a faint collection-level trace (AUC 0.56), like the other open models.
+  Never present a null as evidence of non-use. OLMo is unusable as positive control (English-only data).
 - Never make shell queues wait on `pgrep -f <script name>`: waiter shells match their own pattern and deadlock. Use one sequential script.
 
 ## Working conventions

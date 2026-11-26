@@ -386,3 +386,17 @@ replication (`./src/run_queue4.sh`, resumable); (3) retrieval tests on consumer 
 - Paper: new section "What the negative results do and do not show" (nulls count against memorization/GEMA route, not
   against training; missing positive control). New first-priority avenue: positive control on OLMo (published training
   data, infini-gram counts), free. Added to docs/experiment_status.md and CLAUDE.md rules. Not run.
+
+## 2026-11-26 — Session 7c: positive control, collection-level model list, Colab handoff
+- **Positive control.** OLMo 2: training mix is English-filtered (infini-gram: 0/42 LV articles) → discarded.
+  **Apertus-8B base** (Swiss AI; FineWeb-2; robots opt-outs as of Jan 2025; Goldfish loss): probabilities on all
+  articles + La Contra Q→A. Same-period in-FW2 vs not-found: nothing (diluted, scan 53%). In-FW2 vs post-cutoff,
+  calibrated: loss AUC 0.560 (p=0.003), zlib 0.562 — same size as Llama/Qwen/Mistral (0.54), below Gemma-2 (0.59).
+  Q→A: 0/63 facts for interviews in its data. ⇒ Nulls say nothing about training; faint traces = what training looks
+  like. `results/positive_control_apertus.json`; paper section "What the negative results do and do not show".
+- Paper: new section "Which models can be tested at collection level, and until when" (open weights incl. BSC
+  Salamandra/ALIA; OpenAI prompt-logprob models shut 2026-09-28; Claude Sonnet 4.5 retires 2026-11-30; litigation hold).
+- BSC: open weights (Apache 2.0), 20 CC snapshots + CATalog (CC-based); LV not named as a source. No lawsuit against
+  BSC found (only Jot Down 2025 criticism over Dialnet, CEDRO complaints) — waiting for the user's source.
+- Colab: `probe.ask_hf` (model id `hf:<repo>`), `m5_hf.py` on CUDA/bf16, requirements skip mlx on Linux.
+  Handoff: `docs/colab_handoff.md` (data/ must be copied via Drive; repo is PUBLIC).

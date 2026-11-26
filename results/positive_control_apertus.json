@@ -1,0 +1,2255 @@
+{
+ "fw2_spanish_scanned_fraction": 0.534,
+ "logprob": {
+  "apertus8b/random": {
+   "loss": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.488,
+      "p_greater": 0.7116
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.489,
+      "p_greater": 0.6816
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.497,
+      "p_greater": 0.5595
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.55,
+      "p_greater": 0.0105
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.512,
+      "p_greater": 0.2972
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.56,
+      "p_greater": 0.0029
+     }
+    }
+   },
+   "zlib_ratio": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.501,
+      "p_greater": 0.4759
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.501,
+      "p_greater": 0.4831
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.495,
+      "p_greater": 0.5855
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.538,
+      "p_greater": 0.0397
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.529,
+      "p_greater": 0.0932
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.562,
+      "p_greater": 0.0023
+     }
+    }
+   },
+   "mink": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.492,
+      "p_greater": 0.6374
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.508,
+      "p_greater": 0.3608
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.476,
+      "p_greater": 0.8558
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.571,
+      "p_greater": 0.0006
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.541,
+      "p_greater": 0.0307
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.532,
+      "p_greater": 0.0698
+     }
+    }
+   },
+   "minkpp": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.51,
+      "p_greater": 0.3334
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.514,
+      "p_greater": 0.2667
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.51,
+      "p_greater": 0.3255
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.54,
+      "p_greater": 0.0318
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.532,
+      "p_greater": 0.0682
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.509,
+      "p_greater": 0.3327
+     }
+    }
+   },
+   "n_groups": {
+    "in": 288,
+    "notfound": 403,
+    "control": 448
+   }
+  },
+  "apertus8b/lacontra": {
+   "loss": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.556,
+      "p_greater": 0.1122
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.573,
+      "p_greater": 0.0553
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.465,
+      "p_greater": 0.7749
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.564,
+      "p_greater": 0.1448
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.595,
+      "p_greater": 0.0565
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.467,
+      "p_greater": 0.7133
+     }
+    }
+   },
+   "zlib_ratio": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.539,
+      "p_greater": 0.1989
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.562,
+      "p_greater": 0.0882
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.463,
+      "p_greater": 0.7886
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.651,
+      "p_greater": 0.0058
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.682,
+      "p_greater": 0.0012
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.46,
+      "p_greater": 0.7499
+     }
+    }
+   },
+   "mink": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.565,
+      "p_greater": 0.0786
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.61,
+      "p_greater": 0.0083
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.463,
+      "p_greater": 0.7878
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.638,
+      "p_greater": 0.0108
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.68,
+      "p_greater": 0.0014
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.458,
+      "p_greater": 0.7615
+     }
+    }
+   },
+   "minkpp": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.536,
+      "p_greater": 0.2178
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.602,
+      "p_greater": 0.013
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.491,
+      "p_greater": 0.5749
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.579,
+      "p_greater": 0.0937
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.651,
+      "p_greater": 0.0058
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.488,
+      "p_greater": 0.5821
+     }
+    }
+   },
+   "n_groups": {
+    "in": 55,
+    "notfound": 145,
+    "control": 41
+   }
+  },
+  "llama31_8b/random": {
+   "loss": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.478,
+      "p_greater": 0.8392
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.489,
+      "p_greater": 0.6816
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.481,
+      "p_greater": 0.803
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.542,
+      "p_greater": 0.0285
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.512,
+      "p_greater": 0.2972
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.539,
+      "p_greater": 0.0366
+     }
+    }
+   },
+   "zlib_ratio": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.497,
+      "p_greater": 0.5462
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.501,
+      "p_greater": 0.4831
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.486,
+      "p_greater": 0.7301
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.536,
+      "p_greater": 0.0503
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.529,
+      "p_greater": 0.0932
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.499,
+      "p_greater": 0.5145
+     }
+    }
+   },
+   "mink": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.488,
+      "p_greater": 0.7125
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.508,
+      "p_greater": 0.3608
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.48,
+      "p_greater": 0.8134
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.568,
+      "p_greater": 0.001
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.541,
+      "p_greater": 0.0307
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.528,
+      "p_greater": 0.0995
+     }
+    }
+   },
+   "minkpp": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.48,
+      "p_greater": 0.8179
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.514,
+      "p_greater": 0.2667
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.486,
+      "p_greater": 0.7298
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.537,
+      "p_greater": 0.0459
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.532,
+      "p_greater": 0.0682
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.502,
+      "p_greater": 0.4574
+     }
+    }
+   },
+   "n_groups": {
+    "in": 288,
+    "notfound": 403,
+    "control": 448
+   }
+  },
+  "llama31_8b/lacontra": {
+   "loss": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.558,
+      "p_greater": 0.1026
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.573,
+      "p_greater": 0.0553
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.479,
+      "p_greater": 0.6791
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.539,
+      "p_greater": 0.2597
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.595,
+      "p_greater": 0.0565
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.447,
+      "p_greater": 0.8149
+     }
+    }
+   },
+   "zlib_ratio": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.543,
+      "p_greater": 0.1761
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.562,
+      "p_greater": 0.0882
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.482,
+      "p_greater": 0.6542
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.649,
+      "p_greater": 0.0065
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.682,
+      "p_greater": 0.0012
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.408,
+      "p_greater": 0.9374
+     }
+    }
+   },
+   "mink": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.574,
+      "p_greater": 0.0538
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.61,
+      "p_greater": 0.0083
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.437,
+      "p_greater": 0.9139
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.597,
+      "p_greater": 0.0532
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.68,
+      "p_greater": 0.0014
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.366,
+      "p_greater": 0.9874
+     }
+    }
+   },
+   "minkpp": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.623,
+      "p_greater": 0.0036
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.602,
+      "p_greater": 0.013
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.558,
+      "p_greater": 0.1031
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.563,
+      "p_greater": 0.1465
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.651,
+      "p_greater": 0.0058
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.412,
+      "p_greater": 0.9288
+     }
+    }
+   },
+   "n_groups": {
+    "in": 55,
+    "notfound": 145,
+    "control": 41
+   }
+  },
+  "qwen25_7b/random": {
+   "loss": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.489,
+      "p_greater": 0.685
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.489,
+      "p_greater": 0.6816
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.498,
+      "p_greater": 0.5301
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.533,
+      "p_greater": 0.0676
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.512,
+      "p_greater": 0.2972
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.538,
+      "p_greater": 0.0406
+     }
+    }
+   },
+   "zlib_ratio": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.501,
+      "p_greater": 0.4814
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.501,
+      "p_greater": 0.4831
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.495,
+      "p_greater": 0.5844
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.536,
+      "p_greater": 0.051
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.529,
+      "p_greater": 0.0932
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.495,
+      "p_greater": 0.597
+     }
+    }
+   },
+   "mink": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.495,
+      "p_greater": 0.5937
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.508,
+      "p_greater": 0.3608
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.487,
+      "p_greater": 0.7227
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.561,
+      "p_greater": 0.0025
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.541,
+      "p_greater": 0.0307
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.525,
+      "p_greater": 0.1214
+     }
+    }
+   },
+   "minkpp": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.49,
+      "p_greater": 0.6729
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.514,
+      "p_greater": 0.2667
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.499,
+      "p_greater": 0.5169
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.556,
+      "p_greater": 0.0051
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.532,
+      "p_greater": 0.0682
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.524,
+      "p_greater": 0.1343
+     }
+    }
+   },
+   "n_groups": {
+    "in": 288,
+    "notfound": 403,
+    "control": 448
+   }
+  },
+  "qwen25_7b/lacontra": {
+   "loss": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.554,
+      "p_greater": 0.1197
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.573,
+      "p_greater": 0.0553
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.468,
+      "p_greater": 0.759
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.572,
+      "p_greater": 0.1165
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.595,
+      "p_greater": 0.0565
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.493,
+      "p_greater": 0.5501
+     }
+    }
+   },
+   "zlib_ratio": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.555,
+      "p_greater": 0.1154
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.562,
+      "p_greater": 0.0882
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.466,
+      "p_greater": 0.7708
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.659,
+      "p_greater": 0.004
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.682,
+      "p_greater": 0.0012
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.454,
+      "p_greater": 0.7816
+     }
+    }
+   },
+   "mink": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.578,
+      "p_greater": 0.0454
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.61,
+      "p_greater": 0.0083
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.465,
+      "p_greater": 0.7798
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.639,
+      "p_greater": 0.0104
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.68,
+      "p_greater": 0.0014
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.456,
+      "p_greater": 0.7683
+     }
+    }
+   },
+   "minkpp": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.598,
+      "p_greater": 0.0162
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.602,
+      "p_greater": 0.013
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.542,
+      "p_greater": 0.1775
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.605,
+      "p_greater": 0.0396
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.651,
+      "p_greater": 0.0058
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.49,
+      "p_greater": 0.5676
+     }
+    }
+   },
+   "n_groups": {
+    "in": 55,
+    "notfound": 145,
+    "control": 41
+   }
+  },
+  "mistral7b_v03/random": {
+   "loss": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.48,
+      "p_greater": 0.8096
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.489,
+      "p_greater": 0.6816
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.485,
+      "p_greater": 0.755
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.54,
+      "p_greater": 0.0322
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.512,
+      "p_greater": 0.2972
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.537,
+      "p_greater": 0.0438
+     }
+    }
+   },
+   "zlib_ratio": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.495,
+      "p_greater": 0.5879
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.501,
+      "p_greater": 0.4831
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.483,
+      "p_greater": 0.7727
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.536,
+      "p_greater": 0.0491
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.529,
+      "p_greater": 0.0932
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.49,
+      "p_greater": 0.6832
+     }
+    }
+   },
+   "mink": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.486,
+      "p_greater": 0.7317
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.508,
+      "p_greater": 0.3608
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.473,
+      "p_greater": 0.8897
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.567,
+      "p_greater": 0.0011
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.541,
+      "p_greater": 0.0307
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.515,
+      "p_greater": 0.2526
+     }
+    }
+   },
+   "minkpp": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.467,
+      "p_greater": 0.9315
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.514,
+      "p_greater": 0.2667
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.464,
+      "p_greater": 0.9445
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.544,
+      "p_greater": 0.0224
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.532,
+      "p_greater": 0.0682
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.513,
+      "p_greater": 0.2773
+     }
+    }
+   },
+   "n_groups": {
+    "in": 288,
+    "notfound": 403,
+    "control": 448
+   }
+  },
+  "mistral7b_v03/lacontra": {
+   "loss": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.555,
+      "p_greater": 0.1148
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.573,
+      "p_greater": 0.0553
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.474,
+      "p_greater": 0.7163
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.551,
+      "p_greater": 0.1992
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.595,
+      "p_greater": 0.0565
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.444,
+      "p_greater": 0.8266
+     }
+    }
+   },
+   "zlib_ratio": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.556,
+      "p_greater": 0.1096
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.562,
+      "p_greater": 0.0882
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.476,
+      "p_greater": 0.7013
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.639,
+      "p_greater": 0.0102
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.682,
+      "p_greater": 0.0012
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.399,
+      "p_greater": 0.9544
+     }
+    }
+   },
+   "mink": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.544,
+      "p_greater": 0.1684
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.61,
+      "p_greater": 0.0083
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.424,
+      "p_greater": 0.9524
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.625,
+      "p_greater": 0.0184
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.68,
+      "p_greater": 0.0014
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.404,
+      "p_greater": 0.9468
+     }
+    }
+   },
+   "minkpp": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.574,
+      "p_greater": 0.0535
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.602,
+      "p_greater": 0.013
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.517,
+      "p_greater": 0.359
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.522,
+      "p_greater": 0.3556
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.651,
+      "p_greater": 0.0058
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.39,
+      "p_greater": 0.9674
+     }
+    }
+   },
+   "n_groups": {
+    "in": 55,
+    "notfound": 145,
+    "control": 41
+   }
+  },
+  "gemma2_9b/random": {
+   "loss": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.486,
+      "p_greater": 0.7404
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.489,
+      "p_greater": 0.6816
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.496,
+      "p_greater": 0.5685
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.562,
+      "p_greater": 0.0023
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.512,
+      "p_greater": 0.2972
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.59,
+      "p_greater": 0.0
+     }
+    }
+   },
+   "zlib_ratio": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.5,
+      "p_greater": 0.5035
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.501,
+      "p_greater": 0.4831
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.499,
+      "p_greater": 0.5235
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.544,
+      "p_greater": 0.0228
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.529,
+      "p_greater": 0.0932
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.55,
+      "p_greater": 0.0104
+     }
+    }
+   },
+   "mink": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.492,
+      "p_greater": 0.6479
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.508,
+      "p_greater": 0.3608
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.477,
+      "p_greater": 0.8517
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.579,
+      "p_greater": 0.0001
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.541,
+      "p_greater": 0.0307
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.576,
+      "p_greater": 0.0003
+     }
+    }
+   },
+   "minkpp": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.487,
+      "p_greater": 0.7141
+     },
+     "reference_only": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.514,
+      "p_greater": 0.2667
+     },
+     "calibrated": {
+      "n": [
+       288,
+       403
+      ],
+      "auc": 0.486,
+      "p_greater": 0.7304
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.574,
+      "p_greater": 0.0004
+     },
+     "reference_only": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.532,
+      "p_greater": 0.0682
+     },
+     "calibrated": {
+      "n": [
+       288,
+       448
+      ],
+      "auc": 0.558,
+      "p_greater": 0.0038
+     }
+    }
+   },
+   "n_groups": {
+    "in": 288,
+    "notfound": 403,
+    "control": 448
+   }
+  },
+  "gemma2_9b/lacontra": {
+   "loss": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.518,
+      "p_greater": 0.3478
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.573,
+      "p_greater": 0.0553
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.413,
+      "p_greater": 0.9708
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.529,
+      "p_greater": 0.3177
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.595,
+      "p_greater": 0.0565
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.39,
+      "p_greater": 0.9669
+     }
+    }
+   },
+   "zlib_ratio": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.521,
+      "p_greater": 0.3219
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.562,
+      "p_greater": 0.0882
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.413,
+      "p_greater": 0.9716
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.607,
+      "p_greater": 0.0371
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.682,
+      "p_greater": 0.0012
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.372,
+      "p_greater": 0.9838
+     }
+    }
+   },
+   "mink": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.59,
+      "p_greater": 0.0244
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.61,
+      "p_greater": 0.0083
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.539,
+      "p_greater": 0.1966
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.615,
+      "p_greater": 0.0275
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.68,
+      "p_greater": 0.0014
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.482,
+      "p_greater": 0.6221
+     }
+    }
+   },
+   "minkpp": {
+    "in_vs_notfound": {
+     "target": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.624,
+      "p_greater": 0.0035
+     },
+     "reference_only": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.602,
+      "p_greater": 0.013
+     },
+     "calibrated": {
+      "n": [
+       55,
+       145
+      ],
+      "auc": 0.6,
+      "p_greater": 0.0143
+     }
+    },
+    "in_vs_control": {
+     "target": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.604,
+      "p_greater": 0.0415
+     },
+     "reference_only": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.651,
+      "p_greater": 0.0058
+     },
+     "calibrated": {
+      "n": [
+       55,
+       41
+      ],
+      "auc": 0.539,
+      "p_greater": 0.2573
+     }
+    }
+   },
+   "n_groups": {
+    "in": 55,
+    "notfound": 145,
+    "control": 41
+   }
+  }
+ },
+ "qa_lacontra": {
+  "in": {
+   "n": 63,
+   "fact_hits": 0,
+   "content_overlap_mean": 0.006,
+   "lcs_max": 2
+  },
+  "notfound": {
+   "n": 139,
+   "fact_hits": 0,
+   "content_overlap_mean": 0.007,
+   "lcs_max": 4
+  },
+  "control": {
+   "n": 76,
+   "fact_hits": 1,
+   "content_overlap_mean": 0.006,
+   "lcs_max": 3
+  }
+ }
+}

@@ -43,9 +43,11 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--max-tokens", type=int, default=384)
     a = ap.parse_args()
-    dev = "mps" if torch.backends.mps.is_available() else "cpu"
+    dev = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
     tok = AutoTokenizer.from_pretrained(a.model)
-    model = AutoModelForCausalLM.from_pretrained(a.model).to(dev).eval()
+    # bf16 on GPU so 7-9B models fit a Colab GPU; float32 elsewhere (small reference models)
+    dtype = torch.bfloat16 if dev == "cuda" else torch.float32
+    model = AutoModelForCausalLM.from_pretrained(a.model, torch_dtype=dtype).to(dev).eval()
     done = set()
     if os.path.exists(a.out):
         done = {(json.loads(l)["id"], json.loads(l)["set"]) for l in open(a.out)}
