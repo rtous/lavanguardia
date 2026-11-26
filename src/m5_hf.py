@@ -47,11 +47,16 @@ def main():
     ap.add_argument("--max-tokens", type=int, default=384)
     ap.add_argument("--precision", default=None, help="auto|bf16|fp16|int8|int4 (default env HF_PRECISION, else auto)")
     a = ap.parse_args()
-    model, tok, info = load(a.model, a.precision)  # precision + weights commit are written to every row
-    dev = model.device
     done = set()
     if os.path.exists(a.out):
         done = {(json.loads(l)["id"], json.loads(l)["set"]) for l in open(a.out)}
+    todo = sum((json.loads(l)["id"], s.rsplit(":", 1)[1]) not in done
+               for s in a.inputs for l in open(s.rsplit(":", 1)[0], encoding="utf-8"))
+    if not todo:  # resume: nothing left, do not download/load the model
+        print("all scored:", a.out, flush=True)
+        return
+    model, tok, info = load(a.model, a.precision)  # precision + weights commit are written to every row
+    dev = model.device
     with open(a.out, "a") as f:
         for spec in a.inputs:
             path, label = spec.rsplit(":", 1)

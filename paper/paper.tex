@@ -333,8 +333,10 @@ knowledge of the period's events, not of the newspaper's text.
 cutoffs (March and December 2023). Articles from April--November 2023, which only Llama-3.1 could have seen, became
 more familiar to it than other articles did, as training would predict, with time effects cancelled by design.
 The effect is small, and knowledge of mid-2023 events would produce it too. Restricted to wording (original vs
-same-facts rewrites), the result points the same way but is not significant. A pre-registered replication was
-designed but not completed.
+same-facts rewrites), the result points the same way but is not significant. A pre-registered replication on new
+articles (168 / 442 / 198 per group) found the same direction and size (about 0.12 SD) but again no significance
+($p=0.097$ and $0.067$; check comparison clean, $p=0.57$). As registered, the effect is \emph{not confirmed}: this
+design gives a consistent hint about Llama-3.1, not evidence.
 
 \paragraph{Answer-time retrieval (F).} Through the Gemini API, Google's page fetcher could not read the newspaper
 (the site appears to block it), so no article text was reused. Without access, Gemini sometimes produced invented
@@ -436,8 +438,9 @@ open-weight models, or to commercial models through court-ordered expert access.
 \item \textbf{Positive control: done} (Section~\ref{sec:negatives}), with the full FineWeb-2 scan. It also showed
 that presence in a public dataset cannot provide same-period ``out'' groups, which strengthens the case for the
 publisher's never-online articles.
-\item \textbf{Finish the pre-registered Llama replication: cheap, worth doing.} It is the cleanest wording-level
-design we have. About a day on the laptop or a few hours on a rented GPU (about \$10--30).
+\item \textbf{Pre-registered Llama replication: done, not confirmed.} Same direction and size as the first run,
+$p=0.07$--$0.10$. With effects of about 0.1 SD, only a much larger set (thousands of never-seen same-period
+articles from the publisher's archive) could settle it.
 \item \textbf{Answer-time retrieval on consumer products: worth funding.} ChatGPT search, Perplexity, Gemini with
 Google Search and Claude with web search, using the newspaper's recent and paywalled articles. Directly observable
 and a separate legal act, not blocked by the current \texttt{robots.txt}. Cost: subscriptions and a protocol agreed
@@ -471,7 +474,7 @@ ALIA-40b (BSC) & Yes & Yes & GPU rental & --- & As Salamandra; full corpus not r
 Gemma-2 (Google) & Yes & Yes & Free & 9B & Undisclosed web data ($\le$ mid-2024) & Unknown. Strongest trace (AUC 0.59);
 explained by events\\
 Llama-3 / 3.1 (Meta) & Yes (licence) & Yes & Free & 8B & Undisclosed (Mar / Dec 2023) & Unknown. Faint trace; 3.1 vs
-3 in the predicted direction; replication pending\\
+3 in the predicted direction; replication not significant\\
 Qwen2.5 (Alibaba) & Yes & Yes & Free & 7B & Undisclosed ($\le$ 2024) & Unknown. Faint trace (AUC 0.54)\\
 Mistral-7B v0.3 & Yes & Yes & Free & 7B & Undisclosed ($\le$ 2024) & Unknown. Faint trace (about 0.54)\\
 OLMo 2 (AI2) & Yes & Yes & Free & --- & Published, English-filtered & \textbf{No} (0/42). Known negative\\

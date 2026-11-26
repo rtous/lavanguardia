@@ -51,7 +51,8 @@ of the newspaper's wording: no model prefers the original text over same-facts r
 controls. A comparison of two versions of Llama with different cutoffs (same articles, so time effects cancel) shows
 the pattern training predicts ($p=0.007$), but it is small and is also explained by knowledge of the events. A
 version restricted to wording (original text vs same-facts rewrites) points the same way but is not significant
-($p\approx0.07$). A pre-registered replication on new articles was designed but not completed.
+($p\approx0.07$). A pre-registered replication on new articles points the same way with the same size but is again
+not significant ($p=0.097$ and $0.067$), so the effect is not confirmed.
 \item A \emph{retrieval test} on the Gemini API shows no answer-time reuse, because its URL tool could not fetch the
 site's pages. Without access, the model sometimes invented ``literal'' paragraphs and attributed them to the
 newspaper.
@@ -1068,9 +1069,17 @@ newspaper's wording. With about 250 articles per group, the test can only detect
 therefore pre-registered an independent replication on articles not used in this run
 (\texttt{docs/prereg/did\_neighbour\_replication.md}), committed before any replication data was collected. Simply
 adding articles until the $p$-value drops below 0.05 would inflate false positives. The replication was stopped after
-the rewrites of 247 of about 810 passages, before any scoring, so it has no result yet. Only 168 fresh mid-2023
-articles could be found in the three crawls, so the replication's ``seen only by Llama-3.1'' group is smaller than
-the original's.
+the rewrites of 247 of about 810 passages and later completed on Google Colab with the same models in
+\texttt{transformers} (nf4 4-bit), all rewrites regenerated; these deviations were recorded and committed before any
+scoring. Only 168 fresh mid-2023 articles could be found in the three crawls, so the replication's ``seen only by
+Llama-3.1'' group is smaller than the original's. Three of 811 passages (IDs 7740491, 8098952, 8191781) got fewer than
+three valid rewrites and were dropped by the registered rule, leaving 168 / 442 / 198 (NEW2 / BOTH2 / NONE2).
+\emph{Result} (\texttt{results/did\_neighbour\_rep.json}): NEW2 vs NONE2 combined effect $+0.122$ SD, $p=0.097$;
+NEW2 vs BOTH2 $+0.118$ SD, $p=0.067$; check BOTH2 vs NONE2 $-0.012$ SD, $p=0.57$ (clean). Loss alone (Mann--Whitney):
+$p=0.053$ and $0.12$. The direction and size match the first run, but the pre-registered test is not significant, so
+the effect is \emph{not confirmed}. Secondary, pooled over both runs (mixing MLX and \texttt{transformers} backends;
+\texttt{results/did\_neighbour\_pooled\_secondary.json}): NEW vs NONE $+0.108$ SD, $p=0.038$; NEW vs BOTH $p=0.11$;
+but the check comparison is not clean on loss ($p=0.039$), so the pooled result adds nothing reliable.
 
 \paragraph{Designing a sound validation set.} The method's power depends on a validation set that differs from the
 suspect set \emph{only} in exposure to the model. The publisher's archive makes much better designs possible than ours:
@@ -1208,7 +1217,8 @@ original sentences over rewrites with the same facts. Facts are not protected; w
 seen became slightly more familiar to it than the others did, exactly as training would predict and with time effects
 cancelled. The effect is small. When only the \emph{wording} is compared (original sentences vs rewrites with the
 same facts), the result still points the same way but is not statistically significant ($p\approx0.07$). An
-independent replication, with its analysis fixed in advance, was designed but not completed.
+independent replication, with its analysis fixed in advance, found the same direction and size, again not significant
+($p\approx0.07$--$0.10$): not confirmed.
 \item \textbf{Testing the collection as a whole (dataset inference) is the most promising route.} Small differences
 that are invisible in one article add up over thousands. Our pilot shows the main dangers: comparing old with new articles ``proves'' training even for a model
 that cannot have seen them, and a model's knowledge of past events can pass for knowledge of the text. Every result
@@ -1232,7 +1242,7 @@ the pre-registered combination and both reference models ($p=10^{-4}$ and $p=0.0
 this trace to knowledge of events, not wording, so it is not evidence of copying.
 \item \emph{Meta's Llama-3.1.} Articles published between the cutoffs of Llama-3 and Llama-3.1 became more familiar
 to the newer model ($p=0.007$). The wording-only version points the same way ($p\approx0.07$). This is the design
-closest to evidence about the text, and the pre-registered replication is the most valuable missing item.
+closest to evidence about the text; its pre-registered replication pointed the same way but was not significant.
 \item \emph{Mistral-7B and Qwen2.5} show weaker traces that depend on the reference model, so they are not robust.
 \item \emph{Closed commercial models} (Claude, Gemini, and untested GPT). Our black-box tests found nothing, but those
 tests have little power. Larger models memorize more, and corpora of the FineWeb-2 type contain most of our
@@ -1253,7 +1263,7 @@ future articles, repeated across many pages, would make later reproduction by a 
 recommend starting now, since traps cannot protect content published before their introduction.
 \end{itemize}
 
-\paragraph{Next steps.} See Table~\ref{tab:status}. In order of value: the Llama-3 vs 3.1 replication; the
+\paragraph{Next steps.} See Table~\ref{tab:status}. In order of value: the
 cheap article-number screening (M10) on all reachable models, to choose where to spend on extraction tests; M9 and
 role-play tests on commercial APIs with a paid key; tests on larger open-weight models; complete the truncated runs; measure duplication to select test passages; evaluate models from
 other providers that expose token probabilities (OpenAI, further open-weight models); run dataset inference on the

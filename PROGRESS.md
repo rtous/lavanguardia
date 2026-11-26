@@ -447,3 +447,24 @@ replication (`./src/run_queue4.sh`, resumable); (3) retrieval tests on consumer 
 **Next after resume:** write up the replication (primary test as pre-registered, report the 1 skipped article
 8191781), finish Salamandra (Q→A facts in/notfound/control, URL-number date error vs Apertus/Gemini), update the
 Salamandra row in tab:models, commit + push. Copy new `evidence/` lines from Drive to the Mac master log (append only).
+
+## 2026-11-26 — Session 9: Colab resume (evening)
+- Restored the Drive mirror (last sync 18:58 UTC); only diffs were lost exec bits (`chmod +x src/*.sh`). Checked every
+  pending step against its output before resuming: rewrites 808/811 and Llama-3.1 scores 808/808 were reused; Llama-3
+  scoring resumed at 534/808; Salamandra probabilities were already complete (1143 + 253 rows).
+- `src/m5_hf.py` now checks for finished rows **before** loading the model, so a resume no longer loads Salamandra
+  just to skip complete steps. (`m5_neighbour.py` and `local_paraphrase.py` still load first: a few minutes wasted per resume.)
+- **Pre-registered Llama 3 vs 3.1 neighbour replication: DONE, NOT CONFIRMED** (`results/did_neighbour_rep.json`).
+  n NEW2/BOTH2/NONE2 = 168/442/198. NEW2 vs NONE2 combined +0.122 SD p=0.097; NEW2 vs BOTH2 +0.118 SD p=0.067;
+  check BOTH2 vs NONE2 −0.012 p=0.57 (clean). Loss MW p=0.053 / 0.12. Same direction and size as run 1 (p≈0.07).
+  **Correction:** 3 passages were dropped (no 3 valid rewrites: 7740491, 8098952, 8191781), not 1 as noted before;
+  the drop is deterministic (per-article seed), so reruns don't change it.
+  Secondary pooled (both runs, mixed backends; `results/did_neighbour_pooled_secondary.json`): NEW vs NONE p=0.038,
+  NEW vs BOTH p=0.11, but check BOTH vs NONE not clean on loss (MW p=0.039) → adds nothing reliable.
+  Paper, technical report and docs/experiment_status.md updated. Reading: a consistent ~0.1 SD hint about Llama-3.1;
+  settling it needs thousands of same-period never-online articles (publisher's archive), not more crawled ones.
+- Salamandra m10 (Q→A + URL number) resumed from 610/878 (`logs/colab_salamandra.log`).
+**Next**
+- [ ] When "RESUME done" appears in `logs/colab_resume.log`: analyse Salamandra (Q→A in-FW2/notfound/control; URL-number
+      date error vs Apertus/Gemini), update its row in tab:models, commit + push.
+- [ ] Copy new `evidence/` lines from Drive to the Mac master log (append only).
