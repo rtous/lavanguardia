@@ -1,5 +1,5 @@
 {
- "fw2_spanish_scanned_fraction": 0.534,
+ "fw2_spanish_scanned_fraction": 1.0,
  "logprob": {
   "apertus8b/random": {
    "loss": {
@@ -2695,6 +2695,26 @@
    "n": 76,
    "fact_hits": 1,
    "content_overlap_mean": 0.006,
+   "lcs_max": 3
+  }
+ },
+ "qa_lacontra_salamandra7b": {
+  "in": {
+   "n": 90,
+   "fact_hits": 2,
+   "content_overlap_mean": 0.049,
+   "lcs_max": 2
+  },
+  "notfound": {
+   "n": 112,
+   "fact_hits": 3,
+   "content_overlap_mean": 0.034,
+   "lcs_max": 4
+  },
+  "control": {
+   "n": 76,
+   "fact_hits": 2,
+   "content_overlap_mean": 0.054,
    "lcs_max": 3
   }
  }

@@ -464,7 +464,16 @@ Salamandra row in tab:models, commit + push. Copy new `evidence/` lines from Dri
   Paper, technical report and docs/experiment_status.md updated. Reading: a consistent ~0.1 SD hint about Llama-3.1;
   settling it needs thousands of same-period never-online articles (publisher's archive), not more crawled ones.
 - Salamandra m10 (Q→A + URL number) resumed from 610/878 (`logs/colab_salamandra.log`).
+- **Salamandra-7B finished (RESUME done 21:40 UTC).** Q→A La Contra (`results/positive_control_apertus.json`,
+  key `qa_lacontra_salamandra7b`): facts 2/90 in-FW2, 3/112 not found, 2/76 controls, max LCS 4 → no content recall
+  (as Apertus 0/90). **URL number as date** (`results/m10_summary.json`, n=300/set): member median error 65 days
+  (2021 74, 2022 63, 2023 64), 12/245 within 7 d vs 0/300 controls (p=5.9e-5); Gemini 2–3 d, Gemma-2 162, Llama-3.1 914.
+  = rough exposure to LV URLs (third-party links in CC suffice), not memorization. Paper (overview table, M10 text,
+  tab:models row), technical report, experiment_status updated; PDFs rebuilt.
+- `positive_control_apertus.py`: also splits Salamandra Q→A; fixed stale `fw2_spanish_scanned_fraction` (0.534 → 1.0).
+- Removed the stale local `.last_sync_utc` restored from Drive (it overwrote Drive's stamp on each sync; cosmetic).
+### State: ALL COLAB JOBS DONE (no queue running except the Drive mirror loop)
 **Next**
-- [ ] When "RESUME done" appears in `logs/colab_resume.log`: analyse Salamandra (Q→A in-FW2/notfound/control; URL-number
-      date error vs Apertus/Gemini), update its row in tab:models, commit + push.
-- [ ] Copy new `evidence/` lines from Drive to the Mac master log (append only).
+- [ ] Copy new `evidence/` lines from Drive (`colab_state/lavanguardia/evidence/`) to the Mac master log (append only).
+- [ ] Remaining avenues (docs/experiment_status.md): collection test with the publisher's never-online archive;
+      ALIA-40b needs an A100 or rented GPU; retrieval tests on consumer assistants with a counsel protocol; copyright traps.

@@ -783,6 +783,8 @@ collection-level trace, of the same size as the other open models. Null results 
 training, and faint traces are what training looks like. Presence in a public dataset does not give clean
 same-period groups (see above); those require articles that were never online (the publisher's archive).
 
+\paragraph{Salamandra-7B (BSC), same tests.} La Contra Q$\to$A (\texttt{results/positive\_control\_apertus.json}): fact hits 2/90 for interviews in FineWeb-2, 3/112 not found, 2/76 controls (longest common run 4 words): no content recall, as Apertus. URL number as date (\texttt{results/m10\_summary.json}, $n=300$ per set): member median error 65 days (2021: 74, 2022: 63, 2023: 64), 12/245 within 7 days vs 0/300 controls ($p=5.9\times10^{-5}$); Gemini 2--3 days, Gemma-2 162, Llama-3.1 914. Like Gemini's, this shows exposure to La Vanguardia URLs (third-party links in Common Crawl suffice), not memorization of articles.
+
 \subsection{Sentence-by-sentence extraction (M9, family A)}\label{sec:m9}
 Following \cite{su2024}, M9 asks for one sentence at a time. A base (non-chat) open-weight model receives a plain
 page: the newspaper's name, the title, byline and date, and the article up to the previous sentence. It simply

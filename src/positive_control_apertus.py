@@ -52,7 +52,7 @@ def main():
         for l in open(f"data/cc/{f}.jsonl"):
             a = json.loads(l)
             lang[a["id"]] = a.get("lang", "es")
-    res = {"fw2_spanish_scanned_fraction": 0.534, "logprob": {}}
+    res = {"fw2_spanish_scanned_fraction": 1.0, "logprob": {}}
     # Apertus (known training data) first; then the same split on the open models scored earlier, for comparison
     runs = []
     for m in ("apertus8b", "salamandra7b", "salamandra40b", "alia40b", "llama31_8b", "qwen25_7b", "mistral7b_v03", "gemma2_9b"):
@@ -81,20 +81,21 @@ def main():
                                            "calibrated": compare(cal["in"], cal["control"])}}
         out["n_groups"] = {g: len(v) for g, v in groups.items()}
         res["logprob"][tag] = out
-    qa = "results/m10_exclusive_Apertus-8B-2509-4bit.jsonl"
-    if os.path.exists(qa):
-        items = {json.loads(l)["item_id"]: json.loads(l) for l in open("data/m10/items.jsonl")}
-        rows = [json.loads(l) for l in open(qa)]
-        g = {"in": [], "notfound": [], "control": []}
-        for r in rows:
-            if r["type"] != "qa" or r.get("api_error"):
-                continue
-            aid = items[r["item_id"]]["article_id"]
-            key = "control" if r["set"] == "control" else ("in" if aid in inf else "notfound")
-            g[key].append(r)
-        res["qa_lacontra"] = {k: {"n": len(v), "fact_hits": sum(x["hit"] for x in v),
-                                  "content_overlap_mean": round(st.mean([x["content_overlap"] or 0 for x in v]), 3) if v else None,
-                                  "lcs_max": max([x["lcs_words"] for x in v] or [0])} for k, v in g.items()}
+    for qa, key in (("results/m10_exclusive_Apertus-8B-2509-4bit.jsonl", "qa_lacontra"),
+                    ("results/m10_exclusive_salamandra-7b.jsonl", "qa_lacontra_salamandra7b")):
+        if os.path.exists(qa):
+            items = {json.loads(l)["item_id"]: json.loads(l) for l in open("data/m10/items.jsonl")}
+            rows = [json.loads(l) for l in open(qa)]
+            g = {"in": [], "notfound": [], "control": []}
+            for r in rows:
+                if r["type"] != "qa" or r.get("api_error"):
+                    continue
+                aid = items[r["item_id"]]["article_id"]
+                grp = "control" if r["set"] == "control" else ("in" if aid in inf else "notfound")
+                g[grp].append(r)
+            res[key] = {k: {"n": len(v), "fact_hits": sum(x["hit"] for x in v),
+                            "content_overlap_mean": round(st.mean([x["content_overlap"] or 0 for x in v]), 3) if v else None,
+                            "lcs_max": max([x["lcs_words"] for x in v] or [0])} for k, v in g.items()}
     json.dump(res, open("results/positive_control_apertus.json", "w"), indent=1)
     print(json.dumps(res, indent=1))
 

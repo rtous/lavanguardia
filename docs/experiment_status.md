@@ -42,7 +42,7 @@ Legend for "worth finishing": **Yes** (cheap and informative), **Only if** (cond
 | M8 Llama-3 vs 3.1 difference-in-differences | Done | — | p = 0.007 in the predicted direction, but knowledge of events can explain it | — |
 | M8 + neighbour gap (wording only) | First run done | — | Predicted direction, p ≈ 0.07 (not significant) | — |
 | Pre-registered replication of M8 + neighbour (`docs/prereg/`) | Done 2026-11-26 on Colab (transformers nf4; deviations committed before scoring) | — | Same direction/size as run 1 (+0.12 SD) but p=0.097 / 0.067, check clean (0.57): **not confirmed**. 3/811 passages dropped (no 3 valid rewrites). `results/did_neighbour_rep.json` | Done |
-| Salamandra-7B base (BSC; `src/run_colab_salamandra.sh`, int8 on T4) | Probabilities done; Q→A + URL number 610/878 (paused for the Llama replication, resumes after) | Slow int8 generation on T4 | Calibrated AUC in-FW2 vs post-cutoff 0.564 (p=0.0002), like Apertus | Running |
+| Salamandra-7B base (BSC; `src/run_colab_salamandra.sh`, int8 on T4) | Done 2026-11-26 | — | Probabilities: faint trace (in-FW2 vs post-cutoff calibrated AUC 0.564), as Apertus. Q→A: 2/90 in-FW2, 3/112 not found, 2/76 controls (no recall). URL number: median 65 days, 12/245 ≤7 d vs 0/300 (p=6e-5): URL exposure, weaker than Gemini | Done |
 | Larger open-weight models (70B+) | Not run | Do not fit on the laptop; disk nearly full | Memorization grows with size, so all our open-model nulls are on small models | **Yes, if** the collection-level route is pursued (rented GPU, ~$100–300) |
 | Dataset inference with same-period never-crawled controls | Not run | Needs the licensed archive | Would remove the time confound that limits M6/M8 | **Yes**: highest-value design once the archive arrives |
 

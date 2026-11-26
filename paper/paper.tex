@@ -288,11 +288,11 @@ Test & Models & Result\\
 Verbatim continuation (A) & Claude 4.5 and 5.5, Gemini 3.x & No reproduction, even of \emph{La Contra}\\
 Sentence by sentence (A) & Llama-3.1 & No sentence reproduced\\
 Pick the original (C) & Claude 4.5, Gemini & Invalid: works equally on unseen text\\
-Newspaper-only details (C) & Gemini, 4 open models & At control level, except article numbers (Gemini)\\
-\emph{La Contra} answers (C) & Gemini, Gemma-2 & At control level\\
+Newspaper-only details (C) & Gemini, 5 open models & At control level, except article numbers (Gemini; Salamandra weakly)\\
+\emph{La Contra} answers (C) & Gemini, Gemma-2, Salamandra, Apertus & At control level\\
 Word probabilities (B) & 4 open models & Weak, explained by time\\
 Collection test (D) & 4 open models & Gemma-2 survives; explained by events\\
-Two Llama versions (D) & Llama-3 vs 3.1 & Predicted pattern; events or wording unclear\\
+Two Llama versions (D) & Llama-3 vs 3.1 & Predicted pattern; wording replication not significant\\
 Answer-time retrieval (F) & Gemini API & No reuse (site blocks fetcher); invented quotes\\
 \bottomrule
 \end{tabularx}
@@ -317,7 +317,9 @@ as frequent for controls as for members, and correct fill-ins were guessable fro
 The newspaper's article numbers grow by about 3,000 a day, and given only an article's title and date, every Gemini
 model we could reach (3.1 Flash-Lite, 3.5 Flash-Lite, 3 Flash) gives a number that points to within a few days of the
 right one for 2021--2023 articles, and fails for later ones. For example, for an article of 9 February 2023 the true
-number is 8746377 and Gemini answered 8746375. The open models cannot do this. But the skill can be learned from a few
+number is 8746377 and Gemini answered 8746375. Most open models cannot do this; BSC's Salamandra-7B, trained on 20
+Common Crawl snapshots, does so roughly (median error 65 days, 12 of 245 articles within a week, none of 300 controls;
+$p=6\times10^{-5}$), much less precisely than Gemini (2--3 days). But the skill can be learned from a few
 dozen links to the newspaper anywhere on the web, and public training data contain tens of thousands of such links on
 third-party sites (and none in the newspaper's own pages, whose text does not include links). It shows that Gemini
 absorbed many \emph{La Vanguardia} web addresses, not that it read the articles.
@@ -468,7 +470,7 @@ our articles? / our result\\
 Apertus-8B (Swiss AI) & Yes & Yes & Free & 8B & FineWeb-2, documented (2024) & \textbf{Yes}, almost certainly (FineWeb-2).
 Positive control: no content recall, faint trace (AUC 0.55)\\
 Salamandra-7B (BSC) & Yes & Yes & Free & 7B & 20 Common Crawl snapshots + CATalog, documented & Very likely, not proven.
-Preliminary: faint trace (AUC 0.56), as Apertus\\
+Faint trace (AUC 0.56), as Apertus; no content recall; rough article numbers (65 days)\\
 ALIA-40b (BSC) & Yes & Yes & GPU rental & --- & As Salamandra; full corpus not released & Very likely. Not tested
 (needs a large GPU)\\
 Gemma-2 (Google) & Yes & Yes & Free & 9B & Undisclosed web data ($\le$ mid-2024) & Unknown. Strongest trace (AUC 0.59);

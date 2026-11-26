@@ -1,4 +1,45 @@
 {
+ "Apertus-8B-2509-4bit": {
+  "style": "raw",
+  "table": {
+   "ALL": {
+    "member": "0/202",
+    "control": "1/76",
+    "rate_member": 0.0,
+    "rate_control": 0.013,
+    "dontknow_member": 2,
+    "dontknow_control": 1,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "qa/lacontra": {
+    "member": "0/202",
+    "control": "1/76",
+    "rate_member": 0.0,
+    "rate_control": 0.013,
+    "dontknow_member": 2,
+    "dontknow_control": 1,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id_date_error": {}
+  },
+  "flag_candidate": false,
+  "hits_to_verify_exclusivity": [],
+  "all_hits": [
+   {
+    "set": "control",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Tierra",
+    "gen": "No estamos solos. Pero no es una respuesta fácil. En 1950 se celebró una encuesta a 2.500 científicos. El 90% dijo que la vida se había originado en la Tierra. Pero solo el 18% dijo que se había originado en la Tierra. Y yo digo lo mismo. Pero yo digo lo mismo. Pero yo digo lo mismo. Pero yo digo lo mismo. Pero yo digo lo mismo. Pero yo digo lo mismo. Pero yo digo lo mismo. Pero yo digo lo mismo. Pero yo digo lo mismo. Pero",
+    "url": "https://www.lavanguardia.com/lacontra/20260109/11422803/mario-livio-quiza-biologica-sea-fase-historia-inteligencia.html",
+    "item_id": "97c1677876a9"
+   }
+  ]
+ },
  "Meta-Llama-3.1-8B-4bit": {
   "style": "raw",
   "table": {
@@ -2391,5 +2432,129 @@
   "flag_candidate": false,
   "hits_to_verify_exclusivity": [],
   "all_hits": []
+ },
+ "salamandra-7b": {
+  "style": "raw",
+  "table": {
+   "ALL": {
+    "member": "5/502",
+    "control": "2/376",
+    "rate_member": 0.01,
+    "rate_control": 0.005,
+    "dontknow_member": 4,
+    "dontknow_control": 2,
+    "near_id_member": 2,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.3593
+   },
+   "qa/lacontra": {
+    "member": "5/202",
+    "control": "2/76",
+    "rate_member": 0.025,
+    "rate_control": 0.026,
+    "dontknow_member": 4,
+    "dontknow_control": 2,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.7079
+   },
+   "url_id": {
+    "member": "0/300",
+    "control": "0/300",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 2,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id_date_error": {
+    "lavanguardia": {
+     "member": {
+      "n": 245,
+      "median_err_days": 65.0,
+      "within_1_day": 3,
+      "within_7_days": 12,
+      "within_30_days": 55
+     },
+     "control": {
+      "n": 300,
+      "median_err_days": 744.7,
+      "within_1_day": 0,
+      "within_7_days": 0,
+      "within_30_days": 0
+     },
+     "p_fisher_within_7d": 5.85e-05
+    }
+   }
+  },
+  "flag_candidate": true,
+  "hits_to_verify_exclusivity": [],
+  "all_hits": [
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Estado",
+    "gen": "Que piensen más allá de lo inmediato. Que miren hacia adelante. No solo hay que recaudar dinero hoy, también mañana. Hay que pensar qué tipo de sociedad queremos ser dentro de diez años. ¿Queremos tener unos servicios públicos decentes? Pues habrá que subir algunos impuestos. Si no, tendremos menos sanidad pública, educación pública… Es decir, menos Estado. Pero eso significa que cuando tengamos problemas graves -como una pandemia- ya habrán desaparecido esos recursos. En cambio, con un sistema público fuerte podremos afrontar mejor cualquier crisis sanitaria.\nPero usted defiende bajar impuestos.",
+    "url": "https://www.lavanguardia.com/lacontra/20200203/473275134326/la-fiscalidad-no-es-para-que-no-haya-ricos-sino-para-que-no-haya-pobres.html",
+    "item_id": "9e0b80e98d00"
+   },
+   {
+    "set": "control",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "China",
+    "gen": "No creo que sea correcto hablar de otra guerra fría porque no hay dos superpotencias como antes. Pero sí es cierto que estamos viendo cómo se reparten esferas de influencia entre China y Estados Unidos. Y eso genera tensiones geopolíticas muy importantes. En este sentido, me preocupa mucho lo que pueda pasar si Rusia decide invadir Finlandia o Suecia para entrar en la OTAN. Sería algo sin precedentes. No sé qué harían entonces los países nórdicos ni tampoco si podrían resistirse al ataque ruso. Es decir, ¿qué pasaría si Putin decidiera atacarlos? Me",
+    "url": "https://www.lavanguardia.com/lacontra/20260122/11445577/david-petraeus-general-cia-dron-coste-hundir-portaaviones.html",
+    "item_id": "2aaa63ed326a"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "PSOE",
+    "gen": "No creo que sea así. El PSOE ha sido siempre una fuerza muy pluralista dentro de lo socialdemócrata. En cambio, Podemos tiene una estructura vertical con mucha disciplina interna. Es como si fuera un partido comunista. No hay debate interno ni pluralismo ideológico. Eso sí, no me parece mal que haya partidos políticos fuertes porque son necesarios para tener gobiernos estables. Lo malo es cuando esos partidos tienen tanta hegemonía que acaban siendo sectarios e intolerantes hacia otras fuerzas políticas. Por ejemplo, Vox está haciendo mucho daño al Partido Popular. Le están quitando votos. Si hubiera dos o tres forma",
+    "url": "https://www.lavanguardia.com/lacontra/20211230/7960002/trump-ganar-perfectamente-espana.html",
+    "item_id": "9c9a7c7b382d"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Tierra",
+    "gen": "Es una civilización basada en la vida, donde todos somos iguales; donde hay respeto hacia todas las formas de vida, incluyendo al ser humano. Una sociedad ecológica, sostenible e igualitaria. En este momento estamos viviendo una crisis sistémica del capitalismo neoliberal, pero también una oportunidad para construir otra forma de vivir juntos sobre esta Tierra. El cambio climático nos está diciendo claramente que tenemos que cambiar nuestra relación con ella. Y esto significa cambiar nuestro modo de producción y consumo. Tenemos que pasar de una economía extractiva a una regeneradora. No podemos seguir extrayendo recursos naturales sin tenerlos en",
+    "url": "https://www.lavanguardia.com/lacontra/20160509/401662158815/el-patriarcado-destruira-el-planeta-si-no-lo-frenamos.html",
+    "item_id": "fc1d1126c555"
+   },
+   {
+    "set": "control",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Gobierno",
+    "gen": "Los líderes religiosos chiitas consideran que somos herejes. Ellos creen que nuestra religión es una secta creada para dividir al pueblo persa. Dicen que nos hemos convertido en sus enemigos. Pero nosotros creemos que ellos son nuestros enemigos. No podemos tener ninguna relación con este gobierno. Es como si yo fuera musulmán sunita y me dijeran que tengo que ser cristiano o judío. ¿Cómo voy a aceptar eso? Si alguien quiere convertirse a otra fe, puede hacerlo libremente pero nunca se le va a obligar. Los musulmanes tienen derecho a creer lo que quieran. Nosotros",
+    "url": "https://www.lavanguardia.com/lacontra/20260202/11455102/vahid-tizfahm-ejecutaron-mi-padre-colgaron-mi-tio-vinieron-mi.html",
+    "item_id": "3992bdccb80b"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Nuevo Testamento",
+    "gen": "El Nuevo Testamento lo tradujo él mismo hace años para los gitanos españoles. Y la Biblia completa, también. ¿Por qué no se traduce antes el Antiguo? Porque son textos muy antiguos, dice. Pero ya están traducidos al catalán, gallego o vasco. El Nuevo sí necesita una nueva versión porque han aparecido nuevos manuscritos. Por ejemplo, uno encontrado recientemente en Egipto tiene pasajes inéditos sobre Jesús. Es importante tenerlos todos juntos.\n¿Qué le diría usted a quien piensa que Dios existe sólo si cree en Él?\nQue lea la Biblia. No",
+    "url": "https://www.lavanguardia.com/lacontra/20190716/463503283392/la-biblia-esta-fijando-todas-las-lenguas-del-mundo.html",
+    "item_id": "a32f0ce2b81e"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Gobierno",
+    "gen": "-Sí, es muy preocupante lo que ocurre allí porque se trata de un país emergente donde hay mucho dinero y poder político. Es como si aquí hubiera un gobierno autoritario que controlara todos los medios de comunicación. En China no existe ningún tipo de oposición política ni periodística. Los ciudadanos chinos tienen acceso al mundo exterior pero están totalmente aislados dentro de sus fronteras. No pueden acceder libremente a Internet o ver televisión extranjera. Se han creado unas islas informativas. Hay gente que vive aislada por decisión propia, otros son obligados a ello. Y luego están aquellos que viven",
+    "url": "https://www.lavanguardia.com/lacontra/20120310/54266427108/malen-aznarez-la-libertad-de-prensa-esta-en-un-mal-momento.html",
+    "item_id": "e2566d08ca3f"
+   }
+  ]
  }
 }
