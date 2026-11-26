@@ -26,3 +26,18 @@ runs will be reported as secondary, labelled as such.
 **Reading:** replication significant and checks clean → evidence that Llama-3.1 gained familiarity with the *wording*
 of mid-2023 La Vanguardia articles beyond knowledge of the events. Not significant → the first-run trend is not
 confirmed, and we report it as such.
+
+## Deviations (approved by the investigator 2026-11-26; written and committed before any replication scoring)
+Status when written: 247 of ~810 rewrites existed (MLX), no replication passage had been scored by any model.
+The laptop (Apple Silicon, MLX) was replaced by Google Colab (NVIDIA T4, 15 GB), where MLX does not run.
+1. **Backend.** Same models, run with Hugging Face transformers instead of MLX: rewriter `Qwen/Qwen2.5-7B-Instruct`,
+   scorers `meta-llama/Llama-3.1-8B` and `meta-llama/Meta-Llama-3-8B`, all in bitsandbytes nf4 4-bit (the closest
+   available to the registered MLX 4-bit; bf16 does not fit a T4). Same scoring function, passage rule, prompt,
+   temperature 0.7 / top_p 0.95 and validation rule; at most 9 samples per passage, drawn 3 per round.
+2. **All rewrites regenerated with the new backend** (`data/decop/paraphrases_mid2023_rep_hf.jsonl`), including the
+   247 made with MLX, which are kept unchanged and unused. Reason: completing the set with a different backend would
+   make NEW2 rewritten entirely by MLX and NONE2 entirely by transformers, so any backend difference in rewrite style
+   would be confounded with the group contrast that the test measures.
+3. **NEW2 frozen at the 168 fresh articles already collected**; the Common Crawl fetch is not rerun.
+Primary test, checks and reading are unchanged. The pooled analysis with the first run (MLX) stays secondary; it now
+also mixes backends, which will be stated.

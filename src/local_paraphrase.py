@@ -5,12 +5,14 @@ before 2023-03 (seen by both), NONE = random controls (seen by neither). Passage
 Rewriter: a local instruct model of a DIFFERENT family than the scored models (default Qwen2.5-7B-Instruct), so the
 rewrites are not in Llama's own style. 3 rewrites per passage, sampled (temp 0.7). Resumable.
 
+Backends: MLX (Apple Silicon, default model) or Hugging Face transformers on CUDA with --model hf:<repo> (Colab), e.g.
+--model hf:Qwen/Qwen2.5-7B-Instruct; precision via env HF_PRECISION (src/hf_load.py). The HF backend draws the 3
+rewrites as one batch per round (same temp/top_p, at most 3 rounds = 9 samples, as in MLX), seeds torch per article
+(reproducible), and records backend, precision and weights commit in every row.
+
 Usage: python -I src/local_paraphrase.py --out data/decop/paraphrases_mid2023.jsonl [--n-both 250 --n-none 250]
 """
-import argparse, json, os, random, re, sys
-
-from mlx_lm import load, generate
-from mlx_lm.sample_utils import make_sampler
+import argparse, hashlib, json, os, random, re, sys
 
 sys.path.insert(0, os.path.dirname(__file__))
 from m2_decop import passage  # noqa: E402
@@ -46,6 +48,35 @@ def items(n_both, n_none, seed=0, rep=False):
             + [(d, "control", "NONE") for d in none if d["id"] not in used])
 
 
+def backend(model_id):
+    """Returns (gen, meta): gen(msgs, article_id, round_start) -> list of sampled rewrites (temp 0.7, top_p 0.95)."""
+    if not model_id.startswith("hf:"):
+        from mlx_lm import load, generate
+        from mlx_lm.sample_utils import make_sampler
+        model, tok = load(model_id)
+        sampler = make_sampler(temp=0.7, top_p=0.95)
+
+        def gen(msgs, _id, _r):
+            prompt = tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False)
+            return [generate(model, tok, prompt=prompt, max_tokens=300, sampler=sampler)]
+        return gen, {"backend": "mlx"}
+    import torch
+    from hf_load import load
+    model, tok, info = load(model_id[3:])
+
+    def gen(msgs, art_id, r):
+        seed = int(hashlib.sha256(f"{art_id}:{r}".encode()).hexdigest()[:8], 16)  # per article and round
+        torch.manual_seed(seed)
+        prompt = tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False)
+        enc = tok(prompt, return_tensors="pt", add_special_tokens=False).to(model.device)
+        with torch.no_grad():
+            out = model.generate(**enc, max_new_tokens=300, do_sample=True, temperature=0.7, top_p=0.95, top_k=0,
+                                 num_return_sequences=3, pad_token_id=tok.pad_token_id or tok.eos_token_id)
+        n = enc["input_ids"].shape[1]
+        return [tok.decode(o[n:], skip_special_tokens=True) for o in out]
+    return gen, {"backend": "transformers", **info}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="mlx-community/Qwen2.5-7B-Instruct-4bit")
@@ -54,8 +85,7 @@ def main():
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--rep", action="store_true", help="replication set (articles not used in the first run)")
     a = ap.parse_args()
-    model, tok = load(a.model)
-    sampler = make_sampler(temp=0.7, top_p=0.95)
+    gen, meta = backend(a.model)
     done = {(r["id"], r["group"]) for r in map(json.loads, open(a.out))} if os.path.exists(a.out) else set()
     todo = [x for x in items(a.n_both, a.n_none, rep=a.rep) if (x[0]["id"], x[2]) not in done]
     if a.limit:
@@ -65,19 +95,19 @@ def main():
             p = passage(d["text"])
             msgs = [{"role": "system", "content": "Eres un corrector de estilo. Respondes siempre y solo en español."},
                     {"role": "user", "content": PROMPT.format(p=p)}]
-            prompt = tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False)
             outs, tries = [], 0
             while len(outs) < 3 and tries < 9:
-                tries += 1
-                t = generate(model, tok, prompt=prompt, max_tokens=300, sampler=sampler).strip()
-                t = re.sub(r"^(Fragmento reescrito|Texto reescrito)\s*:\s*", "", t, flags=re.I).strip().strip('"')
-                if ok(p, t):
-                    outs.append(t)
+                batch = gen(msgs, d["id"], tries)
+                tries += len(batch)
+                for t in batch:
+                    t = re.sub(r"^(Fragmento reescrito|Texto reescrito)\s*:\s*", "", t.strip(), flags=re.I).strip().strip('"')
+                    if ok(p, t) and len(outs) < 3:
+                        outs.append(t)
             if len(outs) < 3:
                 print("skip", d["id"], flush=True)
                 continue
             f.write(json.dumps({"id": d["id"], "set": s, "group": g, "pub_date": d["pub_date"], "title": d.get("title", ""),
-                                "passage": p, "paraphrases": outs, "para_model": a.model}, ensure_ascii=False) + "\n")
+                                "passage": p, "paraphrases": outs, "para_model": a.model, **meta}, ensure_ascii=False) + "\n")
             f.flush()
             if i % 20 == 0:
                 print(i, len(todo), g, flush=True)
