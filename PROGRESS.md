@@ -496,3 +496,4 @@ Salamandra row in tab:models, commit + push. Copy new `evidence/` lines from Dri
 - Running: `src/run_colab_m11.sh` → `logs/colab_m11.log` (resumable; rerun after a disconnect, HF_TOKEN needed).
 **Next:** when "M11 done" appears: `python -I src/m11_nyt_style.py summary` (already run at the end), inspect every member
 run ≥15 words side by side and check for copies elsewhere, write up as a labelled upper bound in the paper.
+- Paper, Legal context: paragraph on what proof of pre-opt-out training is worth without regurgitation.
