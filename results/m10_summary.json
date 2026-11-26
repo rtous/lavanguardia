@@ -1,0 +1,1881 @@
+{
+ "Meta-Llama-3.1-8B-4bit": {
+  "style": "raw",
+  "table": {
+   "ALL": {
+    "member": "8/251",
+    "control": "2/191",
+    "rate_member": 0.032,
+    "rate_control": 0.01,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.1181
+   },
+   "box_title": {
+    "member": "0/60",
+    "control": "0/38",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "byline": {
+    "member": "0/60",
+    "control": "0/60",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "cloze/lacontra_intro": {
+    "member": "5/60",
+    "control": "2/30",
+    "rate_member": 0.083,
+    "rate_control": 0.067,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.5707
+   },
+   "cloze/scoop": {
+    "member": "3/11",
+    "control": "0/3",
+    "rate_member": 0.273,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.4533
+   },
+   "url_id": {
+    "member": "0/60",
+    "control": "0/60",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id_date_error": {
+    "member": {
+     "n_7_8_digit": 49,
+     "median_err_days": 914.0,
+     "within_1_day": 0,
+     "within_7_days": 0,
+     "within_30_days": 1
+    },
+    "control": {
+     "n_7_8_digit": 60,
+     "median_err_days": 9999.0,
+     "within_1_day": 0,
+     "within_7_days": 1,
+     "within_30_days": 2
+    },
+    "p_fisher_within_7d": 1.0
+   }
+  },
+  "flag_candidate": false,
+  "hits_to_verify_exclusivity": [
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Fuente",
+    "gen": "Fuente, el gran naturalista español. Un libro que es una invitación a la reflexión y a la acción",
+    "url": "https://www.lavanguardia.com/lacontra/20200316/474174253899/la-naturaleza-nos-da-una-leccion-de-humildad-con-el-coronavirus.html",
+    "item_id": "9476c863437f"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "RAED",
+    "gen": "RAED). En su sede madrileña, en la calle de la Princesa, se reúnen",
+    "url": "https://www.lavanguardia.com/lacontra/20170428/422099298827/nada-estimula-mas-el-cerebro-que-una-buena-conversacion.html",
+    "item_id": "3ce131b5638f"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Guerra Civil",
+    "gen": "Guerra Civil. En 1960 publicó su primer libro,  ‘El pitufo’, que se conv",
+    "url": "https://www.lavanguardia.com/lacontra/20160801/403601964385/acune-la-palabra-pitufo-inspirandome-en-patufet.html",
+    "item_id": "569ef928351a"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "500",
+    "gen": "500 años en llegar a la radio, la radio tardó 50 años en llegar a la televisión y la televis",
+    "url": "https://www.lavanguardia.com/lacontra/20150617/54432871350/la-contra-nestor-garcia-canclini.html",
+    "item_id": "5062fd64a1dd"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Greenpeace",
+    "gen": " Greenpeace  para hacer frente a la caza de ballenas. Y es que, como él mismo dice,",
+    "url": "https://www.lavanguardia.com/lacontra/20201014/484055810323/te-abren-puerta-entra-ventana.html",
+    "item_id": "19118d85d4b1"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Donald Trump",
+    "gen": "Donald Trump, de trasladar la embajada de Estados Unidos a Jerusalén. [...] \n\nLa Vanguardia",
+    "url": "https://www.lavanguardia.com/politica/20210822/7674801/marruecos-tiende-mano-espana-plena-erupcion-drama-afgano.html",
+    "item_id": "d63c5a097dae"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "CESID",
+    "gen": "CESID  entre 1993 y 1996, y a su sucesor, el general  Javier G",
+    "url": "https://www.lavanguardia.com/politica/20211005/7768592/conversacion-exministro-asuncion-implica-corcuera-envio-cartas-bomba-hb.amp.html",
+    "item_id": "9a9acf304e0a"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Ursula",
+    "gen": "Ursula von der Leyen, presente el reglamento el próximo 7 de septiembre. El texto se public",
+    "url": "https://www.lavanguardia.com/economia/20230907/9210169/comision-anuncia-reglamento-pagar-facturas-30-dias.html",
+    "item_id": "67ce9936ddb0"
+   }
+  ],
+  "all_hits": [
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Fuente",
+    "gen": "Fuente, el gran naturalista español. Un libro que es una invitación a la reflexión y a la acción",
+    "url": "https://www.lavanguardia.com/lacontra/20200316/474174253899/la-naturaleza-nos-da-una-leccion-de-humildad-con-el-coronavirus.html",
+    "item_id": "9476c863437f"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "RAED",
+    "gen": "RAED). En su sede madrileña, en la calle de la Princesa, se reúnen",
+    "url": "https://www.lavanguardia.com/lacontra/20170428/422099298827/nada-estimula-mas-el-cerebro-que-una-buena-conversacion.html",
+    "item_id": "3ce131b5638f"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Guerra Civil",
+    "gen": "Guerra Civil. En 1960 publicó su primer libro,  ‘El pitufo’, que se conv",
+    "url": "https://www.lavanguardia.com/lacontra/20160801/403601964385/acune-la-palabra-pitufo-inspirandome-en-patufet.html",
+    "item_id": "569ef928351a"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "500",
+    "gen": "500 años en llegar a la radio, la radio tardó 50 años en llegar a la televisión y la televis",
+    "url": "https://www.lavanguardia.com/lacontra/20150617/54432871350/la-contra-nestor-garcia-canclini.html",
+    "item_id": "5062fd64a1dd"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Greenpeace",
+    "gen": " Greenpeace  para hacer frente a la caza de ballenas. Y es que, como él mismo dice,",
+    "url": "https://www.lavanguardia.com/lacontra/20201014/484055810323/te-abren-puerta-entra-ventana.html",
+    "item_id": "19118d85d4b1"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "20",
+    "gen": "20 años, Agustín Bonifacio, trabajador social, ha trabajado con jóvenes que se han suic",
+    "url": "https://www.lavanguardia.com/lacontra/20251206/11337690/agustin-bonifacio-jovenes-piden-ayuda-ia-suicidarse.html",
+    "item_id": "54ea4f437629"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Donald Trump",
+    "gen": "Donald Trump, de trasladar la embajada de Estados Unidos a Jerusalén. [...] \n\nLa Vanguardia",
+    "url": "https://www.lavanguardia.com/politica/20210822/7674801/marruecos-tiende-mano-espana-plena-erupcion-drama-afgano.html",
+    "item_id": "d63c5a097dae"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "CESID",
+    "gen": "CESID  entre 1993 y 1996, y a su sucesor, el general  Javier G",
+    "url": "https://www.lavanguardia.com/politica/20211005/7768592/conversacion-exministro-asuncion-implica-corcuera-envio-cartas-bomba-hb.amp.html",
+    "item_id": "9a9acf304e0a"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Francia",
+    "gen": "Francia en Camerún– les ayudaran a salir de la pobreza y a construir una sociedad más",
+    "url": "https://www.lavanguardia.com/lacontra/20260302/11478598/barthelemy-yaouda-problema-africa-hay-trabajar-mas.html",
+    "item_id": "fb3cf43b1bc1"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Ursula",
+    "gen": "Ursula von der Leyen, presente el reglamento el próximo 7 de septiembre. El texto se public",
+    "url": "https://www.lavanguardia.com/economia/20230907/9210169/comision-anuncia-reglamento-pagar-facturas-30-dias.html",
+    "item_id": "67ce9936ddb0"
+   }
+  ]
+ },
+ "Meta-Llama-3.1-8B-Instruct-4bit": {
+  "style": "chat-guess",
+  "table": {
+   "ALL": {
+    "member": "3/251",
+    "control": "6/191",
+    "rate_member": 0.012,
+    "rate_control": 0.031,
+    "dontknow_member": 69,
+    "dontknow_control": 133,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.9621
+   },
+   "box_title": {
+    "member": "0/60",
+    "control": "0/38",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 13,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "byline": {
+    "member": "0/60",
+    "control": "0/60",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 59,
+    "dontknow_control": 60,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "cloze/lacontra_intro": {
+    "member": "2/60",
+    "control": "5/30",
+    "rate_member": 0.033,
+    "rate_control": 0.167,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.995
+   },
+   "cloze/scoop": {
+    "member": "1/11",
+    "control": "1/3",
+    "rate_member": 0.091,
+    "rate_control": 0.333,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.967
+   },
+   "url_id": {
+    "member": "0/60",
+    "control": "0/60",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 10,
+    "dontknow_control": 60,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id_date_error": {
+    "member": {
+     "n_7_8_digit": 17,
+     "median_err_days": 9999,
+     "within_1_day": 0,
+     "within_7_days": 0,
+     "within_30_days": 0
+    }
+   }
+  },
+  "flag_candidate": false,
+  "hits_to_verify_exclusivity": [
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Gnarr",
+    "gen": "Jón Gnarr",
+    "url": "https://www.lavanguardia.com/lacontra/20181010/452282675075/llegue-a-prometer-elevar-cuatro-grados-la-temperatura-de-islandia.html",
+    "item_id": "61230b5f9f1a"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Greenpeace",
+    "gen": "Greenpeace",
+    "url": "https://www.lavanguardia.com/lacontra/20201014/484055810323/te-abren-puerta-entra-ventana.html",
+    "item_id": "19118d85d4b1"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Ursula",
+    "gen": "Ursula",
+    "url": "https://www.lavanguardia.com/economia/20230907/9210169/comision-anuncia-reglamento-pagar-facturas-30-dias.html",
+    "item_id": "67ce9936ddb0"
+   }
+  ],
+  "all_hits": [
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Irán",
+    "gen": "Irán.",
+    "url": "https://www.lavanguardia.com/lacontra/20260202/11455102/vahid-tizfahm-ejecutaron-mi-padre-colgaron-mi-tio-vinieron-mi.html",
+    "item_id": "04e152e3608d"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Gnarr",
+    "gen": "Jón Gnarr",
+    "url": "https://www.lavanguardia.com/lacontra/20181010/452282675075/llegue-a-prometer-elevar-cuatro-grados-la-temperatura-de-islandia.html",
+    "item_id": "61230b5f9f1a"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Greenpeace",
+    "gen": "Greenpeace",
+    "url": "https://www.lavanguardia.com/lacontra/20201014/484055810323/te-abren-puerta-entra-ventana.html",
+    "item_id": "19118d85d4b1"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Bélgica",
+    "gen": "Belgica",
+    "url": "https://www.lavanguardia.com/deportes/20251217/11369578/f1-formula-1-gp-barcelona-catalunya-renovacion-2032-anos-alternos-alternancia-spa.html",
+    "item_id": "b29f7dc6760d"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Descartes",
+    "gen": "Descartes.",
+    "url": "https://www.lavanguardia.com/lacontra/20260120/11443719/enrique-bonete-profe-me-invaden-tinieblas-miedo.html",
+    "item_id": "733ee6bb4b12"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Friends",
+    "gen": "Friends.",
+    "url": "https://www.lavanguardia.com/lacontra/20260206/11458911/rodrigo-quian-quiroga-recordamos-olvidamos.html",
+    "item_id": "97217f8c618b"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Rusia",
+    "gen": "Rusia.",
+    "url": "https://www.lavanguardia.com/lacontra/20260213/11465003/carlo-masala-temo-pequeno-ataque-ruso-rompa-unidad-otan.html",
+    "item_id": "9d36f2e6c551"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Francia",
+    "gen": "Francia.",
+    "url": "https://www.lavanguardia.com/lacontra/20260302/11478598/barthelemy-yaouda-problema-africa-hay-trabajar-mas.html",
+    "item_id": "fb3cf43b1bc1"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Ursula",
+    "gen": "Ursula",
+    "url": "https://www.lavanguardia.com/economia/20230907/9210169/comision-anuncia-reglamento-pagar-facturas-30-dias.html",
+    "item_id": "67ce9936ddb0"
+   }
+  ]
+ },
+ "Qwen2.5-7B-Instruct-4bit": {
+  "style": "chat-guess",
+  "table": {
+   "ALL": {
+    "member": "6/251",
+    "control": "4/191",
+    "rate_member": 0.024,
+    "rate_control": 0.021,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.5512
+   },
+   "box_title": {
+    "member": "0/60",
+    "control": "0/38",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "byline": {
+    "member": "0/60",
+    "control": "0/60",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "cloze/lacontra_intro": {
+    "member": "3/60",
+    "control": "4/30",
+    "rate_member": 0.05,
+    "rate_control": 0.133,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.9612
+   },
+   "cloze/scoop": {
+    "member": "3/11",
+    "control": "0/3",
+    "rate_member": 0.273,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.4533
+   },
+   "url_id": {
+    "member": "0/60",
+    "control": "0/60",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id_date_error": {
+    "member": {
+     "n_7_8_digit": 49,
+     "median_err_days": 9999,
+     "within_1_day": 0,
+     "within_7_days": 0,
+     "within_30_days": 0
+    },
+    "control": {
+     "n_7_8_digit": 56,
+     "median_err_days": 9999.0,
+     "within_1_day": 0,
+     "within_7_days": 0,
+     "within_30_days": 0
+    },
+    "p_fisher_within_7d": 1.0
+   }
+  },
+  "flag_candidate": false,
+  "hits_to_verify_exclusivity": [
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "PSOE",
+    "gen": "PSOE",
+    "url": "https://www.lavanguardia.com/politica/20231005/9277705/junts-descarta-abstencion-investidura-pedro-sanchez-formacion-votara.html",
+    "item_id": "49def26d4f11"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Guerra Civil",
+    "gen": "Guerra Civil Española",
+    "url": "https://www.lavanguardia.com/lacontra/20160801/403601964385/acune-la-palabra-pitufo-inspirandome-en-patufet.html",
+    "item_id": "569ef928351a"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Nobel",
+    "gen": "Nobel",
+    "url": "https://www.lavanguardia.com/lacontra/20111111/54238767853/si-quieres-subir-los-ingresos-del-estado-baja-los-impuestos.html",
+    "item_id": "c423aef1698e"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Greenpeace",
+    "gen": "Greenpeace",
+    "url": "https://www.lavanguardia.com/lacontra/20201014/484055810323/te-abren-puerta-entra-ventana.html",
+    "item_id": "19118d85d4b1"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Barça",
+    "gen": "Barça",
+    "url": "https://www.lavanguardia.com/deportes/20210206/6226987/ansu-fati-lesion-fecha-vuelta-barcelona-operacion-tratamiento-biologico.html",
+    "item_id": "cd16901302db"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Donald Trump",
+    "gen": "Donald Trump",
+    "url": "https://www.lavanguardia.com/politica/20210822/7674801/marruecos-tiende-mano-espana-plena-erupcion-drama-afgano.html",
+    "item_id": "d63c5a097dae"
+   }
+  ],
+  "all_hits": [
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "PSOE",
+    "gen": "PSOE",
+    "url": "https://www.lavanguardia.com/politica/20231005/9277705/junts-descarta-abstencion-investidura-pedro-sanchez-formacion-votara.html",
+    "item_id": "49def26d4f11"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Irán",
+    "gen": "Irán",
+    "url": "https://www.lavanguardia.com/lacontra/20260202/11455102/vahid-tizfahm-ejecutaron-mi-padre-colgaron-mi-tio-vinieron-mi.html",
+    "item_id": "04e152e3608d"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Guerra Civil",
+    "gen": "Guerra Civil Española",
+    "url": "https://www.lavanguardia.com/lacontra/20160801/403601964385/acune-la-palabra-pitufo-inspirandome-en-patufet.html",
+    "item_id": "569ef928351a"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Nobel",
+    "gen": "Nobel",
+    "url": "https://www.lavanguardia.com/lacontra/20111111/54238767853/si-quieres-subir-los-ingresos-del-estado-baja-los-impuestos.html",
+    "item_id": "c423aef1698e"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Greenpeace",
+    "gen": "Greenpeace",
+    "url": "https://www.lavanguardia.com/lacontra/20201014/484055810323/te-abren-puerta-entra-ventana.html",
+    "item_id": "19118d85d4b1"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Medicina",
+    "gen": "Medicina",
+    "url": "https://www.lavanguardia.com/lacontra/20251209/11342750/oskar-salazar-expulsa-voz-cabeza-comun-normal.html",
+    "item_id": "e81dbe8874c8"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Rusia",
+    "gen": "Rusia",
+    "url": "https://www.lavanguardia.com/lacontra/20260213/11465003/carlo-masala-temo-pequeno-ataque-ruso-rompa-unidad-otan.html",
+    "item_id": "9d36f2e6c551"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Barça",
+    "gen": "Barça",
+    "url": "https://www.lavanguardia.com/deportes/20210206/6226987/ansu-fati-lesion-fecha-vuelta-barcelona-operacion-tratamiento-biologico.html",
+    "item_id": "cd16901302db"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Donald Trump",
+    "gen": "Donald Trump",
+    "url": "https://www.lavanguardia.com/politica/20210822/7674801/marruecos-tiende-mano-espana-plena-erupcion-drama-afgano.html",
+    "item_id": "d63c5a097dae"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Francia",
+    "gen": "deplora el papel de Francia en África",
+    "url": "https://www.lavanguardia.com/lacontra/20260302/11478598/barthelemy-yaouda-problema-africa-hay-trabajar-mas.html",
+    "item_id": "fb3cf43b1bc1"
+   }
+  ]
+ },
+ "gemini-3.1-flash-lite": {
+  "style": "chat-guess",
+  "table": {
+   "ALL": {
+    "member": "31/251",
+    "control": "18/191",
+    "rate_member": 0.124,
+    "rate_control": 0.094,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 16,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.2074
+   },
+   "box_title": {
+    "member": "0/60",
+    "control": "0/38",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "byline": {
+    "member": "3/60",
+    "control": "2/60",
+    "rate_member": 0.05,
+    "rate_control": 0.033,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.5
+   },
+   "cloze/lacontra_intro": {
+    "member": "20/60",
+    "control": "13/30",
+    "rate_member": 0.333,
+    "rate_control": 0.433,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.8766
+   },
+   "cloze/scoop": {
+    "member": "8/11",
+    "control": "3/3",
+    "rate_member": 0.727,
+    "rate_control": 1.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id": {
+    "member": "0/60",
+    "control": "0/60",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 16,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id_date_error": {
+    "member": {
+     "n_7_8_digit": 49,
+     "median_err_days": 3.0,
+     "within_1_day": 16,
+     "within_7_days": 30,
+     "within_30_days": 39
+    },
+    "control": {
+     "n_7_8_digit": 60,
+     "median_err_days": 9999.0,
+     "within_1_day": 0,
+     "within_7_days": 0,
+     "within_30_days": 0
+    },
+    "p_fisher_within_7d": 3.1e-14
+   }
+  },
+  "flag_candidate": true,
+  "hits_to_verify_exclusivity": [
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Bret Weinstein",
+    "gen": "Bret Weinstein",
+    "url": "https://www.lavanguardia.com/lacontra/20220801/8443212/cuerpos-ancestrales-mantienen-ritmo-cambio.html",
+    "item_id": "298a146e3e5d"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Fuente",
+    "gen": "Fuente",
+    "url": "https://www.lavanguardia.com/lacontra/20200316/474174253899/la-naturaleza-nos-da-una-leccion-de-humildad-con-el-coronavirus.html",
+    "item_id": "9476c863437f"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Derecho",
+    "gen": "Derecho",
+    "url": "https://www.lavanguardia.com/lacontra/20201205/49877721659/trabajar-once-meses-ano-vacaciones-me.html",
+    "item_id": "3649ac6d0e35"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "PSOE",
+    "gen": "PSOE",
+    "url": "https://www.lavanguardia.com/politica/20231005/9277705/junts-descarta-abstencion-investidura-pedro-sanchez-formacion-votara.html",
+    "item_id": "49def26d4f11"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Zapatero",
+    "gen": "Zapatero",
+    "url": "https://www.lavanguardia.com/lacontra/20160509/401662158815/el-patriarcado-destruira-el-planeta-si-no-lo-frenamos.html",
+    "item_id": "ab9a88ea9bab"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "62",
+    "gen": "62",
+    "url": "https://www.lavanguardia.com/lacontra/20180505/443263142282/los-banos-de-bosque-potencian-el-sistema-inmune.html",
+    "item_id": "378749da19d4"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "RAED",
+    "gen": "RAED",
+    "url": "https://www.lavanguardia.com/lacontra/20170428/422099298827/nada-estimula-mas-el-cerebro-que-una-buena-conversacion.html",
+    "item_id": "3ce131b5638f"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Dalí",
+    "gen": "Dalí",
+    "url": "https://www.lavanguardia.com/lacontra/20221026/8581743/proxima-gran-revolucion-sera-dar-utilidad-fisica-cuantica.html",
+    "item_id": "61fb38040b6d"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Hasta",
+    "gen": "Hasta",
+    "url": "https://www.lavanguardia.com/lacontra/20220429/8230595/hombre-radio.html",
+    "item_id": "f562ec2c3fc0"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Mossos",
+    "gen": "Mossos",
+    "url": "https://www.lavanguardia.com/politica/20210315/6374888/comando-maresme-mossos-guardia-urbana-barcelona-hasel-incendio-furgoneta-anarquistas-italianos.html",
+    "item_id": "c7cbed7233f6"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Gnarr",
+    "gen": "Jón Gnarr",
+    "url": "https://www.lavanguardia.com/lacontra/20181010/452282675075/llegue-a-prometer-elevar-cuatro-grados-la-temperatura-de-islandia.html",
+    "item_id": "61230b5f9f1a"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Nobel",
+    "gen": "Nobel",
+    "url": "https://www.lavanguardia.com/lacontra/20111111/54238767853/si-quieres-subir-los-ingresos-del-estado-baja-los-impuestos.html",
+    "item_id": "c423aef1698e"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Sant Just",
+    "gen": "Sant Just Desvern",
+    "url": "https://www.lavanguardia.com/lacontra/20220223/8076722/mejor-mi-cuerpo-rinon-mi-mujer.html",
+    "item_id": "90a6e1227545"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Urano",
+    "gen": "Urano",
+    "url": "https://www.lavanguardia.com/lacontra/20130715/54377793812/me-despedi-de-la-vida-y-me-cure-con-la-dieta-anticancer.html",
+    "item_id": "96ccafdf10ea"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Quedé",
+    "gen": "Quedé",
+    "url": "https://www.lavanguardia.com/lacontra/20121103/54354781520/la-contra-qian-anhua.html",
+    "item_id": "011f4ab88b62"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Esade",
+    "gen": "ESADE",
+    "url": "https://www.lavanguardia.com/lacontra/20190503/462002919093/pelear-con-espana-es-un-suicidio-me-dijo-tarradellas.html",
+    "item_id": "e443ab01a02f"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Acción",
+    "gen": "Acción",
+    "url": "https://www.lavanguardia.com/lacontra/20170102/413037863029/la-caza-esta-convirtiendo-los-cotos-en-granjas-intensivas.html",
+    "item_id": "b87a12be426d"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "The New York Times",
+    "gen": "The New York Times",
+    "url": "https://www.lavanguardia.com/lacontra/20201110/49376101232/espana-hay-politicos-presos-presos-politicos-asi-escribo.html",
+    "item_id": "dd2816e3cd8a"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "TIPI",
+    "gen": "TIPI",
+    "url": "https://www.lavanguardia.com/lacontra/20150519/54431714926/la-contra-luc-nicon.html",
+    "item_id": "287f2c328658"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Nosotros",
+    "gen": "Nosotros",
+    "url": "https://www.lavanguardia.com/lacontra/20200421/48652613248/los-empresarios-podemos-hacer-de-este-mundo-un-lugar-mejor.html",
+    "item_id": "c6f2484b15ff"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Greenpeace",
+    "gen": "Greenpeace",
+    "url": "https://www.lavanguardia.com/lacontra/20201014/484055810323/te-abren-puerta-entra-ventana.html",
+    "item_id": "19118d85d4b1"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Estado",
+    "gen": "Estado",
+    "url": "https://www.lavanguardia.com/lacontra/20180711/45825409103/el-amor-es-dos-personas-discutiendo-juntas-de-libros.html",
+    "item_id": "51a5d7874f48"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Barça",
+    "gen": "Barça",
+    "url": "https://www.lavanguardia.com/deportes/20210206/6226987/ansu-fati-lesion-fecha-vuelta-barcelona-operacion-tratamiento-biologico.html",
+    "item_id": "cd16901302db"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Donald Trump",
+    "gen": "Donald Trump",
+    "url": "https://www.lavanguardia.com/politica/20210822/7674801/marruecos-tiende-mano-espana-plena-erupcion-drama-afgano.html",
+    "item_id": "d63c5a097dae"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "CESID",
+    "gen": "CESID",
+    "url": "https://www.lavanguardia.com/politica/20211005/7768592/conversacion-exministro-asuncion-implica-corcuera-envio-cartas-bomba-hb.amp.html",
+    "item_id": "9a9acf304e0a"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Ursula",
+    "gen": "Ursula",
+    "url": "https://www.lavanguardia.com/economia/20230907/9210169/comision-anuncia-reglamento-pagar-facturas-30-dias.html",
+    "item_id": "67ce9936ddb0"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Astrid Barrio",
+    "gen": "Astrid Barrio",
+    "url": "https://www.lavanguardia.com/politica/20210810/7653773/lliures-lliga-pnc-dan-primer-paso-fusionarse-ano.html",
+    "item_id": "55e87e7dee98"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Difícilmente",
+    "gen": "Difícilmente",
+    "url": "https://www.lavanguardia.com/deportes/20210409/6639082/audiencia-madrid-absuelve-xabi-alonso-fraude-fiscal.html",
+    "item_id": "1c7ce7d0a1f6"
+   }
+  ],
+  "all_hits": [
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Bret Weinstein",
+    "gen": "Bret Weinstein",
+    "url": "https://www.lavanguardia.com/lacontra/20220801/8443212/cuerpos-ancestrales-mantienen-ritmo-cambio.html",
+    "item_id": "298a146e3e5d"
+   },
+   {
+    "set": "member",
+    "type": "byline",
+    "subtype": "",
+    "answer": "Eusebio Val",
+    "gen": "Eusebio Val",
+    "url": "https://www.lavanguardia.com/internacional/20230726/9133584/policia-francesa-rebela.html",
+    "item_id": "339f4a486c80"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Fuente",
+    "gen": "Fuente",
+    "url": "https://www.lavanguardia.com/lacontra/20200316/474174253899/la-naturaleza-nos-da-una-leccion-de-humildad-con-el-coronavirus.html",
+    "item_id": "9476c863437f"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Derecho",
+    "gen": "Derecho",
+    "url": "https://www.lavanguardia.com/lacontra/20201205/49877721659/trabajar-once-meses-ano-vacaciones-me.html",
+    "item_id": "3649ac6d0e35"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "PSOE",
+    "gen": "PSOE",
+    "url": "https://www.lavanguardia.com/politica/20231005/9277705/junts-descarta-abstencion-investidura-pedro-sanchez-formacion-votara.html",
+    "item_id": "49def26d4f11"
+   },
+   {
+    "set": "member",
+    "type": "byline",
+    "subtype": "",
+    "answer": "Justo Barranco",
+    "gen": "Justo Barranco",
+    "url": "https://www.lavanguardia.com/cultura/20210918/7729850/fallece-director-cine-mario-camus.html",
+    "item_id": "5216bdfabf01"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Zapatero",
+    "gen": "Zapatero",
+    "url": "https://www.lavanguardia.com/lacontra/20160509/401662158815/el-patriarcado-destruira-el-planeta-si-no-lo-frenamos.html",
+    "item_id": "ab9a88ea9bab"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "62",
+    "gen": "62",
+    "url": "https://www.lavanguardia.com/lacontra/20180505/443263142282/los-banos-de-bosque-potencian-el-sistema-inmune.html",
+    "item_id": "378749da19d4"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "RAED",
+    "gen": "RAED",
+    "url": "https://www.lavanguardia.com/lacontra/20170428/422099298827/nada-estimula-mas-el-cerebro-que-una-buena-conversacion.html",
+    "item_id": "3ce131b5638f"
+   },
+   {
+    "set": "member",
+    "type": "byline",
+    "subtype": "",
+    "answer": "Beatriz Navarro",
+    "gen": "Beatriz Navarro",
+    "url": "https://www.lavanguardia.com/internacional/20210502/7422707/diez-anos-bin-laden-final-petrificante.html",
+    "item_id": "bd48113ecaf6"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Banca Privada",
+    "gen": "Banca Privada",
+    "url": "https://www.lavanguardia.com/politica/20251108/11243191/rajoy-cabeza-piezas-villarejo-senalo-andorra-operacion-catalunya.html",
+    "item_id": "aaf9b7c691ad"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Dalí",
+    "gen": "Dalí",
+    "url": "https://www.lavanguardia.com/lacontra/20221026/8581743/proxima-gran-revolucion-sera-dar-utilidad-fisica-cuantica.html",
+    "item_id": "61fb38040b6d"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "ChatGPT",
+    "gen": "ChatGPT",
+    "url": "https://www.lavanguardia.com/vida/20250907/11035213/escuelas-abren-manana-curso-marcado-irrupcion-ia.html",
+    "item_id": "411750e04e6f"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Irán",
+    "gen": "Irán",
+    "url": "https://www.lavanguardia.com/lacontra/20260202/11455102/vahid-tizfahm-ejecutaron-mi-padre-colgaron-mi-tio-vinieron-mi.html",
+    "item_id": "04e152e3608d"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Hasta",
+    "gen": "Hasta",
+    "url": "https://www.lavanguardia.com/lacontra/20220429/8230595/hombre-radio.html",
+    "item_id": "f562ec2c3fc0"
+   },
+   {
+    "set": "control",
+    "type": "byline",
+    "subtype": "",
+    "answer": "Rafael Ramos",
+    "gen": "Rafael Ramos",
+    "url": "https://www.lavanguardia.com/internacional/20250906/11033637/neofascismo-llama-puerta.html",
+    "item_id": "2ba4ff13b1d4"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Grand Slams",
+    "gen": "Grand Slams",
+    "url": "https://www.lavanguardia.com/lacontra/20251211/11350791/boris-becker-mi-vida-entera-sido-carcel.html",
+    "item_id": "ab1d83bed066"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Mossos",
+    "gen": "Mossos",
+    "url": "https://www.lavanguardia.com/politica/20210315/6374888/comando-maresme-mossos-guardia-urbana-barcelona-hasel-incendio-furgoneta-anarquistas-italianos.html",
+    "item_id": "c7cbed7233f6"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Gnarr",
+    "gen": "Jón Gnarr",
+    "url": "https://www.lavanguardia.com/lacontra/20181010/452282675075/llegue-a-prometer-elevar-cuatro-grados-la-temperatura-de-islandia.html",
+    "item_id": "61230b5f9f1a"
+   },
+   {
+    "set": "control",
+    "type": "byline",
+    "subtype": "",
+    "answer": "Antonio Cerrillo",
+    "gen": "Antonio Cerrillo",
+    "url": "https://www.lavanguardia.com/vida/20260106/11414752/emisiones-co2-crecieron-2025-mayor-gas-apagon.html",
+    "item_id": "e7572d83207c"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Nobel",
+    "gen": "Nobel",
+    "url": "https://www.lavanguardia.com/lacontra/20111111/54238767853/si-quieres-subir-los-ingresos-del-estado-baja-los-impuestos.html",
+    "item_id": "c423aef1698e"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Sant Just",
+    "gen": "Sant Just Desvern",
+    "url": "https://www.lavanguardia.com/lacontra/20220223/8076722/mejor-mi-cuerpo-rinon-mi-mujer.html",
+    "item_id": "90a6e1227545"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Urano",
+    "gen": "Urano",
+    "url": "https://www.lavanguardia.com/lacontra/20130715/54377793812/me-despedi-de-la-vida-y-me-cure-con-la-dieta-anticancer.html",
+    "item_id": "96ccafdf10ea"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Quedé",
+    "gen": "Quedé",
+    "url": "https://www.lavanguardia.com/lacontra/20121103/54354781520/la-contra-qian-anhua.html",
+    "item_id": "011f4ab88b62"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Esade",
+    "gen": "ESADE",
+    "url": "https://www.lavanguardia.com/lacontra/20190503/462002919093/pelear-con-espana-es-un-suicidio-me-dijo-tarradellas.html",
+    "item_id": "e443ab01a02f"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Acción",
+    "gen": "Acción",
+    "url": "https://www.lavanguardia.com/lacontra/20170102/413037863029/la-caza-esta-convirtiendo-los-cotos-en-granjas-intensivas.html",
+    "item_id": "b87a12be426d"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "The New York Times",
+    "gen": "The New York Times",
+    "url": "https://www.lavanguardia.com/lacontra/20201110/49376101232/espana-hay-politicos-presos-presos-politicos-asi-escribo.html",
+    "item_id": "dd2816e3cd8a"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "TIPI",
+    "gen": "TIPI",
+    "url": "https://www.lavanguardia.com/lacontra/20150519/54431714926/la-contra-luc-nicon.html",
+    "item_id": "287f2c328658"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Nosotros",
+    "gen": "Nosotros",
+    "url": "https://www.lavanguardia.com/lacontra/20200421/48652613248/los-empresarios-podemos-hacer-de-este-mundo-un-lugar-mejor.html",
+    "item_id": "c6f2484b15ff"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Greenpeace",
+    "gen": "Greenpeace",
+    "url": "https://www.lavanguardia.com/lacontra/20201014/484055810323/te-abren-puerta-entra-ventana.html",
+    "item_id": "19118d85d4b1"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Estado",
+    "gen": "Estado",
+    "url": "https://www.lavanguardia.com/lacontra/20180711/45825409103/el-amor-es-dos-personas-discutiendo-juntas-de-libros.html",
+    "item_id": "51a5d7874f48"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "20",
+    "gen": "20",
+    "url": "https://www.lavanguardia.com/lacontra/20251206/11337690/agustin-bonifacio-jovenes-piden-ayuda-ia-suicidarse.html",
+    "item_id": "54ea4f437629"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Isabel",
+    "gen": "Isabel",
+    "url": "https://www.lavanguardia.com/lacontra/20260207/11460053/dan-schreiber-nobel-invento-pcr-dijo-abdujo-mapache-parlante.html",
+    "item_id": "e860f795b9c6"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Bélgica",
+    "gen": "Bélgica",
+    "url": "https://www.lavanguardia.com/deportes/20251217/11369578/f1-formula-1-gp-barcelona-catalunya-renovacion-2032-anos-alternos-alternancia-spa.html",
+    "item_id": "b29f7dc6760d"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Vall",
+    "gen": "Vall",
+    "url": "https://www.lavanguardia.com/lacontra/20260210/11461945/antonia-sambola-corazon-mujeres-escucha-muere-mas.html",
+    "item_id": "b2a220150cc9"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "YouGov",
+    "gen": "YouGov",
+    "url": "https://www.lavanguardia.com/lacontra/20260107/11416352/molly-roden-winter-dos-novios-mi-marido.html",
+    "item_id": "b65854e8421c"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Descartes",
+    "gen": "Descartes",
+    "url": "https://www.lavanguardia.com/lacontra/20260120/11443719/enrique-bonete-profe-me-invaden-tinieblas-miedo.html",
+    "item_id": "733ee6bb4b12"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Friends",
+    "gen": "Friends",
+    "url": "https://www.lavanguardia.com/lacontra/20260206/11458911/rodrigo-quian-quiroga-recordamos-olvidamos.html",
+    "item_id": "97217f8c618b"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Medicina",
+    "gen": "Medicina",
+    "url": "https://www.lavanguardia.com/lacontra/20251209/11342750/oskar-salazar-expulsa-voz-cabeza-comun-normal.html",
+    "item_id": "e81dbe8874c8"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Rusia",
+    "gen": "Rusia",
+    "url": "https://www.lavanguardia.com/lacontra/20260213/11465003/carlo-masala-temo-pequeno-ataque-ruso-rompa-unidad-otan.html",
+    "item_id": "9d36f2e6c551"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Barça",
+    "gen": "Barça",
+    "url": "https://www.lavanguardia.com/deportes/20210206/6226987/ansu-fati-lesion-fecha-vuelta-barcelona-operacion-tratamiento-biologico.html",
+    "item_id": "cd16901302db"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Donald Trump",
+    "gen": "Donald Trump",
+    "url": "https://www.lavanguardia.com/politica/20210822/7674801/marruecos-tiende-mano-espana-plena-erupcion-drama-afgano.html",
+    "item_id": "d63c5a097dae"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Partenón",
+    "gen": "Partenón",
+    "url": "https://www.lavanguardia.com/lacontra/20260116/11440686/catharine-titi-arte-sentido-expone-lugar-creo.html",
+    "item_id": "35bf1dd4dcf5"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Columna",
+    "gen": "Columna",
+    "url": "https://www.lavanguardia.com/lacontra/20260203/11456045/maria-duenas-novelista-superventas-che-valenciano-quedo-habla-arabe-oran.html",
+    "item_id": "3b28fe6f0d94"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "CESID",
+    "gen": "CESID",
+    "url": "https://www.lavanguardia.com/politica/20211005/7768592/conversacion-exministro-asuncion-implica-corcuera-envio-cartas-bomba-hb.amp.html",
+    "item_id": "9a9acf304e0a"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Ursula",
+    "gen": "Ursula",
+    "url": "https://www.lavanguardia.com/economia/20230907/9210169/comision-anuncia-reglamento-pagar-facturas-30-dias.html",
+    "item_id": "67ce9936ddb0"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Astrid Barrio",
+    "gen": "Astrid Barrio",
+    "url": "https://www.lavanguardia.com/politica/20210810/7653773/lliures-lliga-pnc-dan-primer-paso-fusionarse-ano.html",
+    "item_id": "55e87e7dee98"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Gemini",
+    "gen": "Gemini",
+    "url": "https://www.lavanguardia.com/lacontra/20251203/11325529/oriol-vinyals-regulacion-solucion-ia-educacion.html",
+    "item_id": "a8661a988477"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Difícilmente",
+    "gen": "Difícilmente",
+    "url": "https://www.lavanguardia.com/deportes/20210409/6639082/audiencia-madrid-absuelve-xabi-alonso-fraude-fiscal.html",
+    "item_id": "1c7ce7d0a1f6"
+   }
+  ]
+ },
+ "gemma-2-9b-4bit": {
+  "style": "raw",
+  "table": {
+   "ALL": {
+    "member": "14/251",
+    "control": "7/191",
+    "rate_member": 0.056,
+    "rate_control": 0.037,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.2406
+   },
+   "box_title": {
+    "member": "0/60",
+    "control": "0/38",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "byline": {
+    "member": "0/60",
+    "control": "0/60",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "cloze/lacontra_intro": {
+    "member": "11/60",
+    "control": "7/30",
+    "rate_member": 0.183,
+    "rate_control": 0.233,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.8006
+   },
+   "cloze/scoop": {
+    "member": "3/11",
+    "control": "0/3",
+    "rate_member": 0.273,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.4533
+   },
+   "url_id": {
+    "member": "0/60",
+    "control": "0/60",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id_date_error": {
+    "member": {
+     "n_7_8_digit": 49,
+     "median_err_days": 162.0,
+     "within_1_day": 0,
+     "within_7_days": 0,
+     "within_30_days": 2
+    },
+    "control": {
+     "n_7_8_digit": 60,
+     "median_err_days": 1693.5,
+     "within_1_day": 0,
+     "within_7_days": 0,
+     "within_30_days": 0
+    },
+    "p_fisher_within_7d": 1.0
+   }
+  },
+  "flag_candidate": false,
+  "hits_to_verify_exclusivity": [
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Bret Weinstein",
+    "gen": "<strong>Bret Weinstein</strong>, son dos biólogos estadounidenses que se han convertido en una suerte de <strong>influencers</strong> de",
+    "url": "https://www.lavanguardia.com/lacontra/20220801/8443212/cuerpos-ancestrales-mantienen-ritmo-cambio.html",
+    "item_id": "298a146e3e5d"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Fuente",
+    "gen": "<strong>Fuente</strong>, un hombre que ha vivido en la tierra y que ha escrito en la tierra.\n\n“La naturaleza",
+    "url": "https://www.lavanguardia.com/lacontra/20200316/474174253899/la-naturaleza-nos-da-una-leccion-de-humildad-con-el-coronavirus.html",
+    "item_id": "9476c863437f"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "PSOE",
+    "gen": "<strong>PSOE</strong> que no se plantean la abstención en la investidura de Pedro Sánchez, sino que votarán",
+    "url": "https://www.lavanguardia.com/politica/20231005/9277705/junts-descarta-abstencion-investidura-pedro-sanchez-formacion-votara.html",
+    "item_id": "49def26d4f11"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "18",
+    "gen": "18 años.\n\n“Es mejor ser una naranja entera que media naranja”, decía la escritora, que en su ensayo",
+    "url": "https://www.lavanguardia.com/lacontra/20160705/402970563784/es-mejor-ser-una-naranja-entera-que-media-naranja.html",
+    "item_id": "8b6688452163"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "RAED",
+    "gen": "RAED). La RAED es una institución científica sin ánimo de lucro, fundada en 1992, que",
+    "url": "https://www.lavanguardia.com/lacontra/20170428/422099298827/nada-estimula-mas-el-cerebro-que-una-buena-conversacion.html",
+    "item_id": "3ce131b5638f"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "France",
+    "gen": "<i>France 2</i> y <i>France 3</i>, y de la revista <i>Le Nouvel Observateur",
+    "url": "https://www.lavanguardia.com/lacontra/20180110/434192024619/a-partir-de-ahora-estare-satisfecho-con-lo-mejor.html",
+    "item_id": "a43bf3e1db4f"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Urano",
+    "gen": "Ed. Urano, 2013).\n\n<strong>¿Qué es la dieta anticáncer?</strong>\nEs",
+    "url": "https://www.lavanguardia.com/lacontra/20130715/54377793812/me-despedi-de-la-vida-y-me-cure-con-la-dieta-anticancer.html",
+    "item_id": "96ccafdf10ea"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Acción",
+    "gen": "<strong>Acción</strong>, por ejemplo, denuncia que la caza está convirtiendo los cotos en granjas intensivas.",
+    "url": "https://www.lavanguardia.com/lacontra/20170102/413037863029/la-caza-esta-convirtiendo-los-cotos-en-granjas-intensivas.html",
+    "item_id": "b87a12be426d"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "The New York Times",
+    "gen": "<em>The New York Times</em> que en España hay políticos presos, no presos políticos. Así lo escribo.\n\nEl",
+    "url": "https://www.lavanguardia.com/lacontra/20201110/49376101232/espana-hay-politicos-presos-presos-politicos-asi-escribo.html",
+    "item_id": "dd2816e3cd8a"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "500",
+    "gen": "500 años en llegar a la radio, la radio tardó 50 años en llegar a la televisión,",
+    "url": "https://www.lavanguardia.com/lacontra/20150617/54432871350/la-contra-nestor-garcia-canclini.html",
+    "item_id": "5062fd64a1dd"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Greenpeace",
+    "gen": "<strong>Greenpeace</strong> para luchar contra la contaminación y el cambio climático.\n\nEl pulpo es un animal muy inteligente,",
+    "url": "https://www.lavanguardia.com/lacontra/20201014/484055810323/te-abren-puerta-entra-ventana.html",
+    "item_id": "19118d85d4b1"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Planeta",
+    "gen": "Planeta, 2013).\n\nEl libro es una novela histórica, pero también una novela de misterio,",
+    "url": "https://www.lavanguardia.com/lacontra/20130308/54368130729/el-bosco-pinto-una-tabla-de-gimnasia-para-el-mas-alla.html",
+    "item_id": "8576e0600d3b"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Donald Trump",
+    "gen": "<strong>Donald Trump</strong>, de retirar a las tropas estadounidenses de Afganistán.\n\n[...] El presidente norteamericano, Joe Biden",
+    "url": "https://www.lavanguardia.com/politica/20210822/7674801/marruecos-tiende-mano-espana-plena-erupcion-drama-afgano.html",
+    "item_id": "d63c5a097dae"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Ursula",
+    "gen": "<strong>Ursula von der Leyen</strong>, presente el proyecto de reglamento el próximo 13 de septiembre.\n\n[...]",
+    "url": "https://www.lavanguardia.com/economia/20230907/9210169/comision-anuncia-reglamento-pagar-facturas-30-dias.html",
+    "item_id": "67ce9936ddb0"
+   }
+  ],
+  "all_hits": [
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Bret Weinstein",
+    "gen": "<strong>Bret Weinstein</strong>, son dos biólogos estadounidenses que se han convertido en una suerte de <strong>influencers</strong> de",
+    "url": "https://www.lavanguardia.com/lacontra/20220801/8443212/cuerpos-ancestrales-mantienen-ritmo-cambio.html",
+    "item_id": "298a146e3e5d"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Fuente",
+    "gen": "<strong>Fuente</strong>, un hombre que ha vivido en la tierra y que ha escrito en la tierra.\n\n“La naturaleza",
+    "url": "https://www.lavanguardia.com/lacontra/20200316/474174253899/la-naturaleza-nos-da-una-leccion-de-humildad-con-el-coronavirus.html",
+    "item_id": "9476c863437f"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "PSOE",
+    "gen": "<strong>PSOE</strong> que no se plantean la abstención en la investidura de Pedro Sánchez, sino que votarán",
+    "url": "https://www.lavanguardia.com/politica/20231005/9277705/junts-descarta-abstencion-investidura-pedro-sanchez-formacion-votara.html",
+    "item_id": "49def26d4f11"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "18",
+    "gen": "18 años.\n\n“Es mejor ser una naranja entera que media naranja”, decía la escritora, que en su ensayo",
+    "url": "https://www.lavanguardia.com/lacontra/20160705/402970563784/es-mejor-ser-una-naranja-entera-que-media-naranja.html",
+    "item_id": "8b6688452163"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "RAED",
+    "gen": "RAED). La RAED es una institución científica sin ánimo de lucro, fundada en 1992, que",
+    "url": "https://www.lavanguardia.com/lacontra/20170428/422099298827/nada-estimula-mas-el-cerebro-que-una-buena-conversacion.html",
+    "item_id": "3ce131b5638f"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "France",
+    "gen": "<i>France 2</i> y <i>France 3</i>, y de la revista <i>Le Nouvel Observateur",
+    "url": "https://www.lavanguardia.com/lacontra/20180110/434192024619/a-partir-de-ahora-estare-satisfecho-con-lo-mejor.html",
+    "item_id": "a43bf3e1db4f"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Grand Slams",
+    "gen": "<em>Grand Slams</em> y fue el primer alemán en ganar Wimbledon. Pero su vida se convirtió en un infierno cuando se",
+    "url": "https://www.lavanguardia.com/lacontra/20251211/11350791/boris-becker-mi-vida-entera-sido-carcel.html",
+    "item_id": "ab1d83bed066"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Urano",
+    "gen": "Ed. Urano, 2013).\n\n<strong>¿Qué es la dieta anticáncer?</strong>\nEs",
+    "url": "https://www.lavanguardia.com/lacontra/20130715/54377793812/me-despedi-de-la-vida-y-me-cure-con-la-dieta-anticancer.html",
+    "item_id": "96ccafdf10ea"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Acción",
+    "gen": "<strong>Acción</strong>, por ejemplo, denuncia que la caza está convirtiendo los cotos en granjas intensivas.",
+    "url": "https://www.lavanguardia.com/lacontra/20170102/413037863029/la-caza-esta-convirtiendo-los-cotos-en-granjas-intensivas.html",
+    "item_id": "b87a12be426d"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "The New York Times",
+    "gen": "<em>The New York Times</em> que en España hay políticos presos, no presos políticos. Así lo escribo.\n\nEl",
+    "url": "https://www.lavanguardia.com/lacontra/20201110/49376101232/espana-hay-politicos-presos-presos-politicos-asi-escribo.html",
+    "item_id": "dd2816e3cd8a"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "500",
+    "gen": "500 años en llegar a la radio, la radio tardó 50 años en llegar a la televisión,",
+    "url": "https://www.lavanguardia.com/lacontra/20150617/54432871350/la-contra-nestor-garcia-canclini.html",
+    "item_id": "5062fd64a1dd"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Greenpeace",
+    "gen": "<strong>Greenpeace</strong> para luchar contra la contaminación y el cambio climático.\n\nEl pulpo es un animal muy inteligente,",
+    "url": "https://www.lavanguardia.com/lacontra/20201014/484055810323/te-abren-puerta-entra-ventana.html",
+    "item_id": "19118d85d4b1"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Planeta",
+    "gen": "Planeta, 2013).\n\nEl libro es una novela histórica, pero también una novela de misterio,",
+    "url": "https://www.lavanguardia.com/lacontra/20130308/54368130729/el-bosco-pinto-una-tabla-de-gimnasia-para-el-mas-alla.html",
+    "item_id": "8576e0600d3b"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "20",
+    "gen": "20 años, el psicólogo Agustín Bonifacio trabaja en el área de salud mental de la Fundación Hospital de Sant Pau",
+    "url": "https://www.lavanguardia.com/lacontra/20251206/11337690/agustin-bonifacio-jovenes-piden-ayuda-ia-suicidarse.html",
+    "item_id": "54ea4f437629"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Isabel",
+    "gen": "<strong>Isabel II</strong>, murió el viernes a los 99 años. El príncipe, que se casó con la reina",
+    "url": "https://www.lavanguardia.com/lacontra/20260207/11460053/dan-schreiber-nobel-invento-pcr-dijo-abdujo-mapache-parlante.html",
+    "item_id": "e860f795b9c6"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Friends",
+    "gen": "<i>Friends</i>).\n\nLa neurona JenniferAniston\nEl doctor Quiroga nos cuenta cómo descubrió en la Universidad de",
+    "url": "https://www.lavanguardia.com/lacontra/20260206/11458911/rodrigo-quian-quiroga-recordamos-olvidamos.html",
+    "item_id": "97217f8c618b"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Medicina",
+    "gen": "1992 en Medicina y Cirugía por la Universidad de Barcelona. En 1995 se doctoró",
+    "url": "https://www.lavanguardia.com/lacontra/20251209/11342750/oskar-salazar-expulsa-voz-cabeza-comun-normal.html",
+    "item_id": "e81dbe8874c8"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Rusia",
+    "gen": "<strong>Rusia</strong>, que no se conforma con la derrota en Ucrania y quiere seguir expandiéndose.\n\n<strong>Carlo Masala",
+    "url": "https://www.lavanguardia.com/lacontra/20260213/11465003/carlo-masala-temo-pequeno-ataque-ruso-rompa-unidad-otan.html",
+    "item_id": "9d36f2e6c551"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Donald Trump",
+    "gen": "<strong>Donald Trump</strong>, de retirar a las tropas estadounidenses de Afganistán.\n\n[...] El presidente norteamericano, Joe Biden",
+    "url": "https://www.lavanguardia.com/politica/20210822/7674801/marruecos-tiende-mano-espana-plena-erupcion-drama-afgano.html",
+    "item_id": "d63c5a097dae"
+   },
+   {
+    "set": "control",
+    "type": "cloze",
+    "subtype": "lacontra_intro",
+    "answer": "Francia",
+    "gen": "<strong>Francia</strong> en la <strong>República Centroafricana</strong>– no se olvidaran de ellos.\n\n<strong>¿",
+    "url": "https://www.lavanguardia.com/lacontra/20260302/11478598/barthelemy-yaouda-problema-africa-hay-trabajar-mas.html",
+    "item_id": "fb3cf43b1bc1"
+   },
+   {
+    "set": "member",
+    "type": "cloze",
+    "subtype": "scoop",
+    "answer": "Ursula",
+    "gen": "<strong>Ursula von der Leyen</strong>, presente el proyecto de reglamento el próximo 13 de septiembre.\n\n[...]",
+    "url": "https://www.lavanguardia.com/economia/20230907/9210169/comision-anuncia-reglamento-pagar-facturas-30-dias.html",
+    "item_id": "67ce9936ddb0"
+   }
+  ]
+ }
+}

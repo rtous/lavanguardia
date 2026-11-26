@@ -332,3 +332,29 @@ No background jobs, no schedulers (run_gemini_day3.sh removed; no crontab). Fina
   (crawled 2019–2023 / published 2017–2021; Catalan edition proportionally most exposed; not post-2024, post-opt-out,
   paywalled/print-only; quotes are not evidence).
 - **Highest-value next step:** finish the pre-registered Llama 3 vs 3.1 replication (≈1 day local, or hours on a rented GPU).
+
+## 2026-11-26 — Session 7: M10 "LV-only knowledge" screening (cheap triage before regurgitation tests)
+**Idea (user):** before costly M1/M9 runs, flag candidate models by asking for information that exists (almost)
+only on lavanguardia.com. Not evidence on its own (facts ≠ wording; copies exist); it is a filter.
+- Checked user's examples: horóscopo is in CC but generic/partner content (`-ctx`), games not crawled/third-party,
+  Premios Godó widely reported elsewhere, hemeroteca only as scanned-page thumbnails → all discarded.
+- `src/m10_exclusive_facts.py` (build / run / summary), queue `src/run_m10_local.sh`, log `evidence/m10_exclusive/`.
+  Items built deterministically from data/cc (`data/m10/items.jsonl`, sha256 printed by build): **url_id** (complete the
+  URL: numeric ID), **byline** (author; title-leaks and generic bylines dropped; full name required), **box_title**
+  (La Contra intro-box heading), **cloze** (La Contra intro / "según ha podido saber LV" sentences, whole name spans masked).
+  Members ≤2023, controls ≥2025-09. Chat models asked for a best guess (`--abstain` optional); base models get a
+  plain page to continue. Summary re-scores from raw outputs. n=60 per stratum (442 items/model, ~15 min local).
+- **Results** (`results/m10_summary.json`): exact answers ≈ nothing for every model: url_id 0 exact, box_title 0,
+  byline ≤3/60 (Gemini, = control rate), cloze member ≈ control (guessable from context: PSOE, Greenpeace…).
+- **Key finding — URL-ID-as-date:** LV IDs are a counter (~3,000/day). Converting the predicted ID back to a date
+  (interpolation over real corpus IDs): **Gemini 3.1 Flash-Lite median error 3 days on 2021–2023 members (16/49 within
+  1 day, 30/49 within 7 days) vs 0/60 controls within 7 days (p=3e-14)**; e.g. 2023-02-09 true 8746377 → 8746375.
+  Gemma-2-9B base: median 162 days (rough); Llama-3.1 base 914; Qwen/Llama instruct: nonsense. → Gemini flagged as
+  having dense exposure to lavanguardia.com URLs of 2021–2023 (only from LV URLs: its own pages in crawls, or
+  links/citations to them, e.g. Wikipedia references — confound to check). Not article-specific memorization.
+- Gemini free-tier quota: 500 req/day for flash-lite; first attempt hit 429 (quota already used); resume retries errors.
+**Next**
+- [ ] url_id test is ~1 short query/article: run it on all reachable API models (Claude, other Gemini versions, OpenRouter).
+- [ ] Same-period control for url_id: another outlet's counter-style IDs (e.g. other Spanish newspapers) → is the
+      skill LV-specific or a generic "news URL" skill? Also split members by whether the URL is cited on Wikipedia.
+- [ ] Use url_id-date error per model as the triage score; run M1/M9 at power only on flagged models (Gemini first).

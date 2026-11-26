@@ -53,6 +53,12 @@ version restricted to wording (original text vs same-facts rewrites) points the 
 \item A \emph{retrieval test} on the Gemini API shows no answer-time reuse, because its URL tool could not fetch the
 site's pages. Without access, the model sometimes invented ``literal'' paragraphs and attributed them to the
 newspaper.
+\item A cheap \emph{screening test} asks for details that exist (almost) only on the newspaper's website: article
+URLs, bylines, interview headings and masked names or figures. No model gives exact answers above the control rate. However,
+given only an article's title and date, Gemini 3.1 Flash-Lite predicts the newspaper's internal article number to
+within a median of 3 days of the right one for 2021--2023 articles, and fails completely for later ones
+($p=3\times10^{-14}$). The model has thus seen many \emph{La Vanguardia} URLs from that period. This flags it for
+further tests but does not show memorization of any article.
 \end{itemize}
 We also report two methodological pitfalls in recognition tests that inflate apparent evidence. We conclude that neither randomly sampled
 articles nor the newspaper's most-copied interviews are memorized strongly enough to give per-article evidence with
@@ -532,6 +538,7 @@ M7 neighbour (rewrite) gap & (B) Membership inference & token probabilities & sa
 M8 two-model difference-in-differences & (D) Dataset inference & token probabilities & Llama-3 vs Llama-3.1\\
 -- & (E) Copyright traps & publishing traps & not yet (requires future articles)\\
 M4 answer-time retrieval (tools off vs on) & (F) Retrieval & web-enabled API & Gemini 3.1 Flash-Lite (URL fetch)\\
+M10 newspaper-only knowledge (screening) & (C) Knowledge probe & black-box or local & Gemini 3.1 Flash-Lite, Llama-3.1, Qwen2.5, Gemma-2\\
 \bottomrule
 \end{tabular}}
 \caption{Experiments by method family.}\label{tab:tests}
@@ -592,6 +599,19 @@ to Llama-3.1; articles from 2020--February 2023 were available to both; controls
 newspaper predicts an extra familiarity gain only for the April--November 2023 group. Because both models score the
 very same articles, time drift cancels.
 
+\paragraph{M10 (screening): newspaper-only knowledge.} Before costly extraction tests, we ask short questions whose
+answers exist (practically) only on \emph{lavanguardia.com}, to select which models deserve further testing. Four
+item types are built automatically from the crawled articles, with no language model involved:
+(i) \emph{URL}: given the title, section and date, complete the article's address. The address contains a 7--12 digit
+article number that cannot be derived from the title.
+(ii) \emph{Byline}: name the author. Generic bylines are excluded, as are titles that contain the author's name, and both first name and surname must be correct.
+(iii) \emph{Box heading}: the short heading (1--6 words) of the introductory box of a \emph{La Contra} interview, given its headline.
+(iv) \emph{Fill-in-the-blank}: a name or figure masked in the introduction of a \emph{La Contra} interview (mostly
+non-famous people) or in a sentence of a scoop (``seg\'un ha podido saber La Vanguardia''). The masked words must not appear elsewhere in the shown text.
+Chat models are asked for a best guess; base models receive a plain page that they continue. We used 60 items per type
+and group (fewer where not available). A hit is \emph{not} evidence: facts can come from copies of an article, and
+knowing a fact is not reproducing wording. Its only purpose is to select candidates for further tests.
+
 API tests on the random sample (M1, M2, M2b) use a random subset of 60 members and 60 controls. M5 and M6 use all
 1,143 articles, and are repeated on the \emph{La Contra} sample (212 + 41).
 
@@ -643,6 +663,55 @@ Claude Opus 5.5 & 99 & 2 / 7 & 0.0\% & --\\
 \caption{M1 on \emph{La Contra} interviews. $^\ddagger$Runs were cut short when the API credit was exhausted.}
 \label{tab:lacontra}
 \end{table}
+
+\subsection{Newspaper-only knowledge (M10, screening)}\label{sec:m10}
+Exact answers were rare and no more frequent for members than for controls (Table~\ref{tab:m10}). No model gave a
+correct article number or box heading. Bylines were right at most 3 times in 60, as often as for controls. The
+fill-in-the-blank hits (``PSOE'', ``Greenpeace'', ``Ursula'' von der Leyen) can be guessed from the surrounding text,
+and controls were guessed as often as members.
+
+\begin{table}[h]\centering\small
+\fitbox{\begin{tabular}{lccccc}
+\toprule
+Model (prompt) & URL (exact) & Byline & Box heading & Fill-in (\emph{La Contra}) & URL number within 7 days\\
+\midrule
+Gemini 3.1 Flash-Lite (question) & 0/60 -- 0/60 & 3/60 -- 2/60 & 0/60 -- 0/24 & 20/60 -- 13/30 & \textbf{30/49 -- 0/60}\\
+Gemma-2-9B (base, page) & 0/60 -- 0/60 & 0/60 -- 0/60 & 0/60 -- 0/38 & 11/60 -- 7/30 & 0/49 -- 0/60\\
+Llama-3.1-8B (base, page) & 0/60 -- 0/60 & 0/60 -- 0/60 & 0/60 -- 0/38 & 5/60 -- 2/30 & 0/49 -- 1/60\\
+Llama-3.1-8B-Instruct (question) & 0/60 -- 0/60 & 0/60 -- 0/60 & 0/60 -- 0/38 & 2/60 -- 5/30 & 0/17 -- 0/0\\
+Qwen2.5-7B-Instruct (question) & 0/60 -- 0/60 & 0/60 -- 0/60 & 0/60 -- 0/38 & 3/60 -- 4/30 & 0/49 -- 0/56\\
+\bottomrule
+\end{tabular}}
+\caption{M10 screening: correct answers, members -- controls. The last column counts predicted article numbers whose
+implied date is within 7 days of the true date (members with 7--8 digit numbers, from 2021 on; Gemini, one-sided
+Fisher test $p=3\times10^{-14}$). The single Llama control is a repeated fixed guess that happens to fall in 2025.}\label{tab:m10}
+\end{table}
+
+\paragraph{The article number as a clock.} \emph{La Vanguardia}'s article numbers are a counter that grows by about
+3,000 a day. A predicted number therefore points to a date, which we obtain by interpolating over the real numbers of
+our articles. Gemini never produced an exact number, but its numbers were close: for an article of 9 February 2023
+the true number is 8746377 and Gemini answered 8746375. For 2021--2023 members the median distance is 3 days
+(16 of 49 within one day, 30 within a week). For articles published after its training it fails completely, with
+round numbers far from the real range (Figure~\ref{fig:m10}). Gemma-2 has a rough idea (right number of digits,
+median distance 162 days); the other open models do not.
+
+\begin{figure}[h]\centering
+\includegraphics[width=\linewidth]{figures/fig_m10_urlid.pdf}
+\caption{M10: distance in days between the date implied by the model's predicted article number and the true
+publication date (log scale). Points on the dotted line are invalid numbers (outside the real range).}\label{fig:m10}
+\end{figure}
+
+What this shows, and what it does not:
+\begin{itemize}
+\item The model learned the relation between date and article number, which only \emph{La Vanguardia} URLs reveal.
+So it has seen many of the newspaper's URLs from 2021--2023, either on the newspaper's own pages in web crawls or in
+links to them elsewhere, for instance as citations in Wikipedia.
+\item It does not show that any particular article was memorized: no exact number was produced. And knowing URLs is
+not knowing text. The result says the newspaper's site was well represented in the model's training data, which is
+why Gemini is the first candidate for the costly extraction tests.
+\item Its control group is post-cutoff only. A same-period comparison with other newspapers' article numbers would show
+whether this is specific to \emph{La Vanguardia} or a general skill with news URLs.
+\end{itemize}
 
 \subsection{Sentence-by-sentence extraction (M9, family A)}\label{sec:m9}
 Following \cite{su2024}, M9 asks for one sentence at a time. A base (non-chat) open-weight model receives a plain
@@ -998,6 +1067,8 @@ target and was trained on a different corpus, so the time correction is approxim
 \item Four open-weight targets were evaluated, all of 7--9 billion parameters; larger models memorize more. M9 was
 run on only one of them. Claude
 5.x models could only be tested where controls are not essential.
+\item The M10 screening used 60 items per type and group, with few \emph{La Contra} controls (24--38), and
+was run on one commercial API model so far.
 \item The neighbour test used only 60+60 passages, so it can miss a small effect.
 \item The retrieval test covered only the Gemini API's URL tool (25 articles). Search grounding and consumer
 products with web access are untested.
@@ -1032,6 +1103,8 @@ Local open-weight runs (M9 on four more models, neighbour-test replication) & On
 Larger open-weight models (70B and up) & Memorization grows with model size \cite{carlini2023,freeman2024}, so these
 matter most. They do not fit on a laptop: a rented cloud GPU for a few days, or a workstation with 64~GB or more of
 memory. Disk space must also be freed (about 6~GB is left).\\
+M10 article-number test on all reachable models, with other newspapers as a same-period control & One short
+query per article: a few hundred queries per model, cents with a paid key; days on free tiers.\\
 FineWeb-2 scan (remaining 47\%) & About 8 hours of downloading. Free.\\
 Same-period controls & The publisher's archive, to compare crawled with never-crawled articles of the same months.\\
 Copyright traps & A decision by the publisher. They only protect future content.\\
@@ -1082,6 +1155,10 @@ attributed them to the newspaper. Consumer products with web search remain to be
 \item \textbf{Which models are most suspicious (no evidence yet).} ``Suspicious'' here means a statistical trace
 that points towards training on the newspaper but does not meet the standard of proof. In decreasing order:
 \begin{itemize}
+\item \emph{Google's Gemini 3.1 Flash-Lite} (exposure, not memorization). Given only an article's title and date,
+it names the newspaper's internal article number to within a few days for 2021--2023 articles, which only many
+\emph{La Vanguardia} URLs can teach. It reproduces no text and recalls no exact number, so this places the site in its
+training data without showing that any article was copied.
 \item \emph{Google's Gemma-2.} It is the only model whose collection-level trace survived matched comparison groups,
 the pre-registered combination and both reference models ($p=10^{-4}$ and $p=0.002$). The neighbour test attributes
 this trace to knowledge of events, not wording, so it is not evidence of copying.
@@ -1108,7 +1185,8 @@ future articles, repeated across many pages, would make later reproduction by a 
 recommend starting now, since traps cannot protect content published before their introduction.
 \end{itemize}
 
-\paragraph{Next steps.} See Table~\ref{tab:status}. In order of value: the Llama-3 vs 3.1 replication; M9 and
+\paragraph{Next steps.} See Table~\ref{tab:status}. In order of value: the Llama-3 vs 3.1 replication; the
+cheap article-number screening (M10) on all reachable models, to choose where to spend on extraction tests; M9 and
 role-play tests on commercial APIs with a paid key; tests on larger open-weight models; complete the truncated runs; measure duplication to select test passages; evaluate models from
 other providers that expose token probabilities (OpenAI, further open-weight models); run dataset inference on the
 licensed archive with same-period controls (crawled vs never-crawled articles) and on several open-weight models; extend the retrieval test to web-enabled consumer assistants; and agree with the

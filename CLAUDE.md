@@ -44,6 +44,9 @@ Two distinct things can be shown, and we keep them apart in every report:
 - Dataset inference with date-based controls is NOT evidence on its own (a 2018 model "passes" it). Minimum bar: matched
   groups (section, length, no live blogs) + reference calibration + clean placebos + a wording-specific check
   (neighbour/rewrite gap, or same-period never-crawled controls). A matched-DI signal can still be world knowledge of events.
+- Fill-in-the-blank on "exclusive" details is mostly guessable from context (controls score as high): only
+  member-minus-control counts. Article-URL numeric IDs are the cleanest exclusive item; a near-correct ID (date-implied
+  error in days) shows exposure to LV URLs, not memorization of an article (M10).
 - Never make shell queues wait on `pgrep -f <script name>`: waiter shells match their own pattern and deadlock. Use one sequential script.
 
 ## Working conventions

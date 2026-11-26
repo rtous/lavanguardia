@@ -80,3 +80,41 @@ ax.legend(frameon=False, fontsize=8, loc="lower center", ncol=2, bbox_to_anchor=
 fig.tight_layout(); fig.savefig(os.path.join(OUT, "fig_logprob_auc.pdf")); plt.close(fig)
 json.dump(table, open(os.path.join(OUT, "logprob_auc_table.json"), "w"), indent=1)
 print("figures written", len(mk), len(ck))
+
+# Figure: M10 URL-ID-as-date. How far (in days) the date implied by the model's predicted article ID is from the
+# true publication date. Members 2021-2023 (7-8 digit IDs) vs post-cutoff controls.
+sys.path.insert(0, os.path.join(ROOT, "src"))
+_cwd = os.getcwd(); os.chdir(ROOT)
+import datetime as _dt
+from m10_exclusive_facts import id_to_date_fn
+_err = id_to_date_fn()
+_items = {i["item_id"]: i for i in map(json.loads, open(os.path.join(ROOT, "data/m10/items.jsonl")))}
+M10 = [("gemini-3.1-flash-lite", "Gemini 3.1 Flash-Lite"), ("gemma-2-9b-4bit", "Gemma-2-9B (base)"),
+       ("Meta-Llama-3.1-8B-4bit", "Llama-3.1-8B (base)")]
+fig, axes = plt.subplots(1, len(M10), figsize=(6.6, 2.4), sharey=True)
+for ax, (m, lab) in zip(axes, M10):
+    rows = {r["item_id"]: r for r in map(json.loads, open(R(f"m10_exclusive_{m}.jsonl"))) if not r.get("api_error")}
+    for st, col, mk in (("member", BLUE, "o"), ("control", ORANGE, "s")):
+        xs, ys = [], []
+        for r in rows.values():
+            if r["type"] != "url_id" or r["set"] != st:
+                continue
+            it = _items[r["item_id"]]
+            e = _err(r["pred"][0] if r["pred"] else None, r["answer"], it["pub_date"])
+            if e is None:
+                continue
+            d = it["pub_date"]
+            xs.append(_dt.date(int(d[:4]), int(d[4:6]), int(d[6:8])))
+            ys.append(min(max(e, 0.5), 5000))
+        ax.scatter(xs, ys, s=10, color=col, marker=mk, alpha=0.8, lw=0,
+                   label="members (2021-23)" if st == "member" else "controls (2025-26)")
+    ax.set_yscale("log"); ax.set_title(lab, fontsize=9)
+    for y, t in ((1, "1 day"), (30, "1 month"), (365, "1 year")):
+        ax.axhline(y, color=GRID, lw=0.8, zorder=0); ax.text(_dt.date(2021, 1, 1), y * 1.15, t, fontsize=6.5, color=INK2)
+    ax.axhline(5000, color=INK2, lw=0.6, ls=":")
+    ax.tick_params(axis="x", labelsize=7, rotation=45)
+axes[0].set_ylabel("error of implied date (days)")
+axes[0].text(_dt.date(2021, 1, 1), 5600, "no valid ID", fontsize=6.5, color=INK2)
+axes[-1].legend(fontsize=7, frameon=False, loc="center right")
+fig.tight_layout(); fig.savefig(os.path.join(OUT, "fig_m10_urlid.pdf")); plt.close(fig)
+os.chdir(_cwd)
