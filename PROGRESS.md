@@ -358,3 +358,27 @@ only on lavanguardia.com. Not evidence on its own (facts ≠ wording; copies exi
 - [ ] Same-period control for url_id: another outlet's counter-style IDs (e.g. other Spanish newspapers) → is the
       skill LV-specific or a generic "news URL" skill? Also split members by whether the URL is cited on Wikipedia.
 - [ ] Use url_id-date error per model as the triage score; run M1/M9 at power only on flagged models (Gemini first).
+
+## 2026-11-26 — Session 7b: M10 extensions, then STOP + paper simplification
+**Done**
+- URL-number test on all Gemini-API models (`src/run_m10_api.sh`): 3.5 Flash-Lite median 2 days (31/49 vs 0/60,
+  p=7e-15), 3 Flash 4 days (8/13 vs 0/9; quota). 2.5 models closed (404), 3.1 Pro no free tier, 3.5–3.8 Flash 20 req/day,
+  Gemma-4 (thinking) returns empty answers → stopped. Fixed `probe.ask` routing of `gemma-*` to the Gemini API.
+- **Is the URL number learnable externally? Yes.** Simulation: 5 anchor URLs over 2021–23 → 3.7-day error, 20 → 1 day.
+  `src/m10_url_mentions.py`: one FineWeb-2 Spanish file has 136 written-out LV article URLs, all on third-party pages,
+  none in LV's own pages (links are stripped) → ~20k in Spanish FineWeb-2. The signal = exposure to LV URLs only.
+- Outlet control (`src/m10_outlet_ids.py`, El Periódico/El Confidencial/El Español): stopped (CC index too slow);
+  28 EP titles + 2,693 EP (date, ID) pairs collected in `data/m10/`.
+- **La Contra Q→A recall** (`build-qa`; 202 members, 76 controls incl. new `data/cc/lacontra_controls_more.jsonl`):
+  Gemini 3.5 Flash-Lite 15/202 vs 5/76 (no signal, hits guessable); Gemma-2 base ~2/150 vs 0/50. Other local models cancelled.
+- Methodological rule added to CLAUDE.md: copies of LV text count as LV content; the confound is independent information.
+- Collection-fingerprint test (La Contra format, LV house style: "en el 20xx" 42%, Catalunya 98%) designed, not implemented.
+- **Paper simplified** (7 pages, premises + summaries, one overview table, "Evidence found so far", "Promising
+  avenues and where to spend"). Full detailed version moved to `docs/technical_report/technical_report.tex` (+ M10
+  additions). Per-experiment status, reasons, implications, worth-finishing: `docs/experiment_status.md`.
+
+### State: ALL JOBS STOPPED (user decision: no more spending, no quota waits)
+Recommended next steps if work resumes (see docs/experiment_status.md): (1) collection test with the archive and
+same-period never-crawled controls, incl. large open models on a rented GPU; (2) finish the pre-registered Llama
+replication (`./src/run_queue4.sh`, resumable); (3) retrieval tests on consumer assistants with a counsel protocol;
+(4) copyright traps.

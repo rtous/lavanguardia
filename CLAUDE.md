@@ -47,6 +47,9 @@ Two distinct things can be shown, and we keep them apart in every report:
 - Fill-in-the-blank on "exclusive" details is mostly guessable from context (controls score as high): only
   member-minus-control counts. Article-URL numeric IDs are the cleanest exclusive item; a near-correct ID (date-implied
   error in days) shows exposure to LV URLs, not memorization of an article (M10).
+- Copies of LV text (reposts, scrapers, aggregators) still count as LV content: learning from them is training on LV's
+  works. The confound is *independent* information: descriptions of LV, third-party links/URLs, the same facts reported
+  independently, conventions shared with other Catalan outlets. Choose controls against those, not against copies.
 - Never make shell queues wait on `pgrep -f <script name>`: waiter shells match their own pattern and deadlock. Use one sequential script.
 
 ## Working conventions

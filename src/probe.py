@@ -131,7 +131,7 @@ def ask_local(experiment, model, user, system=None, max_tokens=1024, meta=None, 
 def ask(experiment, model, user, system=None, max_tokens=1024, meta=None, tools=(), raw=False):
     """Text call. `user` is a string (single turn) or a list of {"role": "user"|"assistant", "content"} (multi-turn).
     Returns (text, record). `tools` only for Gemini; `raw` (plain completion) only for local models."""
-    if model.startswith("gemini"):
+    if model.startswith(("gemini", "gemma-")):  # Gemma models served by the Gemini API
         return ask_gemini(experiment, model, user, system, max_tokens, meta, tools)
     if "/" in model:
         return ask_local(experiment, model, user, system, max_tokens, meta, raw)

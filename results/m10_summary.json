@@ -69,21 +69,23 @@
     "p_fisher_member_gt_control": 1.0
    },
    "url_id_date_error": {
-    "member": {
-     "n_7_8_digit": 49,
-     "median_err_days": 914.0,
-     "within_1_day": 0,
-     "within_7_days": 0,
-     "within_30_days": 1
-    },
-    "control": {
-     "n_7_8_digit": 60,
-     "median_err_days": 9999.0,
-     "within_1_day": 0,
-     "within_7_days": 1,
-     "within_30_days": 2
-    },
-    "p_fisher_within_7d": 1.0
+    "lavanguardia": {
+     "member": {
+      "n": 49,
+      "median_err_days": 914.0,
+      "within_1_day": 0,
+      "within_7_days": 0,
+      "within_30_days": 1
+     },
+     "control": {
+      "n": 60,
+      "median_err_days": 9999.0,
+      "within_1_day": 0,
+      "within_7_days": 1,
+      "within_30_days": 2
+     },
+     "p_fisher_within_7d": 1.0
+    }
    }
   },
   "flag_candidate": false,
@@ -324,12 +326,14 @@
     "p_fisher_member_gt_control": 1.0
    },
    "url_id_date_error": {
-    "member": {
-     "n_7_8_digit": 17,
-     "median_err_days": 9999,
-     "within_1_day": 0,
-     "within_7_days": 0,
-     "within_30_days": 0
+    "lavanguardia": {
+     "member": {
+      "n": 17,
+      "median_err_days": 9999,
+      "within_1_day": 0,
+      "within_7_days": 0,
+      "within_30_days": 0
+     }
     }
    }
   },
@@ -517,21 +521,23 @@
     "p_fisher_member_gt_control": 1.0
    },
    "url_id_date_error": {
-    "member": {
-     "n_7_8_digit": 49,
-     "median_err_days": 9999,
-     "within_1_day": 0,
-     "within_7_days": 0,
-     "within_30_days": 0
-    },
-    "control": {
-     "n_7_8_digit": 56,
-     "median_err_days": 9999.0,
-     "within_1_day": 0,
-     "within_7_days": 0,
-     "within_30_days": 0
-    },
-    "p_fisher_within_7d": 1.0
+    "lavanguardia": {
+     "member": {
+      "n": 49,
+      "median_err_days": 9999,
+      "within_1_day": 0,
+      "within_7_days": 0,
+      "within_30_days": 0
+     },
+     "control": {
+      "n": 56,
+      "median_err_days": 9999.0,
+      "within_1_day": 0,
+      "within_7_days": 0,
+      "within_30_days": 0
+     },
+     "p_fisher_within_7d": 1.0
+    }
    }
   },
   "flag_candidate": false,
@@ -684,6 +690,82 @@
    }
   ]
  },
+ "gemini-2.5-flash-lite": {
+  "style": null,
+  "table": {
+   "url_id_date_error": {}
+  },
+  "flag_candidate": false,
+  "hits_to_verify_exclusivity": [],
+  "all_hits": []
+ },
+ "gemini-2.5-flash": {
+  "style": null,
+  "table": {
+   "url_id_date_error": {}
+  },
+  "flag_candidate": false,
+  "hits_to_verify_exclusivity": [],
+  "all_hits": []
+ },
+ "gemini-2.5-pro": {
+  "style": null,
+  "table": {
+   "url_id_date_error": {}
+  },
+  "flag_candidate": false,
+  "hits_to_verify_exclusivity": [],
+  "all_hits": []
+ },
+ "gemini-3-flash-preview": {
+  "style": "chat-guess",
+  "table": {
+   "ALL": {
+    "member": "0/14",
+    "control": "0/9",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 6,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id": {
+    "member": "0/14",
+    "control": "0/9",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 6,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id_date_error": {
+    "lavanguardia": {
+     "member": {
+      "n": 13,
+      "median_err_days": 4.0,
+      "within_1_day": 5,
+      "within_7_days": 8,
+      "within_30_days": 10
+     },
+     "control": {
+      "n": 9,
+      "median_err_days": 1083.4,
+      "within_1_day": 0,
+      "within_7_days": 0,
+      "within_30_days": 0
+     },
+     "p_fisher_within_7d": 0.00402
+    }
+   }
+  },
+  "flag_candidate": true,
+  "hits_to_verify_exclusivity": [],
+  "all_hits": []
+ },
  "gemini-3.1-flash-lite": {
   "style": "chat-guess",
   "table": {
@@ -754,21 +836,23 @@
     "p_fisher_member_gt_control": 1.0
    },
    "url_id_date_error": {
-    "member": {
-     "n_7_8_digit": 49,
-     "median_err_days": 3.0,
-     "within_1_day": 16,
-     "within_7_days": 30,
-     "within_30_days": 39
-    },
-    "control": {
-     "n_7_8_digit": 60,
-     "median_err_days": 9999.0,
-     "within_1_day": 0,
-     "within_7_days": 0,
-     "within_30_days": 0
-    },
-    "p_fisher_within_7d": 3.1e-14
+    "lavanguardia": {
+     "member": {
+      "n": 49,
+      "median_err_days": 3.0,
+      "within_1_day": 16,
+      "within_7_days": 30,
+      "within_30_days": 39
+     },
+     "control": {
+      "n": 60,
+      "median_err_days": 9999.0,
+      "within_1_day": 0,
+      "within_7_days": 0,
+      "within_30_days": 0
+     },
+     "p_fisher_within_7d": 3.1e-14
+    }
    }
   },
   "flag_candidate": true,
@@ -1470,19 +1554,377 @@
    }
   ]
  },
- "gemma-2-9b-4bit": {
-  "style": "raw",
+ "gemini-3.1-pro-preview": {
+  "style": null,
+  "table": {
+   "url_id_date_error": {}
+  },
+  "flag_candidate": false,
+  "hits_to_verify_exclusivity": [],
+  "all_hits": []
+ },
+ "gemini-3.5-flash-lite": {
+  "style": "chat-guess",
   "table": {
    "ALL": {
-    "member": "14/251",
-    "control": "7/191",
-    "rate_member": 0.056,
+    "member": "15/262",
+    "control": "5/136",
+    "rate_member": 0.057,
     "rate_control": 0.037,
+    "dontknow_member": 6,
+    "dontknow_control": 22,
+    "near_id_member": 22,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.2645
+   },
+   "qa/lacontra": {
+    "member": "15/202",
+    "control": "5/76",
+    "rate_member": 0.074,
+    "rate_control": 0.066,
+    "dontknow_member": 6,
+    "dontknow_control": 22,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.5205
+   },
+   "url_id": {
+    "member": "0/60",
+    "control": "0/60",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 22,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id_date_error": {
+    "lavanguardia": {
+     "member": {
+      "n": 49,
+      "median_err_days": 2.0,
+      "within_1_day": 16,
+      "within_7_days": 31,
+      "within_30_days": 39
+     },
+     "control": {
+      "n": 60,
+      "median_err_days": 230.6,
+      "within_1_day": 0,
+      "within_7_days": 0,
+      "within_30_days": 0
+     },
+     "p_fisher_within_7d": 7.45e-15
+    }
+   }
+  },
+  "flag_candidate": true,
+  "hits_to_verify_exclusivity": [],
+  "all_hits": [
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "70",
+    "gen": "–El PVC es cloruro de polivinilo, un plástico que contiene cloro y aditivos como los ftalatos para hacerlo flexible. El PVC es de los peores. En los años 70, en Bages, hubo un caso famoso de intoxicación por cloruro de vinilo monómero en una planta de Flix que afectó a los trabajadores. Hoy el PVC se sigue usando en tuberías, cables, suelos vinílicos, juguetes y envases. El problema no es solo el polímero, sino los plastificantes que se le añaden, como los ftalatos, que son disruptores endocrinos. Se liberan con facilidad porque no están químicamente unidos al plástico. Entran en nuestro cuerpo por inhalación, ingestión o a través de la piel, y alteran nuestro sistema hormonal. En Europa ya se han prohibido algunos en juguetes para niños de menos de 3 años, pero siguen presentes en muchos otros productos cotidianos.",
+    "url": "https://www.lavanguardia.com/lacontra/20200201/473233608037/ninas-de-8-anos-tienen-pechos-por-culpa-del-bisfenol-de-los-plasticos.html",
+    "item_id": "deb7bf4a4b51"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Guadalupe",
+    "gen": "Imponen respeto, no miedo. Yo he buceado con tiburones blancos de cinco metros en Guadalupe, México, y con tiburones tigre en las Bahamas. El corazón te va a mil por hora, pero cuando entiendes su lenguaje corporal, te relajas.",
+    "url": "https://www.lavanguardia.com/lacontra/20191207/472078164868/el-tiburon-es-el-mayor-logro-de-la-naturaleza-lloro-al-verlo-nadar.html",
+    "item_id": "8a1bcf3f2257"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Tierra",
+    "gen": "La respuesta exacta de Vandana Shiva a esa pregunta en dicha entrevista es la siguiente:\n\n«Es la superación de la patriarcal y capitalista, que cree que la naturaleza es materia prima y las mujeres mano de obra gratuita. La biocivilización es la cultura de la vida, que reconoce que la Tierra es Gaia, la madre tierra, un organismo viviente, y que nosotros somos parte de él. Y que la economía debe estar al servicio de la vida, y no al revés.»",
+    "url": "https://www.lavanguardia.com/lacontra/20160509/401662158815/el-patriarcado-destruira-el-planeta-si-no-lo-frenamos.html",
+    "item_id": "fc1d1126c555"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "LGTBI",
+    "gen": "–No, porque no se había traducido al ruso. Sí me lo pidieron en Hungría, antes de que Viktor Orbán endureciera las leyes contra el colectivo LGTBI. Y la obra se estrenó en Budapest con éxito. Rusia ha sido la última, y me pareció un acto de responsabilidad política. Les cedí los derechos gratis con la condición de que no cambiaran ni una coma. El director, un valiente, llenaba el teatro cada noche en San Petersburgo, hasta que las autoridades le obligaron a marchar al exilio y la obra fue prohibida.",
+    "url": "https://www.lavanguardia.com/lacontra/20210708/7585691/pecado-teatro-sermonear-aburrir.html",
+    "item_id": "6dafe3074828"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Comisión Europea",
+    "gen": "A esto: las autoridades europeas decidieron en el 2013 prohibir el uso de tres neonicotinoides –los pesticidas que matan a las abejas– en cultivos para flores que atraen a las abejas, tras la presión pública generada por los informes científicos. Pero la industria química, encabezada por Bayer y Syngenta, presionó a la Comisión Europea y consiguió que se permitiera seguir usándolos en otros cultivos, como el maíz y la remolacha azucarera, bajo la excusa de que «no hay alternativas». Y lo peor es que la Autoridad Europea de Seguridad Alimentaria (EFSA) dictaminó en el 2015 que estos pesticidas son un riesgo inaceptable para las abejas silvestres y los abejorros. Aun así, siguen en el mercado.",
+    "url": "https://www.lavanguardia.com/lacontra/20160220/302294751924/los-que-creen-que-no-es-posible-que-no-molesten-a-los-que-lo-intentan.html",
+    "item_id": "49f37a0f5102"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Nuevo Testamento",
+    "gen": "–El Antiguo Testamento se escribió en hebreo y arameo, pero hay fragmentos en griego. Del Nuevo Testamento tenemos 5.800 manuscritos y fragmentos. Del Viejo solo teníamos el texto masorético del siglo X hasta que se hallaron los rollos del mar Muerto en el 47 en Qumrán, ¡y datan del siglo III antes de Cristo!",
+    "url": "https://www.lavanguardia.com/lacontra/20190716/463503283392/la-biblia-esta-fijando-todas-las-lenguas-del-mundo.html",
+    "item_id": "a32f0ce2b81e"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Estado",
+    "gen": "No, abogo por la protección al trabajador, no al puesto de trabajo. En Suecia, por ejemplo, usted puede despedir a quien quiera con total libertad, pero el Estado le reubica y le recicla rápidamente para otro empleo gracias a un generoso sistema de subsidios y formación financiado con impuestos. Así es como se protege al ciudadano y no al empleo fijo.",
+    "url": "https://www.lavanguardia.com/lacontra/20110627/54177454389/pueden-desregular-el-empleo-sin-desproteger-al-empleado.html",
+    "item_id": "550319fbbaa5"
+   },
+   {
+    "set": "control",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Luci",
+    "gen": "Llegó con un corto bajo el brazo, *Folle, folle, folle tómame*, y le dije: \"Pedro, esto no hay por dónde cogerlo, es una mierda\". A los seis meses rodaba *Pepi, Luci, Bom*. Tenía gracia, pero olí su genialidad.",
+    "url": "https://www.lavanguardia.com/lacontra/20260214/11466128/miguel-angel-arenas-el-capi-huelo-magia-artistas-convierto-estrellas.html",
+    "item_id": "4a89da0686e2"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Marina",
+    "gen": "«Pues mira: una de nuestras artistas recientes, Marina Abramovic, se pasó sentada en una silla del MoMA tres meses, ocho horas al día, mirando a los ojos a quien se sentaba enfrente. ¡Setecientas horas! Y pasaron por allí 850.000 personas. Hicimos turnos para no perdernos la cola. Y la gente lloraba. ¿Por qué lloraba la gente ante una mujer sentada en una silla? Porque el arte hoy ya no es un objeto que colgar en la pared, es una experiencia vital que te transforma.»",
+    "url": "https://www.lavanguardia.com/lacontra/20110317/54129413633/eche-al-guarda-y-les-deje-que-se-casaran-ante-el-van-gogh.html",
+    "item_id": "41ed26976daf"
+   },
+   {
+    "set": "control",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Montaigne",
+    "gen": "«A veces sí y a veces no. Ella leía a Séneca, a Marco Aurelio, a Epicuro, a Montaigne... Y me decía: “Séneca me consuela, pero Epicuro hoy no me sirve”. O me discutía: “Esto que dice Spinoza de la eternidad no lo entiendo, profe, a mí la eternidad me da igual, yo lo que quiero es vivir un año más con mi pareja”. Y yo le respondía: “Nuria, la filosofía no es una pastilla para quitar el dolor, es una linterna para caminar en la oscuridad”. Y debatíamos sobre eso. No buscaba dogmas, buscaba herramientas para pensar su propia vida.»",
+    "url": "https://www.lavanguardia.com/lacontra/20260120/11443719/enrique-bonete-profe-me-invaden-tinieblas-miedo.html",
+    "item_id": "b037621fb77c"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Terra",
+    "gen": "On anem? ¿A Mart amb els diners de Musk i Bezos? No hi ha un planeta B. Aquesta obsessió per colonitzar l'espai és una altra fantasia patriarcal i capitalista: destruir un lloc i fugir a un altre. Elon Musk diu que vol anar a Mart. Que hi vagi ell sol. Nosaltres ens quedem a la Terra, a defensar-la. La Terra és el nostre únic hogar, Gaia és viva i ens alimenta. Si destruïm la biodiversitat, ens destruïm a nosaltres mateixos. No hi ha tecnologia al món que pugui reemplaçar un bosc tropical, un pol·linitzador o un riu sa.",
+    "url": "https://www.lavanguardia.com/lacontra/20160509/401662156783/el-patriarcat-destruira-el-planeta-si-no-el-frenem.html",
+    "item_id": "b2d08f21e956"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "13",
+    "gen": "Sí, claro. Utilizaron contra mí que había estado en el hospital psiquiátrico infantil de Kleppur. Yo tenía 13 años. Me encerraron allí porque era un niño difícil, con TDAH y dislexia, en una época en que no se sabía tratar eso. Me dieron medicación fuerte y sufrí abusos. Los opositores políticos sacaron mi expediente médico e intentaron presentarme como un loco incapacitado para gobernar. Fue muy doloroso, pero decidí hablar de ello abiertamente. Dije: «Sí, he estado en Kleppur, conozco los problemas de salud mental desde dentro y eso me hace más empático, no menos apto». Y los ciudadanos me apoyaron aún más.",
+    "url": "https://www.lavanguardia.com/lacontra/20181010/452282675075/llegue-a-prometer-elevar-cuatro-grados-la-temperatura-de-islandia.html",
+    "item_id": "08c29d1fa9c4"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Einstein",
+    "gen": "«Sí. Albert Einstein dijo que si las abejas desaparecieran, a los humanos nos quedarían cuatro años de vida. Quizá no cuatro, pero sí es cierto que sin insectos colapsarían los ecosistemas: no habría polinización, ni flores, ni frutas, ni verduras, y los animales que se alimentan de ellos morirían en cadena. El 80% de las plantas silvestres dependen de los insectos para reproducirse.»",
+    "url": "https://www.lavanguardia.com/lacontra/20220811/8460235/abeja-capaz-distinguir-cara-mia.html",
+    "item_id": "3324dfcb6d38"
+   },
+   {
+    "set": "control",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "1,1",
+    "gen": "«Y ponemos otra capa encima, pero rotada un ángulo preciso, el de 1,1 grados, el ángulo mágico. Entonces ocurre la magia: los electrones que iban por libre empiezan a interactuar fuertemente, y el sistema pasa de ser un metal conductor a convertirse en un aislante o en un superconductor sin resistencia. Es como ordenar a bailarines caóticos que formen una coreografía cuántica perfecta.»",
+    "url": "https://www.lavanguardia.com/lacontra/20260304/11480309/pablo-jarillo-herrero-grafeno-leera-pensamientos-sera-interfaz-cerebro-maquina.html",
+    "item_id": "685872a0f325"
+   },
+   {
+    "set": "control",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Revolución Francesa",
+    "gen": "A **Flora Tristán**: fue la primera mujer que relacionó la explotación capitalista con la opresión de las mujeres. Y a **Olympe de Gouges**, que en la Revolución Francesa escribió la Declaración de los Derechos de la Mujer y de la Ciudadana y acabó en la guillotina.",
+    "url": "https://www.lavanguardia.com/lacontra/20260105/11412216/marina-subirats-actual-masculinidad-mata-propios-hombres.html",
+    "item_id": "b18e48ded275"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "1",
+    "gen": "La diabetes de tipo 1 hoy no se curará, pero la de tipo 2 sí puede remitir. Pérdidas de peso de entre un 10% y un 15% consiguen que la glucemia se normalice sin medicamentos. Es la cirugía bariátrica: pacientes obesos mórbidos que se operan y a los tres días salen del hospital con la diabetes curada, sin tomar pastillas ni insulina.",
+    "url": "https://www.lavanguardia.com/lacontra/20151125/30375694216/una-higiene-bucal-deficiente-favorece-la-diabetes.html",
+    "item_id": "135f661cc262"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "30",
+    "gen": "«En la de crear empresas saludables: cuidando a los trabajadores, a los proveedores, a los clientes, a la sociedad y al entorno. Y funciona: ¡las empresas con propósito rinden más en bolsa! En el estudio de la consultora Stallaert sobre el índice de empresas \"conscientes\", en quince años han superado al índice S&P 500 ¡por un factor de 14! Es decir, si usted hubiera invertido diez mil dólares en el S&P 500 en 1998, hoy tendría 30.000; si los hubiese invertido en el índice de empresas conscientes, hoy tendría 420.000 dólares.»",
+    "url": "https://www.lavanguardia.com/lacontra/20200421/48652613248/los-empresarios-podemos-hacer-de-este-mundo-un-lugar-mejor.html",
+    "item_id": "68103be7afcb"
+   },
+   {
+    "set": "control",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "30",
+    "gen": "–Sí. El Ártico es hoy la última frontera global. Equivale al tamaño de la superficie de la Luna y esconde bajo el hielo derretido el 30% del gas no descubierto del planeta y el 13% del petróleo, además de inmensas reservas de tierras raras: litio, cobalto, níquel y grafito. Todo eso vale billones de dólares. Rusia ya controla el 50% de la costa ártica y ha construido más de cincuenta bases militares allí en la última década. Ahora, con el pacto entre Trump y Putin, las grandes corporaciones como ExxonMobil y Rosneft van a repartirse el botín. Y Europa, que depende energéticamente de la región y financió su transición verde con promesas ecológicas, se queda mirando desde la barrera, irrelevante y marginada geopolíticamente.",
+    "url": "https://www.lavanguardia.com/lacontra/20251208/11340778/marzio-g-mian-artico-ultima-frontera-explotar-nuevos-imperios.html",
+    "item_id": "a9bbd05a5e6b"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "30",
+    "gen": "«Es cierto, somos alrededor de un 25% o 30% de mujeres en el sector tecnológico y en ciberseguridad apenas un 20%. Hay que animar a las niñas desde el colegio a estudiar carreras STEM.»",
+    "url": "https://www.lavanguardia.com/lacontra/20220913/8519939/ejercito-defender-ciberespacio.html",
+    "item_id": "440f60568bf1"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Teheran",
+    "gen": "«Doncs jo no me n’alegro. Fa poc un amic iranià em deia: “Ara l’islam radical ha arribat a Occident, benvingut al club!”. El món musulmà fa segles que pateix això, i ara us toca a vosaltres. Nosaltres ho patim a Teheran, a Bagdad, a Beirut, a Damasc... I fins ara Occident mirava cap a un altre costat.»",
+    "url": "https://www.lavanguardia.com/lacontra/20160323/40629040507/el-gihadista-es-un-animal-que-se-sent-deu-matant.html",
+    "item_id": "97955fdf60d8"
+   }
+  ]
+ },
+ "gemini-3.5-flash": {
+  "style": "chat-guess",
+  "table": {
+   "ALL": {
+    "member": "0/0",
+    "control": "0/1",
+    "rate_member": null,
+    "rate_control": 0.0,
     "dontknow_member": 0,
     "dontknow_control": 0,
     "near_id_member": 0,
     "near_id_control": 0,
-    "p_fisher_member_gt_control": 0.2406
+    "p_fisher_member_gt_control": null
+   },
+   "url_id": {
+    "member": "0/0",
+    "control": "0/1",
+    "rate_member": null,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": null
+   },
+   "url_id_date_error": {
+    "lavanguardia": {
+     "control": {
+      "n": 1,
+      "median_err_days": 264.0,
+      "within_1_day": 0,
+      "within_7_days": 0,
+      "within_30_days": 0
+     }
+    }
+   }
+  },
+  "flag_candidate": false,
+  "hits_to_verify_exclusivity": [],
+  "all_hits": []
+ },
+ "gemini-3.6-flash": {
+  "style": null,
+  "table": {
+   "url_id_date_error": {}
+  },
+  "flag_candidate": false,
+  "hits_to_verify_exclusivity": [],
+  "all_hits": []
+ },
+ "gemini-3.7-flash": {
+  "style": "chat-guess",
+  "table": {
+   "ALL": {
+    "member": "0/2",
+    "control": "0/1",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id": {
+    "member": "0/2",
+    "control": "0/1",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id_date_error": {
+    "lavanguardia": {
+     "member": {
+      "n": 2,
+      "median_err_days": 159.9,
+      "within_1_day": 0,
+      "within_7_days": 0,
+      "within_30_days": 1
+     },
+     "control": {
+      "n": 1,
+      "median_err_days": 311.6,
+      "within_1_day": 0,
+      "within_7_days": 0,
+      "within_30_days": 0
+     },
+     "p_fisher_within_7d": 1.0
+    }
+   }
+  },
+  "flag_candidate": false,
+  "hits_to_verify_exclusivity": [],
+  "all_hits": []
+ },
+ "gemini-3.8-flash": {
+  "style": null,
+  "table": {
+   "url_id_date_error": {}
+  },
+  "flag_candidate": false,
+  "hits_to_verify_exclusivity": [],
+  "all_hits": []
+ },
+ "gemma-2-9b-4bit": {
+  "style": "raw",
+  "table": {
+   "ALL": {
+    "member": "16/401",
+    "control": "7/242",
+    "rate_member": 0.04,
+    "rate_control": 0.029,
+    "dontknow_member": 1,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.3112
    },
    "box_title": {
     "member": "0/60",
@@ -1528,6 +1970,17 @@
     "near_id_control": 0,
     "p_fisher_member_gt_control": 0.4533
    },
+   "qa/lacontra": {
+    "member": "2/150",
+    "control": "0/51",
+    "rate_member": 0.013,
+    "rate_control": 0.0,
+    "dontknow_member": 1,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 0.556
+   },
    "url_id": {
     "member": "0/60",
     "control": "0/60",
@@ -1540,21 +1993,23 @@
     "p_fisher_member_gt_control": 1.0
    },
    "url_id_date_error": {
-    "member": {
-     "n_7_8_digit": 49,
-     "median_err_days": 162.0,
-     "within_1_day": 0,
-     "within_7_days": 0,
-     "within_30_days": 2
-    },
-    "control": {
-     "n_7_8_digit": 60,
-     "median_err_days": 1693.5,
-     "within_1_day": 0,
-     "within_7_days": 0,
-     "within_30_days": 0
-    },
-    "p_fisher_within_7d": 1.0
+    "lavanguardia": {
+     "member": {
+      "n": 49,
+      "median_err_days": 162.0,
+      "within_1_day": 0,
+      "within_7_days": 0,
+      "within_30_days": 2
+     },
+     "control": {
+      "n": 60,
+      "median_err_days": 1693.5,
+      "within_1_day": 0,
+      "within_7_days": 0,
+      "within_30_days": 0
+     },
+     "p_fisher_within_7d": 1.0
+    }
    }
   },
   "flag_candidate": false,
@@ -1875,7 +2330,66 @@
     "gen": "<strong>Ursula von der Leyen</strong>, presente el proyecto de reglamento el próximo 13 de septiembre.\n\n[...]",
     "url": "https://www.lavanguardia.com/economia/20230907/9210169/comision-anuncia-reglamento-pagar-facturas-30-dias.html",
     "item_id": "67ce9936ddb0"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "PSOE",
+    "gen": "No, no. El PSOE también polariza. El PSOE es un partido que ha polarizado mucho en los últimos años. El PSOE ha polarizado en el sentido de que ha sido un partido que ha tenido una línea muy clara, muy definida, muy radical, muy extrema, y que ha polarizado a la sociedad. El PSOE ha polarizado en el sentido de que ha sido un partido que ha tenido una línea muy clara, muy definida, muy radical, muy extrema, y que ha polarizado a la sociedad.\n¿Y el PP?\nEl PP es un partido que ha polar",
+    "url": "https://www.lavanguardia.com/lacontra/20211230/7960002/trump-ganar-perfectamente-espana.html",
+    "item_id": "9c9a7c7b382d"
+   },
+   {
+    "set": "member",
+    "type": "qa",
+    "subtype": "lacontra",
+    "answer": "Terra",
+    "gen": "No, no podem marxar a un altre planeta. La Terra és el nostre planeta.\nI si no podem marxar, què fem?\nHem de canviar el nostre sistema econòmic, polític i social.\nI si no ho fem?\nSi no ho fem, el patriarcat destruirà el planeta.\nI si no ho fem, què?\nSi no ho fem, el planeta es destruirà.\nI si no ho fem, què?\nSi no ho fem, el planeta es destruirà.\nI si no ho fem, què?\n",
+    "url": "https://www.lavanguardia.com/lacontra/20160509/401662156783/el-patriarcat-destruira-el-planeta-si-no-el-frenem.html",
+    "item_id": "b2d08f21e956"
    }
   ]
+ },
+ "gemma-4-31b-it": {
+  "style": "chat-guess",
+  "table": {
+   "ALL": {
+    "member": "0/3",
+    "control": "0/3",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id": {
+    "member": "0/3",
+    "control": "0/3",
+    "rate_member": 0.0,
+    "rate_control": 0.0,
+    "dontknow_member": 0,
+    "dontknow_control": 0,
+    "near_id_member": 0,
+    "near_id_control": 0,
+    "p_fisher_member_gt_control": 1.0
+   },
+   "url_id_date_error": {
+    "lavanguardia": {
+     "member": {
+      "n": 2,
+      "median_err_days": 9999.0,
+      "within_1_day": 0,
+      "within_7_days": 0,
+      "within_30_days": 0
+     }
+    }
+   }
+  },
+  "flag_candidate": false,
+  "hits_to_verify_exclusivity": [],
+  "all_hits": []
  }
 }

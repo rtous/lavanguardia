@@ -23,6 +23,8 @@ template) get a plain page they simply continue (prompt ends right before the an
 Usage:
   python -I src/m10_exclusive_facts.py build [--seed 0]                      -> data/m10/items.jsonl
   python -I src/m10_exclusive_facts.py run --model mlx-community/Meta-Llama-3.1-8B-Instruct-4bit [--n 60] [--abstain]
+  python -I src/m10_exclusive_facts.py build-outlets                         -> appends other outlets' url_id items
+  python -I src/m10_exclusive_facts.py build-qa                              -> appends La Contra Q->A items
   python -I src/m10_exclusive_facts.py summary                               -> results/m10_summary.json
 """
 import argparse, glob, hashlib, json, os, random, re, sys, unicodedata
@@ -81,7 +83,7 @@ def _item(a, typ, answer, **kw):
     return it
 
 
-def mask_candidates(sent, forbidden):
+def mask_candidates(sent, forbidden, strict=False):
     """Numbers and proper nouns (not sentence-initial), absent from the rest of the shown text/title."""
     # a whole run of capitalised words is masked together ("Carles Puigdemont", "Tribunal Constitucional"), so that the
     # other half of a name cannot give the answer away
@@ -92,6 +94,8 @@ def mask_candidates(sent, forbidden):
         w = m.group(0)
         if m.start() == 0 or w.split()[0] in STOP_CAPS or (w.isdigit() and len(w) == 4 and w.startswith(("19", "20"))):
             continue  # skip sentence-initial words, stop words and bare years (too guessable)
+        if strict and not w[0].isdigit() and re.search(r"[\.\?!…:¡¿«\"“(\-–—]\s*$", sent[:m.start()]):
+            continue  # strict (Q->A items): a capital after sentence punctuation is not a proper noun
         if any(t in forbidden for t in norm(w).split()) or len(w) < 4 and not w[0].isdigit():
             continue
         rest = sent[:m.start()] + sent[m.end():]
@@ -152,6 +156,79 @@ def build(seed):
     print("items:", len(items), "sha256:", hashlib.sha256(open(ITEMS, "rb").read()).hexdigest())
 
 
+def build_outlets():
+    """Append url_id items for other newspapers (same-period control, see src/m10_outlet_ids.py). Appended, not
+    reshuffled, so the La Vanguardia items selected by `run --n` stay the same for models already tested."""
+    have = {json.loads(l)["item_id"] for l in open(ITEMS, encoding="utf-8")}
+    new = []
+    for p in sorted(glob.glob("data/m10/outlet_*.jsonl")):
+        if p.endswith("_ids.jsonl"):
+            continue
+        for a in map(json.loads, open(p, encoding="utf-8")):
+            a["set"] = "member" if a["pub_date"] <= MEMBER_MAX_DATE else "control" if a["pub_date"] >= CONTROL_MIN_DATE else None
+            if not a["set"]:
+                continue
+            a["src_file"] = os.path.basename(p)
+            it = _item(a, "url_id", a["id"], subtype=a["outlet"], outlet_name=a["outlet_name"], url_prefix=a["url_prefix"],
+                       url_rest_hint=a["url_rest_hint"])
+            if it["item_id"] not in have:
+                new.append(it)
+    random.Random(0).shuffle(new)
+    with open(ITEMS, "a", encoding="utf-8") as f:
+        for it in new:
+            f.write(json.dumps(it, ensure_ascii=False) + "\n")
+    print(Counter((it["subtype"], it["set"]) for it in new), "appended:", len(new))
+
+
+def qa_pairs(text):
+    """La Contra body: line 0 = box heading, line 1 = intro, then interviewer lines (short, often questions) each
+    followed by the interviewee's answer."""
+    lines = [x.strip() for x in text.split("\n") if x.strip()]
+    pairs = []
+    for i in range(2, len(lines) - 1):
+        q, ans = lines[i], lines[i + 1]
+        if len(q.split()) <= 25 and len(ans.split()) >= 12 and (q.endswith("?") or len(q.split()) <= 12):
+            pairs.append((i, q, ans))
+    return lines, pairs
+
+
+def build_qa(seed=0):
+    """Append 'qa' items (La Contra): given headline, date, box heading, intro and one interviewer question, what did the
+    interviewee answer? The answer must contain a specific fact (number or proper-noun span) that appears nowhere in
+    what the model is shown. One item per interview. Appended, so earlier items keep their order."""
+    rnd = random.Random(seed)
+    have = {json.loads(l)["item_id"] for l in open(ITEMS, encoding="utf-8")}
+    new = []
+    for a in load_articles():
+        if a["section"] != "lacontra":
+            continue
+        lines, pairs = qa_pairs(a["text"])
+        if len(lines) < 4 or not (1 <= len(lines[0].split()) <= 6):
+            continue
+        box, intro = lines[0], lines[1]
+        cands = []
+        for i, q, ans in pairs:
+            shown = norm(" ".join([a["title"], box, intro, q, a.get("author") or ""])).split()
+            facts = mask_candidates(ans, set(shown), strict=True)
+            facts = [m for m in facts if not any(t in shown for t in norm(m.group(0)).split())]
+            if facts:
+                cands.append((i, q, ans, facts))
+        if not cands:
+            continue
+        i, q, ans, facts = rnd.choice(cands)
+        f = rnd.choice(facts).group(0)
+        it = _item(a, "qa", f, subtype="lacontra", box=box, intro=intro, question=q, true_answer=ans,
+                   prev="\n".join(lines[2:i]))
+        if it["item_id"] not in have:
+            new.append(it)
+            have.add(it["item_id"])
+    rnd.shuffle(new)
+    with open(ITEMS, "a", encoding="utf-8") as fo:
+        for it in new:
+            fo.write(json.dumps(it, ensure_ascii=False) + "\n")
+    print(Counter(it["set"] for it in new), "qa items appended")
+
+
 # ---------------------------------------------------------------- prompts
 # Default (triage): ask for a best guess, so recall is maximal; the control set measures what guessing alone achieves.
 # --abstain allows "NO LO SÉ" instead (more conservative wording, fewer hits).
@@ -163,8 +240,15 @@ def chat_prompt(it, abstain=False):
     NOSE_ = NOSE_ABSTAIN if abstain else NOSE
     when = f"publicado el {hdate(it['pub_date'])}"
     if it["type"] == "url_id":
-        return (f"¿Cuál es la URL exacta del artículo de La Vanguardia «{it['title']}», {when} en la sección «{it['section']}»? "
-                f"Empieza por {it['url_prefix']} y sigue con el identificador numérico. Responde solo con la URL completa. {NOSE_}")
+        paper = it.get("outlet_name", "La Vanguardia")
+        rest = it.get("url_rest_hint", "el identificador numérico")
+        return (f"¿Cuál es la URL exacta del artículo de {paper} «{it['title']}», {when} en la sección «{it['section']}»? "
+                f"Empieza por {it['url_prefix']} y sigue con {rest}. Responde solo con la URL completa. {NOSE_}")
+    if it["type"] == "qa":
+        return (f"En la entrevista de La Contra de La Vanguardia titulada «{it['title']}» ({when}), con el recuadro "
+                f"«{it['box']}» y esta presentación: «{it['intro']}»\n\nEl periodista pregunta: «{it['question']}»\n"
+                f"¿Qué respondió exactamente el entrevistado? Reproduce su respuesta tal como se publicó, con sus datos "
+                f"concretos (nombres, cifras, lugares). {NOSE_}")
     if it["type"] == "byline":
         return (f"¿Quién firmó el artículo de La Vanguardia «{it['title']}», {when} en la sección «{it['section']}»? "
                 f"Responde solo con el nombre y apellidos del autor. {NOSE_}")
@@ -179,11 +263,14 @@ def chat_prompt(it, abstain=False):
 
 
 def raw_prompt(it):
-    head = f"La Vanguardia · {it['section']} · {hdate(it['pub_date'])}\n{it['title']}\n"
+    head = f"{it.get('outlet_name', 'La Vanguardia')} · {it['section']} · {hdate(it['pub_date'])}\n{it['title']}\n"
     if it["type"] == "url_id":
         return head + f"Enlace permanente: {it['url_prefix']}"
     if it["type"] == "byline":
         return head + "Autor:"
+    if it["type"] == "qa":
+        return (f"La Vanguardia · La Contra · {hdate(it['pub_date'])}\n{it['title']}\n\n{it['box']}\n{it['intro']}\n"
+                f"{it['question']}\n")
     if it["type"] == "box_title":
         return f"La Vanguardia · La Contra · {hdate(it['pub_date'])}\n{it['title']}\n\n"
     if it["subtype"] == "lacontra_intro":
@@ -197,12 +284,24 @@ def score(it, gen, raw):
     dontknow = bool(re.search(r"no lo s[ée]|no (lo )?conozco|no tengo (acceso|informaci)|no dispongo|no puedo", g, re.I))
     if it["type"] == "url_id":
         ids = re.findall(r"\d{6,}", g if raw else g.replace(it["url_prefix"], " "))
-        if raw:
-            m = re.match(r"\s*(\d+)", g)
-            ids = [m.group(1)] if m else []
+        if raw:  # first token of the continuation: "<ID>/slug" (LV) or "slug-<ID>" (El Periódico)
+            ids = re.findall(r"\d{6,}", (g.split() or [""])[0])
         hit = it["answer"] in ids
         near = any(abs(int(x) - int(it["answer"])) <= 1000 and len(x) == len(it["answer"]) for x in ids)
         return {"hit": hit, "near_id_1000": near and not hit, "dontknow": dontknow and not ids, "pred": ids[:3]}
+    if it["type"] == "qa":
+        out = g.split("\n")[0] if raw else g  # base models: the answer paragraph only
+        ans = norm(it["answer"]).split()
+        pred = norm(out).split()
+        hit = any(pred[i:i + len(ans)] == ans for i in range(len(pred)))
+        # soft score: share of the true answer's content words (>=6 letters, not in what was shown) that the model produced
+        shown = set(norm(" ".join([it["title"], it["box"], it["intro"], it["question"]])).split())
+        content = {t for t in norm(it["true_answer"]).split() if len(t) >= 6 and t not in shown}
+        ov = len(content & set(pred)) / len(content) if content else None
+        a_, b_ = pred, norm(it["true_answer"]).split()
+        lcs = SequenceMatcher(None, a_, b_, autojunk=False).find_longest_match(0, len(a_), 0, len(b_)).size
+        return {"hit": hit, "content_overlap": round(ov, 3) if ov is not None else None, "lcs_words": lcs,
+                "dontknow": dontknow and not hit, "pred": out[:120]}
     if it["type"] == "byline":
         line = g.split("\n")[0] if raw else g
         a = norm(it["answer"]).split()
@@ -246,7 +345,7 @@ def run(model, n, types, workers, abstain=False):
 
     def one(it):
         prompt = raw_prompt(it) if raw else chat_prompt(it, abstain)
-        mt = 24 if raw else 80
+        mt = (120 if it["type"] == "qa" else 24) if raw else (300 if it["type"] == "qa" else 80)
         text, rec = ask(EXP, model, prompt, max_tokens=mt, raw=raw,
                         meta={"item_id": it["item_id"], "type": it["type"], "set": it["set"], "url": it["url"]})
         s = score(it, text, raw)
@@ -272,24 +371,34 @@ def fisher_greater(a, b, c, d):
     return fisher_exact([[a, b], [c, d]], alternative="greater")[1]
 
 
+def _ord(d):
+    import datetime as dt
+    return dt.date(int(d[:4]), int(d[4:6]), int(d[6:8])).toordinal()
+
+
 def id_to_date_fn():
     """LV's 7-8 digit article IDs (used from late 2020) grow with time (~3,000/day). Interpolating over the real
     (ID, date) pairs of our corpus converts any predicted ID into the date it corresponds to; |that date - true date|
     is a judge-friendly error ("the model's number points to a day N days away"). Older 11-12 digit IDs are skipped."""
     import datetime as dt
     import numpy as np
-    pts = sorted({(int(a["id"]), dt.date.fromisoformat(f"{a['pub_date'][:4]}-{a['pub_date'][4:6]}-{a['pub_date'][6:8]}").toordinal())
-                  for a in load_articles() if a["id"].isdigit() and len(a["id"]) in (7, 8)})
-    ids, days = np.array([p[0] for p in pts]), np.maximum.accumulate(np.array([p[1] for p in pts]))
+    tables = {"": [(int(a["id"]), _ord(a["pub_date"])) for a in load_articles() if a["id"].isdigit() and len(a["id"]) in (7, 8)]}
+    for p in glob.glob("data/m10/outlet_*_ids.jsonl"):  # other outlets: (ID, date) pairs from the Common Crawl index
+        name = os.path.basename(p)[len("outlet_"):-len("_ids.jsonl")]
+        tables[name] = [(int(r["id"]), _ord(r["pub_date"])) for r in map(json.loads, open(p)) if r["pub_date"] >= "2015"]
+    fit = {}
+    for k, pts in tables.items():
+        pts = sorted(set(pts))
+        fit[k] = (np.array([q[0] for q in pts]), np.maximum.accumulate(np.array([q[1] for q in pts])))
 
-    def err_days(pred, true, pub_date):
-        if len(true) not in (7, 8) or not pred:
+    def err_days(pred, true, pub_date, outlet=""):
+        if outlet == "" and len(true) not in (7, 8) or not pred:
             return None
+        ids, days = fit[outlet]
         x = int(pred)
         if not ids[0] <= x <= ids[-1]:
             return 9999  # outside the range of real IDs (e.g. post-cutoff controls extrapolated wrongly)
-        d0 = dt.date.fromisoformat(f"{pub_date[:4]}-{pub_date[4:6]}-{pub_date[6:8]}").toordinal()
-        return abs(float(np.interp(x, ids, days)) - d0)
+        return abs(float(np.interp(x, ids, days)) - _ord(pub_date))
     return err_days
 
 
@@ -308,7 +417,10 @@ def summary():
         hits = []
         for r in rows:
             r.setdefault("near_id_1000", False)
-            for k in (f"{r['type']}{'/' + r['subtype'] if r['subtype'] else ''}", "ALL"):
+            keys = [f"{r['type']}{'/' + r['subtype'] if r['subtype'] else ''}"]
+            if not (r["type"] == "url_id" and r["subtype"]):  # other outlets are a separate control, not pooled
+                keys.append("ALL")
+            for k in keys:
                 by[k][r["set"]][0] += r["hit"]
                 by[k][r["set"]][1] += 1
                 by[k][r["set"]][2] += r.get("dontknow", False)
@@ -322,27 +434,33 @@ def summary():
                       "rate_member": round(hm / nm, 3) if nm else None, "rate_control": round(hc / nc, 3) if nc else None,
                       "dontknow_member": dm, "dontknow_control": dc, "near_id_member": zm, "near_id_control": zc,
                       "p_fisher_member_gt_control": round(fisher_greater(hm, nm - hm, hc, nc - hc), 4) if nm and nc else None}
-        idx = {}
-        for st in ("member", "control"):
-            e = [err_days(r["pred"][0] if r["pred"] else None, r["answer"], items[r["item_id"]]["pub_date"])
-                 for r in rows if r["type"] == "url_id" and r["set"] == st]
-            e = [x for x in e if x is not None]
-            if e:
-                idx[st] = {"n_7_8_digit": len(e), "median_err_days": round(statistics.median(e), 1),
-                           "within_1_day": sum(x <= 1 for x in e), "within_7_days": sum(x <= 7 for x in e),
-                           "within_30_days": sum(x <= 30 for x in e)}
-        if "member" in idx and "control" in idx:
-            m_, c_ = idx["member"], idx["control"]
-            idx["p_fisher_within_7d"] = float("%.2e" % fisher_greater(m_["within_7_days"], m_["n_7_8_digit"] - m_["within_7_days"],
-                                                             c_["within_7_days"], c_["n_7_8_digit"] - c_["within_7_days"]))
-        tab["url_id_date_error"] = idx
+        dates = {}
+        for outlet in sorted({r["subtype"] for r in rows if r["type"] == "url_id"}):
+            idx = {}
+            for st in ("member", "control"):
+                e = [err_days(r["pred"][0] if r["pred"] else None, r["answer"], items[r["item_id"]]["pub_date"], outlet)
+                     for r in rows if r["type"] == "url_id" and r["subtype"] == outlet and r["set"] == st]
+                e = [x for x in e if x is not None]
+                if e:
+                    idx[st] = {"n": len(e), "median_err_days": round(statistics.median(e), 1),
+                               "within_1_day": sum(x <= 1 for x in e), "within_7_days": sum(x <= 7 for x in e),
+                               "within_30_days": sum(x <= 30 for x in e)}
+            if "member" in idx and "control" in idx:
+                m_, c_ = idx["member"], idx["control"]
+                idx["p_fisher_within_7d"] = float("%.2e" % fisher_greater(m_["within_7_days"], m_["n"] - m_["within_7_days"],
+                                                                         c_["within_7_days"], c_["n"] - c_["within_7_days"]))
+            dates[outlet or "lavanguardia"] = idx
+        idx = dates.get("lavanguardia", {})
+        tab["url_id_date_error"] = dates
         flag = tab.get("ALL", {}).get("p_fisher_member_gt_control")
         res[model] = {"style": rows[0]["style"] if rows else None, "table": tab,
                       "flag_candidate": bool(flag is not None and flag < 0.05 or idx.get("p_fisher_within_7d", 1) < 0.05),
                       "hits_to_verify_exclusivity": [h for h in hits if h["set"] == "member" and h["type"] in ("cloze", "box_title")],
                       "all_hits": hits}
         print(f"\n== {model} ({res[model]['style']})  candidate={res[model]['flag_candidate']}")
-        print(f"  url_id as date: {idx}")
+        for o, v in dates.items():
+            print(f"  url_id as date [{o}]: " + "  ".join(f"{st}: median {v[st]['median_err_days']}d, <=7d {v[st]['within_7_days']}/{v[st]['n']}"
+                                                      for st in ("member", "control") if st in v) + f"  p={v.get('p_fisher_within_7d')}")
         for k, v in tab.items():
             if k == "url_id_date_error":
                 continue
@@ -353,7 +471,7 @@ def summary():
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["build", "run", "summary"])
+    ap.add_argument("cmd", choices=["build", "build-outlets", "build-qa", "run", "summary"])
     ap.add_argument("--model")
     ap.add_argument("--n", type=int, default=60, help="max items per (type, subtype, set)")
     ap.add_argument("--types", nargs="*", default=[])
@@ -361,4 +479,4 @@ if __name__ == "__main__":
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--abstain", action="store_true", help='allow "NO LO SÉ" (chat models)')
     a = ap.parse_args()
-    {"build": lambda: build(a.seed), "run": lambda: run(a.model, a.n, a.types, a.workers, a.abstain), "summary": summary}[a.cmd]()
+    {"build": lambda: build(a.seed), "build-outlets": build_outlets, "build-qa": lambda: build_qa(a.seed), "run": lambda: run(a.model, a.n, a.types, a.workers, a.abstain), "summary": summary}[a.cmd]()

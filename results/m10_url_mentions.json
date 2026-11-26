@@ -1,0 +1,196 @@
+{
+ "per_shard": [
+  {
+   "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/001_00001.parquet",
+   "rows": 3445000,
+   "counts": {
+    "other_doc_docs": 129,
+    "other_doc_mentions": 136
+   },
+   "distinct_date_id_pairs": 136,
+   "by_year": {
+    "lv_doc": {},
+    "other_doc": {
+     "2011": 10,
+     "2012": 15,
+     "2013": 8,
+     "2014": 11,
+     "2015": 2,
+     "2016": 12,
+     "2017": 17,
+     "2018": 10,
+     "2019": 17,
+     "2020": 16,
+     "2021": 7,
+     "2022": 8,
+     "2023": 3
+    }
+   },
+   "top_other_domains": [
+    [
+     "troposfera.org",
+     2
+    ],
+    [
+     "otrasvoceseneducacion.org",
+     2
+    ],
+    [
+     "radioserrania.es",
+     2
+    ],
+    [
+     "cronicasdesanborondon.es",
+     1
+    ],
+    [
+     "iratxegarcia.es",
+     1
+    ],
+    [
+     "zonadelujo.com",
+     1
+    ],
+    [
+     "enteratemujer.org",
+     1
+    ],
+    [
+     "gololoytoin.com",
+     1
+    ],
+    [
+     "congresoeducacionsocial.org",
+     1
+    ],
+    [
+     "autosanacionyespiritualidad.com",
+     1
+    ],
+    [
+     "fetb.org",
+     1
+    ],
+    [
+     "aberriberri.com",
+     1
+    ],
+    [
+     "diosesamormejorconhumor.blogspot.com",
+     1
+    ],
+    [
+     "serfamiliaporadopcion.org",
+     1
+    ],
+    [
+     "granadacostanacional.es",
+     1
+    ],
+    [
+     "labevandadiviviana.com",
+     1
+    ],
+    [
+     "opinionysalud.com",
+     1
+    ],
+    [
+     "ppaulhabla.com",
+     1
+    ],
+    [
+     "globalcad.org",
+     1
+    ],
+    [
+     "miriamalguerojosa.com",
+     1
+    ],
+    [
+     "radiaciones.wordpress.com",
+     1
+    ],
+    [
+     "malaprensa.com",
+     1
+    ],
+    [
+     "senderosalalma.com",
+     1
+    ],
+    [
+     "laguayanaesequiba.blogspot.com",
+     1
+    ],
+    [
+     "eljanoandaluz.blogspot.com",
+     1
+    ]
+   ],
+   "examples": [
+    {
+     "doc": "https://cronicasdesanborondon.es/la-crisis-de-coronavirus-una-perspectiva-diferente/",
+     "snippet": "ma, en España se han realizado un total de 102 000 denuncias y 926 detenciones por violar el confinamiento. https://www.lavanguardia.com/politica/20200325/4891525689/levantar-medidas-restriccion-coronavirus-11-de-abril-fernando-grande-marla"
+    },
+    {
+     "doc": "https://www.iratxegarcia.es/eurodiputados-del-psoe-se-reunen-con-ministra-del-interior-de-mexico/",
+     "snippet": "ar los efectos de la ley estadounidense Helms-Burton sobre las empresas europeas. EFE\n.\nMás información en: https://www.lavanguardia.com/politica/20200225/473768831215/eurodiputados-del-psoe-se-reunen-con-ministra-del-interior-de-mexico.htm"
+    },
+    {
+     "doc": "https://www.zonadelujo.com/cine-historico-de-guerra/las-milicias-nazis-en-la-segunda-guerra-mundial/",
+     "snippet": ". Waffen-SS: la guardia pretoriana del Führer. ; Fecha [05/07/2017]. SERGI VICH SÁEZ: Autor. Recuperado de:\nhttps://www.lavanguardia.com/historiayvida/historia-contemporanea/20170626/47313960672/waffen-ss-la-guardia-pretoriana-del-fuhrer.ht"
+    },
+    {
+     "doc": "https://enteratemujer.org/opinion/estereotipos-de-belleza-en-las-mujeres-como-afecta-nuestra-salud-mental/",
+     "snippet": "Vanguardia. (3 de noviembre de 2014). La preocupación por la belleza\naumenta entre las mujeres más jóvenes.\nhttps://www.lavanguardia.com/de-moda/belleza/20141103/54418865031/preocupaci\non-canones-belleza-afecta-mujeres-jovenes.html\nLuna, E."
+    },
+    {
+     "doc": "https://gololoytoin.com/peligro-de-los-tatuajes-de-henna-en-los-ninos/",
+     "snippet": "0ee4e3687d774c\nhttps://www.aemps.gob.es/eu/cosmeticosHigiene/cosmeticos/docs/Riesgos_de__la_Henna_negra.pdf\nhttps://www.lavanguardia.com/de-moda/belleza/20160407/40951500221/peligro-tatuajes-henna.html\nhttps://www.lavanguardia.com/vida/2012"
+    },
+    {
+     "doc": "https://congresoeducacionsocial.org/8congreso/2022/04/28/4-a-jornada-bilbao-viii-congreso-educacion-social/",
+     "snippet": "-educacion-social\nhttp://familiasenpositivo.org/publico/content/viii-congreso-estatal-de-educacion-social-3\nhttps://www.lavanguardia.com/local/paisvasco/20220422/8216260/bilbao-acoge-27-abril-cuarta-jornada-viii-congreso-educacion-social-so"
+    },
+    {
+     "doc": "https://autosanacionyespiritualidad.com/el-queso/",
+     "snippet": "ina. Y dado que el queso tiene un contenido concentrado de casomorfinas, puede ser llamado el crack lácteo.\nFuente:\nwww.lavanguardia.com/comer/al-dia/20180503/443151430524/el-doctor-neal-barnard-el-queso-es-el-enemigo-numero-1-de-nuestra-sa"
+    },
+    {
+     "doc": "https://fetb.org/es/impacto-del-confinamiento-por-la-pandemia-por-covid-19-en-la-salud-mental-de-los-ninos-la-vanguardia/",
+     "snippet": "alud Mental de los niños.\nPor parte de la Fundació Eulàlia Torras de Beà participan Lluís Diaz y Núria Beà.\nhttps://www.lavanguardia.com/ciencia/20200418/48571125827/confinamiento-ninos-impacto-salud-mental-estres-agudo.html#galeria-foto-0\n"
+    },
+    {
+     "doc": "https://aberriberri.com/2015/04/29/en-el-subsuelo-etico/",
+     "snippet": "07081020.html\nYa ves lo que pasa por ir a donde no se debe.\nque es lo mas parecido a un español de derechas?\nhttp://www.lavanguardia.com/politica/20150507/54431085107/pablo-iglesias-inviable-referendum-independencia-catalunya.html\nun españo"
+    },
+    {
+     "doc": "https://diosesamormejorconhumor.blogspot.com/2013/04/viajes-cajasol-llega-preacuerdo-con.html",
+     "snippet": "es Cajasol poseen oficinas en las provincias de Sevilla, Cádiz, Huelva, Córdoba, Granada y Málaga.\nLeer más: http://www.lavanguardia.com/local/sevilla/20130424/54372782545/viajes-cajasol-llega-a-preacuerdo-con-empleados-sobre-ere-donde-se-c"
+    },
+    {
+     "doc": "https://serfamiliaporadopcion.org/noticias/adopcion-noticias/existe-el-derecho-a-ser-padres/",
+     "snippet": "y 25 de noviembre en Barcelona, durante las XVII Jornadas de la Escuela Lacaniana de Psicoanálisis.\nFuente: https://www.lavanguardia.com/vida/20181109/452802194182/existe-el-derecho-a-ser-padres.html?fbclid=IwAR2DGkOu4Gyo5T_U4Pwhyo-hW85LMth"
+    },
+    {
+     "doc": "https://granadacostanacional.es/fracaso-escolar-relacionado-con-el-abandono-de-los-ninos-y-ninas-del-placer-por-la-lectura/",
+     "snippet": "lperiodico.com/es/sociedad/20230211/baja-comprension-lectora-alumnado-vulnerable-fracaso-escolar-82712796\n3 https://www.lavanguardia.com/vida/20230122/8700929/65-casos-fracaso-escolar-debe-problemas-lectura-escritura-calculo.html\n4 https://"
+    },
+    {
+     "doc": "https://www.labevandadiviviana.com/blog-de-vino-la-bevanda-di-viviana/la-fiesta-del-vino-frances-bejalouis-nouveau",
+     "snippet": "a celebración mundial: ¡Le Beaujolais Nouveau est arrivé! Arranca la fiesta del vino joven más popular. En: https://www.lavanguardia.com/comer/tendencias/20191121/471766026765/beaujolais-nouveau-fiesta-vino-joven-frances.html\n\n\nAUTORA\nVivia"
+    },
+    {
+     "doc": "https://opinionysalud.com/como-curar-el-vph-para-siempre/pastillas-papiloma-humano/",
+     "snippet": "https://www.semana.com/vida-moderna/articulo/bicarbonato-para-eliminar-verrugas-asi-se-puede-usar/202211/\n- https://www.lavanguardia.com/vivo/ecologia/20160923/41494889736/ajo-propiedades-alimentacion-salud-antiinflamatorio-curativo-infecci"
+    },
+    {
+     "doc": "https://ppaulhabla.com/un-volcan-de-cambios-podcast-6t-1/",
+     "snippet": "w.tiempo.com/ram/numero5/pdf/volcanesclima.pdf\n- https://www.nytimes.com/2009/11/18/opinion/18gelber.html\n- https://www.lavanguardia.com/vivo/psicologia/20190416/461466109232/como-enfrentarse-cambios-sin-estres-aprender-adaptacion.html\n- ht"
+    }
+   ],
+   "secs": 663
+  }
+ ]
+}
