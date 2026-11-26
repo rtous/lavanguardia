@@ -51,8 +51,11 @@ Two distinct things can be shown, and we keep them apart in every report:
   works. The confound is *independent* information: descriptions of LV, third-party links/URLs, the same facts reported
   independently, conventions shared with other Catalan outlets. Choose controls against those, not against copies.
 - Negative results bound memorization, not training. Positive control (Apertus-8B, trained on FineWeb-2 which holds
-  our articles): no content recall and only a faint collection-level trace (AUC 0.56), like the other open models.
+  our articles): no content recall and only a faint collection-level trace (AUC 0.55), like the other open models.
   Never present a null as evidence of non-use. OLMo is unusable as positive control (English-only data).
+- Presence in a public dataset is not a same-period in/out split: articles FineWeb-2 did NOT keep look *more* familiar to
+  every model, even a 2018 model that saw neither (selection by filters/dedup; copies survive elsewhere). Same-period
+  "out" groups must be never-online articles (publisher's archive).
 - Never make shell queues wait on `pgrep -f <script name>`: waiter shells match their own pattern and deadlock. Use one sequential script.
 
 ## Working conventions

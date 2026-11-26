@@ -30,8 +30,8 @@ We study whether it is feasible to produce evidence, intelligible to a court, th
 newspaper \emph{La Vanguardia} were used to train commercial large language models (LLMs). We first establish the
 provenance facts. The newspaper's full article text is present in Common Crawl, the web corpus underlying most LLM
 pre-training sets. The pages also survive standard filtering into ready-made training datasets: the FineWeb-2
-dataset holds about 18,000 of them in Catalan and an estimated 280,000 in Spanish, projected to include about
-80\% of our test articles. The site's \texttt{robots.txt} did not exclude AI crawlers from news content until
+dataset holds about 18,000 of them in Catalan and about 310,000 in Spanish, including 82\% of our 2020--2023 test
+articles. The site's \texttt{robots.txt} did not exclude AI crawlers from news content until
 17 March 2026. We then build a dataset of 1,143 signed, non-agency articles split by publication date into
 \emph{members} (2020--2023, before the training-data cutoff of the evaluated models) and \emph{controls}
 (September 2025--March 2026, after it). On it we apply four families of tests.
@@ -106,8 +106,8 @@ only if it has seen that text \emph{many times} during training. Song lyrics are
 web; a typical news article is not.
 \item The articles are not only in raw Common Crawl. They survive the standard quality filters and are inside
 ready-made, publicly distributed training datasets. The FineWeb-2 dataset contains about 18,000
-\texttt{lavanguardia.com} documents in its Catalan part and an estimated 280,000 in its Spanish part, projected to
-include about 80\% of the articles we test (Section~\ref{sec:presence}).
+\texttt{lavanguardia.com} documents in its Catalan part and about 310,000 in its Spanish part, including 82\% of the
+2020--2023 articles we test (Section~\ref{sec:presence}).
 \item Knowing the \emph{facts} of an article proves nothing, because facts appear in many sources. Only the
 \emph{wording} can identify the source.
 \item Every test needs a comparison group: texts the model \emph{could not} have seen, because they were published
@@ -435,17 +435,15 @@ Model developers rarely train on raw Common Crawl. They use filtered, deduplicat
 \begin{itemize}
 \item \emph{Catalan} (all 5 files, 17.1 million documents): 17,947 \texttt{lavanguardia.com} documents (17,179 distinct
 URLs), about one document in a thousand, taken from crawls of 2017--2024.
-\item \emph{Spanish} (78 of 146 files, 265 million documents): 164,568 documents, which extrapolates to about
-280,000 in the whole Spanish part (0.06\% of documents). In Catalan the share is almost twice as high.
-\item \emph{Our own test articles} (\texttt{src/presence\_overlap.py}): the scanned files (53\% of the Spanish part,
-plus all of the Catalan part) contain 292 of our 695 members (42\%), 69 of the 249 mid-2023 articles (28\%), 67 of
-the 212 \emph{La Contra} interviews (32\%), and none of the 489 controls. FineWeb-2 is deduplicated, so each article
-appears about once. If the remaining files contain the same share, about 80\% of the members are in the dataset,
-each identifiable by its FineWeb-2 document identifier (\texttt{results/dataset\_presence\_overlap.json}). The scan
-was stopped at 53\% for time reasons; completing it takes about 8 hours of downloading.
-\item \emph{What is most represented.} By crawl date, 2019--2023 crawls account for 81\% of the Spanish hits. By
-publication date, articles from 2017--2021 dominate (2019 and 2020 alone: 27\%). The most frequent sections are
-local news, \emph{Vida} (society), politics and economy. In Catalan, the \emph{encatala} edition is the largest source.
+\item \emph{Spanish} (all 146 files, 441 million documents; scan completed 2026-11-26 on Colab): 310,502
+documents (303,226 distinct URLs), 0.07\% of documents. In Catalan the share is about 1.5 times as high.
+\item \emph{Our own test articles} (\texttt{src/presence\_overlap.py}): FineWeb-2 contains 567 of our 695 members
+(82\%), 204 of the 249 mid-2023 articles (82\%), 95 of the 212 \emph{La Contra} interviews (45\%), and none of the
+489 controls. FineWeb-2 is deduplicated, so each article appears about once, each identifiable by its FineWeb-2
+document identifier (\texttt{results/dataset\_presence\_overlap.json}).
+\item \emph{What is most represented.} By crawl date, 2019--2023 crawls account for 85\% of the Spanish hits. By
+publication date, articles from 2017--2021 dominate (61\%; 2019 and 2020 alone: 31\%). The most frequent sections are
+local news, politics, \emph{Vida} (society), sport and economy. In Catalan, the \emph{encatala} edition is the largest source.
 \end{itemize}
 This does not show that any particular commercial model was trained on FineWeb-2. It shows that the newspaper's
 articles survive the standard filtering and deduplication steps and are distributed inside the kind of ready-made
@@ -760,22 +758,29 @@ of the first 42 articles checked (\texttt{src/olmo\_positive\_control.py}, \text
 
 \emph{Apertus-8B} (\texttt{mlx-community/Apertus-8B-2509-4bit}, base). Pretrained on FineWeb-2 / FineWeb-2-HQ with
 robots.txt opt-outs applied as of January 2025 (news pages of the newspaper were not opted out then), and with the
-Goldfish objective, which suppresses verbatim recall. Groups (Spanish only): \emph{in} = found in FineWeb-2 (288 random,
-55 \emph{La Contra}); \emph{not found} in the scanned 53\% (403, 145; about a third truly absent); post-cutoff controls
-(448, 41). Scores with \texttt{src/m5\_logprob.py}, calibrated with GPT-2-spanish; analysis
+Goldfish objective, which suppresses verbatim recall. Groups (Spanish only, full FineWeb-2 scan): \emph{in} = found in
+FineWeb-2 (563 random, 83 \emph{La Contra}); \emph{not found} (128, 117); post-cutoff controls (448, 41). Scores with \texttt{src/m5\_logprob.py}, calibrated with GPT-2-spanish; analysis
 \texttt{src/positive\_control\_apertus.py} $\rightarrow$ \texttt{results/positive\_control\_apertus.json}.
 \begin{itemize}
-\item In vs not found (same period): AUC 0.48--0.51 raw, 0.48--0.51 calibrated, all $p\ge0.33$.
-\item In vs post-cutoff controls, calibrated: loss AUC 0.560 ($p=0.003$), zlib ratio 0.562 ($p=0.002$), Min-K\% 0.532
-($p=0.07$), Min-K\%++ 0.509 ($p=0.33$). The same split on the other open models, calibrated loss: Llama-3.1 0.539,
-Qwen2.5 0.538, Mistral 0.537 ($p\approx0.04$ each), Gemma-2 0.590.
-\item \emph{La Contra}: calibrated AUC 0.46--0.49 in both comparisons (none significant; 55 vs 145 / 41).
-\item Q$\rightarrow$A recall (page continuation): 0/63 facts for interviews in the data, 0/139 not found, 1/76 controls.
+\item In vs post-cutoff controls, calibrated: loss AUC 0.550 ($p=0.003$), zlib ratio 0.552 ($p=0.002$), Min-K\% 0.534
+($p=0.03$), Min-K\%++ 0.509 ($p=0.30$). The same split on the other open models, calibrated loss: Llama-3.1 0.539
+($p=0.02$), Mistral 0.536 ($p=0.03$), Qwen2.5 0.527 ($p=0.07$), Salamandra-7B 0.564 ($p=0.0002$; int8 on Colab,
+\texttt{src/m5\_hf.py}), Gemma-2 0.582.
+\item In vs not found (same period): \textbf{reversed} for every model, raw AUC 0.38--0.42 and calibrated 0.42--0.48:
+the articles FineWeb-2 did \emph{not} keep look more familiar. The 2018 reference, which saw neither group, shows the
+same (0.44), also within publication year and section (0.42; \texttt{src/presence\_selection\_check.py},
+\texttt{results/presence\_selection\_check.json}; calibrated, within strata: Apertus 0.44, $p=0.01$; Salamandra 0.49,
+$p=0.33$). FineWeb-2's selection (quality filters, deduplication) kept a different kind of text; ``not found'' is
+therefore not ``unseen'' (copies of a deduplicated article can survive under other URLs) and cannot serve as a
+control group. The not-found articles also skew to 2020 and to the international and opinion sections.
+\item \emph{La Contra}: calibrated AUC 0.38--0.41 in both comparisons, i.e.\ reversed as well (83 vs 117 / 41), on
+every model.
+\item Q$\rightarrow$A recall (page continuation): 0/90 facts for interviews in the data, 0/112 not found, 1/76 controls.
 \end{itemize}
 Reading: a model that (almost certainly) trained once on the articles shows no article-level knowledge and only a faint
 collection-level trace, of the same size as the other open models. Null results are therefore uninformative about
-training, and faint traces are what training looks like. Finishing the FineWeb-2 scan would give clean same-period
-groups.
+training, and faint traces are what training looks like. Presence in a public dataset does not give clean
+same-period groups (see above); those require articles that were never online (the publisher's archive).
 
 \subsection{Sentence-by-sentence extraction (M9, family A)}\label{sec:m9}
 Following \cite{su2024}, M9 asks for one sentence at a time. A base (non-chat) open-weight model receives a plain
@@ -1169,7 +1174,6 @@ matter most. They do not fit on a laptop: a rented cloud GPU for a few days, or 
 memory. Disk space must also be freed (about 6~GB is left).\\
 M10 article-number test on all reachable models, with other newspapers as a same-period control & One short
 query per article: a few hundred queries per model, cents with a paid key; days on free tiers.\\
-FineWeb-2 scan (remaining 47\%) & About 8 hours of downloading. Free.\\
 Same-period controls & The publisher's archive, to compare crawled with never-crawled articles of the same months.\\
 Copyright traps & A decision by the publisher. They only protect future content.\\
 \bottomrule
@@ -1237,9 +1241,9 @@ passages and attributes them to the newspaper.
 \end{itemize}
 \item \textbf{Which content is most likely to have been used.} The articles most exposed to training are those
 captured by Common Crawl between 2019 and 2023 and published from 2017 to 2021. They dominate the newspaper's pages
-in FineWeb-2, and about 80\% of our 2020--2023 sample is projected to be in it. The Catalan edition is proportionally
-the most exposed: \emph{La Vanguardia} supplies about one document in a thousand in FineWeb-2's Catalan part, almost
-twice its share in Spanish. A newspaper this prominent in Catalan web text is likely to have contributed to the Catalan
+in FineWeb-2, and 82\% of our 2020--2023 sample is in it. The Catalan edition is proportionally
+the most exposed: \emph{La Vanguardia} supplies about one document in a thousand in FineWeb-2's Catalan part, about
+1.5 times its share in Spanish. A newspaper this prominent in Catalan web text is likely to have contributed to the Catalan
 abilities of any model trained on such corpora. Less exposed are articles from 2024 onwards, which are rare in these
 datasets, and from 17~March~2026, after the opt-out. Paywalled and print-only pieces were never in public crawls.
 Quotations inside articles (statements, rulings) circulate in many outlets, so reproducing them proves nothing about

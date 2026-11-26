@@ -427,3 +427,15 @@ replication (`./src/run_queue4.sh`, resumable); (3) retrieval tests on consumer 
 - Paper: new section "Training datasets and models at a glance" (tab:datasets, tab:models). Salamandra row is
   preliminary (quick calibrated AUC 0.571, all members vs controls; Apertus same measure 0.567); update when its m10 ends.
   Colab TeX: texlive + cm-super (vector fonts).
+
+### Session 8, evening: FineWeb-2 scan finished; positive control re-run
+- Spanish FineWeb-2 fully scanned (146/146): 310,502 LV docs (0.07%), 303,226 distinct URLs; crawls 2019–23 = 85%,
+  pub years 2017–21 = 61%. Overlap: members 567/695 (82%), mid2023 204/249, La Contra 95/212, controls 0/489.
+- Positive control re-run (`results/positive_control_apertus.json`): Apertus in-FW2 vs post-cutoff calibrated loss AUC
+  0.550 (p=0.003); Q→A 0/90 in-data, 1/76 controls. Salamandra (same split) 0.564, Gemma-2 0.582, Llama-3.1 0.539,
+  Mistral 0.536, Qwen2.5 0.527.
+- **Same-period in vs not-found is reversed on every model (AUC ≈0.40), including the 2018 reference**, and stays so
+  within year+section (`src/presence_selection_check.py` → reference 0.42; Apertus calibrated 0.44 p=0.01). FineWeb-2's
+  selection picks different text; "not found" ≠ "unseen". Rule added to CLAUDE.md. Paper (data, positive control,
+  avenues, tables) and technical report updated.
+- Llama replication rewrites running (~600/811 at 17:30 UTC); Salamandra Q→A paused at 610/878, resumes after.

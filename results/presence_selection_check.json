@@ -1,0 +1,43 @@
+{
+ "reference_gpt2es_auc": 0.417,
+ "models": {
+  "apertus8b": {
+   "raw_auc": 0.397,
+   "calibrated_auc": 0.436,
+   "pairs": 3228,
+   "p_one_sided": 0.01
+  },
+  "salamandra7b": {
+   "raw_auc": 0.402,
+   "calibrated_auc": 0.485,
+   "pairs": 3228,
+   "p_one_sided": 0.325
+  },
+  "gemma2_9b": {
+   "raw_auc": 0.404,
+   "calibrated_auc": 0.447,
+   "pairs": 3228,
+   "p_one_sided": 0.02
+  },
+  "llama31_8b": {
+   "raw_auc": 0.388,
+   "calibrated_auc": 0.463,
+   "pairs": 3228,
+   "p_one_sided": 0.095
+  },
+  "qwen25_7b": {
+   "raw_auc": 0.396,
+   "calibrated_auc": 0.447,
+   "pairs": 3228,
+   "p_one_sided": 0.045
+  },
+  "mistral7b_v03": {
+   "raw_auc": 0.378,
+   "calibrated_auc": 0.444,
+   "pairs": 3228,
+   "p_one_sided": 0.04
+  }
+ },
+ "n_in": 567,
+ "n_notfound": 128
+}

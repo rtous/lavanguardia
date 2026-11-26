@@ -164,8 +164,9 @@ time. A different legal act from training.
 \item \textbf{The articles were available for training.} Full article text of \texttt{lavanguardia.com} is in every
 Common Crawl snapshot we sampled from 2019 to March 2026, and none after the opt-out.
 \item \textbf{They survive into ready-made training datasets.} FineWeb-2, a widely used multilingual training dataset,
-contains about 18,000 \emph{La Vanguardia} pages in Catalan (about 1 in 1,000 documents, twice the share in Spanish)
-and an estimated 280,000 in Spanish. About 80\% of our 2020--2023 test articles are projected to be in it.
+contains about 18,000 \emph{La Vanguardia} pages in Catalan (about 1 in 1,000 documents, 1.5 times the share in Spanish)
+and about 310,000 in Spanish (full scan). 82\% of our 2020--2023 test articles and 45\% of the \emph{La Contra}
+interviews are in it; none of our post-cutoff controls are.
 \item \textbf{Opt-out chronology.} No AI crawler was mentioned in \texttt{robots.txt} until April 2024. From then
 until March 2026 only the film and book sections were excluded. Since 17 March 2026, the main AI training crawlers are
 blocked from the whole site. Answer-time agents are still not blocked.
@@ -303,17 +304,21 @@ without memorization.
 \paragraph{Positive control: what training on the articles looks like.} To read the negative results we need a
 model that \emph{certainly} learned from the newspaper. AI2's OLMo publishes its training data, but that data is
 filtered to English and contains almost none of our articles, so it cannot serve. We used \emph{Apertus-8B} (Swiss AI,
-2025), whose published training data is built on FineWeb-2, the dataset in which we located 288 of our 2020--2023
-articles and 55 \emph{La Contra} interviews. The result:
+2025), whose published training data is built on FineWeb-2, the dataset in which we located 567 of our 695 2020--2023
+articles and 95 of 212 \emph{La Contra} interviews. The result:
 \begin{itemize}
 \item \textbf{No knowledge of the articles' content.} Asked what an interviewee answered, Apertus recalled the
-specific fact for 0 of 63 interviews in its training data.
+specific fact for 0 of 90 interviews in its training data (and 1 of 76 controls).
 \item \textbf{Only a faint collection-level trace.} Articles in its training data look slightly more familiar to it
-than articles published after its training, after removing the time effect: right about 56\% of the time, against
-50\% for a coin. This is the same size as the traces in Llama-3.1, Qwen2.5 and Mistral (about 54\%) and smaller than
-Gemma-2's (59\%).
-\item Comparing articles of the same period inside and outside its data gave nothing, but that comparison is diluted:
-we scanned only half of FineWeb-2, so most ``outside'' articles are probably inside too.
+than articles published after its training, after removing the time effect: right about 55\% of the time, against
+50\% for a coin. On the same articles, the traces in Llama-3.1, Qwen2.5 and Mistral are 53--54\%, BSC's Salamandra
+56\% and Gemma-2 58\%.
+\item \textbf{``Not in FineWeb-2'' does not mean ``unseen''.} We hoped to compare articles of the same period inside
+and outside FineWeb-2. With the full scan, the 128 articles \emph{not} kept by FineWeb-2 look \emph{more} familiar
+to every model, including a 2018 model that saw neither group, even when only articles of the same year and section
+are compared. FineWeb-2's filters therefore kept a different kind of text (one possibility: its removal of
+duplicates drops articles whose text circulates elsewhere, so their copies are still seen). This split cannot serve
+as a control; same-period controls must be articles that were never online.
 \end{itemize}
 Two caveats: Apertus was trained with a technique that suppresses verbatim recall, so it says nothing about extraction
 tests; and its data filters may have removed some of our articles. Even so, the conclusion is clear. \textbf{A model
@@ -331,9 +336,9 @@ difference; add the wording check; run on several open-weight models, including 
 memorization grows with size. Needs the archive and a rented GPU for a few days (about \$100--300). This is the only
 route we see to a statistically sound statement of the form ``this model was trained on the archive''. It applies to
 open-weight models, or to commercial models through court-ordered expert access.
-\item \textbf{Positive control: done} (Section~\ref{sec:negatives}). It can be sharpened for free by finishing the
-FineWeb-2 scan (about 8 hours), which gives clean same-period ``in'' and ``out'' groups for Apertus and for any model
-trained on FineWeb-2.
+\item \textbf{Positive control: done} (Section~\ref{sec:negatives}), with the full FineWeb-2 scan. It also showed
+that presence in a public dataset cannot provide same-period ``out'' groups, which strengthens the case for the
+publisher's never-online articles.
 \item \textbf{Finish the pre-registered Llama replication: cheap, worth doing.} It is the cleanest wording-level
 design we have. About a day on the laptop or a few hours on a rented GPU (about \$10--30).
 \item \textbf{Answer-time retrieval on consumer products: worth funding.} ChatGPT search, Perplexity, Gemini with
@@ -363,8 +368,8 @@ Common Crawl & Public monthly crawl of the web, the main raw source of AI traini
 text in every snapshot we sampled 2019--March 2026; none after the opt-out & Most large models (directly or via the
 datasets below); BSC documents 20 snapshots\\
 FineWeb-2 (Hugging Face, 2024) & Multilingual dataset filtered from Common Crawl snapshots, distributed ready to use &
-\textbf{Yes, measured}: about 280,000 Spanish and 18,000 Catalan pages; about 80\% of our 2020--2023 test articles
-projected & Apertus (documented); other developers undisclosed\\
+\textbf{Yes, measured} (full scan): about 310,000 Spanish and 18,000 Catalan pages; 82\% of our 2020--2023 test
+articles & Apertus (documented); other developers undisclosed\\
 CATalog (BSC) & Catalan corpus, mainly Common Crawl-derived & Not checked; very likely for the Catalan edition &
 Salamandra, ALIA\\
 OLMo 2 data mix (AI2) & Published training data, filtered to English & \textbf{No, measured}: 0 of 42 articles & OLMo 2
@@ -377,7 +382,7 @@ Gemini, Claude, GPT\\
 \bottomrule
 \end{tabularx}
 \caption{Training datasets. ``Measured'' = established by us from the public files (Section~\ref{sec:data}); the
-FineWeb-2 Spanish figures are extrapolated from the scanned share.}\label{tab:datasets}
+FineWeb-2 figures come from a scan of the whole dataset.}\label{tab:datasets}
 \end{table}
 
 \begin{table}[h]\centering\footnotesize
@@ -387,9 +392,9 @@ Model (developer) & Open weights & Word probs. & Cost to test & Size tested & Tr
 our articles? / our result\\
 \midrule
 Apertus-8B (Swiss AI) & Yes & Yes & Free & 8B & FineWeb-2, documented (2024) & \textbf{Yes}, almost certainly (FineWeb-2).
-Positive control: no content recall, faint trace (AUC 0.56)\\
+Positive control: no content recall, faint trace (AUC 0.55)\\
 Salamandra-7B (BSC) & Yes & Yes & Free & 7B & 20 Common Crawl snapshots + CATalog, documented & Very likely, not proven.
-Preliminary: faint trace (AUC 0.57), as Apertus\\
+Preliminary: faint trace (AUC 0.56), as Apertus\\
 ALIA-40b (BSC) & Yes & Yes & GPU rental & --- & As Salamandra; full corpus not released & Very likely. Not tested
 (needs a large GPU)\\
 Gemma-2 (Google) & Yes & Yes & Free & 9B & Undisclosed web data ($\le$ mid-2024) & Unknown. Strongest trace (AUC 0.59);

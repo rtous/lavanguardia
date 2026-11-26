@@ -1,4 +1,4 @@
-# Experiment status (as of 2026-11-26, all jobs stopped)
+# Experiment status (updated 2026-11-26 evening, Colab session)
 
 Exploratory phase: the aim is to find viable avenues, not to finish every experiment. For each experiment: what was
 done, why it is incomplete (if it is), what that implies, and whether finishing it is worth it.
@@ -12,7 +12,7 @@ Legend for "worth finishing": **Yes** (cheap and informative), **Only if** (cond
 |---|---|---|---|---|
 | Common Crawl presence (`src/cc_fetch.py`) | Done | — | Full LV text is in every crawl 2019–Mar 2026 | — |
 | robots.txt history (`src/robots_history.py`) | Done | — | AI opt-out of news only from 2026-03-17 | — |
-| FineWeb-2 presence (`src/dataset_presence.py`) | Catalan 100%, Spanish 53% | Stopped for time (~8 h of downloading left) | ~80% of our members projected to be in FineWeb-2 | **Yes, now** (free, Colab): gives clean same-period in/out groups for the positive control and for any FineWeb-2-trained model |
+| FineWeb-2 presence (`src/dataset_presence.py`) | Done (Catalan + Spanish 100%, 2026-11-26, Colab) | — | 310,502 Spanish + 17,947 Catalan LV pages; 82% of our 2020–23 members, 45% of La Contra, 0 controls | — |
 | LV URL mentions in FineWeb-2 (`src/m10_url_mentions.py`) | 1 of 146 Spanish files | Enough for an estimate | ~20k written-out LV URLs, all on third-party pages | **No** |
 
 ## Extraction and recognition (black-box)
@@ -41,7 +41,8 @@ Legend for "worth finishing": **Yes** (cheap and informative), **Only if** (cond
 | M7 neighbour (rewrite) gap | Done (60+60) | — | No wording-specific signal on any model | — |
 | M8 Llama-3 vs 3.1 difference-in-differences | Done | — | p = 0.007 in the predicted direction, but knowledge of events can explain it | — |
 | M8 + neighbour gap (wording only) | First run done | — | Predicted direction, p ≈ 0.07 (not significant) | — |
-| Pre-registered replication of M8 + neighbour (`docs/prereg/`) | Stopped at 247/~810 rewrites, no scoring | Local compute time (two jobs sharing a laptop GPU) | No result yet; only 168 fresh mid-2023 articles were available | **Yes**: the cleanest wording-level design we have; ~1 day locally or a few hours on a rented GPU (~$10–30) |
+| Pre-registered replication of M8 + neighbour (`docs/prereg/`) | Running on Colab (`src/run_colab_queue4.sh`): deviations (MLX→transformers nf4, all rewrites regenerated) approved and committed before scoring | — | No result yet; NEW2 = 168 fresh mid-2023 articles | Running |
+| Salamandra-7B base (BSC; `src/run_colab_salamandra.sh`, int8 on T4) | Probabilities done; Q→A + URL number 610/878 (paused for the Llama replication, resumes after) | Slow int8 generation on T4 | Calibrated AUC in-FW2 vs post-cutoff 0.564 (p=0.0002), like Apertus | Running |
 | Larger open-weight models (70B+) | Not run | Do not fit on the laptop; disk nearly full | Memorization grows with size, so all our open-model nulls are on small models | **Yes, if** the collection-level route is pursued (rented GPU, ~$100–300) |
 | Dataset inference with same-period never-crawled controls | Not run | Needs the licensed archive | Would remove the time confound that limits M6/M8 | **Yes**: highest-value design once the archive arrives |
 
@@ -75,4 +76,5 @@ Legend for "worth finishing": **Yes** (cheap and informative), **Only if** (cond
 | Experiment | State | Implication |
 |---|---|---|
 | OLMo 2 (infini-gram lookup, `src/olmo_positive_control.py`) | Discarded after 42 articles | Its data is English-filtered: no LV articles, so unusable as positive control (usable as a known-negative) |
-| Apertus-8B base (`src/positive_control_apertus.py`, `results/positive_control_apertus.json`) | Done: probabilities on 1,143 + 253 articles, Q→A on 278 | A model trained (almost certainly, via FineWeb-2) on the articles shows no content recall (0/63) and only a faint calibrated collection-level trace (AUC 0.56 vs post-cutoff controls), the same size as Llama/Qwen/Mistral (0.54). Nulls are uninformative about training; faint traces are what training looks like. Caveats: Goldfish loss (no extraction test), FW2 membership assumed through Apertus's filters, same-period split diluted (scan 53%) |
+| Apertus-8B base, full FineWeb-2 scan (`src/positive_control_apertus.py`, `src/presence_selection_check.py`) | Re-run 2026-11-26: in-FW2 (563) vs post-cutoff, calibrated loss AUC 0.550 (p=0.003); Q→A 0/90. **Same-period in vs not-found is reversed on every model incl. the 2018 reference, also within year+section → FineWeb-2 membership is a selected split, not usable as an "unseen" control** | Strengthens the case for never-online archive articles as controls |
+| Apertus-8B base (first run, 53% scan; superseded) | Done: probabilities on 1,143 + 253 articles, Q→A on 278 | A model trained (almost certainly, via FineWeb-2) on the articles shows no content recall (0/63) and only a faint calibrated collection-level trace (AUC 0.56 vs post-cutoff controls), the same size as Llama/Qwen/Mistral (0.54). Nulls are uninformative about training; faint traces are what training looks like. Caveats: Goldfish loss (no extraction test), FW2 membership assumed through Apertus's filters, same-period split diluted (scan 53%) |
