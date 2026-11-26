@@ -2,6 +2,21 @@
 
 Read `CLAUDE.md`, `PROGRESS.md` and `docs/experiment_status.md` first. Everything below is resumable.
 
+## Quick resume (state at 2026-11-26 ~18:00 UTC)
+Pending, both resumable: (1) Llama 3 vs 3.1 neighbour replication (rewrites ~80% done, then scoring + DiD);
+(2) Salamandra-7B Q->A + URL number (610/878). Done: FineWeb-2 scan, positive control, Salamandra probabilities.
+One-time: in Colab's Secrets panel (key icon) add `HF_TOKEN` (Llama licence is granted to account rtous) and enable
+notebook access. Then run this single notebook cell on a GPU runtime (T4 is fine):
+```python
+from google.colab import drive, userdata; drive.mount('/content/drive')
+import os; os.environ['HF_TOKEN'] = userdata.get('HF_TOKEN')
+!rsync -rlt /content/drive/MyDrive/lavanguardia_work/colab_state/lavanguardia/ /content/lavanguardia/
+!cd /content/lavanguardia && pip install -q -r requirements.txt bitsandbytes
+!cd /content/lavanguardia && nohup ./src/run_colab_resume.sh > logs/colab_resume.log 2>&1 &
+```
+Progress: `!tail -3 /content/lavanguardia/logs/colab_resume.log /content/lavanguardia/logs/colab_queue4.log`.
+Model weights (~45 GB) re-download automatically. When "RESUME done" appears: analyse results (see PROGRESS.md "Next").
+
 ## Resume after a Colab disconnect (session state is mirrored to Drive)
 The whole working tree (code incl. uncommitted edits, `.git`, `data/`, `evidence/`, `logs/`, `results/`) is mirrored
 to `MyDrive/lavanguardia_work/colab_state/lavanguardia/` every 5 min by `src/colab_sync.sh loop`. To resume:

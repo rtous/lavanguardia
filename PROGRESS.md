@@ -439,3 +439,11 @@ replication (`./src/run_queue4.sh`, resumable); (3) retrieval tests on consumer 
   selection picks different text; "not found" ≠ "unseen". Rule added to CLAUDE.md. Paper (data, positive control,
   avenues, tables) and technical report updated.
 - Llama replication rewrites running (~600/811 at 17:30 UTC); Salamandra Q→A paused at 610/878, resumes after.
+- Paper: new section "Finding 1: the articles are in the public sources of AI training data" (tab:presence,
+  tab:overlap, fig:presence from `src/presence_by_year.py` + `paper/make_fig_presence.py`); datasets table moved there;
+  glance section now "Models at a glance".
+**State when the user left (~18:00 UTC):** replication rewrites ~80% (resumable), then scoring + DiD; Salamandra Q→A
+610/878 paused (resumable). Resume: one Colab cell in `docs/colab_handoff.md` ("Quick resume") → `src/run_colab_resume.sh`.
+**Next after resume:** write up the replication (primary test as pre-registered, report the 1 skipped article
+8191781), finish Salamandra (Q→A facts in/notfound/control, URL-number date error vs Apertus/Gemini), update the
+Salamandra row in tab:models, commit + push. Copy new `evidence/` lines from Drive to the Mac master log (append only).

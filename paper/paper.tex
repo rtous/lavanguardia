@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[margin=2.4cm]{geometry}
+\usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{amsmath}
@@ -161,12 +162,8 @@ time. A different legal act from training.
 %======================================================================
 \section{Data and provenance}\label{sec:data}
 \begin{itemize}
-\item \textbf{The articles were available for training.} Full article text of \texttt{lavanguardia.com} is in every
-Common Crawl snapshot we sampled from 2019 to March 2026, and none after the opt-out.
-\item \textbf{They survive into ready-made training datasets.} FineWeb-2, a widely used multilingual training dataset,
-contains about 18,000 \emph{La Vanguardia} pages in Catalan (about 1 in 1,000 documents, 1.5 times the share in Spanish)
-and about 310,000 in Spanish (full scan). 82\% of our 2020--2023 test articles and 45\% of the \emph{La Contra}
-interviews are in it; none of our post-cutoff controls are.
+\item \textbf{Presence in training data sources} is a result in itself and is reported in
+Section~\ref{sec:presence}.
 \item \textbf{Opt-out chronology.} No AI crawler was mentioned in \texttt{robots.txt} until April 2024. From then
 until March 2026 only the film and book sections were excluded. Since 17 March 2026, the main AI training crawlers are
 blocked from the whole site. Answer-time agents are still not blocked.
@@ -178,6 +175,105 @@ Common Crawl record and its hash, so anyone can retrieve identical bytes.
 \item \textbf{Chain of custody.} Every model query is logged with timestamp, exact model, full prompt, full response
 and a tamper-evident hash.
 \end{itemize}
+
+%======================================================================
+\section{Finding 1: the articles are in the public sources of AI training data}\label{sec:presence}
+Most AI developers train on text collected from the web. Two public collections matter here.
+\emph{Common Crawl} is a non-profit archive that captures billions of web pages every month and is the main raw
+source of AI training text. \emph{FineWeb-2} (Hugging Face, 2024) is a ready-to-use multilingual training dataset
+built from Common Crawl captures of 2013--2024: it keeps the main text of each page after language, quality and
+duplicate filters. Both are public, so anyone can check what they contain. We did so for \emph{La Vanguardia}
+(Table~\ref{tab:presence}); the method reads only the web address of each document, and every hit is listed with
+its dataset identifier.
+
+\begin{table}[h]\centering\footnotesize
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}X}
+\toprule
+Source & What we checked & \emph{La Vanguardia} content found\\
+\midrule
+Common Crawl & Index and stored page records of 10 monthly captures, 2019--2026 & Full article text in every capture
+up to March 2026 (including archive articles from 2001 on), and, through FineWeb-2, in captures from 2013 on.
+None in the first capture after the 17 March 2026 opt-out. All our test articles were retrieved from it, each
+with a hash of the exact stored record\\
+FineWeb-2, Spanish & All 146 files (441 million documents) & \textbf{310,502 pages} (303,226 distinct web addresses),
+0.07\% of all documents\\
+FineWeb-2, Catalan & All 5 files (17.1 million documents) & \textbf{17,947 pages}, 0.10\% of all documents (about one
+in a thousand; 1.5 times the Spanish share)\\
+OLMo 2 training data (AI2) & 42 articles, exact-text search & None (the data are filtered to English)\\
+\bottomrule
+\end{tabularx}
+\caption{Where \emph{La Vanguardia}'s pages are found (scans of November 2026; \texttt{src/cc\_fetch.py},
+\texttt{src/dataset\_presence.py}, \texttt{src/olmo\_positive\_control.py}).}\label{tab:presence}
+\end{table}
+
+\begin{table}[h]\centering\footnotesize
+\begin{tabular}{lrrr}
+\toprule
+Our test set & Articles & In FineWeb-2 & Share\\
+\midrule
+Articles of 2020--2023 (``members'') & 695 & 567 & 82\%\\
+Articles of April--November 2023 & 249 & 204 & 82\%\\
+\emph{La Contra} interviews, 2011--2023 & 212 & 95 & 45\%\\
+Articles of September 2025--March 2026 (``controls'') & 489 & 0 & 0\%\\
+\bottomrule
+\end{tabular}
+\caption{Our own test articles inside FineWeb-2, matched by article number (\texttt{src/presence\_overlap.py}). Each
+match has a FineWeb-2 document identifier that a third party can look up.}\label{tab:overlap}
+\end{table}
+
+\begin{figure}[h]\centering
+\includegraphics[width=\linewidth]{figures/fig_fineweb2_presence.pdf}
+\caption{\emph{La Vanguardia} pages in FineWeb-2 (Spanish part, 310,502 pages), by the year Common Crawl captured
+them (left) and by the year the article was published (right; 37,138 pages without a date in their address, such as
+section fronts, are omitted). Source: \texttt{src/presence\_by\_year.py}, \texttt{paper/make\_fig\_presence.py}.}
+\label{fig:presence}
+\end{figure}
+
+\paragraph{What is in it.} Most pages were captured between 2019 and 2023 (85\%), and most were published between
+2017 and 2021 (61\%; Figure~\ref{fig:presence}). The most frequent sections are local news, politics, \emph{Vida}
+(society), sport and economy. The Catalan edition is proportionally the most present.
+
+\paragraph{What this shows.}
+\begin{itemize}
+\item The newspaper's full article text was \textbf{copied into the main public source of AI training data for
+years}, and from there into at least one \textbf{ready-made training dataset} that is distributed publicly and
+documented as training data for AI models (for example Apertus, Section~\ref{sec:negatives}). For four out of five
+of our 2020--2023 articles, the exact copy can be pointed to.
+\item No machine-readable opt-out covered the news articles before 17 March 2026; the crawler stopped collecting
+them after it.
+\end{itemize}
+\paragraph{What it does not show.} It does not show that a given commercial model was trained on these copies:
+developers of commercial models do not publish their training data. Nor does absence prove anything: an article
+missing from FineWeb-2 may have been dropped by its filters while copies of its text survive elsewhere
+(Section~\ref{sec:negatives}). Legally, this finding establishes \emph{availability and copying into training
+datasets}; whether that copying was covered by the text and data mining exception is a separate question
+(Section~\ref{sec:legal}).
+
+\begin{table}[h]\centering\footnotesize
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.0cm}}
+\toprule
+Dataset & What it is & \emph{La Vanguardia} in it? & Used to train\\
+\midrule
+Common Crawl & Public monthly crawl of the web, the main raw source of AI training text & \textbf{Yes, measured}: full article
+text in every snapshot we sampled 2019--March 2026; none after the opt-out & Most large models (directly or via the
+datasets below); BSC documents 20 snapshots\\
+FineWeb-2 (Hugging Face, 2024) & Multilingual dataset filtered from Common Crawl snapshots, distributed ready to use &
+\textbf{Yes, measured} (full scan): about 310,000 Spanish and 18,000 Catalan pages; 82\% of our 2020--2023 test
+articles & Apertus (documented); other developers undisclosed\\
+CATalog (BSC) & Catalan corpus, mainly Common Crawl-derived & Not checked; very likely for the Catalan edition &
+Salamandra, ALIA\\
+OLMo 2 data mix (AI2) & Published training data, filtered to English & \textbf{No, measured}: 0 of 42 articles & OLMo 2
+(usable only as a known negative)\\
+OSCAR 2019 & Common Crawl of November 2018 & Cannot contain our test articles (2020 on) & GPT-2-spanish (our time
+reference)\\
+CC100-XL (Meta) & Common Crawl up to 2020 & Cannot contain articles after 2020 & XGLM-2.9B (second time reference)\\
+Undisclosed corpora & ``Publicly available web data'' without a list of sources & Unknown & Llama, Gemma, Qwen, Mistral,
+Gemini, Claude, GPT\\
+\bottomrule
+\end{tabularx}
+\caption{Training datasets: what each is and who uses it. ``Measured'' = established by us from the public files
+(Table~\ref{tab:presence}).}\label{tab:datasets}
+\end{table}
 
 %======================================================================
 \section{What we tested and what we found}\label{sec:results}
@@ -266,9 +362,10 @@ reference model, can manufacture significance.
 Ordered from strongest to weakest. None meets the standard of proof that a model was trained on \emph{La Vanguardia}'s
 text.
 \begin{enumerate}
-\item \textbf{Availability (solid fact).} The articles were in Common Crawl and in public training datasets, without a
-machine-readable opt-out, until March 2026. This proves opportunity, not use, and before 2026 the use may have been
-lawful.
+\item \textbf{Availability and copying into training datasets (solid fact; Section~\ref{sec:presence}).} The
+articles were in Common Crawl for years and are in FineWeb-2 (about 330,000 pages, 82\% of our 2020--2023 sample),
+without a machine-readable opt-out until March 2026. This proves opportunity and the existence of training copies,
+not use by a particular commercial model, and before 2026 the copying may have been lawful.
 \item \textbf{Llama-3.1 (weak).} Articles that only the newer Llama could have seen became more familiar to it, in
 the pattern training predicts, with time effects cancelled. Knowledge of events can explain it; the wording-only
 version is suggestive but not significant.
@@ -355,35 +452,9 @@ it, compared with other newspapers?) is designed and could be run at no cost if 
 \end{itemize}
 
 %======================================================================
-\section{Training datasets and models at a glance}\label{sec:glance}
-Table~\ref{tab:datasets} lists the public web datasets relevant to the newspaper and what we established about each;
-Table~\ref{tab:models} lists the models, what can be measured on each, and whether we know that it saw our articles.
-
-\begin{table}[h]\centering\footnotesize
-\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.0cm}}
-\toprule
-Dataset & What it is & \emph{La Vanguardia} in it? & Used to train\\
-\midrule
-Common Crawl & Public monthly crawl of the web, the main raw source of AI training text & \textbf{Yes, measured}: full article
-text in every snapshot we sampled 2019--March 2026; none after the opt-out & Most large models (directly or via the
-datasets below); BSC documents 20 snapshots\\
-FineWeb-2 (Hugging Face, 2024) & Multilingual dataset filtered from Common Crawl snapshots, distributed ready to use &
-\textbf{Yes, measured} (full scan): about 310,000 Spanish and 18,000 Catalan pages; 82\% of our 2020--2023 test
-articles & Apertus (documented); other developers undisclosed\\
-CATalog (BSC) & Catalan corpus, mainly Common Crawl-derived & Not checked; very likely for the Catalan edition &
-Salamandra, ALIA\\
-OLMo 2 data mix (AI2) & Published training data, filtered to English & \textbf{No, measured}: 0 of 42 articles & OLMo 2
-(usable only as a known negative)\\
-OSCAR 2019 & Common Crawl of November 2018 & Cannot contain our test articles (2020 on) & GPT-2-spanish (our time
-reference)\\
-CC100-XL (Meta) & Common Crawl up to 2020 & Cannot contain articles after 2020 & XGLM-2.9B (second time reference)\\
-Undisclosed corpora & ``Publicly available web data'' without a list of sources & Unknown & Llama, Gemma, Qwen, Mistral,
-Gemini, Claude, GPT\\
-\bottomrule
-\end{tabularx}
-\caption{Training datasets. ``Measured'' = established by us from the public files (Section~\ref{sec:data}); the
-FineWeb-2 figures come from a scan of the whole dataset.}\label{tab:datasets}
-\end{table}
+\section{Models at a glance}\label{sec:glance}
+Table~\ref{tab:models} lists the models, what can be measured on each, and whether we know that it saw our articles
+(for the training datasets, see Table~\ref{tab:datasets} in Section~\ref{sec:presence}).
 
 \begin{table}[h]\centering\footnotesize
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{2.35cm}>{\raggedright\arraybackslash}p{1.05cm}>{\raggedright\arraybackslash}p{1.25cm}>{\raggedright\arraybackslash}p{1.25cm}>{\raggedright\arraybackslash}p{1.2cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
