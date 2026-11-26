@@ -477,3 +477,6 @@ Salamandra row in tab:models, commit + push. Copy new `evidence/` lines from Dri
 - [ ] Copy new `evidence/` lines from Drive (`colab_state/lavanguardia/evidence/`) to the Mac master log (append only).
 - [ ] Remaining avenues (docs/experiment_status.md): collection test with the publisher's never-online archive;
       ALIA-40b needs an A100 or rented GPU; retrieval tests on consumer assistants with a counsel protocol; copyright traps.
+- Paper, Legal context: new paragraph "Can the newspaper claim for training done before its opt-out?" (not
+  retroactive; remaining routes: post-opt-out training on old copies / Art. 4(2) retention, GEMA memorization, unlawful
+  copies + answer-time use; evidential consequence: post-17-Mar-2026 wording knowledge would date the copying).
