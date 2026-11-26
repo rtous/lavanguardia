@@ -400,3 +400,4 @@ replication (`./src/run_queue4.sh`, resumable); (3) retrieval tests on consumer 
   BSC found (only Jot Down 2025 criticism over Dialnet, CEDRO complaints) — waiting for the user's source.
 - Colab: `probe.ask_hf` (model id `hf:<repo>`), `m5_hf.py` on CUDA/bf16, requirements skip mlx on Linux.
   Handoff: `docs/colab_handoff.md` (data/ must be copied via Drive; repo is PUBLIC).
+- Off-repo files (data, evidence backup, logs, FineWeb-2 hit lists, MANIFEST with SHA-256) uploaded by the user to Google Drive (ruben.tous.2@gmail.com) lavanguardia_work/data/. Colab instructions in docs/colab_handoff.md.

@@ -7,9 +7,19 @@ Read `CLAUDE.md`, `PROGRESS.md` and `docs/experiment_status.md` first. Everythin
 git clone https://github.com/rtous/lavanguardia.git && cd lavanguardia
 pip install -r requirements.txt          # mlx-lm is skipped on Linux
 ```
-- **Data is not in git** (`data/` is gitignored, ~20 MB: Common Crawl article texts + M10 items). Copy it from the Mac
-  (e.g. zip `data/` to Google Drive, then unzip into the repo). Needed: `data/cc/*.jsonl`, `data/m10/items.jsonl`,
-  `data/decop/` (for the replication).
+- **Data is not in git.** It is on Google Drive (account ruben.tous.2@gmail.com), folder `lavanguardia_work/data/`:
+  `data_20261126.zip` (unzip into the repo root: `data/cc`, `data/m10`, `data/decop`), `evidence_backup_20261126.zip`
+  (read-only backup), `extras_20261126.zip` (logs + FineWeb-2 hit lists, unzip into the repo root) and `MANIFEST.txt`
+  (source commit and SHA-256 of every file). In Colab:
+  ```python
+  from google.colab import drive; drive.mount('/content/drive')
+  ```
+  ```bash
+  W=/content/drive/MyDrive/lavanguardia_work/data
+  (cd $W && grep '\.zip$' MANIFEST.txt | head -3 | sha256sum -c)   # check the zips against the manifest
+  unzip -q $W/data_20261126.zip && unzip -q $W/extras_20261126.zip
+  ```
+  API keys: use Colab's Secrets panel (e.g. `GEMINI_API_KEY`, `HF_TOKEN`), not a `.env` on Drive.
 - **Evidence logs** (`evidence/`, ~35 MB, append-only) stay on the Mac as the master copy. On Colab new calls are
   appended to a fresh `evidence/`; copy those files back and append them to the master. Never edit existing lines.
 - Gated models (Llama) need a Hugging Face token and accepted licence: `huggingface-cli login`.
