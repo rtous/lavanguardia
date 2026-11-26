@@ -165,6 +165,46 @@ def ask_hf(experiment, model, user, system=None, max_tokens=1024, meta=None, raw
     return text, rec
 
 
+def ask_hf_samples(experiment, model, user, system=None, max_tokens=256, meta=None, n=10, temperature=0.8,
+                   top_p=0.95, seed=0):
+    """Best-of-N attempts on a local transformers chat model ("hf:<repo>"): 1 greedy output + (n-1) samples
+    (temperature/top_p, torch seed fixed per call so the run is reproducible). ONE evidence record holds all n
+    outputs, so every attempt (not only the best) is logged. Returns (list of texts, record)."""
+    import sys
+    import torch
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+    from hf_load import load
+    repo = model[3:]
+    if repo not in _hf:
+        _hf.clear()
+        m, tok, info = load(repo)
+        _hf[repo] = (m, tok, info["revision"], info["precision"])
+    m, tok, rev, prec = _hf[repo]
+    msgs = [{"role": "user", "content": user}] if isinstance(user, str) else list(user)
+    if system:
+        msgs = [{"role": "system", "content": system}] + msgs
+    prompt = tok.apply_chat_template(msgs, add_generation_prompt=True, tokenize=False)
+    enc = tok(prompt, return_tensors="pt", add_special_tokens=False).to(m.device)
+    L = enc["input_ids"].shape[1]
+    t0 = time.time()
+    with torch.no_grad():
+        g = m.generate(**enc, max_new_tokens=max_tokens, do_sample=False, pad_token_id=tok.eos_token_id)
+        texts = [tok.decode(g[0, L:], skip_special_tokens=True)]
+        if n > 1:
+            torch.manual_seed(seed)
+            s = m.generate(**enc, max_new_tokens=max_tokens, do_sample=True, temperature=temperature, top_p=top_p,
+                           num_return_sequences=n - 1, pad_token_id=tok.eos_token_id)
+            texts += [tok.decode(x[L:], skip_special_tokens=True) for x in s]
+    params = {"model": repo, "revision": rev, "system": system, "user": user, "prompt": prompt, "max_tokens": max_tokens,
+              "decoding": f"1 greedy + {n - 1} samples (temperature {temperature}, top_p {top_p}, torch seed {seed})",
+              "backend": "transformers", "precision": prec}
+    rec = {"ts_utc": dt.datetime.now(dt.timezone.utc).isoformat(), "provider": "hf-transformers", "model_requested": model,
+           "model_reported": f"{repo}@{rev}", "request_id": None, "stop_reason": "end", "latency_s": round(time.time() - t0, 2),
+           "meta": meta or {}, "request": params, "response": {"texts": texts}}
+    _log(experiment, rec)
+    return texts, rec
+
+
 def ask(experiment, model, user, system=None, max_tokens=1024, meta=None, tools=(), raw=False):
     """Text call. `user` is a string (single turn) or a list of {"role": "user"|"assistant", "content"} (multi-turn).
     Returns (text, record). `tools` only for Gemini; `raw` (plain completion) only for local models."""
