@@ -350,6 +350,70 @@ it, compared with other newspapers?) is designed and could be run at no cost if 
 \end{itemize}
 
 %======================================================================
+\section{Training datasets and models at a glance}\label{sec:glance}
+Table~\ref{tab:datasets} lists the public web datasets relevant to the newspaper and what we established about each;
+Table~\ref{tab:models} lists the models, what can be measured on each, and whether we know that it saw our articles.
+
+\begin{table}[h]\centering\footnotesize
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.0cm}}
+\toprule
+Dataset & What it is & \emph{La Vanguardia} in it? & Used to train\\
+\midrule
+Common Crawl & Public monthly crawl of the web, the main raw source of AI training text & \textbf{Yes, measured}: full article
+text in every snapshot we sampled 2019--March 2026; none after the opt-out & Most large models (directly or via the
+datasets below); BSC documents 20 snapshots\\
+FineWeb-2 (Hugging Face, 2024) & Multilingual dataset filtered from Common Crawl snapshots, distributed ready to use &
+\textbf{Yes, measured}: about 280,000 Spanish and 18,000 Catalan pages; about 80\% of our 2020--2023 test articles
+projected & Apertus (documented); other developers undisclosed\\
+CATalog (BSC) & Catalan corpus, mainly Common Crawl-derived & Not checked; very likely for the Catalan edition &
+Salamandra, ALIA\\
+OLMo 2 data mix (AI2) & Published training data, filtered to English & \textbf{No, measured}: 0 of 42 articles & OLMo 2
+(usable only as a known negative)\\
+OSCAR 2019 & Common Crawl of November 2018 & Cannot contain our test articles (2020 on) & GPT-2-spanish (our time
+reference)\\
+CC100-XL (Meta) & Common Crawl up to 2020 & Cannot contain articles after 2020 & XGLM-2.9B (second time reference)\\
+Undisclosed corpora & ``Publicly available web data'' without a list of sources & Unknown & Llama, Gemma, Qwen, Mistral,
+Gemini, Claude, GPT\\
+\bottomrule
+\end{tabularx}
+\caption{Training datasets. ``Measured'' = established by us from the public files (Section~\ref{sec:data}); the
+FineWeb-2 Spanish figures are extrapolated from the scanned share.}\label{tab:datasets}
+\end{table}
+
+\begin{table}[h]\centering\footnotesize
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{2.35cm}>{\raggedright\arraybackslash}p{1.05cm}>{\raggedright\arraybackslash}p{1.25cm}>{\raggedright\arraybackslash}p{1.25cm}>{\raggedright\arraybackslash}p{1.2cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
+\toprule
+Model (developer) & Open weights & Word probs. & Cost to test & Size tested & Training data (cutoff) & Trained on
+our articles? / our result\\
+\midrule
+Apertus-8B (Swiss AI) & Yes & Yes & Free & 8B & FineWeb-2, documented (2024) & \textbf{Yes}, almost certainly (FineWeb-2).
+Positive control: no content recall, faint trace (AUC 0.56)\\
+Salamandra-7B (BSC) & Yes & Yes & Free & 7B & 20 Common Crawl snapshots + CATalog, documented & Very likely, not proven.
+Preliminary: faint trace (AUC 0.57), as Apertus\\
+ALIA-40b (BSC) & Yes & Yes & GPU rental & --- & As Salamandra; full corpus not released & Very likely. Not tested
+(needs a large GPU)\\
+Gemma-2 (Google) & Yes & Yes & Free & 9B & Undisclosed web data ($\le$ mid-2024) & Unknown. Strongest trace (AUC 0.59);
+explained by events\\
+Llama-3 / 3.1 (Meta) & Yes (licence) & Yes & Free & 8B & Undisclosed (Mar / Dec 2023) & Unknown. Faint trace; 3.1 vs
+3 in the predicted direction; replication pending\\
+Qwen2.5 (Alibaba) & Yes & Yes & Free & 7B & Undisclosed ($\le$ 2024) & Unknown. Faint trace (AUC 0.54)\\
+Mistral-7B v0.3 & Yes & Yes & Free & 7B & Undisclosed ($\le$ 2024) & Unknown. Faint trace (about 0.54)\\
+OLMo 2 (AI2) & Yes & Yes & Free & --- & Published, English-filtered & \textbf{No} (0/42). Known negative\\
+Gemini 3.x (Google) & No & No & Free tier, 20--500 queries/day & ? & Undisclosed (Jan 2025 knowledge) &
+Unknown. No reproduction; knows the article numbers (third-party links)\\
+Claude 4.5 / 5.5 (Anthropic) & No & No & Paid API & ? & Undisclosed (Jul--Aug 2025; Jun 2026) & Unknown. No
+reproduction, even of \emph{La Contra}\\
+GPT / ChatGPT (OpenAI) & No (except gpt-oss) & No (shut 28 Sep 2026) & Paid API & ? & Undisclosed & Unknown.
+Not tested\\
+Large open models (70B+) & Yes & Yes & GPU rental & --- & Undisclosed & Unknown. Not tested\\
+\bottomrule
+\end{tabularx}
+\caption{Models. AUC = how often an article the model could have seen looks more familiar to it than one published after
+its training, after removing the time effect (0.5 = coin toss). ``Word probs. = the model returns the probability of each word of a text we supply. ``Free = runs on our own or Colab hardware. ? = undisclosed. Commercial
+models can be tested at collection level only through court-ordered access (Section~\ref{sec:whichmodels}).}\label{tab:models}
+\end{table}
+
+%======================================================================
 \section{Which models can be tested at collection level, and until when}\label{sec:whichmodels}
 The collection-level test (dataset inference, Section~\ref{sec:methods}) needs the probability the model assigns to
 each word of a text \emph{we supply}. That limits it to the following models (status November 2026).

@@ -418,4 +418,12 @@ replication (`./src/run_queue4.sh`, resumable); (3) retrieval tests on consumer 
 - [ ] When the scan finishes: re-read `results/positive_control_apertus.json` (same-period in/out split now clean).
 - [ ] Analyse Salamandra: calibrate with GPT-2-es as in M5/M6, compare with Apertus positive control; url_id date error.
 - [ ] Remove the redundant Drive copy loop from `run_colab_fw2.sh` once it has finished (colab_sync.sh covers it).
-- [ ] Decide on an A100 runtime for ALIA-40b and the pre-registered Llama replication (port MLX scripts first).
+- [ ] Decide on an A100 runtime for ALIA-40b.
+- **Ported to transformers** (CPU smoke-tested): `local_paraphrase.py` (`--model hf:<repo>`, 3 rewrites per round,
+  per-article torch seed, backend/precision/commit per row) and `m5_neighbour.py` (`--model hf:<repo>`, same scoring
+  function as MLX). Queue: `src/run_colab_queue4.sh` (nf4 4-bit; rewrites to a NEW file `paraphrases_mid2023_rep_hf.jsonl`,
+  NEW2 frozen at 168). **Deviation note drafted in `docs/prereg/did_neighbour_replication.md`, awaiting user approval;
+  commit it before any scoring.** Needs HF_TOKEN (Llama licences) in Colab Secrets.
+- Paper: new section "Training datasets and models at a glance" (tab:datasets, tab:models). Salamandra row is
+  preliminary (quick calibrated AUC 0.571, all members vs controls; Apertus same measure 0.567); update when its m10 ends.
+  Colab TeX: texlive + cm-super (vector fonts).
