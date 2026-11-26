@@ -347,7 +347,12 @@ can be run on our own hardware or a rented GPU:
 \item \emph{Google} Gemma 2, 3 and 4 (open relatives of Gemini);
 \item \emph{Mistral AI} open models such as Mistral 7B, Mixtral, Mistral Small and Nemo (related to Le Chat);
 \item \emph{Alibaba} Qwen 2.5 and 3; \emph{DeepSeek} V3 and R1 (behind the DeepSeek app);
-\item \emph{OpenAI} gpt-oss (2025), its only open-weight family; \emph{Microsoft} Phi.
+\item \emph{OpenAI} gpt-oss (2025), its only open-weight family; \emph{Microsoft} Phi;
+\item \emph{Barcelona Supercomputing Center} Salamandra (2, 7 and 40 billion parameters) and ALIA-40b, the
+publicly funded Spanish and Catalan models (Apache 2.0). They are especially relevant: their pretraining includes 20
+Common Crawl snapshots, and their Catalan corpus (CATalog) is mainly built on Common Crawl-derived data. The
+newspaper is not named among their documented sources and ALIA's full corpus is not released, but its pages,
+particularly the Catalan edition, are very likely included through Common Crawl. Not yet tested.
 \end{itemize}
 Small versions (7--9 billion parameters) run on a laptop; this study used four of them. The large versions (70 to
 several hundred billion parameters), which memorize more, need a rented GPU for a few days, or a hosted service that
