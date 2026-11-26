@@ -134,22 +134,16 @@ _hf = {}
 def ask_hf(experiment, model, user, system=None, max_tokens=1024, meta=None, raw=False):
     """Open-weight model with Hugging Face transformers on a CUDA GPU (e.g. Google Colab). model = "hf:<repo id>".
     Greedy decoding (deterministic). The weights' commit hash is logged, as in ask_local. 1 worker."""
+    import sys
     import torch
-    from huggingface_hub import HfApi
-    from transformers import AutoModelForCausalLM, AutoTokenizer
+    sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # python -I drops the script dir
+    from hf_load import load
     repo = model[3:]
     if repo not in _hf:
         _hf.clear()
-        tok = AutoTokenizer.from_pretrained(repo)
-        dev = "cuda" if torch.cuda.is_available() else "cpu"
-        m = AutoModelForCausalLM.from_pretrained(repo, torch_dtype=torch.bfloat16 if dev == "cuda" else torch.float32)
-        m = m.to(dev).eval()
-        try:
-            rev = HfApi().model_info(repo).sha
-        except Exception:
-            rev = "unknown"
-        _hf[repo] = (m, tok, rev)
-    m, tok, rev = _hf[repo]
+        m, tok, info = load(repo)  # precision from env HF_PRECISION (auto|bf16|fp16|int8|int4)
+        _hf[repo] = (m, tok, info["revision"], info["precision"])
+    m, tok, rev, prec = _hf[repo]
     if raw or not getattr(tok, "chat_template", None):
         prompt = user if isinstance(user, str) else "\n".join(x["content"] for x in user)
     else:
@@ -163,7 +157,7 @@ def ask_hf(experiment, model, user, system=None, max_tokens=1024, meta=None, raw
         out = m.generate(**enc, max_new_tokens=max_tokens, do_sample=False, pad_token_id=tok.eos_token_id)
     text = tok.decode(out[0, enc["input_ids"].shape[1]:], skip_special_tokens=True)
     params = {"model": repo, "revision": rev, "raw": raw, "system": system, "user": user, "prompt": prompt,
-              "max_tokens": max_tokens, "decoding": "greedy", "backend": "transformers"}
+              "max_tokens": max_tokens, "decoding": "greedy", "backend": "transformers", "precision": prec}
     rec = {"ts_utc": dt.datetime.now(dt.timezone.utc).isoformat(), "provider": "hf-transformers", "model_requested": model,
            "model_reported": f"{repo}@{rev}", "request_id": None, "stop_reason": "end", "latency_s": round(time.time() - t0, 2),
            "meta": meta or {}, "request": params, "response": {"text": text}}

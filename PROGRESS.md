@@ -401,3 +401,21 @@ replication (`./src/run_queue4.sh`, resumable); (3) retrieval tests on consumer 
 - Colab: `probe.ask_hf` (model id `hf:<repo>`), `m5_hf.py` on CUDA/bf16, requirements skip mlx on Linux.
   Handoff: `docs/colab_handoff.md` (data/ must be copied via Drive; repo is PUBLIC).
 - Off-repo files (data, evidence backup, logs, FineWeb-2 hit lists, MANIFEST with SHA-256) uploaded by the user to Google Drive (ruben.tous.2@gmail.com) lavanguardia_work/data/. Colab instructions in docs/colab_handoff.md.
+
+## 2026-11-26 — Session 8: resume on Google Colab (T4)
+- Data from Drive (`lavanguardia_work/data/`) verified against MANIFEST (3 zips OK) and unzipped. FineWeb-2 scan resume
+  state consistent (78/146 Spanish shards done, no orphan hits).
+- **Colab volatility:** `src/colab_sync.sh` mirrors the whole working tree to `MyDrive/lavanguardia_work/colab_state/`
+  every 5 min (rsync, atomic per file, no deletes). Resume procedure at top of `docs/colab_handoff.md`.
+- **GPU is a T4 (15 GB, no native bf16)**: new `src/hf_load.py` (precision auto|bf16|fp16|int8|int4, recorded in every
+  row with the weights commit); `m5_hf.py` (`--precision`) and `probe.ask_hf` (env `HF_PRECISION`) use it.
+  ALIA-40b / 70B models do not fit a T4 → need an A100 runtime or rented GPU.
+- Running (sequential, resumable): `src/run_colab_fw2.sh` (finish FW2 Spanish scan → presence_overlap →
+  positive_control_apertus; log `logs/colab_fw2.log`; network-only) and `src/run_colab_salamandra.sh`
+  (Salamandra-7B base int8: m5 random + La Contra, m10 qa + url_id n=300; log `logs/colab_salamandra.log`).
+  Only one GPU job; the scan uses no GPU.
+**Next**
+- [ ] When the scan finishes: re-read `results/positive_control_apertus.json` (same-period in/out split now clean).
+- [ ] Analyse Salamandra: calibrate with GPT-2-es as in M5/M6, compare with Apertus positive control; url_id date error.
+- [ ] Remove the redundant Drive copy loop from `run_colab_fw2.sh` once it has finished (colab_sync.sh covers it).
+- [ ] Decide on an A100 runtime for ALIA-40b and the pre-registered Llama replication (port MLX scripts first).

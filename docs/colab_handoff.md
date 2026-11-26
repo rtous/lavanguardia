@@ -2,7 +2,21 @@
 
 Read `CLAUDE.md`, `PROGRESS.md` and `docs/experiment_status.md` first. Everything below is resumable.
 
-## Setup
+## Resume after a Colab disconnect (session state is mirrored to Drive)
+The whole working tree (code incl. uncommitted edits, `.git`, `data/`, `evidence/`, `logs/`, `results/`) is mirrored
+to `MyDrive/lavanguardia_work/colab_state/lavanguardia/` every 5 min by `src/colab_sync.sh loop`. To resume:
+```python
+from google.colab import drive; drive.mount('/content/drive')
+```
+```bash
+rsync -rlt /content/drive/MyDrive/lavanguardia_work/colab_state/lavanguardia/ /content/lavanguardia/
+cd /content/lavanguardia && pip install -q -r requirements.txt bitsandbytes
+nohup ./src/colab_sync.sh loop 300 > logs/colab_sync.log 2>&1 &     # restart the mirror first
+tail logs/colab_*.log                                                # see which job was running, then rerun it
+```
+All `run_colab_*.sh` jobs are resumable: rerun the same script. Model weights are not mirrored (re-download from HF).
+
+## Setup (first time only; superseded by the resume block above once colab_state/ exists)
 ```bash
 git clone https://github.com/rtous/lavanguardia.git && cd lavanguardia
 pip install -r requirements.txt          # mlx-lm is skipped on Linux
@@ -24,6 +38,11 @@ pip install -r requirements.txt          # mlx-lm is skipped on Linux
   appended to a fresh `evidence/`; copy those files back and append them to the master. Never edit existing lines.
 - Gated models (Llama) need a Hugging Face token and accepted licence: `huggingface-cli login`.
 - `.env` (API keys) is not needed for open-weight work.
+
+## GPU precision (Colab T4 = 15 GB, no native bf16)
+`src/hf_load.py` (used by `m5_hf.py` and `probe.ask_hf`): `--precision` or env `HF_PRECISION` = auto|bf16|fp16|int8|int4.
+auto = bf16 on A100/L4, fp16 on T4. 7-8B models need int8 on a T4. Precision + weights commit are written to every
+result row / evidence record. Check on GPT-2-es (2 articles): int8 within ~0.005 nats of fp16, int4 within ~0.05.
 
 ## What runs on a CUDA GPU
 | Script | Colab? | How |

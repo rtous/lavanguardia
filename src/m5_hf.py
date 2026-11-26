@@ -5,14 +5,17 @@ signal; any member/control gap it shows is distribution shift (topics, vocabular
 from the target model's gap. Default: flax-community/gpt-2-spanish (OSCAR 2019 = Common Crawl Nov 2018).
 
 Same metrics/output format as m5_logprob.py.
+Precision: --precision / HF_PRECISION (see src/hf_load.py); e.g. --precision int8 for a 7-8B model on a T4.
 Usage: python -I src/m5_hf.py --model flax-community/gpt-2-spanish --inputs data/cc/members.jsonl:member \
           data/cc/controls.jsonl:control --out results/m5_gpt2es.jsonl
 """
-import argparse, json, os, zlib
+import argparse, json, os, sys, zlib
 
 import numpy as np
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer
+
+sys.path.insert(0, os.path.dirname(__file__))  # python -I drops the script dir
+from hf_load import load  # noqa: E402
 
 
 @torch.no_grad()
@@ -42,12 +45,10 @@ def main():
     ap.add_argument("--inputs", nargs="+", required=True)
     ap.add_argument("--out", required=True)
     ap.add_argument("--max-tokens", type=int, default=384)
+    ap.add_argument("--precision", default=None, help="auto|bf16|fp16|int8|int4 (default env HF_PRECISION, else auto)")
     a = ap.parse_args()
-    dev = "cuda" if torch.cuda.is_available() else ("mps" if torch.backends.mps.is_available() else "cpu")
-    tok = AutoTokenizer.from_pretrained(a.model)
-    # bf16 on GPU so 7-9B models fit a Colab GPU; float32 elsewhere (small reference models)
-    dtype = torch.bfloat16 if dev == "cuda" else torch.float32
-    model = AutoModelForCausalLM.from_pretrained(a.model, torch_dtype=dtype).to(dev).eval()
+    model, tok, info = load(a.model, a.precision)  # precision + weights commit are written to every row
+    dev = model.device
     done = set()
     if os.path.exists(a.out):
         done = {(json.loads(l)["id"], json.loads(l)["set"]) for l in open(a.out)}
@@ -61,7 +62,7 @@ def main():
                 s = scores(model, tok, d["text"], a.max_tokens, dev)
                 if s:
                     f.write(json.dumps({"id": d["id"], "set": label, "pub_date": d["pub_date"], "section": d["section"],
-                                        "lang": d["lang"], "model": a.model, **s}) + "\n")
+                                        "lang": d["lang"], "model": a.model, **info, **s}) + "\n")
 
 
 if __name__ == "__main__":
