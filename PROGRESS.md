@@ -483,3 +483,16 @@ Salamandra row in tab:models, commit + push. Copy new `evidence/` lines from Dri
 - Paper, Legal context: added Like Company v. Google (CJEU C-250/25, AG opinion 3 Nov 2026: TDM covers training in
   principle; model stores no copy, contra GEMA; regurgitated outputs can be reproductions; answer-time reuse test) and a
   paragraph "Training and memorization are different legal situations". Also in docs/literature_review.md.
+
+## 2026-11-26 — Session 9b: M11 NYT-style extraction (adversarial upper bound), pre-registered
+- User question: did we try the NYT-case tricks? Answer: no. M1/M9 were neutral, one attempt each; role-play code
+  existed but was never run (credit/time). Rule was "label and report separately", not "exclude".
+- **Pre-registered** `docs/prereg/m11_nyt_style.md` (commit 6e3be81, before any member query): Freeman et al. role-play +
+  fake assistant turn, 110-word opening, best-of-10 (1 greedy + 9 samples T=0.8 top_p=0.95, seed = article ID), same for
+  controls. Sets: La Contra 60+60, random 40+40. Models in order: Salamandra-7B-Instruct, Llama-3.1-8B-Instruct,
+  Qwen2.5-7B-Instruct (nf4 on T4, ~84 s/article ≈ 4.7 h/model). Primary: best LCS outside quotes, MW one-sided,
+  α=0.05/3. `probe.ask_hf_samples` logs all 10 attempts in one evidence record (`evidence/m11_nyt_style/`).
+- Pilot: 1 control article on Qwen (timing), `evidence/m11_pilot/`, not analysed.
+- Running: `src/run_colab_m11.sh` → `logs/colab_m11.log` (resumable; rerun after a disconnect, HF_TOKEN needed).
+**Next:** when "M11 done" appears: `python -I src/m11_nyt_style.py summary` (already run at the end), inspect every member
+run ≥15 words side by side and check for copies elsewhere, write up as a labelled upper bound in the paper.

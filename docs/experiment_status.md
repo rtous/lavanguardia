@@ -22,7 +22,7 @@ Legend for "worth finishing": **Yes** (cheap and informative), **Only if** (cond
 | M1 verbatim continuation, random sample | Done: Opus/Sonnet 4.5, Gemini 3.1 Flash-Lite (60+60); Gemini 3 Flash 47 members, no controls | Gemini free quota (20/day); Anthropic credit exhausted | No reproduction anywhere (max 7–13 words, generic or quoted) | **No** |
 | M1 on La Contra | Haiku 4.5 (100), Sonnet 4.5 (65), Opus 4.5 (70), Sonnet/Opus 5.5 (100/99) | Anthropic credit exhausted | Even the most-reposted series is not reproduced | **No** |
 | M9 sentence-by-sentence (Su et al.) | Llama-3.1-8B base only (La Contra 100+41, random 31) | Local compute time; paid APIs declined | No sentence reproduced | **Only if** a triage signal flags a model, then on that model with a paid key (~$100/model at scale) |
-| M9 role-play (Freeman et al.) | Not run | Paid API needed | Adversarial upper bound only | **No** for now |
+| M9 role-play (Freeman et al.) | Superseded by **M11** (NYT-style: role-play + long opening + best-of-10, pre-registered `docs/prereg/m11_nyt_style.md`), running on Colab on Salamandra-7B-Instruct, Llama-3.1-8B-Instruct, Qwen2.5-7B-Instruct (`src/run_colab_m11.sh`) | — | Adversarial upper bound, reported separately | Running |
 | M2 DE-COP / M2b pairwise | Done (Claude 4.5 ×3, Gemini 3.1 Flash-Lite) | — | Invalid as evidence: models spot AI rewrites even on unseen text | **No** |
 
 ## Answer-time retrieval

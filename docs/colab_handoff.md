@@ -2,7 +2,12 @@
 
 Read `CLAUDE.md`, `PROGRESS.md` and `docs/experiment_status.md` first. Everything below is resumable.
 
-## Quick resume (state at 2026-11-26 ~18:00 UTC)
+## Quick resume (state at 2026-11-26 ~22:10 UTC)
+Running: **M11 NYT-style extraction** (`src/run_colab_m11.sh`, log `logs/colab_m11.log`, resumable).
+After restoring (cell below, but launch `nohup ./src/run_colab_m11.sh >> logs/colab_m11.log 2>&1 &` instead of
+run_colab_resume.sh, and start `./src/colab_sync.sh loop 300` too). Replication and Salamandra are DONE.
+
+## Previous quick resume (state at 2026-11-26 ~18:00 UTC; done)
 Pending, both resumable: (1) Llama 3 vs 3.1 neighbour replication (rewrites ~80% done, then scoring + DiD);
 (2) Salamandra-7B Q->A + URL number (610/878). Done: FineWeb-2 scan, positive control, Salamandra probabilities.
 One-time: in Colab's Secrets panel (key icon) add `HF_TOKEN` (Llama licence is granted to account rtous) and enable
