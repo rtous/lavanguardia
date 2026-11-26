@@ -47,7 +47,8 @@ exception), if the copier had \emph{lawful access} and the owner did not \emph{r
 \item \emph{La Vanguardia} opted its news articles out of AI crawlers only on \textbf{17 March 2026}. Before that,
 only its film and book sections were excluded.
 \item A Munich court ruled in November 2025 (\emph{GEMA v.\ OpenAI}) that a model that has \emph{memorized} a work
-contains a copy of it, and that the TDM exception does not cover this. The ruling is under appeal.
+contains a copy of it, and that the TDM exception does not cover this. The ruling is under appeal, and the
+Advocate General in \emph{Like Company} (EU Court of Justice, November 2026) disagreed on the stored copy.
 \item The current \texttt{robots.txt} blocks only crawlers that collect \emph{training} data. It does not block the
 agents that fetch pages \emph{at answer time} for AI assistants, nor Google's AI opt-out token.
 \item Therefore, for pre-2026 content, showing that articles were \emph{crawled} is weak. Showing that a model
@@ -112,6 +113,13 @@ fair use.
 the images.
 \item \emph{Kneschke v.\ LAION} (Hamburg). \textbf{The photographer lost}: research TDM exception; a plain-language
 clause was not ``machine-readable''.
+\item \emph{Like Company v.\ Google} (EU Court of Justice, C-250/25; Hungarian publisher vs Gemini).
+\textbf{Advocate General's opinion, 3 Nov.\ 2026; no judgment yet.} Training makes reproductions, but the TDM
+exception in principle covers it, subject to lawful access and the opt-out. The model does \emph{not} store the works
+it can recite (contrary to \emph{GEMA}), but a near-identical output can itself be a reproduction, case by case.
+A chatbot that fetches an article at answer time reproduces it if access was unlawful or if its answer reproduces the
+wording well enough to replace the article. The questions on training were held hypothetical: a model that can
+summarise an article does not show that it was trained on it.
 \end{itemize}
 The pattern: courts have been receptive when a model demonstrably \emph{reproduces} protected text, and skeptical when
 only training is shown and the model does not contain copies. In the US, how the copies were obtained has mattered.
@@ -153,6 +161,21 @@ In the US there is no opt-out mechanism; the question there is fair use. For the
 Memorization is worth more than proof of training alone, because the opt-out date no longer matters. And a model
 that knows the \emph{wording} of articles published after 17~March~2026 would place the copying after the
 reservation (copies on other sites remain a confound).
+
+\paragraph{Training and memorization are different legal situations.}
+\begin{itemize}
+\item \emph{Proof of training only.} The infringing act is the copying done to train: past and temporary,
+probably covered by the TDM exception before the opt-out, often done outside the EU (where EU law may not reach), and
+compensated at most by damages for the past copying.
+\item \emph{Proof of memorization (the model reproduces the wording).} Under \emph{GEMA}, the model itself contains a copy,
+the TDM exception does not apply and the opt-out date is irrelevant. The infringement lasts as long as the model is
+offered, it arises wherever that happens (Spain included), and it can justify an injunction. Under the Advocate
+General's view in \emph{Like Company}, the model holds no copy, but each output that reproduces the text is a
+reproduction, attributable to the provider. Either way, memorization moves the case from a dated, foreign act to a
+current one in the EU. In the US, memorization also weakens the fair-use defence.
+\item \emph{The threshold is original expression.} Facts, events and quoted statements are not protected; ordinary news
+is harder than song lyrics. Extraction must use neutral, pre-registered prompts.
+\end{itemize}
 
 %======================================================================
 \section{How training use can be detected}\label{sec:methods}
@@ -599,7 +622,8 @@ coding agent (Claude Code).
 \appendix
 \section*{Sources for the legal summary}
 \small
-GEMA v.\ OpenAI: LG M\"unchen~I, 42~O~14139/24 (11 Nov.\ 2025); summaries by CMS, Bird \& Bird, Taylor Wessing; MLex on
+Like Company v.\ Google Ireland, C-250/25, Opinion of AG Szpunar (3 Nov.\ 2026), points 46--47, 75, 89--90, 99,
+124, 240. GEMA v.\ OpenAI: LG M\"unchen~I, 42~O~14139/24 (11 Nov.\ 2025); summaries by CMS, Bird \& Bird, Taylor Wessing; MLex on
 the appeal. NYT v.\ Microsoft \& OpenAI: S.D.N.Y.\ No.~1:23-cv-11195, MDL~3143; OpenAI motion to dismiss (26 Feb.\
 2024) as reported by CNBC, Axios and Bloomberg Law; 2026 discovery and summary-judgment reports (Bloomberg Law, case
 trackers). Bartz v.\ Anthropic and Kadrey v.\ Meta: rulings of June 2025 and settlement approval of July 2026

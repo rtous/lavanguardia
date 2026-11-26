@@ -11,6 +11,7 @@
 | **Getty v. Stability AI** (UK High Court, 2025) | UK | Watermarks reproduced in outputs were used as evidence of training on Getty images. Analogue for us: unique "fingerprints" in articles. |
 | **Folha de S.Paulo v. OpenAI** (Brazil, 2025) | Brazil | A newspaper suit that reportedly ended in a licensing deal. |
 | **Prisa–OpenAI license** (2024) | Spain | Shows a market for licensing Spanish press content exists. Useful for damages and market harm. |
+| **Like Company v. Google Ireland**, CJEU C-250/25, **AG Szpunar opinion 3 Nov 2026** (no judgment yet) | EU | Training = reproduction but TDM exception in principle applies (pts 75, 99, 124: lawful access + opt-out). Model does **not** store memorised works (pt 90, contra GEMA); near-identical outputs may be reproductions, case by case (pt 89). Training questions inadmissible: summarising an article does not show training on it (pts 46-47). Answer-time chatbot reuse: reproduction if unlawful access or if wording recognisable enough to substitute the article; provider liable if inherent to business model or no diligent counter-measures (pt 240). Territorial reach over training outside the EU unclear (pts 60-73). |
 | **AMI v. Meta** (Madrid, €550M, 2023) | Spain | GDPR and unfair competition, **not AI**. Shows Spanish publishers litigate collectively. |
 
 Legal hook in the EU/Spain: Art. 4 DSM Directive / art. 67 TRLPI (Spain) TDM exception applies **unless the rightsholder

@@ -480,3 +480,6 @@ Salamandra row in tab:models, commit + push. Copy new `evidence/` lines from Dri
 - Paper, Legal context: new paragraph "Can the newspaper claim for training done before its opt-out?" (not
   retroactive; remaining routes: post-opt-out training on old copies / Art. 4(2) retention, GEMA memorization, unlawful
   copies + answer-time use; evidential consequence: post-17-Mar-2026 wording knowledge would date the copying).
+- Paper, Legal context: added Like Company v. Google (CJEU C-250/25, AG opinion 3 Nov 2026: TDM covers training in
+  principle; model stores no copy, contra GEMA; regurgitated outputs can be reproductions; answer-time reuse test) and a
+  paragraph "Training and memorization are different legal situations". Also in docs/literature_review.md.
