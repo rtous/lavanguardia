@@ -370,7 +370,7 @@ only on lavanguardia.com. Not evidence on its own (facts ≠ wording; copies exi
 - Outlet control (`src/m10_outlet_ids.py`, El Periódico/El Confidencial/El Español): stopped (CC index too slow);
   28 EP titles + 2,693 EP (date, ID) pairs collected in `data/m10/`.
 - **La Contra Q→A recall** (`build-qa`; 202 members, 76 controls incl. new `data/cc/lacontra_controls_more.jsonl`):
-  Gemini 3.5 Flash-Lite 15/202 vs 5/76 (no signal, hits guessable); Gemma-2 base ~2/150 vs 0/50. Other local models cancelled.
+  Gemini 3.5 Flash-Lite 15/202 vs 5/76 (no signal, hits guessable); Gemma-2 base 2/151 vs 0/51 (stopped at 202/278). Other local models cancelled.
 - Methodological rule added to CLAUDE.md: copies of LV text count as LV content; the confound is independent information.
 - Collection-fingerprint test (La Contra format, LV house style: "en el 20xx" 42%, Catalunya 98%) designed, not implemented.
 - **Paper simplified** (7 pages, premises + summaries, one overview table, "Evidence found so far", "Promising

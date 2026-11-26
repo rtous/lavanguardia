@@ -1916,7 +1916,7 @@
   "style": "raw",
   "table": {
    "ALL": {
-    "member": "16/401",
+    "member": "16/402",
     "control": "7/242",
     "rate_member": 0.04,
     "rate_control": 0.029,
@@ -1924,7 +1924,7 @@
     "dontknow_control": 0,
     "near_id_member": 0,
     "near_id_control": 0,
-    "p_fisher_member_gt_control": 0.3112
+    "p_fisher_member_gt_control": 0.3133
    },
    "box_title": {
     "member": "0/60",
@@ -1971,7 +1971,7 @@
     "p_fisher_member_gt_control": 0.4533
    },
    "qa/lacontra": {
-    "member": "2/150",
+    "member": "2/151",
     "control": "0/51",
     "rate_member": 0.013,
     "rate_control": 0.0,
@@ -1979,7 +1979,7 @@
     "dontknow_control": 0,
     "near_id_member": 0,
     "near_id_control": 0,
-    "p_fisher_member_gt_control": 0.556
+    "p_fisher_member_gt_control": 0.5579
    },
    "url_id": {
     "member": "0/60",
