@@ -118,8 +118,10 @@ derivatives used for multilingual training (Section~\ref{sec:presence}).
 \emph{Evidence:} model cards and technical reports, and, for models placed on the EU market since August 2025, the
 training-content summaries required by the AI Act.
 \emph{So far:} documented: Apertus (FineWeb-2), and Salamandra and ALIA (20 Common Crawl captures and CATalog; the
-newspaper is not named). Probable but undocumented: most other models, whose developers report only ``publicly
-available web data''. The AI Act summaries have not yet been checked (Tables~\ref{tab:datasets},~\ref{tab:models}).
+newspaper is not named). Declared in their AI Act summaries: OpenAI (GPT-5.2, 5.5, 6 Astra), Mistral (Large 3) and
+DeepSeek (V4) say they trained on Common Crawl text, which contains the articles. No summary names the newspaper, or
+any other website, although the template asks for the main domains. Google, xAI, Meta and Anthropic name no dataset.
+Probable but undocumented: the others (Section~\ref{sec:presence}, Tables~\ref{tab:datasets},~\ref{tab:models}).
 \item \textbf{Was a given model actually trained on them, and when?}
 \emph{Evidence:} statistical traces in the model itself, measured against articles it could not have seen
 (collection-level tests), and comparisons of versions with different training cutoffs, which also date the
@@ -266,7 +268,10 @@ time. A different legal act from training.
 Section~\ref{sec:presence}.
 \item \textbf{Opt-out chronology.} No AI crawler was mentioned in \texttt{robots.txt} until April 2024. From then
 until March 2026 only the film and book sections were excluded. Since 17 March 2026, the main AI training crawlers are
-blocked from the whole site. Answer-time agents are still not blocked.
+blocked from the whole site (GPTBot, ClaudeBot, CCBot, Bytespider, YouBot). Answer-time agents are still not blocked,
+and neither are the training crawlers of xAI or Meta, nor Google's AI opt-out token (\texttt{Google-Extended}); the
+site has no other machine-readable reservation (no TDMRep file, no TDM header or tag). For those developers there is
+no machine-readable opt-out even today.
 \item \textbf{Test articles.} 695 signed, non-agency articles from 2020--2023 (``members'', published before the models'
 training data was collected) and 448 from September 2025--March 2026 (``controls'', published after it), from eight
 sections; plus 212 interviews from \emph{La Contra}, the back-page interview series, chosen as the content most
@@ -355,6 +360,20 @@ missing from FineWeb-2 may have been dropped by its filters while copies of its 
 datasets}; whether that copying was covered by the text and data mining exception is a separate question
 (Section~\ref{sec:legal}).
 
+\paragraph{What the developers declare (AI Act summaries).} Since August 2025, providers of general-purpose models
+must publish a summary of their training content on an EU template that asks for the datasets, the crawlers, the
+collection period and the main domains crawled. We read the summaries available on 27 November 2026
+(\texttt{docs/ai\_act\_summaries.md}, copies with hashes kept). \textbf{None names \emph{La Vanguardia}, or any
+specific website}: the domain section only lists categories. Three developers name Common Crawl as a training source:
+OpenAI (GPT-5.2, GPT-5.5 and GPT-6 Astra; collection about 2018 to August 2025, December 2025 and May 2026), Mistral
+(Large 3; up to July 2025) and DeepSeek (V4). Combined with our measurement that Common Crawl holds the articles'
+full text up to March 2026, this is a documentary link between these models and the newspaper's text, from the
+developers' own statements: it does not show that the articles survived their filters. Google (Gemini 3 Pro, Gemma
+4), xAI (Grok 4.5/4.6; collection January 2024 to June 2026) and Meta (Muse Spark; up to June 2026) name no dataset.
+Anthropic lists summaries for its recent models on a portal we could not retrieve them from; its system cards say
+its crawler (ClaudeBot) honours \texttt{robots.txt}, which did not block it from news pages before 17 March 2026.
+The Gemini 3 Pro and Gemma 4 summaries describe the data in identical words, with the same cutoff.
+
 \begin{table}[h]\centering\footnotesize
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{2.3cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{3.0cm}}
 \toprule
@@ -362,7 +381,8 @@ Dataset & What it is & \emph{La Vanguardia} in it? & Used to train\\
 \midrule
 Common Crawl & Public monthly crawl of the web, the main raw source of AI training text & \textbf{Yes, measured}: full article
 text in every snapshot we sampled 2019--March 2026; none after the opt-out & Most large models (directly or via the
-datasets below); BSC documents 20 snapshots\\
+datasets below). \textbf{Declared} in AI Act summaries: GPT-5.2/5.5/6 Astra, Mistral Large 3, DeepSeek-V4; BSC
+documents 20 snapshots\\
 FineWeb-2 (Hugging Face, 2024) & Multilingual dataset filtered from Common Crawl snapshots, distributed ready to use &
 \textbf{Yes, measured} (full scan): about 310,000 Spanish and 18,000 Catalan pages; 82\% of our 2020--2023 test
 articles & Apertus (documented); other developers undisclosed\\
@@ -373,8 +393,8 @@ OLMo 2 data mix (AI2) & Published training data, filtered to English & \textbf{N
 OSCAR 2019 & Common Crawl of November 2018 & Cannot contain our test articles (2020 on) & GPT-2-spanish (our time
 reference)\\
 CC100-XL (Meta) & Common Crawl up to 2020 & Cannot contain articles after 2020 & XGLM-2.9B (second time reference)\\
-Undisclosed corpora & ``Publicly available web data'' without a list of sources & Unknown & Llama, Gemma, Qwen, Mistral,
-Gemini, Claude, GPT\\
+Undisclosed corpora & ``Publicly available web data'' without a list of sources & Unknown & Llama, Gemma, Qwen,
+Gemini, Claude, Grok, Meta's Muse; other parts of the GPT, Mistral and DeepSeek data\\
 \bottomrule
 \end{tabularx}
 \caption{Training datasets: what each is and who uses it. ``Measured'' = established by us from the public files
@@ -497,20 +517,44 @@ text.
 articles were in Common Crawl for years and are in FineWeb-2 (about 330,000 pages, 82\% of our 2020--2023 sample),
 without a machine-readable opt-out until March 2026. This proves opportunity and the existence of training copies,
 not use by a particular commercial model, and before 2026 the copying may have been lawful.
+\item \textbf{Developers' own declarations (documentary, solid as far as it goes).} OpenAI (GPT-5.2, 5.5, 6 Astra),
+Mistral (Large 3) and DeepSeek (V4) state in their AI Act summaries that they trained on Common Crawl text, which holds
+the articles. It does not say which pages they kept.
 \item \textbf{Llama-3.1 (weak).} Articles that only the newer Llama could have seen became more familiar to it, in
 the pattern training predicts, with time effects cancelled. Knowledge of events can explain it; the wording-only
 version is suggestive but not significant.
+\emph{Commercial relative: Meta AI, high transfer.} Meta's assistant ran on Llama~3 and 3.1 models in 2024--2025,
+and Meta describes one pretraining data set for all Llama~3 sizes. If the 8B model we tested was trained on the
+articles, the larger versions behind Meta AI almost certainly were too. Meta's newer Muse models (2026) are a separate
+family with undisclosed data: no transfer.
 \item \textbf{Gemma-2 (weak).} The only model whose collection-level trace survived matched comparisons, but the
 trace concerns events, not wording.
+\emph{Commercial relative: Gemini, moderate transfer.} Google builds Gemma ``from the same research and technology''
+as Gemini, and its AI Act summaries describe the Gemma~4 and Gemini~3 Pro data in identical words. Training of Gemma
+on the articles would show that they are in Google's training corpora, and would make it likely that Gemini, larger
+and more multilingual, saw them too. It would not prove it: the two are trained separately on undisclosed mixes, and
+Gemma~2's data are mainly English.
 \item \textbf{Gemini, article numbers (suspicious, unproven).} Gemini knows the newspaper's article counter as
 precisely as someone holding about 1,500 dated addresses, far better than open models trained on the same public
 crawls, and twice gave a number almost exactly right. It cannot, however, say which article a number belongs to
 (pre-registered reverse test, replicated on a second Gemini model). Third-party links are one explanation; Google's own crawl of the pages is another, which
-only access to Google's crawl or training records could settle.
+only access to Google's crawl or training records could settle. Gemma-2, Gemini's open relative, lacks this precision
+(median error 162 days against Gemini's 2--3), so it cannot stand in for Gemini on this question; Gemma~3/4 are untested.
 \item \textbf{Gemini, invented quotations (separate issue).} Text falsely presented as the newspaper's. Not evidence
 of copying, but possibly relevant on its own (attribution, reputation).
 \end{enumerate}
 No model reproduced the newspaper's text or showed knowledge of its wording, including the most reposted interviews.
+
+\paragraph{How far a result on an open model carries to a commercial one.} We grade the transfer by what links the
+two. \emph{High}: the commercial product runs on the same model family, trained on the same data (Llama~3/3.1 and
+Meta AI in 2024--2025; Salamandra and ALIA, which share a documented corpus, although ALIA is not a commercial
+product). \emph{Moderate}: same developer and shared technology, data undisclosed but described alike (Gemma and
+Gemini; gpt-oss and OpenAI's GPT models, untested). \emph{Low}: same developer, different generation or data
+(Mistral~7B, 2023--24, and today's Le Chat models; Qwen2.5 and Alibaba's current Qwen app). \emph{None}: different
+developers. The inference runs one way: training of the open model on the articles shows that the developer had them
+in its training data, and makes use in the commercial sibling more or less likely; a negative result on the open model
+says nothing about the commercial one. In court, an open-model result is circumstantial evidence against the
+commercial product, to be combined with the developer's declarations (above) and, if ordered, direct testing.
 
 %======================================================================
 \section{What the negative results do and do not show}\label{sec:negatives}
@@ -622,19 +666,20 @@ Faint trace (AUC 0.56), as Apertus; no content recall; rough article numbers (65
 ALIA-40b (BSC) & Yes & Yes & GPU rental & --- & As Salamandra; full corpus not released & Very likely. Not tested
 (needs a large GPU)\\
 Gemma-2 (Google) & Yes & Yes & Free & 9B & Undisclosed web data ($\le$ mid-2024) & Unknown. Strongest trace (AUC 0.59);
-explained by events\\
+explained by events. Open relative of Gemini (moderate transfer)\\
 Llama-3 / 3.1 (Meta) & Yes (licence) & Yes & Free & 8B & Undisclosed (Mar / Dec 2023) & Unknown. Faint trace; 3.1 vs
-3 in the predicted direction; replication not significant\\
+3 in the predicted direction; replication not significant. Ran Meta AI in 2024--25 (high transfer)\\
 Qwen2.5 (Alibaba) & Yes & Yes & Free & 7B & Undisclosed ($\le$ 2024) & Unknown. Faint trace (AUC 0.54)\\
-Mistral-7B v0.3 & Yes & Yes & Free & 7B & Undisclosed ($\le$ 2024) & Unknown. Faint trace (about 0.54)\\
+Mistral-7B v0.3 & Yes & Yes & Free & 7B & Undisclosed ($\le$ 2024) & Unknown. Faint trace (about 0.54). Mistral Large 3
+declares Common Crawl (AI Act)\\
 OLMo 2 (AI2) & Yes & Yes & Free & --- & Published, English-filtered & \textbf{No} (0/42). Known negative\\
-Gemini 3.x (Google) & No & No & Free tier, 20--500 queries/day & ? & Undisclosed (Jan 2025 knowledge) &
+Gemini 3.x (Google) & No & No & Free tier, 20--500 queries/day & ? & Undisclosed (Jan 2025 knowledge; AI Act summary names no dataset) &
 Unknown. No reproduction; knows the article-number pattern far better than open models (suspicious), but cannot
 map a number to its article\\
 Claude 4.5 / 5.5 (Anthropic) & No & No & Paid API & ? & Undisclosed (Jul--Aug 2025; Jun 2026) & Unknown. No
 reproduction, even of \emph{La Contra}\\
-GPT / ChatGPT (OpenAI) & No (except gpt-oss) & No (shut 28 Sep 2026) & Paid API & ? & Undisclosed & Unknown.
-Not tested\\
+GPT / ChatGPT (OpenAI) & No (except gpt-oss) & No (shut 28 Sep 2026) & Paid API & ? & \textbf{Declares Common Crawl}
+(AI Act; 2018--2025/26) & Unknown. Not tested\\
 Large open models (70B+) & Yes & Yes & GPU rental & --- & Undisclosed & Unknown. Not tested\\
 \bottomrule
 \end{tabularx}

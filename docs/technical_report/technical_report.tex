@@ -450,6 +450,17 @@ This does not show that any particular commercial model was trained on FineWeb-2
 articles survive the standard filtering and deduplication steps and are distributed inside the kind of ready-made
 corpus such models are trained on.
 
+\paragraph{AI Act training-content summaries (checked 27 November 2026).} We read the summaries of GPT-5.2, 5.5 and 6
+Astra, Mistral Large 3, DeepSeek-V4, Gemini 3 Pro, Gemma 4, Grok 4.5/4.6, Muse Spark and Apertus 1/1.5
+(\texttt{docs/ai\_act\_summaries.md}; copies and hashes in \texttt{data/ai\_act\_summaries/}). None names \emph{La
+Vanguardia} or any specific domain; the template's domain section is answered with categories. OpenAI, Mistral and
+DeepSeek declare Common Crawl text, which holds the articles (above); Google, xAI and Meta name no dataset; Anthropic's
+summaries are listed on its trust portal but could not be retrieved. Collection periods: OpenAI about 2018 to August
+2025 (GPT-5.2), December 2025 (5.5) and May 2026 (6 Astra); Mistral to July 2025; xAI January 2024 to June 2026; Meta
+to June 2026. The site's \texttt{robots.txt} has never named xAI's or Meta's crawlers nor \texttt{Google-Extended},
+and the site has no TDMRep file or TDM header: for those developers there is no machine-readable reservation even
+after 17 March 2026. The Gemini 3 Pro and Gemma 4 summaries describe the data in identical words.
+
 \subsection{Article collection}
 Articles were fetched from Common Crawl by HTTP range request on the exact WARC record. For each one we store the
 crawl identifier, WARC file, offset, length and the SHA-256 of the raw record, so any third party can retrieve

@@ -86,6 +86,6 @@ Legend for "worth finishing": **Yes** (cheap and informative), **Only if** (cond
 |---|---|---|
 | Evidence gap (VM lost before Drive upload) | Documented in `docs/evidence_gaps.md`; `src/evidence_audit.py` → `results/evidence_audit.json`; 911 rows without raw record | Chain-of-custody re-run under `docs/prereg/amendment_rerun_custody_20261127.md`: M11 (GPU, running), M12 (API, quota-limited); then `compare` |
 | Crawlers other than Common Crawl (who fetched the articles, when) | Not started | Ask the publisher for server logs (user agents, dates) |
-| AI Act training-content summaries (Art. 53) | Not checked | Look up the published summaries of the main models for lavanguardia.com |
+| AI Act training-content summaries (Art. 53) | **Done** (`docs/ai_act_summaries.md`): none names LV or any domain; OpenAI (GPT-5.2/5.5/6 Astra), Mistral Large 3, DeepSeek-V4 declare Common Crawl; xAI/Meta crawlers and Google-Extended never named in LV robots.txt | Retrieve Anthropic's summaries (trust portal); recheck when Gemini 3.5/3.6, Llama, Qwen summaries appear |
 | CATalog (BSC) and other Common Crawl derivatives | Not checked | Scan for the newspaper's URLs, as for FineWeb-2 |
 

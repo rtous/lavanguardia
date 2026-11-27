@@ -593,3 +593,13 @@ run ≥15 words side by side and check for copies elsewhere, write up as a label
   report (new M12 subsection + table, evidence-gap paragraph, next steps), experiment_status (M11/M12 rows + new
   items: custody re-run, server logs, AI Act summaries, CATalog), colab_handoff (current running state). PDFs rebuilt.
 - Running at ~18:00 UTC: M11 custody re-run (GPU, ~2 min/article, 11/117), sync loop, autosave. M12 re-run waits for quota.
+- **AI Act training summaries checked** (`docs/ai_act_summaries.md`; PDFs + robots.txt with SHA-256 in
+  `data/ai_act_summaries/`, gitignored): 12 summaries read. None names LV or any specific domain. OpenAI GPT-5.2/5.5/
+  6 Astra, Mistral Large 3, DeepSeek-V4 declare **Common Crawl** text (documentary link with our CC measurement).
+  GPT-6 Astra collection to May 2026, Grok Jan 2024–Jun 2026, Muse Spark to Jun 2026. LV robots.txt never names
+  xAI/Meta crawlers nor Google-Extended; no TDMRep/TDM headers → no machine-readable reservation for them even now.
+  Anthropic summaries exist on trust portal but not retrievable here. Gemini 3 Pro and Gemma 4 summaries identical.
+- Paper (user request): open-weight relatives → commercial transfer levels (high: Llama 3/3.1 → Meta AI 2024–25;
+  moderate: Gemma ↔ Gemini, gpt-oss ↔ GPT; low: Mistral-7B, Qwen2.5; none otherwise), stated per suspicious model in
+  the Evidence section + models table; new evidence item "developers' own declarations"; AI Act paragraph in
+  Finding 1; opt-out bullet; Q3 status. Technical report: AI Act paragraph. PDFs rebuilt.
