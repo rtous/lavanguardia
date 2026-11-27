@@ -1,0 +1,453 @@
+{
+ "M1": {
+  "member": {
+   "n": 160,
+   "top": [
+    [
+     13.0,
+     "8240170",
+     "gemini-3-flash-preview",
+     "y que la equidad básica y la estabilidad de nuestra ley exigen que"
+    ],
+    [
+     10.0,
+     "8629601",
+     "claude-sonnet-4-5-20250929",
+     "la administración de alimentos y medicamentos fda de estados unidos"
+    ],
+    [
+     10,
+     "413037863029",
+     "salamandra-7b-instruct",
+     "un informe sobre el impacto de la caza en españa"
+    ],
+    [
+     9,
+     "54371719474",
+     "salamandra-7b-instruct",
+     "me imaginaba de mecánico y ya me estaba bien"
+    ],
+    [
+     8.0,
+     "7840161",
+     "claude-opus-4-5-20251101",
+     "el director general de la oiv pau roca"
+    ],
+    [
+     8.0,
+     "7447415",
+     "claude-sonnet-5-5",
+     "humano y su relación con el agua en"
+    ],
+    [
+     8.0,
+     "54188505699",
+     "claude-sonnet-5-5",
+     "que dé sentido a nuestra vida más allá"
+    ],
+    [
+     7.0,
+     "8729450",
+     "claude-opus-4-5-20251101",
+     "el accidente cerebrovascular el cáncer la diabetes"
+    ]
+   ]
+  },
+  "control": {
+   "n": 117,
+   "top": [
+    [
+     11.0,
+     "11360571",
+     "gemini-3.1-flash-lite",
+     "la gran triunfadora de la 31ª edición de los premios forqué"
+    ],
+    [
+     9.0,
+     "11479964",
+     "claude-opus-4-5-20251101",
+     "el magistrado ha reclamado las actuaciones al juzgado de"
+    ],
+    [
+     8,
+     "11461945",
+     "salamandra-7b-instruct",
+     "el corazón de las mujeres se escucha menos"
+    ],
+    [
+     7,
+     "11474616",
+     "salamandra-7b-instruct",
+     "el corazón no es una bomba sino"
+    ],
+    [
+     7.0,
+     "11422753",
+     "claude-opus-4-5-20251101",
+     "el gobierno aportará 20 975 millones extras"
+    ],
+    [
+     7.0,
+     "11416639",
+     "claude-opus-4-5-20251101",
+     "autor de más de un centenar de"
+    ],
+    [
+     7,
+     "11358782",
+     "salamandra-7b-instruct",
+     "el auge de la extrema derecha en"
+    ],
+    [
+     7.0,
+     "11319210",
+     "claude-sonnet-4-5-20250929",
+     "respecto al mismo período del año anterior"
+    ]
+   ]
+  }
+ },
+ "M9": {
+  "member": {
+   "n": 129,
+   "top": [
+    [
+     5.0,
+     "6629184",
+     "Meta-Llama-3.1-8B-4bit",
+     "La Junta Electoral Provincial ha admitido los argumentos del PP y ha admitido la candidatura de Toni Canto, ex coordinador territorial de Ciudadanos en la Comun"
+    ],
+    [
+     5.0,
+     "481600548682",
+     "Meta-Llama-3.1-8B-4bit",
+     "El Grupo de Trabajo sobre la Detención Arbitraria es uno de esos mecanismos."
+    ],
+    [
+     4.0,
+     "8191397",
+     "Meta-Llama-3.1-8B-4bit",
+     "Y es que la investidura de la candidata del PP en Castilla y León, Alfonso Fernández Mañueco, no es más que una operación de marketing para que la extrema derec"
+    ],
+    [
+     4.0,
+     "8094736",
+     "Meta-Llama-3.1-8B-4bit",
+     "La Fiscalía ha archivado las investigaciones sobre el patrimonio del rey emérito tras la presentación de una denuncia por parte de la Asociación de Víctimas del"
+    ],
+    [
+     4.0,
+     "54109931679",
+     "Meta-Llama-3.1-8B-4bit",
+     "¿O la joven alemana que, tras una enfermedad, se alimenta de la luz y se cura?"
+    ],
+    [
+     4.0,
+     "461140586284",
+     "Meta-Llama-3.1-8B-4bit",
+     "En su último libro, El arte de la felicidad, habla de la importancia de la amistad y de la necesidad de ser solidario."
+    ],
+    [
+     4.0,
+     "413037863029",
+     "Meta-Llama-3.1-8B-4bit",
+     "Los ecologistas, por su parte, aseguran que la caza no es la solución y que se debe buscar otras alternativas."
+    ],
+    [
+     3.0,
+     "8729450",
+     "Meta-Llama-3.1-8B-4bit",
+     "La doctora Pocoví nos explica que la inflamación es una respuesta del organismo a una lesión o a un estímulo externo."
+    ]
+   ]
+  },
+  "control": {
+   "n": 41,
+   "top": [
+    [
+     5.0,
+     "11461945",
+     "Meta-Llama-3.1-8B-4bit",
+     "“El corazón de las mujeres se escucha menos y muere más”, dice."
+    ],
+    [
+     5.0,
+     "11406553",
+     "Meta-Llama-3.1-8B-4bit",
+     "Santos, que es directora de la Biblioteca Nacional de España, escribe que “la mujer se la creía inútil para leer y escribir”."
+    ],
+    [
+     3.0,
+     "11480309",
+     "Meta-Llama-3.1-8B-4bit",
+     "A los que no les dice que se vayan a casa y que sepan hacer algo."
+    ],
+    [
+     3.0,
+     "11460053",
+     "Meta-Llama-3.1-8B-4bit",
+     "La Vanguardia\n\nEl Nobel que inventó la PCR dijo que lo abdujo un mapache parlante\n\nIma Sanchís | 07/02/2026\n\nEl príncipe Felipe, esposo de la reina Isabel II, i"
+    ],
+    [
+     3.0,
+     "11443719",
+     "Meta-Llama-3.1-8B-4bit",
+     "Enrique Bonete, catedrático de Filosofía Moral de la Universidad de Salamanca, es un filósofo que se ha dedicado a la docencia y a la investigación."
+    ],
+    [
+     2.0,
+     "11479519",
+     "Meta-Llama-3.1-8B-4bit",
+     "En la entrevista que le hizo a Jordi Mollà, el actor, director, pintor y escritor, nos habla de su nueva serie Day one, de su carrera y de su vida."
+    ],
+    [
+     2.0,
+     "11478598",
+     "Meta-Llama-3.1-8B-4bit",
+     "La Vanguardia\n\nBarthélemy Yaouda, obispo de Yagoua (Camerún), diócesis hermana de la de Barcelona: “El problema de África es que no trabajamos: hay que trabajar"
+    ],
+    [
+     2.0,
+     "11465003",
+     "Meta-Llama-3.1-8B-4bit",
+     "La UE es un proyecto de paz y prosperidad que ha superado la crisis económica y la pandemia."
+    ]
+   ]
+  }
+ },
+ "M11": {
+  "member": {
+   "n": 60,
+   "top": [
+    [
+     10,
+     "413037863029",
+     "salamandra-7b-instruct",
+     "un informe sobre el impacto de la caza en españa"
+    ],
+    [
+     9,
+     "54371719474",
+     "salamandra-7b-instruct",
+     "me imaginaba de mecánico y ya me estaba bien"
+    ],
+    [
+     6,
+     "47179985641",
+     "salamandra-7b-instruct",
+     "sortir de l armari dels parkinsonians"
+    ],
+    [
+     5,
+     "54437816873",
+     "salamandra-7b-instruct",
+     "su bebé de cuatro meses"
+    ],
+    [
+     5,
+     "441365510687",
+     "salamandra-7b-instruct",
+     "entre dos y cinco veces"
+    ],
+    [
+     5,
+     "40793102315",
+     "salamandra-7b-instruct",
+     "de reírse de sí mismo"
+    ],
+    [
+     4,
+     "54409671377",
+     "salamandra-7b-instruct",
+     "más de cien años"
+    ],
+    [
+     4,
+     "54379047568",
+     "salamandra-7b-instruct",
+     "en la sonrisa vertical"
+    ]
+   ]
+  },
+  "control": {
+   "n": 57,
+   "top": [
+    [
+     8,
+     "11461945",
+     "salamandra-7b-instruct",
+     "el corazón de las mujeres se escucha menos"
+    ],
+    [
+     7,
+     "11474616",
+     "salamandra-7b-instruct",
+     "el corazón no es una bomba sino"
+    ],
+    [
+     7,
+     "11358782",
+     "salamandra-7b-instruct",
+     "el auge de la extrema derecha en"
+    ],
+    [
+     5,
+     "11480309",
+     "salamandra-7b-instruct",
+     "del grafeno de ángulo mágico"
+    ],
+    [
+     5,
+     "11475375",
+     "salamandra-7b-instruct",
+     "una barra de bar es"
+    ],
+    [
+     5,
+     "11473678",
+     "salamandra-7b-instruct",
+     "me veo como una anguila"
+    ],
+    [
+     5,
+     "11440686",
+     "salamandra-7b-instruct",
+     "de las esculturas del partenón"
+    ],
+    [
+     5,
+     "11362052",
+     "salamandra-7b-instruct",
+     "qué es lo primero que"
+    ]
+   ]
+  }
+ },
+ "M10_url_id_closest": {
+  "control": [
+   [
+    48416,
+    "11033647",
+    "gemini-3.5-flash-lite",
+    "https://www.lavanguardia.com/opinion/20250906/11033647/abrazos.html"
+   ],
+   [
+    76953,
+    "11033647",
+    "Meta-Llama-3.1-8B-4bit",
+    "https://www.lavanguardia.com/opinion/20250906/11033647/abrazos.html"
+   ],
+   [
+    109309,
+    "11033691",
+    "Meta-Llama-3.1-8B-4bit",
+    "https://www.lavanguardia.com/opinion/20250906/11033691/mas-condonacion-deuda.html"
+   ],
+   [
+    147848,
+    "11040303",
+    "gemini-3.5-flash-lite",
+    "https://www.lavanguardia.com/economia/20250909/11040303/bbva-sabadell-movilizan-convencer-200-000-accionistas."
+   ],
+   [
+    194481,
+    "11033691",
+    "gemini-3.5-flash-lite",
+    "https://www.lavanguardia.com/opinion/20250906/11033691/mas-condonacion-deuda.html"
+   ],
+   [
+    196207,
+    "11339207",
+    "Meta-Llama-3.1-8B-4bit",
+    "https://www.lavanguardia.com/opinion/20251207/11339207/oriol-bohigas-inteligencia-natural.html"
+   ],
+   [
+    258978,
+    "11369578",
+    "Meta-Llama-3.1-8B-4bit",
+    "https://www.lavanguardia.com/deportes/20251217/11369578/f1-formula-1-gp-barcelona-catalunya-renovacion-2032-an"
+   ],
+   [
+    279266,
+    "11389866",
+    "Meta-Llama-3.1-8B-4bit",
+    "https://www.lavanguardia.com/economia/20260113/11389866/educacion-financiera-sigue-siendo-asignatura-pendiente"
+   ],
+   [
+    305916,
+    "11416516",
+    "Meta-Llama-3.1-8B-4bit",
+    "https://www.lavanguardia.com/economia/20260107/11416516/credito-consumo-dispara-20-alcanza-maximos-18-anos.htm"
+   ],
+   [
+    307572,
+    "11418172",
+    "Meta-Llama-3.1-8B-4bit",
+    "https://www.lavanguardia.com/internacional/20260108/11418172/ascenso-stephen-miller-halcon-amenaza-tomar-groen"
+   ]
+  ],
+  "member": [
+   [
+    2,
+    "8746377",
+    "gemini-3.1-flash-lite",
+    "https://www.lavanguardia.com/cultura/20230209/8746377/burt-bacharach-obito-musico-leyenda-pop.html"
+   ],
+   [
+    3,
+    "8931138",
+    "gemini-3-flash-preview",
+    "https://www.lavanguardia.com/politica/20230429/8931138/esconde-ley-vivienda.html"
+   ],
+   [
+    30,
+    "8551623",
+    "gemini-3.1-flash-lite",
+    "https://www.lavanguardia.com/internacional/20221002/8551623/rusia-sabotaje-nord-stream-gasoducto-estados-unido"
+   ],
+   [
+    40,
+    "7653773",
+    "gemini-3.5-flash-lite",
+    "https://www.lavanguardia.com/politica/20210810/7653773/lliures-lliga-pnc-dan-primer-paso-fusionarse-ano.html"
+   ],
+   [
+    40,
+    "8593561",
+    "salamandra-7b",
+    "https://www.lavanguardia.com/vida/20221104/8593561/7-noticias-tienes-viernes-4-octubre-manana-pmv.html"
+   ],
+   [
+    56,
+    "8915727",
+    "salamandra-7b",
+    "https://www.lavanguardia.com/cultura/20230423/8915727/sant-jordi-fiesta-literaria-vanguardia-javier-godo-pedro"
+   ],
+   [
+    83,
+    "9021474",
+    "gemini-3.1-flash-lite",
+    "https://www.lavanguardia.com/deportes/20230606/9021474/messi-regreso-barcelona-jorge-messi-laporta-ultimas-not"
+   ],
+   [
+    86,
+    "6625755",
+    "gemini-3.5-flash-lite",
+    "https://www.lavanguardia.com/cultura/20210404/6625755/acusaciones-pederastia-foucault-sorman.html"
+   ],
+   [
+    132,
+    "8987522",
+    "gemini-3.5-flash-lite",
+    "https://www.lavanguardia.com/deportes/20230523/8987522/vinicius-insultos-racistas-mestalla-valencia-real-madri"
+   ],
+   [
+    134,
+    "9177246",
+    "gemini-3.5-flash-lite",
+    "https://www.lavanguardia.com/politica/20230821/9177246/voto-coalicion-canaria.html"
+   ]
+  ]
+ },
+ "M10_qa_hits": {}
+}
