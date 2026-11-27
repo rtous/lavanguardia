@@ -1,0 +1,42 @@
+{
+ "gemini-3.1-flash-lite": {
+  "member": {
+   "pairs": 0,
+   "mean_pair_score": null,
+   "pairs_positive": 0,
+   "pairs_negative": 0,
+   "wilcoxon_p_greater": 1.0,
+   "queries": 0,
+   "title_overlap_ge_0.8": 0
+  },
+  "control": {
+   "pairs": 18,
+   "mean_pair_score": 0.0,
+   "pairs_positive": 0,
+   "pairs_negative": 0,
+   "wilcoxon_p_greater": 1.0,
+   "queries": 37,
+   "title_overlap_ge_0.8": 0
+  }
+ },
+ "gemini-3.5-flash-lite": {
+  "member": {
+   "pairs": 0,
+   "mean_pair_score": null,
+   "pairs_positive": 0,
+   "pairs_negative": 0,
+   "wilcoxon_p_greater": 1.0,
+   "queries": 0,
+   "title_overlap_ge_0.8": 0
+  },
+  "control": {
+   "pairs": 29,
+   "mean_pair_score": -0.0017,
+   "pairs_positive": 0,
+   "pairs_negative": 1,
+   "wilcoxon_p_greater": 0.8413447460685429,
+   "queries": 59,
+   "title_overlap_ge_0.8": 0
+  }
+ }
+}

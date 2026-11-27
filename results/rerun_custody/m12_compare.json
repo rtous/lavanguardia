@@ -1,0 +1,19 @@
+{
+ "m12_url_reverse_gemini-3.1-flash-lite.jsonl": {
+  "n_run1": 426,
+  "n_rerun": 39,
+  "n_both": 39,
+  "identical_text": 39,
+  "identical_normalised": 39,
+  "same_pair_side_score": 39
+ },
+ "m12_url_reverse_gemini-3.5-flash-lite.jsonl": {
+  "n_run1": 426,
+  "n_rerun": 61,
+  "n_both": 61,
+  "identical_text": 0,
+  "identical_normalised": 0,
+  "same_pair_side_score": 57
+ },
+ "rerun_summary_file": "results/rerun_custody/m12_url_reverse_summary_rerun.json"
+}
