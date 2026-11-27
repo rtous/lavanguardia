@@ -549,3 +549,8 @@ run ≥15 words side by side and check for copies elsewhere, write up as a label
   suspicious" / "What argues against it" in Details paragraph, Evidence item 4, models table, new avenue "Settle the
   article-number question", Conclusions. docs/experiment_status.md rows added.
 - Note: waited on M12 with `pgrep -f` in a background shell → matched itself (the CLAUDE.md trap). Use `ps | grep '[p]ython'`.
+- User leaving (~10:45 UTC): pushed everything to GitHub (origin was at 092374a: sessions 9–10 had not been pushed).
+  Started `src/autosave.sh 600` (commit M11/M12 results + push + Drive sync every 10 min). Running unattended: M11
+  (Salamandra → Llama needs HF login → Qwen), M12 replication on gemini-3.1-flash-lite.
+  **Pending for next session:** add the M12 replication result to the paper; rebuild paper PDF (no LaTeX on this runtime);
+  rotate the HF, GitHub and Gemini keys (pasted in chat).

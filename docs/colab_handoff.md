@@ -101,3 +101,7 @@ result row / evidence record. Check on GPT-2-es (2 articles): int8 within ~0.005
 ## Do not
 - Do not commit `data/`, `evidence/` or `.env`. The GitHub repo is **public**.
 - Do not run several GPU jobs in parallel or make queues wait on `pgrep -f` (see CLAUDE.md).
+
+## Autosave (unattended sessions, added 2026-11-27)
+`GH_TOKEN=<token> nohup ./src/autosave.sh 600 >> logs/autosave.log 2>&1 &` commits new M11/M12 result rows, pushes to
+GitHub and mirrors to Drive every 10 min. The token is only on the push command line (never in `.git/config`).
