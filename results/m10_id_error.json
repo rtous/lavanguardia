@@ -1,0 +1,425 @@
+{
+ "Meta-Llama-3.1-8B-4bit": {
+  "member": {
+   "n": 49,
+   "answered": 11,
+   "median_err_ids": 1321347.0,
+   "oracle_median_err_ids": 1281.0,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 0,
+   "oracle_within_200": 2,
+   "oracle_within_1000": 17,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  },
+  "control": {
+   "n": 60,
+   "answered": 17,
+   "median_err_ids": 334039.0,
+   "oracle_median_err_ids": 1289.5,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 1,
+   "oracle_within_200": 8,
+   "oracle_within_1000": 27,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  }
+ },
+ "Meta-Llama-3.1-8B-Instruct-4bit": {
+  "member": {
+   "n": 49,
+   "answered": 0,
+   "median_err_ids": null,
+   "oracle_median_err_ids": 1281.0,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 0,
+   "oracle_within_200": 2,
+   "oracle_within_1000": 17,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  },
+  "control": {
+   "n": 60,
+   "answered": 0,
+   "median_err_ids": null,
+   "oracle_median_err_ids": 1289.5,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 1,
+   "oracle_within_200": 8,
+   "oracle_within_1000": 27,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  }
+ },
+ "Qwen2.5-7B-Instruct-4bit": {
+  "member": {
+   "n": 49,
+   "answered": 16,
+   "median_err_ids": 6874422.0,
+   "oracle_median_err_ids": 1281.0,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 0,
+   "oracle_within_200": 2,
+   "oracle_within_1000": 17,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  },
+  "control": {
+   "n": 60,
+   "answered": 2,
+   "median_err_ids": 3651670.5,
+   "oracle_median_err_ids": 1289.5,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 1,
+   "oracle_within_200": 8,
+   "oracle_within_1000": 27,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  }
+ },
+ "gemini-3-flash-preview": {
+  "member": {
+   "n": 13,
+   "answered": 13,
+   "median_err_ids": 1013.0,
+   "oracle_median_err_ids": 1215.0999999996275,
+   "within_10": 1,
+   "within_50": 1,
+   "within_200": 2,
+   "within_1000": 6,
+   "oracle_within_10": 0,
+   "oracle_within_50": 0,
+   "oracle_within_200": 1,
+   "oracle_within_1000": 5,
+   "beats_date_oracle": 10,
+   "examples_within_50": [
+    {
+     "url": "https://www.lavanguardia.com/politica/20230429/8931138/esconde-ley-vivienda.html",
+     "true": 8931138,
+     "pred": [
+      8931141
+     ],
+     "err_ids": 3,
+     "oracle_err_ids": 1112
+    }
+   ]
+  },
+  "control": {
+   "n": 9,
+   "answered": 3,
+   "median_err_ids": 935114.0,
+   "oracle_median_err_ids": 918.25,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 0,
+   "oracle_within_200": 0,
+   "oracle_within_1000": 5,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  }
+ },
+ "gemini-3.1-flash-lite": {
+  "member": {
+   "n": 49,
+   "answered": 49,
+   "median_err_ids": 1638.0,
+   "oracle_median_err_ids": 1281.0,
+   "within_10": 1,
+   "within_50": 2,
+   "within_200": 4,
+   "within_1000": 16,
+   "oracle_within_10": 0,
+   "oracle_within_50": 0,
+   "oracle_within_200": 2,
+   "oracle_within_1000": 17,
+   "beats_date_oracle": 23,
+   "examples_within_50": [
+    {
+     "url": "https://www.lavanguardia.com/cultura/20230209/8746377/burt-bacharach-obito-musico-leyenda-pop.html",
+     "true": 8746377,
+     "pred": [
+      8746375
+     ],
+     "err_ids": 2,
+     "oracle_err_ids": 3392
+    },
+    {
+     "url": "https://www.lavanguardia.com/internacional/20221002/8551623/rusia-sabotaje-nord-stream-gasoducto-estados-unidos.html",
+     "true": 8551623,
+     "pred": [
+      8551593
+     ],
+     "err_ids": 30,
+     "oracle_err_ids": 272
+    }
+   ]
+  },
+  "control": {
+   "n": 60,
+   "answered": 14,
+   "median_err_ids": 1184826.5,
+   "oracle_median_err_ids": 1289.5,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 1,
+   "oracle_within_200": 8,
+   "oracle_within_1000": 27,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  }
+ },
+ "gemini-3.5-flash-lite": {
+  "member": {
+   "n": 49,
+   "answered": 49,
+   "median_err_ids": 1325.0,
+   "oracle_median_err_ids": 1281.0,
+   "within_10": 0,
+   "within_50": 1,
+   "within_200": 7,
+   "within_1000": 22,
+   "oracle_within_10": 0,
+   "oracle_within_50": 0,
+   "oracle_within_200": 2,
+   "oracle_within_1000": 17,
+   "beats_date_oracle": 26,
+   "examples_within_50": [
+    {
+     "url": "https://www.lavanguardia.com/politica/20210810/7653773/lliures-lliga-pnc-dan-primer-paso-fusionarse-ano.html",
+     "true": 7653773,
+     "pred": [
+      7653733
+     ],
+     "err_ids": 40,
+     "oracle_err_ids": 528
+    }
+   ]
+  },
+  "control": {
+   "n": 60,
+   "answered": 59,
+   "median_err_ids": 953245.0,
+   "oracle_median_err_ids": 1289.5,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 1,
+   "oracle_within_200": 8,
+   "oracle_within_1000": 27,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  }
+ },
+ "gemini-3.5-flash": {
+  "member": {
+   "n": 0,
+   "answered": 0,
+   "median_err_ids": null,
+   "oracle_median_err_ids": null,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 0,
+   "oracle_within_200": 0,
+   "oracle_within_1000": 0,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  },
+  "control": {
+   "n": 1,
+   "answered": 1,
+   "median_err_ids": 1019412.0,
+   "oracle_median_err_ids": 251.0,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 0,
+   "oracle_within_200": 0,
+   "oracle_within_1000": 1,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  }
+ },
+ "gemini-3.7-flash": {
+  "member": {
+   "n": 2,
+   "answered": 2,
+   "median_err_ids": 24858.0,
+   "oracle_median_err_ids": 1020.0,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 0,
+   "oracle_within_200": 0,
+   "oracle_within_1000": 1,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  },
+  "control": {
+   "n": 1,
+   "answered": 1,
+   "median_err_ids": 1002546.0,
+   "oracle_median_err_ids": 918.25,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 0,
+   "oracle_within_200": 0,
+   "oracle_within_1000": 1,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  }
+ },
+ "gemma-2-9b-4bit": {
+  "member": {
+   "n": 49,
+   "answered": 42,
+   "median_err_ids": 404665.5,
+   "oracle_median_err_ids": 1281.0,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 0,
+   "oracle_within_200": 2,
+   "oracle_within_1000": 17,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  },
+  "control": {
+   "n": 60,
+   "answered": 0,
+   "median_err_ids": null,
+   "oracle_median_err_ids": 1289.5,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 1,
+   "oracle_within_200": 8,
+   "oracle_within_1000": 27,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  }
+ },
+ "gemma-4-31b-it": {
+  "member": {
+   "n": 3,
+   "answered": 0,
+   "median_err_ids": null,
+   "oracle_median_err_ids": 1112.5,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 0,
+   "oracle_within_200": 0,
+   "oracle_within_1000": 1,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  },
+  "control": {
+   "n": 3,
+   "answered": 0,
+   "median_err_ids": null,
+   "oracle_median_err_ids": 461.5,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 0,
+   "oracle_within_50": 0,
+   "oracle_within_200": 0,
+   "oracle_within_1000": 3,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  }
+ },
+ "salamandra-7b": {
+  "member": {
+   "n": 245,
+   "answered": 242,
+   "median_err_ids": 127495.0,
+   "oracle_median_err_ids": 1379.0,
+   "within_10": 0,
+   "within_50": 1,
+   "within_200": 2,
+   "within_1000": 2,
+   "oracle_within_10": 0,
+   "oracle_within_50": 2,
+   "oracle_within_200": 15,
+   "oracle_within_1000": 94,
+   "beats_date_oracle": 4,
+   "examples_within_50": [
+    {
+     "url": "https://www.lavanguardia.com/vida/20221104/8593561/7-noticias-tienes-viernes-4-octubre-manana-pmv.html",
+     "true": 8593561,
+     "pred": [
+      8593601
+     ],
+     "err_ids": 40,
+     "oracle_err_ids": 265
+    }
+   ]
+  },
+  "control": {
+   "n": 300,
+   "answered": 0,
+   "median_err_ids": null,
+   "oracle_median_err_ids": 1447.75,
+   "within_10": 0,
+   "within_50": 0,
+   "within_200": 0,
+   "within_1000": 0,
+   "oracle_within_10": 3,
+   "oracle_within_50": 12,
+   "oracle_within_200": 33,
+   "oracle_within_1000": 121,
+   "beats_date_oracle": 0,
+   "examples_within_50": []
+  }
+ }
+}

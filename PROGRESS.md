@@ -524,3 +524,17 @@ run ≥15 words side by side and check for copies elsewhere, write up as a label
   `hf auth login` or HF_TOKEN in the env) and Qwen2.5-7B-Instruct, ~4.7 h each.
 - Not expected to finish this session. Resume: restore mirror, `chmod +x src/*.sh`, restart the sync loop, rerun
   `./src/run_colab_m11.sh` (skips finished articles).
+- **M12 reverse URL test** (user idea: ID → title). Pre-registered `docs/prereg/m12_url_reverse.md` (7101c47), amended
+  before any member-pair query (a62685d: v1 prompt was read as "visit the URL" → from-memory wording v2).
+  117 member + 96 control pairs (same date + section); pair score = overlap(own title) − overlap(partner's title), 0 by
+  construction if only date/section is used. Running on gemini-3.5-flash-lite (`logs/m12_gemini-3.5-flash-lite.log`,
+  resumable; key passed as env var only, never written to disk). Then replicate on gemini-3.1-flash-lite.
+  Controls answer "no information" (expected); members get date-topical guesses.
+- **Exploratory: M10 errors in IDs, not days** (`src/m10_id_error.py` → `results/m10_id_error.json`). Benchmark = a
+  "date oracle" that knows the exact publication date and guesses midday's ID (leave-one-out interpolation over our
+  corpus). Gemini 3.5 Flash-Lite median error 1,325 IDs vs oracle 1,281 (3.1 FL 1,638; 3 Flash 1,013 vs 1,215): Gemini
+  knows LV's counter about as precisely as ~1,500 dated LV URLs would teach. Salamandra 127k, open models far worse.
+  Within ±200 IDs: 7/49 (oracle midpoint 2/49, but a guess uniform within the right day gives ~4–10 → no excess).
+  Near-exact hits: 8746377→8746375 (Burt Bacharach obituary, 3.1 FL) and 8931138→8931141 (Isabel Garcia Pagan column,
+  3 Flash): chance ≈ 7/2,262 per query if the day is known → expected ~0.3 over ~110 Gemini member answers, observed 2
+  (P ≈ 4%). Suggestive, not conclusive; check whether those two URLs are linked on third-party pages.
