@@ -554,3 +554,21 @@ run ≥15 words side by side and check for copies elsewhere, write up as a label
   (Salamandra → Llama needs HF login → Qwen), M12 replication on gemini-3.1-flash-lite.
   **Pending for next session:** add the M12 replication result to the paper; rebuild paper PDF (no LaTeX on this runtime);
   rotate the HF, GitHub and Gemini keys (pasted in chat).
+
+## 2026-11-27 — Session 11: fix Drive/GitHub inconsistency (fresh Colab runtime, T4)
+- Fresh runtime; repo cloned from GitHub (d204e0c, last autosave 11:27 UTC). The previous VM died after 11:33 UTC.
+- **Found: the Drive mirror was stale and shorter than GitHub**: line-complete prefixes of each file (M11 22/117 rows,
+  M12 3.5-FL 38/428, M12 3.1-FL missing), `.git` broken ("bad object HEAD"), `data/m12/` empty. Drive uploads
+  asynchronously and was ~1.5 h behind when the VM died. Restoring Drive over the clone (old handoff) would have lost rows.
+- **Fixed:** restored `data/`, `evidence/`, `logs/` from Drive + the 26-Nov zips (all hashes OK vs MANIFEST); rebuilt
+  `data/m12/pairs.jsonl` (sha256 matches the prereg); rebuilt the Drive mirror from the verified tree (`.git` included).
+  New `src/colab_sync.sh restore` (untracked folders only, never overwrites with older/shorter files, flags stale
+  Drive copies); handoff doc rewritten (GitHub first; `drive.flush_and_unmount()` before leaving).
+- **Chain-of-custody gap (not repairable):** raw evidence records lost for 95 M11 rows and 816 M12 rows
+  (all of the 3.1-FL replication). Result rows are intact in git. Documented in `docs/evidence_gaps.md`; new
+  `src/evidence_audit.py` → `results/evidence_audit.json`. Not reconstructed from result rows.
+- Note: github.com/rtous/lavanguardia is **public**; results rows include article text and model outputs.
+**Next**
+- [ ] Decide: re-run the 911 queries without raw records (M12 ≈ 2 h API at flash-lite cost; M11 ≈ 2.2 h GPU) or report with the gap note.
+- [ ] Resume M11 (Salamandra 117/200, then Llama-3.1, Qwen2.5); analyse M12 3.1-FL replication; rebuild paper PDF.
+- [ ] Off-Drive copy of `evidence/` (e.g. private GitHub/HF repo) so a VM loss can't drop raw records again.

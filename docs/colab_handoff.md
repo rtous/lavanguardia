@@ -2,7 +2,24 @@
 
 Read `CLAUDE.md`, `PROGRESS.md` and `docs/experiment_status.md` first. Everything below is resumable.
 
-## Quick resume (state at 2026-11-26 22:30 UTC) — NOTHING RUNNING
+## Quick resume (since 2026-11-27): GitHub first, then Drive for the untracked folders
+**Do not rsync the whole Drive mirror over the repo.** On 2026-11-27 the VM died while Drive was still ~1.5 h behind,
+and Drive held older, shorter copies than GitHub (see `docs/evidence_gaps.md`). Instead:
+```python
+from google.colab import drive, userdata; drive.mount('/content/drive')
+import os; os.environ['HF_TOKEN'] = userdata.get('HF_TOKEN')
+```
+```bash
+cd /content && git clone https://github.com/rtous/lavanguardia.git && cd lavanguardia && chmod +x src/*.sh
+./src/colab_sync.sh restore                 # data/ evidence/ logs/ only; warns about stale Drive files
+python -I src/evidence_audit.py             # result rows without a raw evidence record
+pip install -q -r requirements.txt bitsandbytes
+nohup ./src/colab_sync.sh loop 300 >> logs/colab_sync.log 2>&1 &
+```
+Before closing the browser on purpose, run `from google.colab import drive; drive.flush_and_unmount()` in a cell:
+it waits until Drive has uploaded everything.
+
+## Older quick resume (state at 2026-11-26 22:30 UTC)
 All jobs were stopped at the end of the session. Done: Llama replication, Salamandra, FineWeb-2 scan, positive control.
 Only open experiment: **M11 NYT-style extraction**, stopped at 7/200 articles on the first model (resumable, skips the 7).
 To continue it: run the cell below, but launch `nohup ./src/run_colab_m11.sh >> logs/colab_m11.log 2>&1 &` instead of
