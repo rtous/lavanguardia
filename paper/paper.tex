@@ -643,6 +643,15 @@ four days of free quota. Stopped after 7 of 200 articles on the first model (no 
 other sites link to with articles nobody links to; run Google's open Gemma models against Llama and Qwen of the same
 size (is it Google's data or model size?); ask other frontier models (GPT, Claude; cents each) and another newspaper's
 counter; and test articles published after the March 2026 opt-out on Gemini versions trained after it.
+\item \textbf{Aim extraction tests at the most-copied articles: free, in progress.} Memorization grows with the
+number of copies a model sees, and no article stood out in our tests (the best member scores equal the best control
+scores, and selecting articles by past scores mostly selects luck). FineWeb-2 records for each page how many
+near-identical copies its deduplication found across all Common Crawl captures of 2013--2024 (repeated captures and
+copies on other sites). We are reading this count for all 328,449 of the newspaper's pages
+(\texttt{src/fw2\_cluster\_sizes.py}); in the Catalan part the median page has 2 copies and the most-copied 1\% have
+42 or more. The 20--50 most-copied articles are the best targets; controls should be articles published after
+the training cutoffs with a comparable number of copies (FineWeb-2 stops in 2024, so their copies must be counted in
+later Common Crawl captures). Both sets would then go through a pre-registered extraction test on open and commercial models.
 \item \textbf{More triage on paid API tiers: not needed now.} A free ``collection fingerprint'' test (does a model reproduce \emph{La
 Contra}'s format and the newspaper's house style, such as ``en el 2023'' or ``Catalunya'', when asked to write like
 it, compared with other newspapers?) is designed and could be run at no cost if triage continues.

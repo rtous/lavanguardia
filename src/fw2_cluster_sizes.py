@@ -5,8 +5,8 @@ FineWeb-2 deduplicates each language globally with MinHash (near-duplicate docum
 documents in the cluster (the kept one included). The cluster mixes repeated captures of the same page and copies on
 other sites (reposts, scrapers, aggregators); both are copies a crawl-trained model could see.
 
-Input: the FineWeb-2 hit lists from src/dataset_presence.py (shard, row_group, row of every LV document). Reads only
-the `minhash_cluster_size` column of the row groups that hold LV documents. Resumable (one output file per shard).
+Input: the FineWeb-2 hit lists from src/dataset_presence.py (shard, row_group, row of every LV document). Downloads each
+shard in turn (deleted after use), reads `minhash_cluster_size` for the LV rows and checks the URL matches. Resumable.
 
   python -I src/fw2_cluster_sizes.py scan --lang spa_Latn [--workers 16]
   python -I src/fw2_cluster_sizes.py top --n 20    -> results/fw2_most_copied.json (+ .md)
@@ -19,23 +19,34 @@ OUT = "data/fw2_cluster_sizes"  # per-shard jsonl (large, gitignored)
 ART = re.compile(r"lavanguardia\.com/(?:[\w-]+/)+(\d{8})/(\d{6,12})/[^/]+\.html")
 
 
+TMP = os.environ.get("FW2_TMP", "data/fw2_tmp")  # whole shards are downloaded here one at a time, then deleted
+
+
 def scan_shard(args):
+    """Download one shard (a few GB), read the cluster size of the LV rows, delete the shard. Per-row-group range
+    requests were rate-limited by Hugging Face (HTTP 429), so whole files are fetched instead (146 + 5 requests)."""
     shard, hits, out = args
     if os.path.exists(out):
         return shard, "skip"
     import pyarrow.parquet as pq
-    from huggingface_hub import HfFileSystem
+    from huggingface_hub import hf_hub_download
+    fname = shard.split("fineweb-2/", 1)[1]
+    err = None
     for attempt in range(5):
+        local = None
         try:
-            fs = HfFileSystem(token=os.environ.get("HF_TOKEN"))
-            pf = pq.ParquetFile(fs.open(shard, block_size=256 * 1024))
+            local = hf_hub_download("HuggingFaceFW/fineweb-2", fname, repo_type="dataset", local_dir=TMP,
+                                    token=os.environ.get("HF_TOKEN"))
+            pf = pq.ParquetFile(local)
             by_rg = defaultdict(list)
             for h in hits:
                 by_rg[h["row_group"]].append(h)
             rows = []
             for rg, hs in sorted(by_rg.items()):
-                col = pf.read_row_group(rg, columns=["minhash_cluster_size"]).column(0)
+                t = pf.read_row_group(rg, columns=["minhash_cluster_size", "url"])
+                col, urls = t.column(0), t.column(1)
                 for h in hs:
+                    assert urls[h["row"]].as_py() == h["url"], "row mismatch"
                     rows.append({"id": h["id"], "url": h["url"], "dump": h["dump"], "shard": shard, "row_group": rg,
                                  "row": h["row"], "cluster_size": col[h["row"]].as_py()})
             tmp = out + ".tmp"
@@ -46,6 +57,9 @@ def scan_shard(args):
         except Exception as e:  # network hiccups / rate limits: back off and retry
             err = e
             time.sleep(30 * (attempt + 1))
+        finally:
+            if local and os.path.exists(local):
+                os.remove(local)
     return shard, f"FAILED {err!r}"[:200]
 
 
@@ -92,7 +106,7 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("cmd", choices=["scan", "top"])
     ap.add_argument("--lang", default="spa_Latn")
-    ap.add_argument("--workers", type=int, default=16)
+    ap.add_argument("--workers", type=int, default=3)
     ap.add_argument("--n", type=int, default=20)
     a = ap.parse_args()
     scan(a.lang, a.workers) if a.cmd == "scan" else top(a.n)

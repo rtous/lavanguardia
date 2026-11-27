@@ -2,12 +2,29 @@
 
 Read `CLAUDE.md`, `PROGRESS.md` and `docs/experiment_status.md` first. Everything below is resumable.
 
-## State at 2026-11-27 ~18:00 UTC (session 11)
-Running: chain-of-custody re-run (`src/run_colab_rerun_custody.sh gpu`, M11 Salamandra 117 articles, ~2-4 h),
-`colab_sync.sh loop 300`, `autosave.sh 600`. Waiting for Gemini free-tier quota: `run_colab_rerun_custody.sh api`
-(M12 re-run, 61/426 + 40/426 done). After both: `python -I src/m11_nyt_style.py compare`,
-`python -I src/m12_url_reverse.py compare`, then resume run 1 of M11 (`./src/run_colab_m11.sh`, 117/200 on Salamandra).
-If the runtime died: follow the quick resume below, then rerun the same commands (all resumable).
+## State at 2026-11-27 ~19:05 UTC (end of session 11) — what to resume
+Jobs (all resumable: rerun the same command; each skips finished work):
+| Job | Command | State at 19:05 UTC | Needs |
+|---|---|---|---|
+| M11 chain-of-custody re-run (GPU) | `./src/run_colab_rerun_custody.sh gpu >> logs/rerun_custody_gpu.log 2>&1` | 83/117, identical to run 1 so far | T4, `HF_TOKEN` |
+| M12 chain-of-custody re-run (API) | `./src/run_colab_rerun_custody.sh api >> logs/rerun_custody_api.log 2>&1` | 3.5-FL 61/426, 3.1-FL 40/426: free-tier daily quota | `GEMINI_API_KEY`; after ~08:00 UTC or billing |
+| FineWeb-2 copy counts (CPU + network) | `./src/run_fw2_cluster_sizes.sh >> logs/fw2_cluster.log 2>&1` | Catalan 5/5 done; Spanish 30/146 (~55 s per shard, downloads 4.4 GB each to `/content/fw2_tmp`, deleted after) | `HF_TOKEN` (optional), ~15 GB free disk |
+| M11 run 1 (after the GPU re-run) | `./src/run_colab_m11.sh >> logs/colab_m11.log 2>&1` | Salamandra 117/200; then Llama-3.1-8B-Instruct, Qwen2.5-7B | T4, `HF_TOKEN` (Llama licence) |
+| Always alongside | `./src/colab_sync.sh loop 300`, `GH_TOKEN=... ./src/autosave.sh 600` | — | `GH_TOKEN` for push |
+
+After they finish:
+- `python -I src/m11_nyt_style.py compare` and `python -I src/m12_url_reverse.py compare` → `results/rerun_custody/`;
+  report agreement in paper + `docs/evidence_gaps.md`.
+- `python -I src/fw2_cluster_sizes.py top --n 20` (run automatically at the end of the scan) → `results/fw2_most_copied.json`;
+  check the top 20 by `text_head` (drop template pages, e.g. daily "precio de la luz"), save the list, then design
+  the pre-registered most-copied extraction test (controls: post-cutoff articles with comparable copy counts, counted
+  in later Common Crawl captures).
+**Important on restore:** the full FineWeb-2 hit lists (`results/dataset_presence_hits_{spa,cat}_Latn.jsonl`,
+gitignored) are NOT complete in the 26-Nov extras zip (164,568 of 310,502 Spanish hits). Full copies:
+`MyDrive/lavanguardia_work/data/hits_{spa,cat}_Latn.jsonl.gz` (SHA-256 in `MANIFEST.txt`) — gunzip into `results/`.
+Check: Spanish 310,502 lines / 303,226 distinct URLs / 146 shards; Catalan 17,947 lines.
+Per-shard copy counts done so far are in `data/fw2_cluster_sizes/` (mirrored to Drive by `colab_sync.sh`).
+Before closing the tab on purpose: `from google.colab import drive; drive.flush_and_unmount()`.
 
 ## Quick resume (since 2026-11-27): GitHub first, then Drive for the untracked folders
 **Do not rsync the whole Drive mirror over the repo.** On 2026-11-27 the VM died while Drive was still ~1.5 h behind,
@@ -19,6 +36,7 @@ import os; os.environ['HF_TOKEN'] = userdata.get('HF_TOKEN')
 ```bash
 cd /content && git clone https://github.com/rtous/lavanguardia.git && cd lavanguardia && chmod +x src/*.sh
 ./src/colab_sync.sh restore                 # data/ evidence/ logs/ only; warns about stale Drive files
+(cd results && for L in spa_Latn cat_Latn; do gunzip -c /content/drive/MyDrive/lavanguardia_work/data/hits_$L.jsonl.gz > dataset_presence_hits_$L.jsonl; done)
 python -I src/evidence_audit.py             # result rows without a raw evidence record
 pip install -q -r requirements.txt bitsandbytes
 nohup ./src/colab_sync.sh loop 300 >> logs/colab_sync.log 2>&1 &

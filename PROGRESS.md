@@ -612,3 +612,19 @@ run ≥15 words side by side and check for copies elsewhere, write up as a label
 - **Most-copied articles (running):** `src/fw2_cluster_sizes.py` reads FineWeb-2's `minhash_cluster_size` (number of
   near-duplicate documents across all CC dumps 2013–2024, same page recrawled + copies on other sites) for every LV
   document → `data/fw2_cluster_sizes/` → `top` → `results/fw2_most_copied.json`. Log: `logs/fw2_cluster_spa.log`.
+- Per-article outliers (`src/outlier_articles.py` → `results/outlier_articles.json`): **none stands out**: best member
+  vs best control M1 13/11 words, M9 5/5, M11 10/8; cloze multi-model hits 16/71 members vs 10/33 controls; Q→A double
+  hits guessable (PSOE, Tierra, Nuevo Testamento). Near-exact URL numbers (8746377, 8931138) NOT repeated by sibling
+  Gemini models (3.5-FL off by 158 and 1,198; 3.1-FL off by 1,421 on the second) → likely luck.
+- FineWeb-2 copy-count scan: per-row-group reads hit HF 429 rate limits; switched to whole-shard downloads (~55 s/shard,
+  `/content/fw2_tmp`, outside the repo so the Drive sync never sees it). Catalan done; Spanish 30/146 at 19:00 UTC.
+  Full hit lists backed up gzipped to `MyDrive/lavanguardia_work/data/hits_*.jsonl.gz` (SHA-256 in MANIFEST.txt).
+- Paper: new avenue "Aim extraction tests at the most-copied articles" (+ control design caveat: FW2 ends 2024).
+- Lesson: `ps | grep [p]attern | xargs kill` inside a shell whose own command line contains the pattern kills that
+  shell (exit 144). Kill in a separate command.
+### State at end of session 11 (2026-11-27 ~19:05 UTC) — see `docs/colab_handoff.md` table for exact resume commands
+- Running: M11 custody re-run (83/117, identical to run 1), FineWeb-2 copy-count scan (Spanish 30/146), sync loop, autosave.
+- Waiting: M12 custody re-run (Gemini free quota; resume after 08:00 UTC), then M11 run 1 (117/200 Salamandra → Llama → Qwen).
+**Next, in order:** (1) finish/resume the jobs above; (2) compare runs → paper + evidence_gaps.md; (3) top-20 most-copied
+list → pre-registered extraction test; (4) server logs request to the publisher; retrieve Anthropic's AI Act summaries;
+scan CATalog; (5) rotate HF, GitHub and Gemini keys (pasted in chat again this session).

@@ -232,3 +232,4 @@ results/dataset_presence_hits_*.jsonl
 *.out
 *.toc
 data/fw2_cluster_sizes/
+data/fw2_tmp/
