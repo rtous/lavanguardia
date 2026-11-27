@@ -810,14 +810,17 @@ black-box tests while a version is online (so far negative), retrieval tests, an
 \end{itemize}
 
 \section*{In short}
-\emph{La Vanguardia}'s full articles were in every Common Crawl capture we checked, from 2019 until the March 2026
-opt-out. Common Crawl is the public web archive most AI training data comes from. They are also in FineWeb-2, a
-ready-made training dataset built from it: about 328,000 of the newspaper's pages, including four out of five of the
-2020--2023 articles we sampled. One open model, Apertus, publishes its training data, and that data includes
-FineWeb-2, so it was almost certainly trained on our articles. BSC's Salamandra and ALIA are documented as trained on
-20 Common Crawl captures, so they very likely were too. OpenAI (recent GPT models), Mistral (Large 3) and DeepSeek (V4)
-state in their EU AI Act filings that they trained on Common Crawl text. That makes it probable that our articles were
-in their training data, though not certain, because their filters may have dropped them, and nobody names
+Most AI models learn from web text collected by \emph{Common Crawl}, a non-profit that downloads billions of web
+pages every month and gives them away. \emph{FineWeb-2} is a cleaned-up selection of Common Crawl, made by Hugging
+Face (language and quality filters, duplicates removed) and published as ready-made training data. \emph{La
+Vanguardia}'s articles went down that pipe: their full text is in every Common Crawl capture we checked, from 2019
+until the opt-out of March 2026, and FineWeb-2 contains about 328,000 of the newspaper's pages, captured between 2013
+and 2024. That is about 270,000 different articles (in 2019--2021, more than 100 per day of publication) plus some
+50,000 section fronts, blog posts and other pages. One open model, Apertus, publishes its training data, and that
+data includes FineWeb-2, so it was almost certainly trained on our articles. BSC's Salamandra and ALIA are documented
+as trained on 20 Common Crawl captures, so they very likely were too. OpenAI (recent GPT models), Mistral (Large 3) and
+DeepSeek (V4) state in their EU AI Act filings that they trained on Common Crawl text. That makes it probable that our
+articles were in their training data, though not certain, because their filters may have dropped them, and nobody names
 specific websites. For Gemini we have no statement. Its smaller open sibling Gemma-2 shows a weak trace, explained by
 knowledge of the news events. Gemini itself shows one odd skill. Every article's web address carries a running
 number. Given a headline and date, Gemini guesses that number to within a few days' worth of articles, far better
@@ -834,8 +837,16 @@ rented computing, and the best outcome is a high probability that a related mode
 memorization, and not direct proof about the commercial product. Finally, most of this training happened before
 the opt-out of 17 March 2026, when the EU text-and-data-mining exception probably allowed it, so it was probably
 lawful. The open questions are training after the opt-out on older copies, any copies obtained unlawfully,
-memorized content, and AI assistants that fetch and reuse articles when answering. Some developers (xAI, Meta,
-Google for AI training) are still not covered by any machine-readable opt-out.
+memorized content, and AI assistants that fetch and reuse articles when answering.
+
+\textbf{Two warnings.} First, the opt-out is incomplete. The site's \texttt{robots.txt} blocks the training crawlers
+of OpenAI, Anthropic, Common Crawl and ByteDance, but not those of xAI or Meta, nor Google's AI-training token
+(\texttt{Google-Extended}), nor the agents that fetch pages for AI assistants at answer time; and there is no other
+machine-readable reservation (such as a TDMRep file). For those developers, collecting today's articles is probably
+still lawful under the EU exception. Adding them, and a general machine-readable reservation, costs nothing.
+Second, proving future use will stay this hard unless the newspaper plants \emph{copyright traps}: unique, invented
+sentences repeated in its own pages, which no model can produce unless it was trained on them. They only protect
+content published after they are introduced, so they should start now.
 
 \paragraph{Reproducibility.} Code is in \texttt{src/}, results in \texttt{results/}, the full record in
 \texttt{docs/technical\_report/}, and the status of every experiment in \texttt{docs/experiment\_status.md}. Raw
