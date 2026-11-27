@@ -96,6 +96,54 @@ available, and models reachable at low cost. The goal was to find viable avenues
 This paper summarizes; the technical report (\texttt{docs/technical\_report/technical\_report.pdf}) contains every
 method, table and statistical test, and \texttt{docs/experiment\_status.md} lists what was left unfinished and why.
 
+\subsection{The questions, and what can answer each}\label{sec:questions}
+The publisher's question breaks down into a chain. The first steps are easier to establish but say less; a claim
+against a specific model needs the later ones. For each question we give what can answer it and what we found so far.
+\begin{enumerate}[leftmargin=*,itemsep=3pt]
+\item \textbf{Were the articles collected from the web, when, and by whom?}
+\emph{Evidence:} crawl archives (Common Crawl), the history of \texttt{robots.txt} (Internet Archive), and, for any
+crawler other than Common Crawl's, only the publisher's own server logs. Dates matter: before 17 March 2026 the
+news articles had no machine-readable opt-out.
+\emph{So far:} Common Crawl captured full article text in every capture we sampled from 2019 to March 2026, and
+FineWeb-2 shows captures from 2013; none after the opt-out. \texttt{robots.txt} named no AI crawler before 25
+April 2024, and until 17 March 2026 it excluded AI crawlers only from the film and book sections. Which other
+crawlers (OpenAI, Anthropic, Google, ByteDance, \ldots) fetched the articles, and when, is unknown: it needs the
+server logs, not yet requested (Sections~\ref{sec:data},~\ref{sec:presence}).
+\item \textbf{Which public training datasets contain them, and how many?}
+\emph{Evidence:} scanning the published datasets for the newspaper's web addresses.
+\emph{So far:} FineWeb-2 does (310,502 Spanish and 17,947 Catalan pages, including 82\% of our 2020--2023 test
+articles); the OLMo 2 data do not (English only). Not yet checked: BSC's CATalog and other public Common Crawl
+derivatives used for multilingual training (Section~\ref{sec:presence}).
+\item \textbf{Which models are documented as trained on those datasets, and which probably were?}
+\emph{Evidence:} model cards and technical reports, and, for models placed on the EU market since August 2025, the
+training-content summaries required by the AI Act.
+\emph{So far:} documented: Apertus (FineWeb-2), and Salamandra and ALIA (20 Common Crawl captures and CATalog; the
+newspaper is not named). Probable but undocumented: most other models, whose developers report only ``publicly
+available web data''. The AI Act summaries have not yet been checked (Tables~\ref{tab:datasets},~\ref{tab:models}).
+\item \textbf{Was a given model actually trained on them, and when?}
+\emph{Evidence:} statistical traces in the model itself, measured against articles it could not have seen
+(collection-level tests), and comparisons of versions with different training cutoffs, which also date the
+training. These need word probabilities, so they work on open-weight models only; on ChatGPT, Claude or Gemini only
+through court-ordered access (Section~\ref{sec:whichmodels}).
+\emph{So far:} not established for any model. The open models show faint traces, as large as those of Apertus,
+which is known to have been trained on the articles, but knowledge of the period's events explains them. Llama-3.1
+versus Llama-3 gives a consistent hint, not confirmed. Training after the opt-out has not been tested: it would show
+as knowledge of the wording of articles published after 17 March 2026.
+\item \textbf{Has a model memorized them, that is, can it reproduce their wording or details found only in them?}
+The strongest evidence under \emph{GEMA}, and testable on commercial models through ordinary queries.
+\emph{So far:} no, in any model tested, including the most reposted interviews; an adversarial, NYT-style
+extraction test on open models is under way. Gemini knows the pattern of the newspaper's article numbers unusually
+well but cannot tell which article a number belongs to (Section~\ref{sec:results}).
+\item \textbf{Do AI assistants use the articles at answer time?} A different legal act from training, observable
+directly. \emph{So far:} through the Gemini API, Google's page fetcher could not read the site; consumer products
+with web search are untested.
+\item \textbf{How can future use be made provable?} Copyright traps in new articles, plus keeping server logs and a
+dated record of the opt-out. \emph{So far:} not started; it is the publisher's decision (Section~\ref{sec:avenues}).
+\end{enumerate}
+Questions 1--3 establish availability and copying into datasets, not use by a given model. A negative answer to
+question~5 does not answer question~4: a model trained on the articles can still fail to reproduce them
+(Section~\ref{sec:negatives}).
+
 %======================================================================
 \section{Legal context}\label{sec:legal}
 \emph{A summary of public sources for orientation, not legal advice; to be validated by counsel.}

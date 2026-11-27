@@ -584,3 +584,6 @@ run ≥15 words side by side and check for copies elsewhere, write up as a label
 - Paper (user request): made explicit that the collection-level test cannot be run on ChatGPT/Claude/Gemini via public APIs
   (needs word probabilities): abstract, method (D), avenues (new "Limitation" + open relatives = circumstantial), conclusions.
   PDF rebuilt (texlive installed on this runtime).
+- Paper (user request): new Section 1.1 "The questions, and what can answer each" (7 questions: crawling/when/who,
+  datasets, documented vs probable models, training + when, memorization, answer-time use, future proof), each with
+  evidence route and status. New open items: request server logs; check AI Act training-content summaries; scan CATalog.
