@@ -50,3 +50,16 @@ overlap is reported descriptively.
 
 **Not part of this pre-registration.** The re-analysis of the existing M10 forward answers by error in IDs (instead
 of days) uses data already seen and is reported as exploratory.
+
+## Amendment 1 (2026-11-27, before any query on a member pair)
+- The prompt above (v1) was sent for 2 control articles (first pair) on `gemini-3.5-flash-lite`. Both answers were
+  "I cannot access the internet / visit URLs". The question was read as "visit this link".
+- New prompt (v2, `PROMPT_VERSION = 2` in `src/m12_url_reverse.py`), used for all pairs and both models:
+  > No hace falta que accedas a internet: responde de memoria. El artículo de La Vanguardia con el número {ID},
+  > publicado el {fecha} en la sección «{section}», tiene una URL que empieza por https://www.lavanguardia.com/{section}/{date}/{ID}/
+  > ¿Cuál es su titular? Responde solo con el titular, sin explicaciones. Si no estás seguro, da igualmente tu mejor suposición.
+- Pilot of v2 (not analysed): the same 2 controls ("no information about that future date": the expected control
+  answer) and 3 member articles that are NOT in any pair (`evidence/m12_pilot/`): real guesses, topical for the date,
+  overlap 0, 0, 0.17. v1 rows stay in the results file with `prompt_version` 1 and are excluded from the summary.
+- Refusals and "I don't know" answers score 0 against both titles, so they cannot create a pair effect.
+- Everything else (pairs, score, tests, reading) unchanged.

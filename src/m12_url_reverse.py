@@ -64,10 +64,16 @@ def build():
     print("sha256:", hashlib.sha256(open(PAIRS, "rb").read()).hexdigest())
 
 
+PROMPT_VERSION = 2  # v1 (2 control queries, pilot) asked to "look up" the URL and got "I cannot browse" refusals
+
+
 def prompt(p, x):
+    from m10_exclusive_facts import hdate
     url = f"https://www.lavanguardia.com/{p['section']}/{p['pub_date']}/{x['article_id']}/"
-    return (f"¿Cuál es el titular del artículo de La Vanguardia publicado en esta URL?\n{url}\n"
-            "Responde solo con el titular exacto, sin explicaciones. Si no estás seguro, da igualmente tu mejor respuesta.")
+    return (f"No hace falta que accedas a internet: responde de memoria. El artículo de La Vanguardia con el número "
+            f"{x['article_id']}, publicado el {hdate(p['pub_date'])} en la sección «{p['section']}», tiene una URL que empieza "
+            f"por {url}\n¿Cuál es su titular? Responde solo con el titular, sin explicaciones. "
+            "Si no estás seguro, da igualmente tu mejor suposición.")
 
 
 def out_path(model):
@@ -80,7 +86,8 @@ def run(model, limit):
     out = out_path(model)
     done = set()
     if os.path.exists(out):
-        done = {(r["pair_id"], r["side"]) for r in map(json.loads, open(out)) if not r.get("api_error")}
+        done = {(r["pair_id"], r["side"]) for r in map(json.loads, open(out))
+                if not r.get("api_error") and r.get("prompt_version", 1) == PROMPT_VERSION}
     todo = [(p, s) for p in pairs for s in ("a", "b") if (p["pair_id"], s) not in done][:limit or None]
     print(f"{model}: {len(todo)} queries to run", flush=True)
     with open(out, "a", encoding="utf-8") as f:
@@ -93,7 +100,7 @@ def run(model, limit):
             r = {"pair_id": p["pair_id"], "side": s, "set": p["set"], "pub_date": p["pub_date"], "section": p["section"],
                  "url": x["url"], "title": x["title"], "partner_title": y["title"], "model": model,
                  "model_reported": rec["model_reported"], "prompt": q, "gen": text, "evidence_sha256": rec["sha256"],
-                 "api_error": err, "ov_own": overlap(text, x["title"], p["section"]),
+                 "api_error": err, "prompt_version": PROMPT_VERSION, "ov_own": overlap(text, x["title"], p["section"]),
                  "ov_partner": overlap(text, y["title"], p["section"])}
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
             f.flush()
@@ -116,7 +123,7 @@ def summary():
             continue
         rows = {}
         for r in map(json.loads, open(path)):
-            if not r["api_error"]:
+            if not r["api_error"] and r.get("prompt_version", 1) == PROMPT_VERSION:
                 rows[(r["pair_id"], r["side"])] = r  # last valid answer per query
         by = defaultdict(dict)
         for (pid, s), r in rows.items():
