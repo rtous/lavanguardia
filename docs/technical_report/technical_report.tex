@@ -542,8 +542,8 @@ reconstructed. \texttt{src/evidence\_audit.py} lists unbacked rows; \texttt{docs
 incident. Under a dated amendment committed before any query
 (\texttt{docs/prereg/amendment\_rerun\_custody\_20261127.md}) the same queries are re-run with identical code,
 prompts and seeds into separate files (\texttt{results/rerun\_custody/}). The pre-registered analyses stay on run 1;
-the re-run gets the same statistics and an agreement measure. First results: the Salamandra re-run reproduces run 1
-exactly (all attempts identical); Gemini's answers differ in wording from run 1 at temperature 0 (0 of 61 identical
+the re-run gets the same statistics and an agreement measure. The Salamandra re-run is complete and reproduces run 1
+exactly (117/117 articles, all attempts identical; \texttt{results/rerun\_custody/m11\_compare.json}); Gemini's answers differ in wording from run 1 at temperature 0 (0 of 61 identical
 texts, same substance), so for Gemini only the statistics can be compared. The Gemini re-runs are limited by the
 free tier's daily quota.
 
@@ -1320,9 +1320,11 @@ recommend starting now, since traps cannot protect content published before thei
 \paragraph{Next steps.} See Table~\ref{tab:status}. In order of value: finish the pre-registered NYT-style
 extraction (M11, \texttt{docs/prereg/m11\_nyt\_style.md}: role-play prompt, 110-word opening, best of 10 attempts,
 identical for controls; an adversarial upper bound reported apart from the neutral tests), at 117 of 200 articles
-on Salamandra-7B-Instruct, then Llama-3.1-8B-Instruct and Qwen2.5-7B-Instruct; finish the chain-of-custody re-run of the
-911 queries whose raw records were lost; ask the publisher for server logs (which crawlers fetched the articles, and
-when); check the AI Act training-content summaries of the main models for the newspaper's domain; scan BSC's CATalog; the
+on Salamandra-7B-Instruct, then Llama-3.1-8B-Instruct and Qwen2.5-7B-Instruct; finish the Gemini part of the
+chain-of-custody re-run (the Salamandra part is complete and identical to run 1); pre-register an extraction test on the
+most-copied articles (FineWeb-2 copy counts for all 272,636 articles: median 2, 1\% with 43 or more, top 20 with 245--1,279;
+\texttt{results/fw2\_most\_copied.md}) with post-cutoff controls of comparable copy count; ask the publisher for server
+logs (which crawlers fetched the articles, and when); retrieve Anthropic's AI Act training-content summary; scan BSC's CATalog; the
 cheap article-number screening (M10) on all reachable models, to choose where to spend on extraction tests; M9 and
 role-play tests on commercial APIs with a paid key; tests on larger open-weight models; complete the truncated runs; measure duplication to select test passages; evaluate models from
 other providers that expose token probabilities (OpenAI, further open-weight models); run dataset inference on the

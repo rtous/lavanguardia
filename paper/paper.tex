@@ -281,8 +281,9 @@ Common Crawl record and its hash, so anyone can retrieve identical bytes.
 copied, and the raw records of 911 queries (part of the M11 extraction test and of the article-number reverse test)
 did not survive; their results did. We disclose the gap (\texttt{docs/evidence\_gaps.md}) and are re-running those
 queries with full records under a dated amendment, reporting agreement between the runs. The local model's re-run
-reproduces the original outputs exactly; Gemini's wording varies between runs even at temperature 0, so only the
-statistics are compared.
+is complete and reproduces the original outputs exactly (117 of 117 articles, every attempt identical); Gemini's
+wording varies between runs even at temperature 0, so only the statistics are compared (re-run limited by the free
+daily quota; so far 57 of 61 and 39 of 39 queries give the same result as run 1).
 \item \textbf{Logging.} Every model query is logged with timestamp, exact model, full prompt, full response
 and a tamper-evident hash.
 \end{itemize}
@@ -647,9 +648,12 @@ counter; and test articles published after the March 2026 opt-out on Gemini vers
 number of copies a model sees, and no article stood out in our tests (the best member scores equal the best control
 scores, and selecting articles by past scores mostly selects luck). FineWeb-2 records for each page how many
 near-identical copies its deduplication found across all Common Crawl captures of 2013--2024 (repeated captures and
-copies on other sites). We are reading this count for all 328,449 of the newspaper's pages
-(\texttt{src/fw2\_cluster\_sizes.py}); in the Catalan part the median page has 2 copies and the most-copied 1\% have
-42 or more. The 20--50 most-copied articles are the best targets; controls should be articles published after
+copies on other sites). We read this count for all 328,449 of the newspaper's pages in FineWeb-2
+(\texttt{src/fw2\_cluster\_sizes.py}). Of the 272,636 distinct articles, the median has 2 copies, 10\% have 7 or
+more, 1\% have 43 or more and 232 have 100 or more. The 20 most-copied articles, after reading their text and dropping
+one error page (\texttt{results/fw2\_most\_copied.md}), have 245 to 1,279 copies; they are mostly 2010--2014 pieces:
+three \emph{La Contra} interviews on health and pseudoscience, curiosity news (a new mammal species, a zoo passing dogs
+off as lions, the Mayan ``end of the world''), a Pope Francis interview and agency wires. They are the best targets; controls should be articles published after
 the training cutoffs with a comparable number of copies (FineWeb-2 stops in 2024, so their copies must be counted in
 later Common Crawl captures). Both sets would then go through a pre-registered extraction test on open and commercial models.
 \item \textbf{More triage on paid API tiers: not needed now.} A free ``collection fingerprint'' test (does a model reproduce \emph{La

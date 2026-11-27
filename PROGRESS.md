@@ -632,3 +632,16 @@ scan CATalog; (5) rotate HF, GitHub and Gemini keys (pasted in chat again this s
 - Paper "In short": opening now explains Common Crawl → FineWeb-2 → models; FineWeb-2 count clarified (328,449 LV docs = ~272,700 distinct dated articles + ~50,000 section/blog/other pages; peak 2019–2021 >100 articles per publication day); test-set mention removed; closing "Two warnings" (incomplete opt-out: xAI, Meta, Google-Extended, answer-time agents, no TDMRep; start copyright traps now).
 - Wording (user request): paper and technical report say "La Vanguardia articles" / "the test articles" instead of "our articles". PDFs rebuilt.
 - Spot check of FineWeb-2 LV articles (20 random 2020 docs, text read from FW2; `data/fw2_sample2020.json`, gitignored): all real articles (87–1,385 words): staff news, opinion columns, sport, and LV sub-brands (muyfan celebrity, vivo, comer, videojuegos, motor); 3/20 are EFE wire copies republished verbatim (all in Vida). 2020 = 43,759 distinct articles; top sections vida 7,135, local 5,219, politica 4,010, deportes 3,619. High counts = newspaper + wire feed + verticals; small AMP-URL duplication (?facet=amp).
+- **M11 custody re-run complete (21:00 UTC): 117/117 Salamandra articles identical to run 1** (all attempt scores,
+  greedy output, best LCS outside quotes = 10 words in both). The 95 unbacked run-1 rows are now backed by a reproducible
+  re-run with raw records. Paper, technical report and `docs/evidence_gaps.md` updated. M12 Gemini re-run still quota-limited.
+- **Most-copied articles done** (scan finished 21:39 UTC, 0 failed shards): 328,449 LV docs, 272,636 distinct articles;
+  copies median 2, p90 7, p99 43, 232 articles ≥ 100, 2 ≥ 500. `src/fw2_top_check.py` reads the text of the top 30 from
+  FineWeb-2: #2 (1,132 copies) was a "page not found" error page (error pages cluster together) → dropped. Top 20 in
+  `results/fw2_most_copied.md` (245–1,279 copies): mostly 2010–2014; 3 La Contra interviews (health/pseudoscience:
+  Garnier "desdoblamiento del tiempo" 1,279, Gérvas 490, wi-fi 373, Ecuyer 247), curiosity news (olinguito, Chinese zoo,
+  Tonga pirate ship, Mayan calendar, snake on a plane), Pope Francis interview (2,758 words), EFE wires. Paper avenue updated.
+- M11 run 1 resumed 21:08 UTC (Salamandra 117→200). Shell has no `HF_TOKEN`: Llama-3.1 will fail; relaunch with token.
+**Next:** (1) M12 re-run after 08:00 UTC; (2) M11 run 1 with `HF_TOKEN`; (3) pre-register the most-copied extraction
+test (top 20–50 + copy-matched post-cutoff controls; open models first, then Gemini/commercial); (4) server logs,
+Anthropic AI Act summary, CATalog; (5) rotate keys.

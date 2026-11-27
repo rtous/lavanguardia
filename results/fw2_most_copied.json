@@ -1,0 +1,3564 @@
+{
+ "documents_scanned": 328449,
+ "article_documents": 278256,
+ "distinct_articles": 272636,
+ "cluster_size_quantiles": {
+  "max": 1279,
+  "p99.9": 93,
+  "p99": 43,
+  "p90": 7,
+  "median": 2
+ },
+ "articles_with_cluster_ge": {
+  "2": 148513,
+  "5": 49183,
+  "10": 20475,
+  "50": 1504,
+  "100": 232,
+  "500": 2
+ },
+ "top": [
+  {
+   "article_id": "54068170076",
+   "cluster_size": 1279,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/noticias/20101109/54068170076/nosotros-como-el-tiempo-tambien-nos-desdoblamos.html",
+     "dump": "CC-MAIN-2014-41",
+     "cluster_size": 1279,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00006.parquet",
+     "row_group": 45,
+     "row": 696,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20101109"
+  },
+  {
+   "article_id": "54312387302",
+   "cluster_size": 1132,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/cultura/20120615/54312387302/entrevista-erik-belga.html",
+     "dump": "CC-MAIN-2017-22",
+     "cluster_size": 1132,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 328,
+     "row": 709,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120615"
+  },
+  {
+   "article_id": "54365145790",
+   "cluster_size": 490,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/lacontra/20130207/54365145790/la-contra-juan-gervas.html",
+     "dump": "CC-MAIN-2015-11",
+     "cluster_size": 490,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 90,
+     "row": 862,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130207"
+  },
+  {
+   "article_id": "54228364832",
+   "cluster_size": 373,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/lacontra/20111010/54228364832/no-se-olvide-de-apagar-el-wi-fi-por-la-noche.html",
+     "dump": "CC-MAIN-2024-18",
+     "cluster_size": 373,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 2208,
+     "row": 981,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20111010"
+  },
+  {
+   "article_id": "442091792778",
+   "cluster_size": 335,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/internacional/20180401/442091792778/eeuu--norma-datos--redes-sociales-viajeros-visado.html?",
+     "dump": "CC-MAIN-2022-49",
+     "cluster_size": 335,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 1874,
+     "row": 616,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20180401"
+  },
+  {
+   "article_id": "54379459399",
+   "cluster_size": 326,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/medio-ambiente/20130815/54379459399/olinguito-carnivoro-descubierto-america.html",
+     "dump": "CC-MAIN-2017-39",
+     "cluster_size": 326,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00006.parquet",
+     "row_group": 394,
+     "row": 447,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130815"
+  },
+  {
+   "article_id": "7750768",
+   "cluster_size": 310,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/participacion/debates/20210928/7750768/mas-impuestos-espana.html",
+     "dump": "CC-MAIN-2023-06",
+     "cluster_size": 310,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00019.parquet",
+     "row_group": 1491,
+     "row": 310,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20210928"
+  },
+  {
+   "article_id": "54378572901",
+   "cluster_size": 308,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20130815/54378572901/zoo-china-perros-leones-ratas-reptiles.html",
+     "dump": "CC-MAIN-2016-50",
+     "cluster_size": 304,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00022.parquet",
+     "row_group": 108,
+     "row": 177,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/vida/20130815/54378572901/zoo-china-perros-leones-ratas-reptiles.html",
+     "dump": "CC-MAIN-2014-35",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00020.parquet",
+     "row_group": 2721,
+     "row": 583,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/vida/20130815/54378572901/zoo-china-perros-leones-ratas-reptiles.html",
+     "dump": "CC-MAIN-2014-52",
+     "cluster_size": 2,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00006.parquet",
+     "row_group": 1215,
+     "row": 483,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/vida/20130815/54378572901/zoo-china-perros-leones-ratas-reptiles.html",
+     "dump": "CC-MAIN-2014-15",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00016.parquet",
+     "row_group": 1830,
+     "row": 108,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130815"
+  },
+  {
+   "article_id": "54335820943",
+   "cluster_size": 299,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20120809/54335820943/descubren-tonga-barco-pirata-tesoros.html",
+     "dump": "CC-MAIN-2016-07",
+     "cluster_size": 299,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 135,
+     "row": 108,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120809"
+  },
+  {
+   "article_id": "54361786643",
+   "cluster_size": 296,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20130111/54361786643/serpiente-3-metros-vuela-tres-horas-ala-avion.html",
+     "dump": "CC-MAIN-2015-14",
+     "cluster_size": 296,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 110,
+     "row": 669,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130111"
+  },
+  {
+   "article_id": "54408951579",
+   "cluster_size": 293,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20140612/54408951579/entrevista-papa-francisco.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 293,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 57,
+     "row": 393,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20140612"
+  },
+  {
+   "article_id": "54365702345",
+   "cluster_size": 289,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130224/54365702345/benedicto-xvi-dios-llama-oracion-no-abandono-iglesia.html",
+     "dump": "CC-MAIN-2016-26",
+     "cluster_size": 289,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 152,
+     "row": 859,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130224"
+  },
+  {
+   "article_id": "421021759031",
+   "cluster_size": 277,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/futbol/20170319/421021759031/iago-aspas-celta-deportivo.html",
+     "dump": "CC-MAIN-2017-13",
+     "cluster_size": 277,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 283,
+     "row": 856,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20170319"
+  },
+  {
+   "article_id": "43521753983",
+   "cluster_size": 259,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/otros-deportes/20170812/43521753983/mireia-belmonte-record-del-mundo-400-estilos.html",
+     "dump": "CC-MAIN-2017-43",
+     "cluster_size": 259,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00013.parquet",
+     "row_group": 362,
+     "row": 645,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20170812"
+  },
+  {
+   "article_id": "54356160431",
+   "cluster_size": 259,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/cine/20121207/54356160431/disney-pelicula-don-quijote-johnny-depp.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 259,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00007.parquet",
+     "row_group": 2015,
+     "row": 471,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121207"
+  },
+  {
+   "article_id": "54356158334",
+   "cluster_size": 258,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20121207/54356158334/mayas-calendario-preve-fin-del-mundo.html",
+     "dump": "CC-MAIN-2017-04",
+     "cluster_size": 258,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00011.parquet",
+     "row_group": 162,
+     "row": 859,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121207"
+  },
+  {
+   "article_id": "54356233363",
+   "cluster_size": 251,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20121210/54356233363/autores-broma-catalina-destrozados-muerte-enfermera.html",
+     "dump": "CC-MAIN-2017-26",
+     "cluster_size": 251,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00005.parquet",
+     "row_group": 321,
+     "row": 566,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121210"
+  },
+  {
+   "article_id": "54354974266",
+   "cluster_size": 249,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/economia/20121108/54354974266/nuevo-billete-5-euros.html",
+     "dump": "CC-MAIN-2019-22",
+     "cluster_size": 249,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00031.parquet",
+     "row_group": 625,
+     "row": 986,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121108"
+  },
+  {
+   "article_id": "54360763481",
+   "cluster_size": 247,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/lacontra/20130111/54360763481/la-contra-catherine-ecuyer.html",
+     "dump": "CC-MAIN-2016-40",
+     "cluster_size": 247,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00013.parquet",
+     "row_group": 115,
+     "row": 29,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130111"
+  },
+  {
+   "article_id": "54376603767",
+   "cluster_size": 245,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/musica/20130708/54376603767/mc-daleste-brasil.html",
+     "dump": "CC-MAIN-2015-27",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00029.parquet",
+     "row_group": 37,
+     "row": 978,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/musica/20130708/54376603767/mc-daleste-brasil.html",
+     "dump": "CC-MAIN-2015-32",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00029.parquet",
+     "row_group": 1133,
+     "row": 309,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/musica/20130708/54376603767/mc-daleste-brasil.html",
+     "dump": "CC-MAIN-2015-22",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00004.parquet",
+     "row_group": 98,
+     "row": 57,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/musica/20130708/54376603767/mc-daleste-brasil.html",
+     "dump": "CC-MAIN-2015-18",
+     "cluster_size": 242,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 118,
+     "row": 489,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130708"
+  },
+  {
+   "article_id": "54365643283",
+   "cluster_size": 245,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130222/54365643283/chavez-sigue-padeciendo-insuficiencia-respiratoria.html",
+     "dump": "CC-MAIN-2016-22",
+     "cluster_size": 245,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 156,
+     "row": 476,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130222"
+  },
+  {
+   "article_id": "54376853857",
+   "cluster_size": 240,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20130621/54376853857/solsticio-de-verano-2013.html",
+     "dump": "CC-MAIN-2016-30",
+     "cluster_size": 240,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00007.parquet",
+     "row_group": 128,
+     "row": 982,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130621"
+  },
+  {
+   "article_id": "54358321164",
+   "cluster_size": 239,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20121226/54358321164/obama-pacto-fiscal.html",
+     "dump": "CC-MAIN-2017-51",
+     "cluster_size": 239,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 509,
+     "row": 581,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121226"
+  },
+  {
+   "article_id": "54365227596",
+   "cluster_size": 239,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/politica/20130209/54365227596/urdangarin-listado-bienes-embargo-juzgado.html",
+     "dump": "CC-MAIN-2016-07",
+     "cluster_size": 239,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 130,
+     "row": 722,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130209"
+  },
+  {
+   "article_id": "54226549954",
+   "cluster_size": 236,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/tecnologia/20111006/54226549954/muere-steve-jobs-el-fundador-de-apple.html",
+     "dump": "CC-MAIN-2020-40",
+     "cluster_size": 236,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 1389,
+     "row": 294,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20111006"
+  },
+  {
+   "article_id": "41268207060",
+   "cluster_size": 232,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/vida/20160913/41268207060/conductas-padres-entorpecen-educacion-hijos.html",
+     "dump": "CC-MAIN-2022-05",
+     "cluster_size": 232,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00005.parquet",
+     "row_group": 1601,
+     "row": 232,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20160913"
+  },
+  {
+   "article_id": "302294305997",
+   "cluster_size": 232,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/cultura/libros/20160220/302294305997/muere-umberto-eco.html",
+     "dump": "CC-MAIN-2016-30",
+     "cluster_size": 232,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 158,
+     "row": 916,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20160220"
+  },
+  {
+   "article_id": "54356632755",
+   "cluster_size": 229,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internet/20121226/54356632755/demanda-colectiva-nstagram.html",
+     "dump": "CC-MAIN-2014-49",
+     "cluster_size": 229,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00012.parquet",
+     "row_group": 52,
+     "row": 284,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121226"
+  },
+  {
+   "article_id": "54357150725",
+   "cluster_size": 222,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/futbol/20121209/54357150725/levante-aplasta-al-mallorca.html",
+     "dump": "CC-MAIN-2013-48",
+     "cluster_size": 222,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00006.parquet",
+     "row_group": 8,
+     "row": 185,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121209"
+  },
+  {
+   "article_id": "54355161086",
+   "cluster_size": 209,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/medio-ambiente/20121113/54355161086/estados-unidos-construye-bunker-para-salvar-sus-murcielagos.html",
+     "dump": "CC-MAIN-2013-48",
+     "cluster_size": 209,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00011.parquet",
+     "row_group": 9,
+     "row": 342,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121113"
+  },
+  {
+   "article_id": "411950963335",
+   "cluster_size": 209,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/lacontra/20161118/411950963335/nuestro-sufrimiento-no-depende-del-afuera.html",
+     "dump": "CC-MAIN-2020-50",
+     "cluster_size": 209,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 1436,
+     "row": 612,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20161118"
+  },
+  {
+   "article_id": "54354586805",
+   "cluster_size": 204,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20121117/54354586805/anonymous-filtra-nombre-placa-mossos.html",
+     "dump": "CC-MAIN-2016-44",
+     "cluster_size": 204,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 175,
+     "row": 769,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121117"
+  },
+  {
+   "article_id": "54426341224",
+   "cluster_size": 203,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20150220/54426341224/jari-lavonen-nino-cuatro-anos-necesita-jugar-escuela.html",
+     "dump": "CC-MAIN-2016-36",
+     "cluster_size": 203,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 168,
+     "row": 706,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20150220"
+  },
+  {
+   "article_id": "54338930843",
+   "cluster_size": 202,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/gente/20120817/54338930843/carmen-lomana-atropellada.html",
+     "dump": "CC-MAIN-2017-39",
+     "cluster_size": 202,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00005.parquet",
+     "row_group": 404,
+     "row": 700,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120817"
+  },
+  {
+   "article_id": "45697829753",
+   "cluster_size": 200,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/vida/20180705/45697829753/valsartan-medicamento-tension.html",
+     "dump": "CC-MAIN-2019-51",
+     "cluster_size": 200,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00006.parquet",
+     "row_group": 1051,
+     "row": 928,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20180705"
+  },
+  {
+   "article_id": "54362542614",
+   "cluster_size": 199,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/ocio/20130130/54362542614/hitchcock-cine-clasico-inspirando-nuevas-generaciones.html",
+     "dump": "CC-MAIN-2017-17",
+     "cluster_size": 199,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 285,
+     "row": 293,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130130"
+  },
+  {
+   "article_id": "54358323713",
+   "cluster_size": 195,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/economia/20121226/54358323713/iva-2013.html",
+     "dump": "CC-MAIN-2018-09",
+     "cluster_size": 195,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00005.parquet",
+     "row_group": 542,
+     "row": 895,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121226"
+  },
+  {
+   "article_id": "461672566530",
+   "cluster_size": 195,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/internacional/20190415/461672566530/paris-notre-dame-incendio-fuego-en-directo-video-seo-lv.html",
+     "dump": "CC-MAIN-2020-50",
+     "cluster_size": 195,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00014.parquet",
+     "row_group": 1143,
+     "row": 384,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20190415"
+  },
+  {
+   "article_id": "54365645833",
+   "cluster_size": 194,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/especiales/oscars/20130222/54365645833/hollywood-prepara-oscar.html",
+     "dump": "CC-MAIN-2015-27",
+     "cluster_size": 194,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 109,
+     "row": 206,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130222"
+  },
+  {
+   "article_id": "54290815128",
+   "cluster_size": 193,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internet/20120507/54290815128/los-diez-mandamientos-del-trabajador-feliz-en-la-era-digital.html",
+     "dump": "CC-MAIN-2015-11",
+     "cluster_size": 193,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00012.parquet",
+     "row_group": 65,
+     "row": 719,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120507"
+  },
+  {
+   "article_id": "54378186535",
+   "cluster_size": 193,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/television/20130729/54378186535/encarcelados-la-sexta-otono.html",
+     "dump": "CC-MAIN-2017-26",
+     "cluster_size": 193,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00006.parquet",
+     "row_group": 309,
+     "row": 459,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130729"
+  },
+  {
+   "article_id": "54086077344",
+   "cluster_size": 192,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20101209/54086077344/nace-un-perro-verde-en-brasil.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 192,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00007.parquet",
+     "row_group": 2018,
+     "row": 792,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20101209"
+  },
+  {
+   "article_id": "54373507891",
+   "cluster_size": 191,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/comunicacion/20130514/54373507891/world-press-photo-determina-que-la-foto-de-hansen-es-autentica.html",
+     "dump": "CC-MAIN-2014-23",
+     "cluster_size": 191,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00009.parquet",
+     "row_group": 28,
+     "row": 347,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130514"
+  },
+  {
+   "article_id": "54378487495",
+   "cluster_size": 188,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/tecnologia/20130811/54378487495/samsung-apelara-veto-eeuu.html",
+     "dump": "CC-MAIN-2016-22",
+     "cluster_size": 188,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00021.parquet",
+     "row_group": 79,
+     "row": 927,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130811"
+  },
+  {
+   "article_id": "54366796357",
+   "cluster_size": 187,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20130216/54366796357/meteorito-rusia-danos.html",
+     "dump": "CC-MAIN-2014-35",
+     "cluster_size": 187,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 44,
+     "row": 332,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130216"
+  },
+  {
+   "article_id": "54396187332",
+   "cluster_size": 180,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/natural/20131214/54396187332/egipto-nieve.html",
+     "dump": "CC-MAIN-2017-17",
+     "cluster_size": 180,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00012.parquet",
+     "row_group": 3294,
+     "row": 736,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20131214"
+  },
+  {
+   "article_id": "54367764332",
+   "cluster_size": 175,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/ocio/20130226/54367764332/movimiento-obra-jesus-rafael-soto-llega-pompidou-paris.html",
+     "dump": "CC-MAIN-2016-40",
+     "cluster_size": 175,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00013.parquet",
+     "row_group": 114,
+     "row": 875,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130226"
+  },
+  {
+   "article_id": "54352573832",
+   "cluster_size": 174,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/deportes/otros/20121014/54352573832/felix-baumgartner-extraterrestre-roswell.html",
+     "dump": "CC-MAIN-2019-47",
+     "cluster_size": 174,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00006.parquet",
+     "row_group": 1028,
+     "row": 493,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121014"
+  },
+  {
+   "article_id": "54358180406",
+   "cluster_size": 173,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20121221/54358180406/enfermos-larga-duracion-pagaran-ambulancias.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 173,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00010.parquet",
+     "row_group": 47,
+     "row": 171,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121221"
+  },
+  {
+   "article_id": "54355858234",
+   "cluster_size": 172,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20121126/54355858234/tragedia-mortal-incendio-fabrica-minusvalidos.html",
+     "dump": "CC-MAIN-2015-40",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00023.parquet",
+     "row_group": 244,
+     "row": 353,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20121126/54355858234/tragedia-mortal-incendio-fabrica-minusvalidos.html",
+     "dump": "CC-MAIN-2015-11",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00018.parquet",
+     "row_group": 2156,
+     "row": 217,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20121126/54355858234/tragedia-mortal-incendio-fabrica-minusvalidos.html",
+     "dump": "CC-MAIN-2014-23",
+     "cluster_size": 2,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00007.parquet",
+     "row_group": 1516,
+     "row": 720,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20121126/54355858234/tragedia-mortal-incendio-fabrica-minusvalidos.html",
+     "dump": "CC-MAIN-2014-52",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00012.parquet",
+     "row_group": 1420,
+     "row": 682,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20121126/54355858234/tragedia-mortal-incendio-fabrica-minusvalidos.html",
+     "dump": "CC-MAIN-2015-06",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00030.parquet",
+     "row_group": 1113,
+     "row": 397,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20121126/54355858234/tragedia-mortal-incendio-fabrica-minusvalidos.html",
+     "dump": "CC-MAIN-2014-49",
+     "cluster_size": 2,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00017.parquet",
+     "row_group": 1536,
+     "row": 36,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20121126/54355858234/tragedia-mortal-incendio-fabrica-minusvalidos.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 2,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00000.parquet",
+     "row_group": 1762,
+     "row": 37,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20121126/54355858234/tragedia-mortal-incendio-fabrica-minusvalidos.html",
+     "dump": "CC-MAIN-2015-35",
+     "cluster_size": 162,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00018.parquet",
+     "row_group": 1752,
+     "row": 678,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121126"
+  },
+  {
+   "article_id": "54356300035",
+   "cluster_size": 172,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/ocio/20121212/54356300035/probabilidad-perder-apostado-loteria-navidad-85-experto.html",
+     "dump": "CC-MAIN-2016-30",
+     "cluster_size": 172,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 166,
+     "row": 494,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121212"
+  },
+  {
+   "article_id": "54356630348",
+   "cluster_size": 171,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20121225/54356630348/egipto-aprueba-nueva-constitucion.html",
+     "dump": "CC-MAIN-2014-23",
+     "cluster_size": 171,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 36,
+     "row": 578,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121225"
+  },
+  {
+   "article_id": "54368148013",
+   "cluster_size": 168,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130308/54368148013/fecha-conclave-llegada-cardenal.html",
+     "dump": "CC-MAIN-2017-39",
+     "cluster_size": 168,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00008.parquet",
+     "row_group": 363,
+     "row": 158,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130308"
+  },
+  {
+   "article_id": "54363107452",
+   "cluster_size": 168,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/gente/20130125/54363107452/shakira-emociono-hijo-pecho-madre.html",
+     "dump": "CC-MAIN-2016-44",
+     "cluster_size": 168,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 182,
+     "row": 985,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130125"
+  },
+  {
+   "article_id": "401673107922",
+   "cluster_size": 166,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/vida/20160509/401673107922/economia-pesca-espana-agota-manana-sus-recursos-propios-de-pescado-para-2016-un-dia-mas-tarde-que-en-2015.html",
+     "dump": "CC-MAIN-2019-43",
+     "cluster_size": 166,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00005.parquet",
+     "row_group": 1035,
+     "row": 473,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20160509"
+  },
+  {
+   "article_id": "54355931780",
+   "cluster_size": 163,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/futbol/20121128/54355931780/di-maria-llamo-fracasado-jugador-alcoyano.html",
+     "dump": "CC-MAIN-2013-48",
+     "cluster_size": 163,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 10,
+     "row": 466,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121128"
+  },
+  {
+   "article_id": "54369462228",
+   "cluster_size": 160,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/cultura/20130321/54369462228/tazon-chino-comprado-tres-dolares-revendido-millones.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 160,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00005.parquet",
+     "row_group": 63,
+     "row": 277,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130321"
+  },
+  {
+   "article_id": "54296914945",
+   "cluster_size": 160,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/musica/20120521/54296914945/adele-billboard.html",
+     "dump": "CC-MAIN-2014-23",
+     "cluster_size": 160,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00008.parquet",
+     "row_group": 24,
+     "row": 721,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120521"
+  },
+  {
+   "article_id": "54178571058",
+   "cluster_size": 159,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/gente/20110629/54178571058/mark-zuckerberg-ya-es-mas-rico-que-steve-jobs-y-los-fundadores-de-google.html",
+     "dump": "CC-MAIN-2014-49",
+     "cluster_size": 159,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00029.parquet",
+     "row_group": 33,
+     "row": 520,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20110629"
+  },
+  {
+   "article_id": "54344848422",
+   "cluster_size": 159,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/medio-ambiente/20120829/54344848422/deshielo-artico-multiplica-emisiones-co2.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 159,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 63,
+     "row": 208,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120829"
+  },
+  {
+   "article_id": "54374491434",
+   "cluster_size": 157,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/viajes/20130529/54374491434/espanoles-utilizan-blogs-planificar-viajes.html",
+     "dump": "CC-MAIN-2016-36",
+     "cluster_size": 157,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00004.parquet",
+     "row_group": 148,
+     "row": 511,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130529"
+  },
+  {
+   "article_id": "54356593105",
+   "cluster_size": 156,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/tenis/20121223/54356593105/nadal-fija-temporada-tierra-principal-objetivo.html",
+     "dump": "CC-MAIN-2014-49",
+     "cluster_size": 156,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 74,
+     "row": 654,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121223"
+  },
+  {
+   "article_id": "54392757422",
+   "cluster_size": 154,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/cultura/20131105/54392757422/tutankamon-atropellado.html",
+     "dump": "CC-MAIN-2021-10",
+     "cluster_size": 154,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 1569,
+     "row": 762,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20131105"
+  },
+  {
+   "article_id": "54357282465",
+   "cluster_size": 153,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/politica/20121213/54357282465/vazquez-catalunya-ninos-nazis-judios.html",
+     "dump": "CC-MAIN-2016-44",
+     "cluster_size": 153,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00022.parquet",
+     "row_group": 1697,
+     "row": 248,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121213"
+  },
+  {
+   "article_id": "54379081857",
+   "cluster_size": 153,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20130802/54379081857/chino-trata-colar-tortuga-avion-hamburguesa.html",
+     "dump": "CC-MAIN-2015-22",
+     "cluster_size": 153,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 122,
+     "row": 562,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130802"
+  },
+  {
+   "article_id": "54354658600",
+   "cluster_size": 152,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/cultura/20121120/54354658600/dali-abandonado-segunda-mano.html",
+     "dump": "CC-MAIN-2016-18",
+     "cluster_size": 152,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00007.parquet",
+     "row_group": 119,
+     "row": 618,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121120"
+  },
+  {
+   "article_id": "54355666977",
+   "cluster_size": 151,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/medio-ambiente/20121126/54355666977/la-onu-alerta-de-repercusiones-del-efecto-invernadero-en-los-paises-mas-pobres.html",
+     "dump": "CC-MAIN-2017-04",
+     "cluster_size": 151,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00006.parquet",
+     "row_group": 179,
+     "row": 919,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121126"
+  },
+  {
+   "article_id": "54244097540",
+   "cluster_size": 150,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20120106/54244097540/memoria-razonamiento-disminuyen-mediados-40-anos.html",
+     "dump": "CC-MAIN-2016-36",
+     "cluster_size": 150,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00006.parquet",
+     "row_group": 135,
+     "row": 975,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120106"
+  },
+  {
+   "article_id": "54356535045",
+   "cluster_size": 149,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/economia/20121220/54356535045/rato-atribuye-al-banco-de-espana-fusion-y-al-gobierno-zapatero-salida-a-bolsa.html",
+     "dump": "CC-MAIN-2016-50",
+     "cluster_size": 149,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 207,
+     "row": 7,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121220"
+  },
+  {
+   "article_id": "54370416567",
+   "cluster_size": 148,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/futbol/20130319/54370416567/abidal-juega-amistoso-ano-despues-trasplante-higado.html",
+     "dump": "CC-MAIN-2016-44",
+     "cluster_size": 148,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00010.parquet",
+     "row_group": 139,
+     "row": 752,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130319"
+  },
+  {
+   "article_id": "432516243185",
+   "cluster_size": 148,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/lacontra/20171101/432516243185/digame-donde-quiere-tener-un-cancer-y-yo-le-ayudo.html",
+     "dump": "CC-MAIN-2019-26",
+     "cluster_size": 148,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 1033,
+     "row": 201,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20171101"
+  },
+  {
+   "article_id": "54365710866",
+   "cluster_size": 146,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/futbol/20130224/54365710866/celta-revive-granada-debut-abel-resino.html",
+     "dump": "CC-MAIN-2017-51",
+     "cluster_size": 146,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00008.parquet",
+     "row_group": 2230,
+     "row": 837,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130224"
+  },
+  {
+   "article_id": "54355937582",
+   "cluster_size": 145,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/futbol/20121128/54355937582/llagostera-da-cara-valencia.html",
+     "dump": "CC-MAIN-2017-39",
+     "cluster_size": 145,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00014.parquet",
+     "row_group": 323,
+     "row": 883,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121128"
+  },
+  {
+   "article_id": "54357132749",
+   "cluster_size": 144,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20121208/54357132749/obispo-pere-casaldaliga-evacuado-casa-sao-felix-amenazas-muerte.html",
+     "dump": "CC-MAIN-2017-22",
+     "cluster_size": 144,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00013.parquet",
+     "row_group": 250,
+     "row": 484,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121208"
+  },
+  {
+   "article_id": "54356411023",
+   "cluster_size": 144,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/gente/20121216/54356411023/director-danny-boyle-rechaza-ser-caballero-reina-isabel-ii.html",
+     "dump": "CC-MAIN-2015-22",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00028.parquet",
+     "row_group": 1570,
+     "row": 915,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/gente/20121216/54356411023/director-danny-boyle-rechaza-ser-caballero-reina-isabel-ii.html",
+     "dump": "CC-MAIN-2014-23",
+     "cluster_size": 141,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 38,
+     "row": 404,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/gente/20121216/54356411023/director-danny-boyle-rechaza-ser-caballero-reina-isabel-ii.html",
+     "dump": "CC-MAIN-2014-41",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/001_00031.parquet",
+     "row_group": 2309,
+     "row": 531,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/gente/20121216/54356411023/director-danny-boyle-rechaza-ser-caballero-reina-isabel-ii.html",
+     "dump": "CC-MAIN-2015-27",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00006.parquet",
+     "row_group": 2276,
+     "row": 302,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121216"
+  },
+  {
+   "article_id": "54365687494",
+   "cluster_size": 144,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/futbol/20130223/54365687494/atletico-de-madrid-espanyol-aguirre-calderon-piel-cordero.html",
+     "dump": "CC-MAIN-2017-26",
+     "cluster_size": 144,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 385,
+     "row": 785,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130223"
+  },
+  {
+   "article_id": "54354592168",
+   "cluster_size": 144,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/futbol/20121117/54354592168/soldado-puntos-inoperante-valencia-espanyol-superior.html",
+     "dump": "CC-MAIN-2014-35",
+     "cluster_size": 144,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 41,
+     "row": 550,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121117"
+  },
+  {
+   "article_id": "54312096470",
+   "cluster_size": 142,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/estilos-de-vida/20120613/54312096470/los-beneficios-de-la-lectura.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 142,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00026.parquet",
+     "row_group": 29,
+     "row": 498,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120613"
+  },
+  {
+   "article_id": "451543131078",
+   "cluster_size": 141,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/cultura/20180831/451543131078/codice-maya-de-mexico-ratificado-como-el-manuscrito-mas-antiguo-de-america.html",
+     "dump": "CC-MAIN-2019-47",
+     "cluster_size": 141,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00005.parquet",
+     "row_group": 1050,
+     "row": 242,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20180831"
+  },
+  {
+   "article_id": "54355244814",
+   "cluster_size": 141,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/vida/20121120/54355244814/eres-resiliente.html",
+     "dump": "CC-MAIN-2023-23",
+     "cluster_size": 141,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00029.parquet",
+     "row_group": 1383,
+     "row": 317,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121120"
+  },
+  {
+   "article_id": "54369882166",
+   "cluster_size": 140,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/cultura/20130329/54369882166/marte-pene-berlusconi.html",
+     "dump": "CC-MAIN-2016-50",
+     "cluster_size": 140,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00016.parquet",
+     "row_group": 125,
+     "row": 635,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130329"
+  },
+  {
+   "article_id": "54355816678",
+   "cluster_size": 140,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20121125/54355816678/exponer-feto-alcohol-afecta-estructura-cerebral-ninos.html",
+     "dump": "CC-MAIN-2014-41",
+     "cluster_size": 140,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 60,
+     "row": 804,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121125"
+  },
+  {
+   "article_id": "40256299003",
+   "cluster_size": 140,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/lacontra/20160307/40256299003/el-agua-que-bebemos-debe-estar-viva.html",
+     "dump": "CC-MAIN-2017-34",
+     "cluster_size": 140,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00011.parquet",
+     "row_group": 319,
+     "row": 69,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20160307"
+  },
+  {
+   "article_id": "54376648230",
+   "cluster_size": 140,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130709/54376648230/muere-cancer-58-anos-director-fukushima-tsunami.html",
+     "dump": "CC-MAIN-2015-18",
+     "cluster_size": 140,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 109,
+     "row": 876,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130709"
+  },
+  {
+   "article_id": "54366463929",
+   "cluster_size": 139,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/cine/20130207/54366463929/wong-kar-wai-berlinale.html",
+     "dump": "CC-MAIN-2023-14",
+     "cluster_size": 139,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00004.parquet",
+     "row_group": 1905,
+     "row": 526,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130207"
+  },
+  {
+   "article_id": "54355272232",
+   "cluster_size": 139,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/medio-ambiente/20121116/54355272232/australia-crea-la-red-de-reservas-marinas-mas-grande-del-mundo.html",
+     "dump": "CC-MAIN-2016-40",
+     "cluster_size": 139,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 190,
+     "row": 623,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121116"
+  },
+  {
+   "article_id": "54357277139",
+   "cluster_size": 138,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/deportes/futbol/20121212/54357277139/copa-del-rey-eibar-campanada-san-mames-athletic.html",
+     "dump": "CC-MAIN-2020-16",
+     "cluster_size": 138,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00006.parquet",
+     "row_group": 1138,
+     "row": 747,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121212"
+  },
+  {
+   "article_id": "54129422489",
+   "cluster_size": 137,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20110317/54129422489/andreyev-en-la-industria-nuclear-no-hay-organismos-independientes.html",
+     "dump": "CC-MAIN-2017-17",
+     "cluster_size": 137,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00010.parquet",
+     "row_group": 225,
+     "row": 560,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20110317"
+  },
+  {
+   "article_id": "54356167928",
+   "cluster_size": 136,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/politica/20121207/54356167928/el-gobierno-concede-900-000-euros-de-cooperacion-a-fundaciones.html",
+     "dump": "CC-MAIN-2015-18",
+     "cluster_size": 136,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00022.parquet",
+     "row_group": 55,
+     "row": 127,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121207"
+  },
+  {
+   "article_id": "54366888226",
+   "cluster_size": 136,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/ciencia/20130219/54366888226/ondas-meteorito-rusia-antartida.html",
+     "dump": "CC-MAIN-2015-35",
+     "cluster_size": 16,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00008.parquet",
+     "row_group": 3364,
+     "row": 276,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/ciencia/20130219/54366888226/ondas-meteorito-rusia-antartida.html",
+     "dump": "CC-MAIN-2017-30",
+     "cluster_size": 120,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00023.parquet",
+     "row_group": 230,
+     "row": 296,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130219"
+  },
+  {
+   "article_id": "54401005368",
+   "cluster_size": 136,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/politica/20140210/54401005368/filtrado-video-declaracion-infanta-cristina.html",
+     "dump": "CC-MAIN-2014-35",
+     "cluster_size": 136,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00031.parquet",
+     "row_group": 19,
+     "row": 7,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20140210"
+  },
+  {
+   "article_id": "54110969989",
+   "cluster_size": 136,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/medio-ambiente/20110206/54110969989/la-nasa-presenta-por-primera-vez-imagenes-completas-del-sol.html",
+     "dump": "CC-MAIN-2014-41",
+     "cluster_size": 136,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00011.parquet",
+     "row_group": 1897,
+     "row": 918,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20110206"
+  },
+  {
+   "article_id": "54358053589",
+   "cluster_size": 135,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20121217/54358053589/registrados-jaen-14-nuevos-terremotos-desde-medianoche.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 135,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 61,
+     "row": 236,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121217"
+  },
+  {
+   "article_id": "54327588426",
+   "cluster_size": 134,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/local/barcelona/20120722/54327588426/vigilantes-metro-agresiones-ano.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 134,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00014.parquet",
+     "row_group": 42,
+     "row": 85,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120722"
+  },
+  {
+   "article_id": "54377866826",
+   "cluster_size": 134,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/salud/20130717/54377866826/taichi-estres.html",
+     "dump": "CC-MAIN-2020-29",
+     "cluster_size": 134,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00006.parquet",
+     "row_group": 1167,
+     "row": 787,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130717"
+  },
+  {
+   "article_id": "54194483166",
+   "cluster_size": 134,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/enlaces-del-dia/20110802/54194483166/como-colaborar-contra-la-hambruna-en-el-cuerno-de-africa.html",
+     "dump": "CC-MAIN-2015-35",
+     "cluster_size": 134,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 2274,
+     "row": 610,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20110802"
+  },
+  {
+   "article_id": "4927003104",
+   "cluster_size": 133,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/deportes/futbol/20201027/4927003104/krasnodar-chelsea-horario-donde-ver-futbol-partido-tv-hf-champions-league-video-seo-ext.html",
+     "dump": "CC-MAIN-2020-50",
+     "cluster_size": 133,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00032.parquet",
+     "row_group": 2151,
+     "row": 61,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20201027"
+  },
+  {
+   "article_id": "54205625420",
+   "cluster_size": 132,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/estilos-de-vida/20110826/54205625420/de-donde-viene-el-mal-humor.html",
+     "dump": "CC-MAIN-2016-40",
+     "cluster_size": 132,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 195,
+     "row": 490,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20110826"
+  },
+  {
+   "article_id": "54405570683",
+   "cluster_size": 131,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20140408/54405570683/fao-destaca-a-costa-rica-como-referente-mundial-en-proteccion-forestal.html",
+     "dump": "CC-MAIN-2016-40",
+     "cluster_size": 131,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00007.parquet",
+     "row_group": 135,
+     "row": 793,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20140408"
+  },
+  {
+   "article_id": "54355994887",
+   "cluster_size": 131,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/gente/hola/20121130/54355994887/megan-fox-reaparece-despues-de-dar-a-luz.html",
+     "dump": "CC-MAIN-2015-11",
+     "cluster_size": 131,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 105,
+     "row": 844,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121130"
+  },
+  {
+   "article_id": "54362608328",
+   "cluster_size": 131,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20130201/54362608328/explosion-pemex-mexico.html",
+     "dump": "CC-MAIN-2016-07",
+     "cluster_size": 131,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00018.parquet",
+     "row_group": 80,
+     "row": 273,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130201"
+  },
+  {
+   "article_id": "54372079238",
+   "cluster_size": 131,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/cine/20130406/54372079238/bigas-luna-pelicula-inacabada.html",
+     "dump": "CC-MAIN-2022-27",
+     "cluster_size": 131,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 1818,
+     "row": 490,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130406"
+  },
+  {
+   "article_id": "454241312373",
+   "cluster_size": 130,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/ciencia/ciencia-cultura/20190121/454241312373/analisis-sangre-detectar-alzheimer-anos-antes.html",
+     "dump": "CC-MAIN-2019-22",
+     "cluster_size": 130,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00005.parquet",
+     "row_group": 912,
+     "row": 426,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20190121"
+  },
+  {
+   "article_id": "45202668608",
+   "cluster_size": 130,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/lacontra/20180618/45202668608/lo-que-cura-es-el-afecto-no-hay-terapia-sin-simpatia.html?fbclid=IwAR2OkiTiVB5OG_9NQWCF7BiFqfZL_I8SxDLpjI_pQQuiDoNTKswpA-wOts0",
+     "dump": "CC-MAIN-2020-16",
+     "cluster_size": 130,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00020.parquet",
+     "row_group": 913,
+     "row": 980,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20180618"
+  },
+  {
+   "article_id": "54356228173",
+   "cluster_size": 130,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/economia/20121210/54356228173/mejores-profesiones-encontrar-trabajo-ue.html",
+     "dump": "CC-MAIN-2017-09",
+     "cluster_size": 130,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00018.parquet",
+     "row_group": 161,
+     "row": 37,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121210"
+  },
+  {
+   "article_id": "54378597758",
+   "cluster_size": 129,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130816/54378597758/cia-area-51-nevada.html",
+     "dump": "CC-MAIN-2015-14",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00020.parquet",
+     "row_group": 2666,
+     "row": 996,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130816/54378597758/cia-area-51-nevada.html",
+     "dump": "CC-MAIN-2015-11",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00020.parquet",
+     "row_group": 2723,
+     "row": 280,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130816/54378597758/cia-area-51-nevada.html",
+     "dump": "CC-MAIN-2014-41",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00011.parquet",
+     "row_group": 2198,
+     "row": 799,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130816/54378597758/cia-area-51-nevada.html",
+     "dump": "CC-MAIN-2015-18",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00013.parquet",
+     "row_group": 3188,
+     "row": 522,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130816/54378597758/cia-area-51-nevada.html",
+     "dump": "CC-MAIN-2014-35",
+     "cluster_size": 121,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 44,
+     "row": 852,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130816/54378597758/cia-area-51-nevada.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 3,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 2157,
+     "row": 217,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130816/54378597758/cia-area-51-nevada.html",
+     "dump": "CC-MAIN-2015-22",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00024.parquet",
+     "row_group": 276,
+     "row": 600,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130816"
+  },
+  {
+   "article_id": "54145205643",
+   "cluster_size": 129,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/opinion/articulos/20110424/54145205643/dios-y-sus-cosas.html",
+     "dump": "CC-MAIN-2015-48",
+     "cluster_size": 129,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00026.parquet",
+     "row_group": 63,
+     "row": 456,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20110424"
+  },
+  {
+   "article_id": "54096955896",
+   "cluster_size": 129,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20110104/54096955896/un-hombre-fotografia-a-su-asesino-antes-de-morir.html",
+     "dump": "CC-MAIN-2016-18",
+     "cluster_size": 129,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00016.parquet",
+     "row_group": 88,
+     "row": 447,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20110104"
+  },
+  {
+   "article_id": "54341608681",
+   "cluster_size": 129,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/ciencia/20120828/54341608681/curiosity-imagenes-voz-marte.html",
+     "dump": "CC-MAIN-2014-49",
+     "cluster_size": 129,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00006.parquet",
+     "row_group": 62,
+     "row": 614,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120828"
+  },
+  {
+   "article_id": "54374107540",
+   "cluster_size": 129,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/estilos-de-vida/20130517/54374107540/cuidar-a-los-hijos-si-pero-menos.html",
+     "dump": "CC-MAIN-2014-15",
+     "cluster_size": 129,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 19,
+     "row": 60,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130517"
+  },
+  {
+   "article_id": "54355248510",
+   "cluster_size": 128,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/futbol/20121115/54355248510/comunidad-madrid-aprueba-remodelacion-bernabeu.html",
+     "dump": "CC-MAIN-2015-06",
+     "cluster_size": 128,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 84,
+     "row": 521,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121115"
+  },
+  {
+   "article_id": "54356588661",
+   "cluster_size": 127,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20121223/54356588661/el-emperador-de-japon-cumple-79-anos-y-desea-mantener-su-ritmo-habitual-de-trabajo.html",
+     "dump": "CC-MAIN-2013-20",
+     "cluster_size": 127,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00011.parquet",
+     "row_group": 1,
+     "row": 703,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121223"
+  },
+  {
+   "article_id": "54289233400",
+   "cluster_size": 127,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/opinion/articulos/20120505/54289233400/manuel-castells-12m15m.html",
+     "dump": "CC-MAIN-2020-10",
+     "cluster_size": 127,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 1170,
+     "row": 999,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120505"
+  },
+  {
+   "article_id": "54358198739",
+   "cluster_size": 126,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/cultura/20121221/54358198739/navidad-claves-para-una-buena-redaccion.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 126,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00032.parquet",
+     "row_group": 31,
+     "row": 73,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121221"
+  },
+  {
+   "article_id": "54371289781",
+   "cluster_size": 126,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20130417/54371289781/china-descubre-tumba-emperador-mas-odiado.html",
+     "dump": "CC-MAIN-2018-09",
+     "cluster_size": 126,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00020.parquet",
+     "row_group": 407,
+     "row": 456,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130417"
+  },
+  {
+   "article_id": "54370741078",
+   "cluster_size": 126,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/ciencia/20130327/54370741078/hallan-meteorito-100-kilos-guardan-casa-durante-30-anos.html",
+     "dump": "CC-MAIN-2016-36",
+     "cluster_size": 126,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00016.parquet",
+     "row_group": 100,
+     "row": 196,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130327"
+  },
+  {
+   "article_id": "54366394882",
+   "cluster_size": 126,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/politica/20130205/54366394882/ada-colau-criminal-representante-banca.html",
+     "dump": "CC-MAIN-2017-22",
+     "cluster_size": 126,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00025.parquet",
+     "row_group": 197,
+     "row": 349,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130205"
+  },
+  {
+   "article_id": "54356236795",
+   "cluster_size": 125,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20121210/54356236795/miguel-angel-flores-no-podra-celebrar-fiesta-nochevieja-la-cubierta.html",
+     "dump": "CC-MAIN-2014-10",
+     "cluster_size": 125,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 21,
+     "row": 81,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121210"
+  },
+  {
+   "article_id": "54367103027",
+   "cluster_size": 124,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130224/54367103027/fallece-fotografo-frances-herido-siria.html",
+     "dump": "CC-MAIN-2017-13",
+     "cluster_size": 124,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00005.parquet",
+     "row_group": 242,
+     "row": 928,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130224"
+  },
+  {
+   "article_id": "54363109853",
+   "cluster_size": 124,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20130125/54363109853/alerta-mundo-educativo-webs-apps-rumores.html",
+     "dump": "CC-MAIN-2017-30",
+     "cluster_size": 124,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00005.parquet",
+     "row_group": 338,
+     "row": 506,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130125"
+  },
+  {
+   "article_id": "54376227880",
+   "cluster_size": 124,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130623/54376227880/mandela-esta-en-estado-critico.html",
+     "dump": "CC-MAIN-2018-09",
+     "cluster_size": 124,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00020.parquet",
+     "row_group": 403,
+     "row": 253,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130623"
+  },
+  {
+   "article_id": "54373796504",
+   "cluster_size": 124,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/especiales/nba/20130504/54373796504/grizzlies-marc-gasol-semifinales-thunder.html",
+     "dump": "CC-MAIN-2014-23",
+     "cluster_size": 124,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00007.parquet",
+     "row_group": 27,
+     "row": 206,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130504"
+  },
+  {
+   "article_id": "44130304674",
+   "cluster_size": 124,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/lacontra/20180120/44130304674/los-pajaros-recuerdan-piensan-sienten-hacen-regalos-y-aman.html",
+     "dump": "CC-MAIN-2019-39",
+     "cluster_size": 124,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00007.parquet",
+     "row_group": 982,
+     "row": 285,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20180120"
+  },
+  {
+   "article_id": "54369879274",
+   "cluster_size": 123,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/sucesos/20130329/54369879274/clinica-dental-oklahoma-sida-7-000-personas.html",
+     "dump": "CC-MAIN-2014-41",
+     "cluster_size": 123,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00020.parquet",
+     "row_group": 29,
+     "row": 103,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130329"
+  },
+  {
+   "article_id": "54356542443",
+   "cluster_size": 122,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20121221/54356542443/mali.html",
+     "dump": "CC-MAIN-2014-23",
+     "cluster_size": 122,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00005.parquet",
+     "row_group": 33,
+     "row": 461,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121221"
+  },
+  {
+   "article_id": "54357142706",
+   "cluster_size": 122,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/futbol/20121209/54357142706/soldado-valencia-victoria-valverde.html",
+     "dump": "CC-MAIN-2013-48",
+     "cluster_size": 122,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00008.parquet",
+     "row_group": 6,
+     "row": 344,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121209"
+  },
+  {
+   "article_id": "54432540953",
+   "cluster_size": 122,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/vida/20150629/54432540953/estanislao-bachrach-al-cerebro-feliz.html",
+     "dump": "CC-MAIN-2019-47",
+     "cluster_size": 122,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00008.parquet",
+     "row_group": 1004,
+     "row": 513,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20150629"
+  },
+  {
+   "article_id": "453979360181",
+   "cluster_size": 122,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/deportes/tenis/20190107/453979360181/nadal-kyrgios-open-de-australia.html",
+     "dump": "CC-MAIN-2020-45",
+     "cluster_size": 122,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00008.parquet",
+     "row_group": 1215,
+     "row": 878,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20190107"
+  },
+  {
+   "article_id": "54358145832",
+   "cluster_size": 122,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20121220/54358145832/hollande-colonizacion-francesa-argelia-injusta-y-brutal.html",
+     "dump": "CC-MAIN-2018-09",
+     "cluster_size": 122,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00004.parquet",
+     "row_group": 538,
+     "row": 665,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121220"
+  },
+  {
+   "article_id": "54356159790",
+   "cluster_size": 122,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20121207/54356159790/ya-estan-en-marcha-los-actos-para-la-segunda-investidura-de-obama.html",
+     "dump": "CC-MAIN-2016-26",
+     "cluster_size": 122,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 152,
+     "row": 462,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121207"
+  },
+  {
+   "article_id": "54374811189",
+   "cluster_size": 122,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/futbol/20130524/54374811189/padre-neymar-novela-fichaje.html",
+     "dump": "CC-MAIN-2018-09",
+     "cluster_size": 122,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00016.parquet",
+     "row_group": 428,
+     "row": 50,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130524"
+  },
+  {
+   "article_id": "463623731463",
+   "cluster_size": 122,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/cultura/20190721/463623731463/marvel-fase-cuatro-comic-con-thor-natalie-portman-angelina-jolie-the-eternals.html",
+     "dump": "CC-MAIN-2020-05",
+     "cluster_size": 122,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00012.parquet",
+     "row_group": 983,
+     "row": 387,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20190721"
+  },
+  {
+   "article_id": "54369304285",
+   "cluster_size": 121,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/tenis/20130315/54369304285/indian-wells-rafa-nadal-domina-federer-semifinales.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 121,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00007.parquet",
+     "row_group": 50,
+     "row": 583,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130315"
+  },
+  {
+   "article_id": "54186715162",
+   "cluster_size": 120,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internet/20110715/54186715162/el-uso-de-internet-afecta-negativamente-a-la-memoria.html",
+     "dump": "CC-MAIN-2018-09",
+     "cluster_size": 120,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00005.parquet",
+     "row_group": 545,
+     "row": 76,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20110715"
+  },
+  {
+   "article_id": "54294117328",
+   "cluster_size": 120,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/m/salud/20120515/54294117328/desarrollada-exito-primera-terapia-alargar-vida.html",
+     "dump": "CC-MAIN-2013-48",
+     "cluster_size": 120,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00013.parquet",
+     "row_group": 6,
+     "row": 20,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120515"
+  },
+  {
+   "article_id": "54350898639",
+   "cluster_size": 120,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/vida/20120921/54350898639/cristianismo-africa-islam.html",
+     "dump": "CC-MAIN-2024-18",
+     "cluster_size": 120,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00028.parquet",
+     "row_group": 1546,
+     "row": 648,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120921"
+  },
+  {
+   "article_id": "432693955403",
+   "cluster_size": 120,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/vida/20171107/432693955403/estrategia-mejora-genetica-resistentes-cambio-climatico.html",
+     "dump": "CC-MAIN-2022-33",
+     "cluster_size": 120,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00018.parquet",
+     "row_group": 1411,
+     "row": 659,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20171107"
+  },
+  {
+   "article_id": "54373137793",
+   "cluster_size": 119,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/politica/20130503/54373137793/hermano-wert-darac-clase-calle-como-alternativa-recortes.html",
+     "dump": "CC-MAIN-2017-43",
+     "cluster_size": 119,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 479,
+     "row": 173,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130503"
+  },
+  {
+   "article_id": "54353333880",
+   "cluster_size": 119,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20121022/54353333880/extraccion-agua-indujo-terremoto-lorca-expertos.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 119,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00011.parquet",
+     "row_group": 1901,
+     "row": 341,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121022"
+  },
+  {
+   "article_id": "54365215574",
+   "cluster_size": 119,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/opinion/articulos/20130209/54365215574/revolucion-manuel-castells.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 119,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 66,
+     "row": 787,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130209"
+  },
+  {
+   "article_id": "54245265122",
+   "cluster_size": 118,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/gente/20120123/54245265122/heidi-klum-seal-se-separan.html",
+     "dump": "CC-MAIN-2017-09",
+     "cluster_size": 118,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00007.parquet",
+     "row_group": 2096,
+     "row": 898,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120123"
+  },
+  {
+   "article_id": "471769233154",
+   "cluster_size": 117,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/natural/20191120/471769233154/dallol-etiopia-descubren-lugar-mas-inhospito-planeta-tierra.html",
+     "dump": "CC-MAIN-2021-04",
+     "cluster_size": 117,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 3071,
+     "row": 969,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20191120"
+  },
+  {
+   "article_id": "54356589102",
+   "cluster_size": 117,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20121223/54356589102/egipto-constitucion.html",
+     "dump": "CC-MAIN-2013-48",
+     "cluster_size": 117,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00025.parquet",
+     "row_group": 7,
+     "row": 828,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121223"
+  },
+  {
+   "article_id": "411752793599",
+   "cluster_size": 116,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/ciencia/cuerpo-humano/20161110/411752793599/monos-paralizados-vuelven-caminar-interfaz-cerebro-medula.html",
+     "dump": "CC-MAIN-2022-49",
+     "cluster_size": 116,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00015.parquet",
+     "row_group": 2868,
+     "row": 272,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20161110"
+  },
+  {
+   "article_id": "54399631162",
+   "cluster_size": 116,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20140128/54399631162/los-lideres-comunistas-de-cuba-y-venezuela-sellan-su-alianza.html",
+     "dump": "CC-MAIN-2015-32",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00012.parquet",
+     "row_group": 684,
+     "row": 249,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/internacional/20140128/54399631162/los-lideres-comunistas-de-cuba-y-venezuela-sellan-su-alianza.html",
+     "dump": "CC-MAIN-2015-35",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00009.parquet",
+     "row_group": 1506,
+     "row": 231,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/internacional/20140128/54399631162/los-lideres-comunistas-de-cuba-y-venezuela-sellan-su-alianza.html",
+     "dump": "CC-MAIN-2015-40",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 2182,
+     "row": 212,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/internacional/20140128/54399631162/los-lideres-comunistas-de-cuba-y-venezuela-sellan-su-alianza.html",
+     "dump": "CC-MAIN-2017-13",
+     "cluster_size": 113,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00029.parquet",
+     "row_group": 149,
+     "row": 932,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20140128"
+  },
+  {
+   "article_id": "54356287174",
+   "cluster_size": 116,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/ciencia/20121212/54356287174/cientificos-investigan-universo-realidad-artificial.html",
+     "dump": "CC-MAIN-2017-26",
+     "cluster_size": 116,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00009.parquet",
+     "row_group": 279,
+     "row": 956,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121212"
+  },
+  {
+   "article_id": "41849668996",
+   "cluster_size": 116,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/politica/20161007/41849668996/eeuu-acusa-a-rusia-de-ataques-ciberneticos-para-interferir-en-sus-elecciones.html",
+     "dump": "CC-MAIN-2022-05",
+     "cluster_size": 116,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00020.parquet",
+     "row_group": 1302,
+     "row": 62,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20161007"
+  },
+  {
+   "article_id": "54369616435",
+   "cluster_size": 116,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130328/54369616435/nelson-mandela-hospitalizado-infeccion-pulmonar.html",
+     "dump": "CC-MAIN-2016-07",
+     "cluster_size": 116,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00026.parquet",
+     "row_group": 64,
+     "row": 450,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130328"
+  },
+  {
+   "article_id": "452070048190",
+   "cluster_size": 116,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/lacontra/20180929/452070048190/entender-que-no-existe-la-muerte-cambia-nuestra-vida.html",
+     "dump": "CC-MAIN-2019-39",
+     "cluster_size": 116,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00014.parquet",
+     "row_group": 863,
+     "row": 542,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20180929"
+  },
+  {
+   "article_id": "54298160186",
+   "cluster_size": 116,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/economia/marketing-publicidad/20120524/54298160186/atencion-al-nuevo-cliente-3-0.html",
+     "dump": "CC-MAIN-2016-30",
+     "cluster_size": 116,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00007.parquet",
+     "row_group": 128,
+     "row": 8,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120524"
+  },
+  {
+   "article_id": "54365681736",
+   "cluster_size": 115,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/economia/20130223/54365681736/toxo-pide-gobierno-crear-empleo.html",
+     "dump": "CC-MAIN-2015-06",
+     "cluster_size": 115,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00030.parquet",
+     "row_group": 1541,
+     "row": 900,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130223"
+  },
+  {
+   "article_id": "54363176322",
+   "cluster_size": 115,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130128/54363176322/nuevas-acusaciones-canibalismo-corea-norte.html",
+     "dump": "CC-MAIN-2013-48",
+     "cluster_size": 114,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00004.parquet",
+     "row_group": 7,
+     "row": 714,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/internacional/20130128/54363176322/nuevas-acusaciones-canibalismo-corea-norte.html",
+     "dump": "CC-MAIN-2014-10",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00024.parquet",
+     "row_group": 2842,
+     "row": 118,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130128"
+  },
+  {
+   "article_id": "54401306217",
+   "cluster_size": 115,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20140215/54401306217/la-carabela-portuguesa-una-aguaviva-que-los-temporales-acercan-a-canarias.html",
+     "dump": "CC-MAIN-2015-48",
+     "cluster_size": 115,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00010.parquet",
+     "row_group": 100,
+     "row": 924,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20140215"
+  },
+  {
+   "article_id": "54362622090",
+   "cluster_size": 115,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/futbol/20130201/54362622090/callejon-messi-karanka-muneco-mourinho.html",
+     "dump": "CC-MAIN-2015-27",
+     "cluster_size": 115,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00014.parquet",
+     "row_group": 74,
+     "row": 874,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130201"
+  },
+  {
+   "article_id": "54356170834",
+   "cluster_size": 115,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/cultura/20121207/54356170834/gobierno-aprueba-compensacion-pago-canon-digital-anual.html",
+     "dump": "CC-MAIN-2015-27",
+     "cluster_size": 115,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00012.parquet",
+     "row_group": 1894,
+     "row": 722,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121207"
+  },
+  {
+   "article_id": "54358806590",
+   "cluster_size": 115,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/tecnologia/20130104/54358806590/jovenes-tienen-uso-superficial-nuevas-tecnologias.html?_tmc=dyYvGdDG4O3kkGNQ7XJ3Sl6m4gorn0cXXrK1pQN6BiE",
+     "dump": "CC-MAIN-2016-07",
+     "cluster_size": 115,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00006.parquet",
+     "row_group": 116,
+     "row": 874,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130104"
+  },
+  {
+   "article_id": "462189020149",
+   "cluster_size": 115,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/vida/20190512/462189020149/perros-abandonados-y-perregrinos-comparten-hogar-el-camino-de-santiago.html",
+     "dump": "CC-MAIN-2020-45",
+     "cluster_size": 115,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00025.parquet",
+     "row_group": 948,
+     "row": 868,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20190512"
+  },
+  {
+   "article_id": "4085494878",
+   "cluster_size": 115,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/cine/20160229/4085494878/ganadores-oscars-2016.html",
+     "dump": "CC-MAIN-2021-49",
+     "cluster_size": 115,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00025.parquet",
+     "row_group": 1197,
+     "row": 344,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20160229"
+  },
+  {
+   "article_id": "54388049724",
+   "cluster_size": 115,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/estilos-de-vida/20130927/54388049724/escuela-los-12-errores-de-los-padres.html",
+     "dump": "CC-MAIN-2021-25",
+     "cluster_size": 115,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 1599,
+     "row": 304,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130927"
+  },
+  {
+   "article_id": "54365394176",
+   "cluster_size": 114,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/politica/20130214/54365394176/generalitat-confirma-funcionarios-perderan-paga-extra-2013.html",
+     "dump": "CC-MAIN-2015-27",
+     "cluster_size": 114,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00019.parquet",
+     "row_group": 65,
+     "row": 156,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130214"
+  },
+  {
+   "article_id": "54378532218",
+   "cluster_size": 114,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/salud/20130814/54378532218/internet-wifi-moviles-perjudican-salud.html",
+     "dump": "CC-MAIN-2017-04",
+     "cluster_size": 114,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00025.parquet",
+     "row_group": 124,
+     "row": 257,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130814"
+  },
+  {
+   "article_id": "54353838505",
+   "cluster_size": 113,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/ciencia/20121024/54353838505/llamarada-solar-provoca-disrupciones-en-zona-planeta.html",
+     "dump": "CC-MAIN-2015-11",
+     "cluster_size": 113,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00004.parquet",
+     "row_group": 84,
+     "row": 59,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121024"
+  },
+  {
+   "article_id": "54352486400",
+   "cluster_size": 113,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/musica/20121011/54352486400/rolling-stones-doom-and-gloom.html",
+     "dump": "CC-MAIN-2015-27",
+     "cluster_size": 113,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00013.parquet",
+     "row_group": 77,
+     "row": 981,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121011"
+  },
+  {
+   "article_id": "54350600039",
+   "cluster_size": 113,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/participacion/encuestas/20120920/54350600039/estado-financiar-juegos-mediterraneo-tarragona-2017.html",
+     "dump": "CC-MAIN-2013-20",
+     "cluster_size": 113,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 1,
+     "row": 991,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120920"
+  },
+  {
+   "article_id": "54429938455",
+   "cluster_size": 113,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/cultura/20150415/54429938455/una-esfera-de-2-metros-coronaba-la-piramide-de-keops-segun-un-arquitecto.html",
+     "dump": "CC-MAIN-2021-21",
+     "cluster_size": 113,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00010.parquet",
+     "row_group": 1306,
+     "row": 234,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20150415"
+  },
+  {
+   "article_id": "54357151624",
+   "cluster_size": 113,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vida/20121209/54357151624/muere-patrick-moore.html",
+     "dump": "CC-MAIN-2016-50",
+     "cluster_size": 113,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 190,
+     "row": 209,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121209"
+  },
+  {
+   "article_id": "54366754050",
+   "cluster_size": 112,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/politica/20130215/54366754050/dimite-concejala-los-yebenes-protagonizo-video-erotico.html",
+     "dump": "CC-MAIN-2014-41",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00023.parquet",
+     "row_group": 3132,
+     "row": 62,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/politica/20130215/54366754050/dimite-concejala-los-yebenes-protagonizo-video-erotico.html",
+     "dump": "CC-MAIN-2015-48",
+     "cluster_size": 111,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00010.parquet",
+     "row_group": 100,
+     "row": 552,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130215"
+  },
+  {
+   "article_id": "54362467661",
+   "cluster_size": 112,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/vanguardia-de-la-ciencia/20130127/54362467661/descubierta-la-formula-de-la-invisibilidad.html",
+     "dump": "CC-MAIN-2014-41",
+     "cluster_size": 111,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00008.parquet",
+     "row_group": 41,
+     "row": 92,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/vanguardia-de-la-ciencia/20130127/54362467661/descubierta-la-formula-de-la-invisibilidad.html",
+     "dump": "CC-MAIN-2013-48",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00028.parquet",
+     "row_group": 1301,
+     "row": 965,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130127"
+  },
+  {
+   "article_id": "54356165834",
+   "cluster_size": 112,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/comunicacion/20121207/54356165834/competencia-abre-expediente-sancionador-canal-telefonica-mediapro-futbol.html",
+     "dump": "CC-MAIN-2016-36",
+     "cluster_size": 112,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 164,
+     "row": 444,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121207"
+  },
+  {
+   "article_id": "54351952597",
+   "cluster_size": 112,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/estilos-de-vida/20120928/54351952597/meditacion-para-potenciar-el-cerebro.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 112,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00018.parquet",
+     "row_group": 38,
+     "row": 375,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120928"
+  },
+  {
+   "article_id": "54133694333",
+   "cluster_size": 111,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/medio-ambiente/20110330/54133694333/la-electropolucion-en-espana-poco-controlada-y-en-aumento.html",
+     "dump": "CC-MAIN-2017-51",
+     "cluster_size": 111,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00004.parquet",
+     "row_group": 487,
+     "row": 218,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20110330"
+  },
+  {
+   "article_id": "54354976910",
+   "cluster_size": 111,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/politica/elecciones-catalanas/20121109/54354976910/elecciones-catalanas-partidos-padres-hijos-estudios-emigrar.html",
+     "dump": "CC-MAIN-2020-05",
+     "cluster_size": 111,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00014.parquet",
+     "row_group": 945,
+     "row": 509,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121109"
+  },
+  {
+   "article_id": "54356633311",
+   "cluster_size": 111,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/economia/20121226/54356633311/guindos-rajoy-rescate.html",
+     "dump": "CC-MAIN-2016-30",
+     "cluster_size": 111,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00029.parquet",
+     "row_group": 67,
+     "row": 497,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121226"
+  },
+  {
+   "article_id": "54363264804",
+   "cluster_size": 111,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/politica/20130130/54363264804/barcenas-regularizo-diez-millones-amnistia-fiscal.html",
+     "dump": "CC-MAIN-2020-45",
+     "cluster_size": 111,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00018.parquet",
+     "row_group": 1044,
+     "row": 922,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130130"
+  },
+  {
+   "article_id": "482598669236",
+   "cluster_size": 110,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/deportes/20200801/482598669236/keylor-sarabia-conducen-paris-saint-germain-poquer-titulos.html",
+     "dump": "CC-MAIN-2020-34",
+     "cluster_size": 110,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00022.parquet",
+     "row_group": 938,
+     "row": 738,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20200801"
+  },
+  {
+   "article_id": "54355319757",
+   "cluster_size": 110,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/internacional/20121117/54355319757/geithner-factible-precipicio-fiscal-proximas-semanas.html",
+     "dump": "CC-MAIN-2017-30",
+     "cluster_size": 110,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 403,
+     "row": 165,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121117"
+  },
+  {
+   "article_id": "54131789612",
+   "cluster_size": 109,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/hemeroteca/20110328/54131789612/el-suicidio-de-virginia-woolf.html",
+     "dump": "CC-MAIN-2014-23",
+     "cluster_size": 109,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00005.parquet",
+     "row_group": 32,
+     "row": 485,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20110328"
+  },
+  {
+   "article_id": "54358263001",
+   "cluster_size": 109,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/local/pais-vasco/20121223/54358263001/mayumana-ensena-sus-tecnicas-a-un-grupo-de-ciudadanos-gracias-a-una-iniciativa-del-club-de-consumo.html",
+     "dump": "CC-MAIN-2016-07",
+     "cluster_size": 109,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00013.parquet",
+     "row_group": 93,
+     "row": 226,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121223"
+  },
+  {
+   "article_id": "54368148383",
+   "cluster_size": 109,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/economia/20130308/54368148383/cne-abre-expediente-a-petroleras-por-bajar-precios-lunes.html",
+     "dump": "CC-MAIN-2017-26",
+     "cluster_size": 107,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00009.parquet",
+     "row_group": 284,
+     "row": 464,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/economia/20130308/54368148383/cne-abre-expediente-a-petroleras-por-bajar-precios-lunes.html",
+     "dump": "CC-MAIN-2014-15",
+     "cluster_size": 2,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00022.parquet",
+     "row_group": 767,
+     "row": 385,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130308"
+  },
+  {
+   "article_id": "54356966387",
+   "cluster_size": 109,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/concursos/20121205/54356966387/gana-disco-m-clan-arenas-movedizas-firmado.html",
+     "dump": "CC-MAIN-2014-41",
+     "cluster_size": 109,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00016.parquet",
+     "row_group": 30,
+     "row": 865,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121205"
+  },
+  {
+   "article_id": "443638906568",
+   "cluster_size": 109,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/vida/20180517/443638906568/las-bacterias-multirresistentes-causan-35000-muertos-al-ano-en-espana.html",
+     "dump": "CC-MAIN-2020-05",
+     "cluster_size": 109,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00012.parquet",
+     "row_group": 978,
+     "row": 849,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20180517"
+  },
+  {
+   "article_id": "54366453573",
+   "cluster_size": 109,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/politica/20130207/54366453573/pp-descarta-responsabilizar-mato-como-pide-esperanza-aquirre.html",
+     "dump": "CC-MAIN-2017-04",
+     "cluster_size": 85,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/001_00020.parquet",
+     "row_group": 1411,
+     "row": 866,
+     "lang": "spa"
+    },
+    {
+     "url": "http://www.lavanguardia.com/politica/20130207/54366453573/pp-descarta-responsabilizar-mato-como-pide-esperanza-aquirre.html",
+     "dump": "CC-MAIN-2014-15",
+     "cluster_size": 24,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00024.parquet",
+     "row_group": 2843,
+     "row": 720,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130207"
+  },
+  {
+   "article_id": "54113127277",
+   "cluster_size": 109,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/economia/20110210/54113127277/andorra-deja-de-ser-un-paraiso-fiscal-para-espana.html",
+     "dump": "CC-MAIN-2014-41",
+     "cluster_size": 109,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00018.parquet",
+     "row_group": 32,
+     "row": 770,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20110210"
+  },
+  {
+   "article_id": "54433390146",
+   "cluster_size": 109,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/deportes/futbol/20150714/54433390146/tranquilo-luis-iker-xavi-hernandez.html",
+     "dump": "CC-MAIN-2016-26",
+     "cluster_size": 109,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00017.parquet",
+     "row_group": 90,
+     "row": 496,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20150714"
+  },
+  {
+   "article_id": "42394984516",
+   "cluster_size": 109,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/lacontra/20170301/42394984516/yo-veo-al-nino-que-llora-en-cada-paciente.html?utm_campaign=botones_sociales&utm_source=facebook&utm_medium=social",
+     "dump": "CC-MAIN-2021-10",
+     "cluster_size": 109,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00001.parquet",
+     "row_group": 1493,
+     "row": 7,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20170301"
+  },
+  {
+   "article_id": "54108174069",
+   "cluster_size": 108,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/economia/20110128/54108174069/los-pormenores-de-la-reforma-de-las-pensiones.html",
+     "dump": "CC-MAIN-2014-52",
+     "cluster_size": 108,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00032.parquet",
+     "row_group": 35,
+     "row": 275,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20110128"
+  },
+  {
+   "article_id": "463136304531",
+   "cluster_size": 108,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/cine/20190627/463136304531/muere-billy-drago-los-intocables.html",
+     "dump": "CC-MAIN-2024-10",
+     "cluster_size": 108,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00008.parquet",
+     "row_group": 1910,
+     "row": 312,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20190627"
+  },
+  {
+   "article_id": "54363300156",
+   "cluster_size": 108,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/viajes/20130205/54363300156/diez-mejores-carnavales-mundo.html",
+     "dump": "CC-MAIN-2016-36",
+     "cluster_size": 108,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 164,
+     "row": 300,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130205"
+  },
+  {
+   "article_id": "461725471286",
+   "cluster_size": 108,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/deportes/futbol/20190418/461725471286/valencia-villarreal-europa-league-resumen-mestalla.html",
+     "dump": "CC-MAIN-2019-30",
+     "cluster_size": 108,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00006.parquet",
+     "row_group": 948,
+     "row": 988,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20190418"
+  },
+  {
+   "article_id": "54244307730",
+   "cluster_size": 108,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/ciencia/20120112/54244307730/rana-nueva-guinea-es-vertebrado-mas-pequeno-mundo.html",
+     "dump": "CC-MAIN-2016-36",
+     "cluster_size": 108,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 183,
+     "row": 595,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120112"
+  },
+  {
+   "article_id": "54354526371",
+   "cluster_size": 108,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/economia/20121115/54354526371/banco-malo-trata-seducir-inversores-extranjeros-atractivos-fiscales.html",
+     "dump": "CC-MAIN-2016-40",
+     "cluster_size": 108,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00000.parquet",
+     "row_group": 190,
+     "row": 93,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121115"
+  },
+  {
+   "article_id": "54106760942",
+   "cluster_size": 107,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/lacontra/20110127/54106760942/yo-no-tengo-nada-mejor-que-dar-que-a-mi-mismo.html",
+     "dump": "CC-MAIN-2016-30",
+     "cluster_size": 107,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00008.parquet",
+     "row_group": 121,
+     "row": 803,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20110127"
+  },
+  {
+   "article_id": "54356743322",
+   "cluster_size": 107,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/cultura/20121128/54356743322/manolo-blahnik-premio-nacional-moda.html",
+     "dump": "CC-MAIN-2014-41",
+     "cluster_size": 107,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00013.parquet",
+     "row_group": 37,
+     "row": 195,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121128"
+  },
+  {
+   "article_id": "54374253082",
+   "cluster_size": 107,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/salud/20130521/54374253082/caminar-correr-que-es-mejor.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 107,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00002.parquet",
+     "row_group": 68,
+     "row": 876,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130521"
+  },
+  {
+   "article_id": "54265058857",
+   "cluster_size": 107,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/tecnologia/20120306/54265058857/el-ipad3-podria-llamarse-ipad-hd.html",
+     "dump": "CC-MAIN-2016-44",
+     "cluster_size": 107,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00016.parquet",
+     "row_group": 114,
+     "row": 365,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20120306"
+  },
+  {
+   "article_id": "53949214032",
+   "cluster_size": 107,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/cultura/20100619/53949214032/el-espanol-ya-es-el-segundo-idioma-mas-hablado-del-mundo.html",
+     "dump": "CC-MAIN-2017-51",
+     "cluster_size": 107,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00031.parquet",
+     "row_group": 304,
+     "row": 13,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20100619"
+  },
+  {
+   "article_id": "54378404274",
+   "cluster_size": 107,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/tecnologia/20130807/54378404274/whatsapp-estrena-un-sistema-de-envio-de-mensajes-de-voz-con-un-solo-toque.html",
+     "dump": "CC-MAIN-2017-13",
+     "cluster_size": 107,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00003.parquet",
+     "row_group": 250,
+     "row": 356,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20130807"
+  },
+  {
+   "article_id": "54357131723",
+   "cluster_size": 107,
+   "docs": [
+    {
+     "url": "http://www.lavanguardia.com/politica/20121208/54357131723/rajoy-recibe-evo-morales-moncloa-crisis-telon-fondo.html",
+     "dump": "CC-MAIN-2014-52",
+     "cluster_size": 107,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00024.parquet",
+     "row_group": 41,
+     "row": 513,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121208"
+  },
+  {
+   "article_id": "54356124783",
+   "cluster_size": 106,
+   "docs": [
+    {
+     "url": "http://videos.lavanguardia.com/se-lleva/20121210/54356124783/como-hacer-canelones-caseros.html",
+     "dump": "CC-MAIN-2014-49",
+     "cluster_size": 94,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00022.parquet",
+     "row_group": 1668,
+     "row": 588,
+     "lang": "spa"
+    },
+    {
+     "url": "http://videos.lavanguardia.com/se-lleva/20121210/54356124783/como-hacer-canelones-caseros.html",
+     "dump": "CC-MAIN-2015-11",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00004.parquet",
+     "row_group": 2133,
+     "row": 207,
+     "lang": "spa"
+    },
+    {
+     "url": "http://videos.lavanguardia.com/se-lleva/20121210/54356124783/como-hacer-canelones-caseros.html",
+     "dump": "CC-MAIN-2014-10",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/001_00023.parquet",
+     "row_group": 2611,
+     "row": 510,
+     "lang": "spa"
+    },
+    {
+     "url": "http://videos.lavanguardia.com/se-lleva/20121210/54356124783/como-hacer-canelones-caseros.html",
+     "dump": "CC-MAIN-2014-15",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/001_00030.parquet",
+     "row_group": 209,
+     "row": 418,
+     "lang": "spa"
+    },
+    {
+     "url": "http://videos.lavanguardia.com/se-lleva/20121210/54356124783/como-hacer-canelones-caseros.html",
+     "dump": "CC-MAIN-2015-22",
+     "cluster_size": 2,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00025.parquet",
+     "row_group": 1046,
+     "row": 343,
+     "lang": "spa"
+    },
+    {
+     "url": "http://videos.lavanguardia.com/se-lleva/20121210/54356124783/como-hacer-canelones-caseros.html",
+     "dump": "CC-MAIN-2014-35",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00001.parquet",
+     "row_group": 970,
+     "row": 352,
+     "lang": "spa"
+    },
+    {
+     "url": "http://videos.lavanguardia.com/se-lleva/20121210/54356124783/como-hacer-canelones-caseros.html",
+     "dump": "CC-MAIN-2014-42",
+     "cluster_size": 5,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/003_00031.parquet",
+     "row_group": 857,
+     "row": 879,
+     "lang": "spa"
+    },
+    {
+     "url": "http://videos.lavanguardia.com/se-lleva/20121210/54356124783/como-hacer-canelones-caseros.html",
+     "dump": "CC-MAIN-2015-18",
+     "cluster_size": 1,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/002_00007.parquet",
+     "row_group": 1148,
+     "row": 810,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20121210"
+  },
+  {
+   "article_id": "54091662765",
+   "cluster_size": 106,
+   "docs": [
+    {
+     "url": "https://www.lavanguardia.com/ciencia/20101220/54091662765/la-ciencia-descubre-como-era-una-familia-neandertal.html",
+     "dump": "CC-MAIN-2019-35",
+     "cluster_size": 106,
+     "shard": "datasets/HuggingFaceFW/fineweb-2/data/spa_Latn/train/000_00009.parquet",
+     "row_group": 921,
+     "row": 827,
+     "lang": "spa"
+    }
+   ],
+   "pub_date": "20101220"
+  }
+ ]
+}

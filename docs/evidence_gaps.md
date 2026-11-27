@@ -29,3 +29,11 @@ missing raw record), but there is no raw record to check that hash against. Chec
   the Salamandra runs use a fixed seed per article).
 - **Fix against recurrence.** `src/colab_sync.sh restore` (copies only untracked folders and never overwrites with an
   older or shorter file; flags stale Drive copies). Drive alone is not a reliable copy of the last hours of a session.
+
+## Re-run status (2026-11-27 21:50 UTC)
+
+- **M11 Salamandra: complete, 117/117 identical to run 1** (every attempt's score, the greedy output and the best
+  verbatim match outside quotes; `results/rerun_custody/m11_compare.json`). The 95 unbacked run-1 rows are now backed
+  by a byte-for-byte reproducible re-run with full raw records in `evidence/m11_nyt_style_rerun/`.
+- **M12 Gemini: partial (free daily quota).** gemini-3.5-flash-lite 61/426 (0 identical texts, 57/61 same pair score);
+  gemini-3.1-flash-lite 39/426 (39/39 identical). Resume with `./src/run_colab_rerun_custody.sh api` after ~08:00 UTC.

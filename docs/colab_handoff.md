@@ -2,23 +2,22 @@
 
 Read `CLAUDE.md`, `PROGRESS.md` and `docs/experiment_status.md` first. Everything below is resumable.
 
-## State at 2026-11-27 ~19:05 UTC (end of session 11) — what to resume
+## State at 2026-11-27 ~21:55 UTC (session 11) — what to resume
 Jobs (all resumable: rerun the same command; each skips finished work):
-| Job | Command | State at 19:05 UTC | Needs |
+| Job | Command | State at 21:55 UTC | Needs |
 |---|---|---|---|
-| M11 chain-of-custody re-run (GPU) | `./src/run_colab_rerun_custody.sh gpu >> logs/rerun_custody_gpu.log 2>&1` | 83/117, identical to run 1 so far | T4, `HF_TOKEN` |
-| M12 chain-of-custody re-run (API) | `./src/run_colab_rerun_custody.sh api >> logs/rerun_custody_api.log 2>&1` | 3.5-FL 61/426, 3.1-FL 40/426: free-tier daily quota | `GEMINI_API_KEY`; after ~08:00 UTC or billing |
-| FineWeb-2 copy counts (CPU + network) | `./src/run_fw2_cluster_sizes.sh >> logs/fw2_cluster.log 2>&1` | Catalan 5/5 done; Spanish 30/146 (~55 s per shard, downloads 4.4 GB each to `/content/fw2_tmp`, deleted after) | `HF_TOKEN` (optional), ~15 GB free disk |
-| M11 run 1 (after the GPU re-run) | `./src/run_colab_m11.sh >> logs/colab_m11.log 2>&1` | Salamandra 117/200; then Llama-3.1-8B-Instruct, Qwen2.5-7B | T4, `HF_TOKEN` (Llama licence) |
+| M11 chain-of-custody re-run (GPU) | — | **Done: 117/117 identical to run 1** (`results/rerun_custody/m11_compare.json`) | — |
+| M12 chain-of-custody re-run (API) | `./src/run_colab_rerun_custody.sh api >> logs/rerun_custody_api.log 2>&1` | 3.5-FL 61/426, 3.1-FL 39/426: free-tier daily quota | `GEMINI_API_KEY`; after ~08:00 UTC or billing |
+| FineWeb-2 copy counts | — | **Done**; top 30 text-checked → `results/fw2_most_copied.md` | — |
+| M11 run 1 | `./src/run_colab_m11.sh >> logs/colab_m11.log 2>&1` | Running since 21:08 UTC: Salamandra 136/200; then Llama-3.1-8B-Instruct (not cached), Qwen2.5-7B | T4, **`HF_TOKEN` exported in the shell** (Llama licence; the 21:08 launch has none, so Llama will fail: relaunch with the token after Salamandra) |
 | Always alongside | `./src/colab_sync.sh loop 300`, `GH_TOKEN=... ./src/autosave.sh 600` | — | `GH_TOKEN` for push |
 
 After they finish:
-- `python -I src/m11_nyt_style.py compare` and `python -I src/m12_url_reverse.py compare` → `results/rerun_custody/`;
-  report agreement in paper + `docs/evidence_gaps.md`.
-- `python -I src/fw2_cluster_sizes.py top --n 20` (run automatically at the end of the scan) → `results/fw2_most_copied.json`;
-  check the top 20 by `text_head` (drop template pages, e.g. daily "precio de la luz"), save the list, then design
-  the pre-registered most-copied extraction test (controls: post-cutoff articles with comparable copy counts, counted
-  in later Common Crawl captures).
+- `python -I src/m12_url_reverse.py compare` → `results/rerun_custody/`; report agreement in paper + `docs/evidence_gaps.md`.
+- `python -I src/m11_nyt_style.py summary` → paper M11 section.
+- Design the pre-registered most-copied extraction test on `results/fw2_most_copied_checked.json` (controls:
+  post-cutoff articles with comparable copy counts, counted in later Common Crawl captures). Text of the top 30 is in
+  `data/fw2_top_text.json` (gitignored; regenerate with `python -I src/fw2_top_check.py`).
 **Important on restore:** the full FineWeb-2 hit lists (`results/dataset_presence_hits_{spa,cat}_Latn.jsonl`,
 gitignored) are NOT complete in the 26-Nov extras zip (164,568 of 310,502 Spanish hits). Full copies:
 `MyDrive/lavanguardia_work/data/hits_{spa,cat}_Latn.jsonl.gz` (SHA-256 in `MANIFEST.txt`) — gunzip into `results/`.
