@@ -32,7 +32,10 @@ the newspaper's text and \emph{no knowledge of its wording}. We find several wea
 Google's Gemma-2 and Meta's Llama-3.1 that knowledge of the period's events can explain, and Gemini models'
 knowledge of the newspaper's article numbering, which third-party links can explain. None is evidence of use yet.
 Three avenues deserve investment: a collection-level test with the publisher's archive and same-period controls,
-answer-time retrieval tests on consumer AI products, and copyright traps for future content. The full experimental
+answer-time retrieval tests on consumer AI products, and copyright traps for future content. The collection-level
+test, the most promising route to a sound statistical statement, needs word probabilities that ChatGPT, Claude and
+Gemini do not expose: it can be run by us only on open-weight models, and on the main commercial models only through
+court-ordered expert access. The full experimental
 record is in an accompanying technical report.
 \end{abstract}
 
@@ -200,7 +203,9 @@ Six families of methods, from the most to the least intuitive for a judge:
 \cite{duarte2024}, or to supply details that only the newspaper published. Black-box, but easily fooled (see
 Section~\ref{sec:lessons}).
 \item \textbf{(D) Dataset inference.} Asks ``was this \emph{collection} used?'' by combining weak signals over
-thousands of articles into one statistical test \cite{maini2024}. Its weak point is the comparison set.
+thousands of articles into one statistical test \cite{maini2024}. Its weak point is the comparison set. It is
+built on (B), so it needs open-weight models: it \emph{cannot} be run on ChatGPT, Claude or Gemini through their
+public interfaces (Section~\ref{sec:whichmodels}).
 \item \textbf{(E) Copyright traps.} Unique invented phrases in future articles \cite{meeus2024}.
 \item \textbf{(F) Retrieval tests.} Check whether assistants with web access fetch and reproduce articles at answer
 time. A different legal act from training.
@@ -505,8 +510,15 @@ faint trace into a firm statement.
 captured with articles from the same months that were never online (paywalled, print-only), so there is no time
 difference; add the wording check; run on several open-weight models, including large ones (70B and up), since
 memorization grows with size. Needs the archive and a rented GPU for a few days (about \$100--300). This is the only
-route we see to a statistically sound statement of the form ``this model was trained on the archive''. It applies to
-open-weight models, or to commercial models through court-ordered expert access.
+route we see to a statistically sound statement of the form ``this model was trained on the archive''.
+\textbf{Limitation: it does not reach the main commercial models on its own.} It needs the probability a model
+assigns to a text we supply, which ChatGPT, Claude and Gemini do not reveal (Section~\ref{sec:whichmodels}). Run by
+us, it can show training of open-weight models only (Llama, Gemma, Mistral, Qwen, DeepSeek, gpt-oss, Salamandra/ALIA).
+A positive result on an open relative (Gemma for Gemini, gpt-oss for OpenAI) shows that the developer used the
+archive for \emph{that} model; it is circumstantial, not direct, evidence about the commercial product. Testing the
+commercial models themselves at collection level needs court-ordered expert access to their probabilities (or to
+their training data). Black-box collection tests (recognition among rewrites, Section~\ref{sec:lessons}) exist but
+gave false positives here.
 \item \textbf{Positive control: done} (Section~\ref{sec:negatives}), with the full FineWeb-2 scan. It also showed
 that presence in a public dataset cannot provide same-period ``out'' groups, which strengthens the case for the
 publisher's never-online articles.
@@ -639,6 +651,10 @@ as large as those of a model known to have been trained on the articles.
 wording-specific check.
 \item \textbf{The best routes forward} are a collection-level test with the publisher's archive and same-period
 controls, answer-time retrieval tests on consumer assistants, and copyright traps for future content.
+\item \textbf{The collection-level test does not reach ChatGPT, Claude or Gemini directly.} Without court-ordered
+access, it can establish training only for open-weight models (including the open relatives of commercial ones,
+which is circumstantial evidence about the products). For the commercial models themselves, the routes open to us are
+black-box tests while a version is online (so far negative), retrieval tests, and, for the future, copyright traps.
 \end{itemize}
 
 \paragraph{Reproducibility.} Code is in \texttt{src/}, results in \texttt{results/}, the full record in

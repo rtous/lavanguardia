@@ -581,3 +581,6 @@ run ≥15 words side by side and check for copies elsewhere, write up as a label
     refusals on controls): Gemini is not deterministic at temperature 0. Compare statistics, not texts.
   - M12 gemini-3.1-flash-lite: running (~7 queries/min).
   - Running alongside: `colab_sync.sh loop 300`, `autosave.sh 600` (now also commits `results/rerun_custody/`).
+- Paper (user request): made explicit that the collection-level test cannot be run on ChatGPT/Claude/Gemini via public APIs
+  (needs word probabilities): abstract, method (D), avenues (new "Limitation" + open relatives = circumstantial), conclusions.
+  PDF rebuilt (texlive installed on this runtime).
