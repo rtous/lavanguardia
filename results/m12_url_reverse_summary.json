@@ -1,0 +1,24 @@
+{
+ "gemini-3.5-flash-lite": {
+  "member": {
+   "pairs": 117,
+   "mean_pair_score": 0.0058,
+   "pairs_positive": 10,
+   "pairs_negative": 7,
+   "wilcoxon_p_greater": 0.053236558656598335,
+   "queries": 234,
+   "title_overlap_ge_0.8": 0
+  },
+  "control": {
+   "pairs": 95,
+   "mean_pair_score": -0.0007,
+   "pairs_positive": 1,
+   "pairs_negative": 1,
+   "wilcoxon_p_greater": 0.6726395769907115,
+   "queries": 190,
+   "title_overlap_ge_0.8": 0
+  },
+  "member_vs_control_mw_p": 0.25063404008326434,
+  "overlap_ge_0.8_fisher_p": 1.0
+ }
+}

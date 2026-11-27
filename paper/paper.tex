@@ -336,6 +336,7 @@ Verbatim continuation (A) & Claude 4.5 and 5.5, Gemini 3.x & No reproduction, ev
 Sentence by sentence (A) & Llama-3.1 & No sentence reproduced\\
 Pick the original (C) & Claude 4.5, Gemini & Invalid: works equally on unseen text\\
 Newspaper-only details (C) & Gemini, 5 open models & At control level, except article numbers (Gemini; Salamandra weakly)\\
+Number $\to$ headline (C) & Gemini 3.5 Flash-Lite & No: guesses the day's news, not the article\\
 \emph{La Contra} answers (C) & Gemini, Gemma-2, Salamandra, Apertus & At control level\\
 Word probabilities (B) & 4 open models & Weak, explained by time\\
 Collection test (D) & 4 open models & Gemma-2 survives; explained by events\\
@@ -363,13 +364,31 @@ name or figure, and the facts in a \emph{La Contra} interviewee's answer to a gi
 as frequent for controls as for members, and correct fill-ins were guessable from context. One finding stands out.
 The newspaper's article numbers grow by about 3,000 a day, and given only an article's title and date, every Gemini
 model we could reach (3.1 Flash-Lite, 3.5 Flash-Lite, 3 Flash) gives a number that points to within a few days of the
-right one for 2021--2023 articles, and fails for later ones. For example, for an article of 9 February 2023 the true
-number is 8746377 and Gemini answered 8746375. Most open models cannot do this; BSC's Salamandra-7B, trained on 20
-Common Crawl snapshots, does so roughly (median error 65 days, 12 of 245 articles within a week, none of 300 controls;
-$p=6\times10^{-5}$), much less precisely than Gemini (2--3 days). But the skill can be learned from a few
-dozen links to the newspaper anywhere on the web, and public training data contain tens of thousands of such links on
-third-party sites (and none in the newspaper's own pages, whose text does not include links). It shows that Gemini
-absorbed many \emph{La Vanguardia} web addresses, not that it read the articles.
+right one for 2021--2023 articles, and fails for later ones. Measured in numbers rather than days, Gemini is as precise as an ideal guesser that knows the exact publication
+date and interpolates over our whole set of about 1,500 dated addresses: median error about 1,300 numbers, half a
+day's output (Gemini 3.5 Flash-Lite 1,325; ideal guesser 1,281). Most open models cannot do this; BSC's Salamandra-7B,
+trained on 20 Common Crawl snapshots, does so roughly (median error 65 days, 12 of 245 articles within a week, none of
+300 controls; $p=6\times10^{-5}$), much less precisely than Gemini (2--3 days). The skill can be learned from links
+to the newspaper on other sites, and public training data contain tens of thousands of such links (the extracted text
+of the newspaper's own pages contains none, because text extraction drops links).
+
+\emph{Why we still find it suspicious.} First, the open models were trained on the same public crawls, with the same
+third-party links, yet miss by 65 to 900 days instead of 2--3. Model size may explain part of the gap. Another
+plausible explanation is that Google's own web crawl, which keeps every page together with its address, gave Gemini
+the newspaper's pages with their URLs. Second, twice Gemini gave a number almost exactly right: 8746375 for 8746377
+(an obituary of Burt Bacharach, 9 February 2023) and 8931141 for 8931138 (a column of 29 April 2023). Even knowing the
+exact day, a guess within 3 numbers happens by chance about once in 300 answers; in about 110 Gemini answers we
+expected 0.3 such hits and saw 2 ($p\approx0.04$; exploratory, not pre-registered). A web search found no other site
+quoting these two numbers (a weak check).
+
+\emph{What argues against it.} In a pre-registered reverse test we gave Gemini 3.5 Flash-Lite the address with the
+number and date but without the title words, for pairs of articles published on the same day in the same section,
+and asked for the headline. If the number pointed Gemini to the article, its answer should resemble its own article
+more than the other one; if it only uses the date, both are equally likely. Over 117 pairs, no answer came close to
+the true headline, and the difference was not significant ($p=0.053$; members did not differ from controls,
+$p=0.25$). The few partial matches were the day's main news or daily series such as the electricity price. Gemini
+therefore knows how the numbers run over time, not which article carries which number. That is what third-party links
+would teach, but it does not exclude that Gemini read the pages.
 
 \paragraph{Word probabilities and collection tests (B, D).} On four open-weight models, older articles look slightly
 more familiar than newer ones, but a model trained on 2018 data, which saw neither, shows the same: most of the
@@ -422,8 +441,11 @@ the pattern training predicts, with time effects cancelled. Knowledge of events 
 version is suggestive but not significant.
 \item \textbf{Gemma-2 (weak).} The only model whose collection-level trace survived matched comparisons, but the
 trace concerns events, not wording.
-\item \textbf{Gemini, article numbers (triage only).} Gemini models absorbed many of the newspaper's web addresses.
-Third-party links explain it.
+\item \textbf{Gemini, article numbers (suspicious, unproven).} Gemini knows the newspaper's article counter as
+precisely as someone holding about 1,500 dated addresses, far better than open models trained on the same public
+crawls, and twice gave a number almost exactly right. It cannot, however, say which article a number belongs to
+(pre-registered reverse test). Third-party links are one explanation; Google's own crawl of the pages is another, which
+only access to Google's crawl or training records could settle.
 \item \textbf{Gemini, invented quotations (separate issue).} Text falsely presented as the newspaper's. Not evidence
 of copying, but possibly relevant on its own (attribution, reputation).
 \end{enumerate}
@@ -505,8 +527,11 @@ neutral tests. On three open models it takes about 14 hours on a free GPU; on Ge
 four days of free quota. Stopped after 7 of 200 articles on the first model (no controls yet, so no result).
 \item \textbf{More black-box extraction on frontier APIs: not worth it now.} Every neutral attempt was negative. Spend on it
 (about \$100 per model at a scale where a 1--2\% hit rate would show) only if another signal flags a specific model.
-\item \textbf{More triage on paid API tiers: not needed now.} The article-number test would cost cents per model, but
-it is explained by third-party links. A free ``collection fingerprint'' test (does a model reproduce \emph{La
+\item \textbf{Settle the article-number question: cheap, worth doing.} Compare Gemini's precision on articles that
+other sites link to with articles nobody links to; run Google's open Gemma models against Llama and Qwen of the same
+size (is it Google's data or model size?); ask other frontier models (GPT, Claude; cents each) and another newspaper's
+counter; and test articles published after the March 2026 opt-out on Gemini versions trained after it.
+\item \textbf{More triage on paid API tiers: not needed now.} A free ``collection fingerprint'' test (does a model reproduce \emph{La
 Contra}'s format and the newspaper's house style, such as ``en el 2023'' or ``Catalunya'', when asked to write like
 it, compared with other newspapers?) is designed and could be run at no cost if triage continues.
 \end{itemize}
@@ -536,7 +561,8 @@ Qwen2.5 (Alibaba) & Yes & Yes & Free & 7B & Undisclosed ($\le$ 2024) & Unknown. 
 Mistral-7B v0.3 & Yes & Yes & Free & 7B & Undisclosed ($\le$ 2024) & Unknown. Faint trace (about 0.54)\\
 OLMo 2 (AI2) & Yes & Yes & Free & --- & Published, English-filtered & \textbf{No} (0/42). Known negative\\
 Gemini 3.x (Google) & No & No & Free tier, 20--500 queries/day & ? & Undisclosed (Jan 2025 knowledge) &
-Unknown. No reproduction; knows the article numbers (third-party links)\\
+Unknown. No reproduction; knows the article-number pattern far better than open models (suspicious), but cannot
+map a number to its article\\
 Claude 4.5 / 5.5 (Anthropic) & No & No & Paid API & ? & Undisclosed (Jul--Aug 2025; Jun 2026) & Unknown. No
 reproduction, even of \emph{La Contra}\\
 GPT / ChatGPT (OpenAI) & No (except gpt-oss) & No (shut 28 Sep 2026) & Paid API & ? & Undisclosed & Unknown.
@@ -604,8 +630,10 @@ provider to \textbf{preserve} it (a litigation hold) so that court-ordered testi
 reposted interviews. A \emph{GEMA}-style demonstration with defensible prompts is unlikely with ordinary articles.
 This counts against memorization, not against training: a model known to have been trained on the articles
 (Apertus) behaves the same way.
-\item \textbf{The weak traces we found} (Llama-3.1, Gemma-2, Gemini's article numbers) are explained by knowledge of
-events or by third-party links. They point to where to look, not to proof. The collection-level traces are, however,
+\item \textbf{The weak traces we found} (Llama-3.1, Gemma-2, Gemini's article numbers) can be explained by knowledge
+of events or by third-party links. They point to where to look, not to proof. Gemini's precision with the article
+numbers remains suspicious: it far exceeds every open model trained on the same public data, although Gemini cannot
+tell which article a number belongs to. The collection-level traces are, however,
 as large as those of a model known to have been trained on the articles.
 \item \textbf{Several popular tests give false positives}; every claim must survive controls, matching and a
 wording-specific check.

@@ -64,6 +64,7 @@ def build():
     print("sha256:", hashlib.sha256(open(PAIRS, "rb").read()).hexdigest())
 
 
+PILOT_PAIRS = {"09155a565d23"}  # control pair whose v2 answers were the pilot (amendment 1): not analysed
 PROMPT_VERSION = 2  # v1 (2 control queries, pilot) asked to "look up" the URL and got "I cannot browse" refusals
 
 
@@ -123,7 +124,7 @@ def summary():
             continue
         rows = {}
         for r in map(json.loads, open(path)):
-            if not r["api_error"] and r.get("prompt_version", 1) == PROMPT_VERSION:
+            if not r["api_error"] and r.get("prompt_version", 1) == PROMPT_VERSION and r["pair_id"] not in PILOT_PAIRS:
                 rows[(r["pair_id"], r["side"])] = r  # last valid answer per query
         by = defaultdict(dict)
         for (pid, s), r in rows.items():

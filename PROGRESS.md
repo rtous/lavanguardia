@@ -538,3 +538,14 @@ run ≥15 words side by side and check for copies elsewhere, write up as a label
   Near-exact hits: 8746377→8746375 (Burt Bacharach obituary, 3.1 FL) and 8931138→8931141 (Isabel Garcia Pagan column,
   3 Flash): chance ≈ 7/2,262 per query if the day is known → expected ~0.3 over ~110 Gemini member answers, observed 2
   (P ≈ 4%). Suggestive, not conclusive; check whether those two URLs are linked on third-party pages.
+- **M12 result (gemini-3.5-flash-lite): NULL** (`results/m12_url_reverse_summary.json`). 117 member pairs: mean pair
+  score +0.006, 10 positive / 7 negative / 100 zero, Wilcoxon p=0.053 (not significant); 95 control pairs: −0.0007,
+  p=0.67; members vs controls MW p=0.25; overlap ≥0.8: 0 members, 0 controls. 46/234 member answers refused. Partial
+  matches are date-topical (daily "Precio de la luz", Severodonetsk, PSOE–Junts). Pilot control pair 09155a565d23
+  excluded from analysis (`PILOT_PAIRS`), as amendment 1 says. Gemini knows the counter, not which article has which ID.
+- Web search for the two near-exact IDs (8746377, 8931138): no third-party page found (weak check).
+- Replication on gemini-3.1-flash-lite launched (`logs/m12_gemini-3.1-flash-lite.log`, ~1 h).
+- Paper updated (user request: report suspicious findings even without proof): overview row, "Why we still find it
+  suspicious" / "What argues against it" in Details paragraph, Evidence item 4, models table, new avenue "Settle the
+  article-number question", Conclusions. docs/experiment_status.md rows added.
+- Note: waited on M12 with `pgrep -f` in a background shell → matched itself (the CLAUDE.md trap). Use `ps | grep '[p]ython'`.
