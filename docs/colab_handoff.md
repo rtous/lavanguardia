@@ -2,6 +2,13 @@
 
 Read `CLAUDE.md`, `PROGRESS.md` and `docs/experiment_status.md` first. Everything below is resumable.
 
+## State at 2026-11-27 ~18:00 UTC (session 11)
+Running: chain-of-custody re-run (`src/run_colab_rerun_custody.sh gpu`, M11 Salamandra 117 articles, ~2-4 h),
+`colab_sync.sh loop 300`, `autosave.sh 600`. Waiting for Gemini free-tier quota: `run_colab_rerun_custody.sh api`
+(M12 re-run, 61/426 + 40/426 done). After both: `python -I src/m11_nyt_style.py compare`,
+`python -I src/m12_url_reverse.py compare`, then resume run 1 of M11 (`./src/run_colab_m11.sh`, 117/200 on Salamandra).
+If the runtime died: follow the quick resume below, then rerun the same commands (all resumable).
+
 ## Quick resume (since 2026-11-27): GitHub first, then Drive for the untracked folders
 **Do not rsync the whole Drive mirror over the repo.** On 2026-11-27 the VM died while Drive was still ~1.5 h behind,
 and Drive held older, shorter copies than GitHub (see `docs/evidence_gaps.md`). Instead:

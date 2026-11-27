@@ -272,7 +272,13 @@ training data was collected) and 448 from September 2025--March 2026 (``controls
 sections; plus 212 interviews from \emph{La Contra}, the back-page interview series, chosen as the content most
 likely to be memorized because it is widely reposted, with 41--78 controls. Each article is stored with the exact
 Common Crawl record and its hash, so anyone can retrieve identical bytes.
-\item \textbf{Chain of custody.} Every model query is logged with timestamp, exact model, full prompt, full response
+\item \textbf{Chain of custody, and one gap.} On 27 November 2026 a cloud machine was lost before its logs were
+copied, and the raw records of 911 queries (part of the M11 extraction test and of the article-number reverse test)
+did not survive; their results did. We disclose the gap (\texttt{docs/evidence\_gaps.md}) and are re-running those
+queries with full records under a dated amendment, reporting agreement between the runs. The local model's re-run
+reproduces the original outputs exactly; Gemini's wording varies between runs even at temperature 0, so only the
+statistics are compared.
+\item \textbf{Logging.} Every model query is logged with timestamp, exact model, full prompt, full response
 and a tamper-evident hash.
 \end{itemize}
 
@@ -389,7 +395,7 @@ Verbatim continuation (A) & Claude 4.5 and 5.5, Gemini 3.x & No reproduction, ev
 Sentence by sentence (A) & Llama-3.1 & No sentence reproduced\\
 Pick the original (C) & Claude 4.5, Gemini & Invalid: works equally on unseen text\\
 Newspaper-only details (C) & Gemini, 5 open models & At control level, except article numbers (Gemini; Salamandra weakly)\\
-Number $\to$ headline (C) & Gemini 3.5 Flash-Lite & No: guesses the day's news, not the article\\
+Number $\to$ headline (C) & Gemini 3.5 and 3.1 Flash-Lite & No (replicated): guesses the day's news, not the article\\
 \emph{La Contra} answers (C) & Gemini, Gemma-2, Salamandra, Apertus & At control level\\
 Word probabilities (B) & 4 open models & Weak, explained by time\\
 Collection test (D) & 4 open models & Gemma-2 survives; explained by events\\
@@ -439,7 +445,9 @@ number and date but without the title words, for pairs of articles published on 
 and asked for the headline. If the number pointed Gemini to the article, its answer should resemble its own article
 more than the other one; if it only uses the date, both are equally likely. Over 117 pairs, no answer came close to
 the true headline, and the difference was not significant ($p=0.053$; members did not differ from controls,
-$p=0.25$). The few partial matches were the day's main news or daily series such as the electricity price. Gemini
+$p=0.25$). The few partial matches were the day's main news or daily series such as the electricity price. The
+pre-registered replication on Gemini 3.1 Flash-Lite agrees: no answer close to the true headline, pair score $+0.004$
+($p=0.26$), members not different from controls ($p=0.50$). Gemini
 therefore knows how the numbers run over time, not which article carries which number. That is what third-party links
 would teach, but it does not exclude that Gemini read the pages.
 
@@ -497,7 +505,7 @@ trace concerns events, not wording.
 \item \textbf{Gemini, article numbers (suspicious, unproven).} Gemini knows the newspaper's article counter as
 precisely as someone holding about 1,500 dated addresses, far better than open models trained on the same public
 crawls, and twice gave a number almost exactly right. It cannot, however, say which article a number belongs to
-(pre-registered reverse test). Third-party links are one explanation; Google's own crawl of the pages is another, which
+(pre-registered reverse test, replicated on a second Gemini model). Third-party links are one explanation; Google's own crawl of the pages is another, which
 only access to Google's crawl or training records could settle.
 \item \textbf{Gemini, invented quotations (separate issue).} Text falsely presented as the newspaper's. Not evidence
 of copying, but possibly relevant on its own (attribution, reputation).

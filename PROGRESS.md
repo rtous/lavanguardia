@@ -587,3 +587,9 @@ run ≥15 words side by side and check for copies elsewhere, write up as a label
 - Paper (user request): new Section 1.1 "The questions, and what can answer each" (7 questions: crawling/when/who,
   datasets, documented vs probable models, training + when, memorization, answer-time use, future proof), each with
   evidence route and status. New open items: request server logs; check AI Act training-content summaries; scan CATalog.
+- M12 replication on gemini-3.1-flash-lite (run 1, 426 queries): **NULL, replicates 3.5-FL**: pair score +0.004,
+  p=0.26; vs controls p=0.50; 0 answers ≥0.8 overlap. `results/m12_url_reverse_summary.json` now has both models.
+- Docs/paper update: paper (tab row "replicated", M12 replication sentence, chain-of-custody gap bullet), technical
+  report (new M12 subsection + table, evidence-gap paragraph, next steps), experiment_status (M11/M12 rows + new
+  items: custody re-run, server logs, AI Act summaries, CATalog), colab_handoff (current running state). PDFs rebuilt.
+- Running at ~18:00 UTC: M11 custody re-run (GPU, ~2 min/article, 11/117), sync loop, autosave. M12 re-run waits for quota.

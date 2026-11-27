@@ -1,4 +1,26 @@
 {
+ "gemini-3.1-flash-lite": {
+  "member": {
+   "pairs": 117,
+   "mean_pair_score": 0.0035,
+   "pairs_positive": 6,
+   "pairs_negative": 6,
+   "wilcoxon_p_greater": 0.2646663750809579,
+   "queries": 234,
+   "title_overlap_ge_0.8": 0
+  },
+  "control": {
+   "pairs": 95,
+   "mean_pair_score": 0.0003,
+   "pairs_positive": 1,
+   "pairs_negative": 1,
+   "wilcoxon_p_greater": 0.32736042300928847,
+   "queries": 190,
+   "title_overlap_ge_0.8": 0
+  },
+  "member_vs_control_mw_p": 0.5020863801656389,
+  "overlap_ge_0.8_fisher_p": 1.0
+ },
  "gemini-3.5-flash-lite": {
   "member": {
    "pairs": 117,

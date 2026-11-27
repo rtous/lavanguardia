@@ -521,6 +521,21 @@ full request and raw response, and a SHA-256 hash over the request/response pair
 Anthropic API no longer accepts sampling parameters (temperature) since API version 2026-10-21, so its outputs are not
 guaranteed to be identical when repeated. Gemini calls used temperature~0.
 
+\paragraph{Evidence gap of 27 November 2026.} Colab runs keep their logs on the machine's disk and mirror them to
+Google Drive every few minutes. The machine was lost while Drive's upload was about 1.5 hours behind, so Drive kept only
+the first records of each log. Result rows had been pushed to the git repository every 10 minutes and survive intact,
+each with the hash of its raw record; for 911 of them the raw record is missing: 95 of 117 M11 rows
+(Salamandra-7B-Instruct), 390 of 428 M12 rows (Gemini 3.5 Flash-Lite) and all 426 M12 rows of the Gemini 3.1
+Flash-Lite replication. Every surviving Drive record is byte-identical to the corresponding committed row; nothing was
+reconstructed. \texttt{src/evidence\_audit.py} lists unbacked rows; \texttt{docs/evidence\_gaps.md} documents the
+incident. Under a dated amendment committed before any query
+(\texttt{docs/prereg/amendment\_rerun\_custody\_20261127.md}) the same queries are re-run with identical code,
+prompts and seeds into separate files (\texttt{results/rerun\_custody/}). The pre-registered analyses stay on run 1;
+the re-run gets the same statistics and an agreement measure. First results: the Salamandra re-run reproduces run 1
+exactly (all attempts identical); Gemini's answers differ in wording from run 1 at temperature 0 (0 of 61 identical
+texts, same substance), so for Gemini only the statistics can be compared. The Gemini re-runs are limited by the
+free tier's daily quota.
+
 \subsection{Tests}
 Table~\ref{tab:tests} maps each experiment to the method families of Section~\ref{sec:methods-bg}.
 
@@ -751,6 +766,32 @@ Flash-Lite recalled the fact in 15/202 members and 5/76 controls (7\% each, $p=0
 and the longest verbatim run was 5 words on members against 17 on controls. Gemma-2-9B (base, page continuation) recalled
 2/151 vs 0/51 (run stopped at 202 of 278 items). The other local models were not run, because they showed weaker signals than Gemma-2 in every earlier
 test. The interviews' specific answers are not known to these models.
+
+\subsection{Reverse article-number test (M12, family C)}\label{sec:m12}
+Pre-registered (\texttt{docs/prereg/m12\_url\_reverse.md}, amended once before any member query to make clear that the
+answer must come from memory). If Gemini's precision with article numbers came from seeing the newspaper's pages
+together with their URLs, the number should let it name the article. Articles come in pairs published on the same day
+in the same section (117 member pairs, 2021--2023; 95 control pairs, after the training cutoff;
+\texttt{data/m12/pairs.jsonl}, sha256 \texttt{009396f9\dots}). For each article the model gets the URL with the number,
+date and section but without the title words, and is asked for the headline. Each answer is scored by its content-word
+overlap with its own headline minus the overlap with the partner's: a model that uses only the date and section scores
+0 on average by construction. Primary test: Wilcoxon on member pair scores (one-sided).
+
+\begin{table}[h]\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+Model & Member pairs & Mean pair score & $+/-$ pairs & $p$ (members) & $p$ (members vs controls)\\
+\midrule
+Gemini 3.5 Flash-Lite & 117 & $+0.006$ & 10 / 7 & 0.053 & 0.25\\
+Gemini 3.1 Flash-Lite (replication) & 117 & $+0.004$ & 6 / 6 & 0.26 & 0.50\\
+\bottomrule
+\end{tabular}
+\caption{M12 (\texttt{results/m12\_url\_reverse\_summary.json}). Controls: mean pair score $-0.001$ and $+0.000$. No
+answer reached 0.8 overlap with its true headline in either model.}\label{tab:m12}
+\end{table}
+Both runs are null: the number does not lead Gemini to the article. Partial matches are the day's main news or daily
+series (electricity price). Gemini knows the counter's pattern, not which article has which number. Raw records of most
+of these queries were lost and are being re-run (Section~\ref{sec:setup}, evidence gap).
 
 \subsection{Positive control on a model with published training data}\label{sec:posctrl}
 \emph{OLMo 2 (discarded).} The public infini-gram index of OLMo 2's pretraining mix (\texttt{v4\_olmo-mix-1124\_llama})
@@ -1267,8 +1308,10 @@ recommend starting now, since traps cannot protect content published before thei
 
 \paragraph{Next steps.} See Table~\ref{tab:status}. In order of value: finish the pre-registered NYT-style
 extraction (M11, \texttt{docs/prereg/m11\_nyt\_style.md}: role-play prompt, 110-word opening, best of 10 attempts,
-identical for controls; an adversarial upper bound reported apart from the neutral tests), stopped after 7 of 200
-articles on Salamandra-7B-Instruct with no controls yet; the
+identical for controls; an adversarial upper bound reported apart from the neutral tests), at 117 of 200 articles
+on Salamandra-7B-Instruct, then Llama-3.1-8B-Instruct and Qwen2.5-7B-Instruct; finish the chain-of-custody re-run of the
+911 queries whose raw records were lost; ask the publisher for server logs (which crawlers fetched the articles, and
+when); check the AI Act training-content summaries of the main models for the newspaper's domain; scan BSC's CATalog; the
 cheap article-number screening (M10) on all reachable models, to choose where to spend on extraction tests; M9 and
 role-play tests on commercial APIs with a paid key; tests on larger open-weight models; complete the truncated runs; measure duplication to select test passages; evaluate models from
 other providers that expose token probabilities (OpenAI, further open-weight models); run dataset inference on the
