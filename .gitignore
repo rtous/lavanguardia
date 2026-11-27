@@ -228,3 +228,6 @@ logs/
 evidence/
 .DS_Store
 results/dataset_presence_hits_*.jsonl
+*.aux
+*.out
+*.toc
