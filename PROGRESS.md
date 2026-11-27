@@ -646,3 +646,7 @@ scan CATalog; (5) rotate HF, GitHub and Gemini keys (pasted in chat again this s
 test (top 20–50 + copy-matched post-cutoff controls; open models first, then Gemini/commercial); (4) server logs,
 Anthropic AI Act summary, CATalog; (5) rotate keys.
 - Paper (user request): Finding 1 gets a 'How often each article was copied' paragraph + Table 'most-copied' (top 20 with copies, year, section, title from URL slug); 'In short' cites the copy numbers (half ≥2 copies, ~2,700 ≥43, top 1,279) and that the most-copied articles were not tested. None of the top 20 is in our test sets (checked by article ID). Paper 18 pages.
+### Overnight state (2026-11-27 23:00 UTC) — resume from `docs/colab_handoff.md` table
+- M11 run 1: Salamandra finishing; queued relaunch with HF_TOKEN continues with Llama-3.1 then Qwen2.5 while the VM lives.
+- M12 custody re-run waits for the Gemini quota (after 08:00 UTC). Everything else of session 11 is done and pushed.
+- After resuming: run `python -I src/evidence_audit.py` (raw-record coverage), then `m11 summary` → paper; rotate keys.

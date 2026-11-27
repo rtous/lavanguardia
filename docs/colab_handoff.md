@@ -2,15 +2,21 @@
 
 Read `CLAUDE.md`, `PROGRESS.md` and `docs/experiment_status.md` first. Everything below is resumable.
 
-## State at 2026-11-27 ~21:55 UTC (session 11) — what to resume
+## State at 2026-11-27 ~23:00 UTC (end of session 11, user asleep) — what to resume
 Jobs (all resumable: rerun the same command; each skips finished work):
-| Job | Command | State at 21:55 UTC | Needs |
+| Job | Command | State at 23:00 UTC | Needs |
 |---|---|---|---|
-| M11 chain-of-custody re-run (GPU) | — | **Done: 117/117 identical to run 1** (`results/rerun_custody/m11_compare.json`) | — |
-| M12 chain-of-custody re-run (API) | `./src/run_colab_rerun_custody.sh api >> logs/rerun_custody_api.log 2>&1` | 3.5-FL 61/426, 3.1-FL 39/426: free-tier daily quota | `GEMINI_API_KEY`; after ~08:00 UTC or billing |
-| FineWeb-2 copy counts | — | **Done**; top 30 text-checked → `results/fw2_most_copied.md` | — |
-| M11 run 1 | `./src/run_colab_m11.sh >> logs/colab_m11.log 2>&1` | Running since 21:08 UTC: Salamandra 136/200; then Llama-3.1-8B-Instruct (not cached), Qwen2.5-7B | T4, **`HF_TOKEN` exported in the shell** (Llama licence; the 21:08 launch has none, so Llama will fail: relaunch with the token after Salamandra) |
-| Always alongside | `./src/colab_sync.sh loop 300`, `GH_TOKEN=... ./src/autosave.sh 600` | — | `GH_TOKEN` for push |
+| M11 run 1 | `export HF_TOKEN=...; ./src/run_colab_m11.sh >> logs/colab_m11.log 2>&1` | Salamandra ~188/200 (finishing ~23:15); a queued relaunch **with** `HF_TOKEN` then runs Llama-3.1-8B-Instruct and Qwen2.5-7B (~10 h each on a T4, may be cut by the VM). Check `wc -l results/m11_nyt_style_*.jsonl` and the log tail | T4, `HF_TOKEN` |
+| M12 chain-of-custody re-run (API) | `export GEMINI_API_KEY=...; ./src/run_colab_rerun_custody.sh api >> logs/rerun_custody_api.log 2>&1` | 3.5-FL 61/426, 3.1-FL 39/426 (free daily quota) | after ~08:00 UTC |
+| M11 chain-of-custody re-run | — | **Done: 117/117 identical** | — |
+| FineWeb-2 copy counts + top-20 check | — | **Done** (`results/fw2_most_copied.md`, paper Table "most-copied") | — |
+| Always alongside | `./src/colab_sync.sh loop 300 &`, `GH_TOKEN=... ./src/autosave.sh 600 &` | — | `GH_TOKEN` for push |
+
+Resume tomorrow: follow "Quick resume" below (clone from GitHub, `./src/colab_sync.sh restore`, gunzip the hit lists),
+then restart the sync loop + autosave, then the two jobs above. GitHub holds every result row and doc; Drive holds the
+untracked `evidence/` raw logs (incl. `evidence/m11_nyt_style/`, `evidence/m11_nyt_style_rerun/`), `data/` (incl.
+`fw2_cluster_sizes/`, `fw2_top_text.json`, `fw2_sample2020.json`) and `logs/`. If the VM died mid-run, run
+`python -I src/evidence_audit.py` after restore to check every result row still has its raw record.
 
 After they finish:
 - `python -I src/m12_url_reverse.py compare` → `results/rerun_custody/`; report agreement in paper + `docs/evidence_gaps.md`.
