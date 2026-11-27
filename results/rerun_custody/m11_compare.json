@@ -1,0 +1,13 @@
+{
+ "m11_nyt_style_salamandra-7b-instruct.jsonl": {
+  "n_run1": 117,
+  "n_rerun": 33,
+  "n_both": 33,
+  "identical_all_attempt_scores": 33,
+  "identical_greedy_attempt": 33,
+  "same_best_lcs_outside_quotes": 33,
+  "max_best_lcs_outside_quotes_run1": 10,
+  "max_best_lcs_outside_quotes_rerun": 10,
+  "differing_ids": []
+ }
+}
