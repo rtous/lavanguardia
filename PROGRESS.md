@@ -516,3 +516,11 @@ run ≥15 words side by side and check for copies elsewhere, write up as a label
    with a counsel protocol, copyright traps.
 5. Copy new `evidence/` lines from Drive to the Mac master log (append only).
 - Rotate the HF and GitHub tokens (they were pasted in chat); use Colab Secrets next time.
+
+## 2026-11-27 — Session 10: resume M11 on Colab (T4)
+- Restored the Drive mirror (same commit 092374a; only exec bits differed). 7/200 Salamandra rows + 7 evidence records intact.
+- 09:23 UTC: restarted `src/colab_sync.sh loop 300` and `src/run_colab_m11.sh` (→ `logs/colab_m11.log`). Article 8 done at
+  ~09:30. Expected: Salamandra done ~14:00 UTC, then Llama-3.1-8B-Instruct (gated: needs a HF token, via
+  `hf auth login` or HF_TOKEN in the env) and Qwen2.5-7B-Instruct, ~4.7 h each.
+- Not expected to finish this session. Resume: restore mirror, `chmod +x src/*.sh`, restart the sync loop, rerun
+  `./src/run_colab_m11.sh` (skips finished articles).
