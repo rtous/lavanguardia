@@ -628,3 +628,4 @@ run ≥15 words side by side and check for copies elsewhere, write up as a label
 **Next, in order:** (1) finish/resume the jobs above; (2) compare runs → paper + evidence_gaps.md; (3) top-20 most-copied
 list → pre-registered extraction test; (4) server logs request to the publisher; retrieve Anthropic's AI Act summaries;
 scan CATalog; (5) rotate HF, GitHub and Gemini keys (pasted in chat again this session).
+- Paper (user request): new unnumbered section "In short" after Conclusions (two plain paragraphs for management). Corrected from the user's draft: CC = "every capture we checked" (no total count); Gemini is not "based on Gemma" (Gemma is its smaller open sibling); declared CC = "probable", not certain; "page numbers" = article numbers in URLs; legality = probably lawful before opt-out, with open questions listed.
