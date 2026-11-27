@@ -736,6 +736,48 @@ provider to \textbf{preserve} it (a litigation hold) so that court-ordered testi
 
 %======================================================================
 \section{Conclusions}
+Table~\ref{tab:verdicts} gathers, model by model, everything that points to use of the newspaper's articles: our own
+test results, the developer's own statements about training data that contain the articles, and kinship with another
+model that raised a suspicion. No row amounts to proof.
+
+\begin{table}[h]\centering\scriptsize
+\begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{1.9cm}}
+\toprule
+Model (developer) & What our tests found & Trained on data that contain the articles? & Relative of a suspicious model & Overall\\
+\midrule
+Apertus (Swiss AI) & Faint collection trace (AUC 0.55); no recall & \textbf{Yes, documented}: FineWeb-2, which holds 310,000 of
+its pages (measured) & --- & Trained on them (known); nothing memorized\\
+Salamandra (BSC) & Faint trace (0.56); rough article numbers (65 days); no recall & 20 Common Crawl captures (documented)
+& --- & Very likely trained on them\\
+ALIA-40b (BSC) & Not tested & Same corpus as Salamandra & Salamandra (high) & Very likely trained on them\\
+Llama-3 / 3.1 (Meta) & Faint trace; 3.1 vs 3 in the direction training predicts, twice, not significant & Undisclosed web
+data & --- & Weak suspicion (3.1)\\
+Meta AI (Meta) & Not tested & Undisclosed & Llama-3/3.1 behind it in 2024--25 (high) & Weak suspicion, inherited\\
+Muse Spark (Meta) & Not tested & Undisclosed; collection up to June 2026, crawler never opted out & --- & Open question\\
+Gemma-2 (Google) & Strongest trace (0.59), explained by events; no wording knowledge & Undisclosed & --- & Weak
+suspicion\\
+Gemini 3.x (Google) & No reproduction; knows the article-number pattern far better than any open model (2 near-exact
+numbers, not repeated); cannot map a number to its article & Undisclosed (AI Act summary names no dataset; no
+\texttt{Google-Extended} opt-out) & Gemma (moderate) & \textbf{Main suspicion}, unproven\\
+GPT / ChatGPT (OpenAI) & Not tested (API key needed) & \textbf{Declared}: Common Crawl text (GPT-5.2, 5.5, 6 Astra; to
+May 2026); GPTBot allowed on news until March 2026 & gpt-oss untested & Likely in training data; no behavioural test\\
+Claude (Anthropic) & No reproduction, even of \emph{La Contra} (4.5 and 5.5 models) & Undisclosed (summaries not
+retrievable); ClaudeBot allowed on news until March 2026 & --- & Nothing found; possible\\
+Mistral Large 3 / Le Chat & Not tested (Mistral-7B: faint trace only) & \textbf{Declared}: Common Crawl (to July 2025)
+& Mistral-7B (low) & Likely in training data; no behavioural test\\
+DeepSeek-V4 & Not tested & \textbf{Declared}: Common Crawl & --- & Likely in training data; untested\\
+Grok (xAI) & Not tested & Undisclosed; collection January 2024--June 2026, crawler never opted out & --- & Open
+question\\
+Qwen2.5 (Alibaba) & Faint trace (0.54), like all open models & Undisclosed & --- & No specific suspicion\\
+OLMo 2 (AI2) & --- & \textbf{No}: published data, 0 of 42 articles & --- & Not trained on them (known)\\
+\bottomrule
+\end{tabularx}
+\caption{Per-model summary. ``Declared'': the developer's EU AI Act training summary names a dataset that we measured to
+contain the newspaper's full text (it does not say which pages survived the developer's filters). Transfer levels for
+relatives as in Section~\ref{sec:evidence}. ``Faint trace'': the collection-level signal every open model shows,
+including Apertus, which is known to have been trained on the articles.}\label{tab:verdicts}
+\end{table}
+
 \begin{itemize}
 \item \textbf{The articles were available for AI training} for years, without a machine-readable opt-out until March
 2026.

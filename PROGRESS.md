@@ -603,3 +603,12 @@ run ≥15 words side by side and check for copies elsewhere, write up as a label
   moderate: Gemma ↔ Gemini, gpt-oss ↔ GPT; low: Mistral-7B, Qwen2.5; none otherwise), stated per suspicious model in
   the Evidence section + models table; new evidence item "developers' own declarations"; AI Act paragraph in
   Finding 1; opt-out bullet; Q3 status. Technical report: AI Act paragraph. PDFs rebuilt.
+- Paper (user request): Conclusions now open with Table "Per-model summary" (tab:verdicts): one row per model (15),
+  columns: our test results / trained on data containing LV (documented or AI-Act declared) / relative of a suspicious
+  model (transfer level) / overall. PDF rebuilt (16 pages).
+- **Fixed another restore inconsistency:** local `results/dataset_presence_hits_spa_Latn.jsonl` (from the 26-Nov extras
+  zip) had only 164,568 of 310,502 hits (zip made before the scan finished). Replaced with the Drive copy (310,502 docs,
+  303,226 URLs, 146 shards: matches the paper). Both hit lists are gitignored; Drive is their only full copy.
+- **Most-copied articles (running):** `src/fw2_cluster_sizes.py` reads FineWeb-2's `minhash_cluster_size` (number of
+  near-duplicate documents across all CC dumps 2013–2024, same page recrawled + copies on other sites) for every LV
+  document → `data/fw2_cluster_sizes/` → `top` → `results/fw2_most_copied.json`. Log: `logs/fw2_cluster_spa.log`.
