@@ -111,7 +111,7 @@ crawlers (OpenAI, Anthropic, Google, ByteDance, \ldots) fetched the articles, an
 server logs, not yet requested (Sections~\ref{sec:data},~\ref{sec:presence}).
 \item \textbf{Which public training datasets contain them, and how many?}
 \emph{Evidence:} scanning the published datasets for the newspaper's web addresses.
-\emph{So far:} FineWeb-2 does (310,502 Spanish and 17,947 Catalan pages, including 82\% of our 2020--2023 test
+\emph{So far:} FineWeb-2 does (310,502 Spanish and 17,947 Catalan pages, including 82\% of the 2020--2023 test
 articles); the OLMo 2 data do not (English only). Not yet checked: BSC's CATalog and other public Common Crawl
 derivatives used for multilingual training (Section~\ref{sec:presence}).
 \item \textbf{Which models are documented as trained on those datasets, and which probably were?}
@@ -304,7 +304,7 @@ Source & What we checked & \emph{La Vanguardia} content found\\
 \midrule
 Common Crawl & Index and stored page records of 10 monthly captures, 2019--2026 & Full article text in every capture
 up to March 2026 (including archive articles from 2001 on), and, through FineWeb-2, in captures from 2013 on.
-None in the first capture after the 17 March 2026 opt-out. All our test articles were retrieved from it, each
+None in the first capture after the 17 March 2026 opt-out. All the test articles were retrieved from it, each
 with a hash of the exact stored record\\
 FineWeb-2, Spanish & All 146 files (441 million documents) & \textbf{310,502 pages} (303,226 distinct web addresses),
 0.07\% of all documents\\
@@ -328,7 +328,7 @@ Articles of April--November 2023 & 249 & 204 & 82\%\\
 Articles of September 2025--March 2026 (``controls'') & 489 & 0 & 0\%\\
 \bottomrule
 \end{tabular}
-\caption{Our own test articles inside FineWeb-2, matched by article number (\texttt{src/presence\_overlap.py}). Each
+\caption{The test articles inside FineWeb-2, matched by article number (\texttt{src/presence\_overlap.py}). Each
 match has a FineWeb-2 document identifier that a third party can look up.}\label{tab:overlap}
 \end{table}
 
@@ -349,7 +349,7 @@ section fronts, are omitted). Source: \texttt{src/presence\_by\_year.py}, \textt
 \item The newspaper's full article text was \textbf{copied into the main public source of AI training data for
 years}, and from there into at least one \textbf{ready-made training dataset} that is distributed publicly and
 documented as training data for AI models (for example Apertus, Section~\ref{sec:negatives}). For four out of five
-of our 2020--2023 articles, the exact copy can be pointed to.
+of the 2020--2023 test articles, the exact copy can be pointed to.
 \item No machine-readable opt-out covered the news articles before 17 March 2026; the crawler stopped collecting
 them after it.
 \end{itemize}
@@ -384,13 +384,13 @@ text in every snapshot we sampled 2019--March 2026; none after the opt-out & Mos
 datasets below). \textbf{Declared} in AI Act summaries: GPT-5.2/5.5/6 Astra, Mistral Large 3, DeepSeek-V4; BSC
 documents 20 snapshots\\
 FineWeb-2 (Hugging Face, 2024) & Multilingual dataset filtered from Common Crawl snapshots, distributed ready to use &
-\textbf{Yes, measured} (full scan): about 310,000 Spanish and 18,000 Catalan pages; 82\% of our 2020--2023 test
+\textbf{Yes, measured} (full scan): about 310,000 Spanish and 18,000 Catalan pages; 82\% of the 2020--2023 test
 articles & Apertus (documented); other developers undisclosed\\
 CATalog (BSC) & Catalan corpus, mainly Common Crawl-derived & Not checked; very likely for the Catalan edition &
 Salamandra, ALIA\\
 OLMo 2 data mix (AI2) & Published training data, filtered to English & \textbf{No, measured}: 0 of 42 articles & OLMo 2
 (usable only as a known negative)\\
-OSCAR 2019 & Common Crawl of November 2018 & Cannot contain our test articles (2020 on) & GPT-2-spanish (our time
+OSCAR 2019 & Common Crawl of November 2018 & Cannot contain the test articles (2020 on) & GPT-2-spanish (our time
 reference)\\
 CC100-XL (Meta) & Common Crawl up to 2020 & Cannot contain articles after 2020 & XGLM-2.9B (second time reference)\\
 Undisclosed corpora & ``Publicly available web data'' without a list of sources & Unknown & Llama, Gemma, Qwen,
@@ -444,7 +444,7 @@ as frequent for controls as for members, and correct fill-ins were guessable fro
 The newspaper's article numbers grow by about 3,000 a day, and given only an article's title and date, every Gemini
 model we could reach (3.1 Flash-Lite, 3.5 Flash-Lite, 3 Flash) gives a number that points to within a few days of the
 right one for 2021--2023 articles, and fails for later ones. Measured in numbers rather than days, Gemini is as precise as an ideal guesser that knows the exact publication
-date and interpolates over our whole set of about 1,500 dated addresses: median error about 1,300 numbers, half a
+date and interpolates over the whole set of about 1,500 dated addresses: median error about 1,300 numbers, half a
 day's output (Gemini 3.5 Flash-Lite 1,325; ideal guesser 1,281). Most open models cannot do this; BSC's Salamandra-7B,
 trained on 20 Common Crawl snapshots, does so roughly (median error 65 days, 12 of 245 articles within a week, none of
 300 controls; $p=6\times10^{-5}$), much less precisely than Gemini (2--3 days). The skill can be learned from links
@@ -514,7 +514,7 @@ Ordered from strongest to weakest. None meets the standard of proof that a model
 text.
 \begin{enumerate}
 \item \textbf{Availability and copying into training datasets (solid fact; Section~\ref{sec:presence}).} The
-articles were in Common Crawl for years and are in FineWeb-2 (about 330,000 pages, 82\% of our 2020--2023 sample),
+articles were in Common Crawl for years and are in FineWeb-2 (about 330,000 pages, 82\% of the 2020--2023 test sample),
 without a machine-readable opt-out until March 2026. This proves opportunity and the existence of training copies,
 not use by a particular commercial model, and before 2026 the copying may have been lawful.
 \item \textbf{Developers' own declarations (documentary, solid as far as it goes).} OpenAI (GPT-5.2, 5.5, 6 Astra),
@@ -579,8 +579,8 @@ without memorization.
 
 \paragraph{Positive control: what training on the articles looks like.} To read the negative results we need a
 model that \emph{certainly} learned from the newspaper. AI2's OLMo publishes its training data, but that data is
-filtered to English and contains almost none of our articles, so it cannot serve. We used \emph{Apertus-8B} (Swiss AI,
-2025), whose published training data is built on FineWeb-2, the dataset in which we located 567 of our 695 2020--2023
+filtered to English and contains almost no \emph{La Vanguardia} articles, so it cannot serve. We used \emph{Apertus-8B} (Swiss AI,
+2025), whose published training data is built on FineWeb-2, the dataset in which we located 567 of the 695 2020--2023
 articles and 95 of 212 \emph{La Contra} interviews. The result:
 \begin{itemize}
 \item \textbf{No knowledge of the articles' content.} Asked what an interviewee answered, Apertus recalled the
@@ -597,7 +597,7 @@ duplicates drops articles whose text circulates elsewhere, so their copies are s
 as a control; same-period controls must be articles that were never online.
 \end{itemize}
 Two caveats: Apertus was trained with a technique that suppresses verbatim recall, so it says nothing about extraction
-tests; and its data filters may have removed some of our articles. Even so, the conclusion is clear. \textbf{A model
+tests; and its data filters may have removed some \emph{La Vanguardia} articles. Even so, the conclusion is clear. \textbf{A model
 trained on the articles behaves like the models we tested.} Our negative results are therefore no evidence that
 those models were \emph{not} trained on the newspaper, and their faint traces are what training on it looks like.
 Only a collection-level test with clean, same-period comparison groups and thousands of articles can turn such a
@@ -659,14 +659,14 @@ it, compared with other newspapers?) is designed and could be run at no cost if 
 
 %======================================================================
 \section{Models at a glance}\label{sec:glance}
-Table~\ref{tab:models} lists the models, what can be measured on each, and whether we know that it saw our articles
+Table~\ref{tab:models} lists the models, what can be measured on each, and whether we know that it saw \emph{La Vanguardia} articles
 (for the training datasets, see Table~\ref{tab:datasets} in Section~\ref{sec:presence}).
 
 \begin{table}[h]\centering\footnotesize
 \begin{tabularx}{\linewidth}{>{\raggedright\arraybackslash}p{2.35cm}>{\raggedright\arraybackslash}p{1.05cm}>{\raggedright\arraybackslash}p{1.25cm}>{\raggedright\arraybackslash}p{1.25cm}>{\raggedright\arraybackslash}p{1.2cm}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}X}
 \toprule
 Model (developer) & Open weights & Word probs. & Cost to test & Size tested & Training data (cutoff) & Trained on
-our articles? / our result\\
+\emph{La Vanguardia} articles? / our result\\
 \midrule
 Apertus-8B (Swiss AI) & Yes & Yes & Free & 8B & FineWeb-2, documented (2024) & \textbf{Yes}, almost certainly (FineWeb-2).
 Positive control: no content recall, faint trace (AUC 0.55)\\
@@ -817,9 +817,9 @@ Vanguardia}'s articles went down that pipe: their full text is in every Common C
 until the opt-out of March 2026, and FineWeb-2 contains about 328,000 of the newspaper's pages, captured between 2013
 and 2024. That is about 270,000 different articles (in 2019--2021, more than 100 per day of publication) plus some
 50,000 section fronts, blog posts and other pages. One open model, Apertus, publishes its training data, and that
-data includes FineWeb-2, so it was almost certainly trained on our articles. BSC's Salamandra and ALIA are documented
+data includes FineWeb-2, so it was almost certainly trained on \emph{La Vanguardia} articles. BSC's Salamandra and ALIA are documented
 as trained on 20 Common Crawl captures, so they very likely were too. OpenAI (recent GPT models), Mistral (Large 3) and
-DeepSeek (V4) state in their EU AI Act filings that they trained on Common Crawl text. That makes it probable that our
+DeepSeek (V4) state in their EU AI Act filings that they trained on Common Crawl text. That makes it probable that \emph{La Vanguardia}
 articles were in their training data, though not certain, because their filters may have dropped them, and nobody names
 specific websites. For Gemini we have no statement. Its smaller open sibling Gemma-2 shows a weak trace, explained by
 knowledge of the news events. Gemini itself shows one odd skill. Every article's web address carries a running
