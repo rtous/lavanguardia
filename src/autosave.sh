@@ -8,7 +8,9 @@ set -u
 cd "$(dirname "$0")/.."
 INTERVAL=${1:-600}
 while true; do
-  git add results/m11_nyt_style_*.jsonl results/m11_*summary*.json results/m12_url_reverse_*.jsonl results/m12_url_reverse_summary.json 2>/dev/null
+  for f in results/m11_nyt_style_*.jsonl results/m11_*summary*.json results/m12_url_reverse_*.jsonl results/m12_url_reverse_summary.json; do
+    [ -e "$f" ] && git add "$f"  # one by one: a pattern matching nothing would make git add skip all
+  done
   if ! git diff --cached --quiet; then
     git commit -qm "Autosave: M11/M12 results $(date -u +%FT%TZ)" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" && echo "$(date -u +%FT%TZ) committed"
   fi
