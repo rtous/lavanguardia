@@ -572,3 +572,12 @@ run ≥15 words side by side and check for copies elsewhere, write up as a label
 - [ ] Decide: re-run the 911 queries without raw records (M12 ≈ 2 h API at flash-lite cost; M11 ≈ 2.2 h GPU) or report with the gap note.
 - [ ] Resume M11 (Salamandra 117/200, then Llama-3.1, Qwen2.5); analyse M12 3.1-FL replication; rebuild paper PDF.
 - [ ] Off-Drive copy of `evidence/` (e.g. private GitHub/HF repo) so a VM loss can't drop raw records again.
+- **Chain-of-custody re-run started (17:06 UTC)**, as amended before any query (`docs/prereg/amendment_rerun_custody_20261127.md`,
+  cc78b71): `src/run_colab_rerun_custody.sh api|gpu` → `results/rerun_custody/`, raw records in `evidence/*_rerun/`.
+  `compare` subcommands in both scripts → `results/rerun_custody/m1{1,2}_compare.json`.
+  - M11 Salamandra (117 articles, ~2.7 h): first article **identical to run 1** (all 10 attempts, same weights commit).
+  - M12 gemini-3.5-flash-lite: 61/426, then **free-tier daily quota (429)**; rerun `api` after the reset (08:00 UTC)
+    or with billing. Answers are not identical to run 1 (0/61 same text; same substance, e.g. "fecha futura"
+    refusals on controls): Gemini is not deterministic at temperature 0. Compare statistics, not texts.
+  - M12 gemini-3.1-flash-lite: running (~7 queries/min).
+  - Running alongside: `colab_sync.sh loop 300`, `autosave.sh 600` (now also commits `results/rerun_custody/`).
