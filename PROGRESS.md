@@ -645,3 +645,4 @@ scan CATalog; (5) rotate HF, GitHub and Gemini keys (pasted in chat again this s
 **Next:** (1) M12 re-run after 08:00 UTC; (2) M11 run 1 with `HF_TOKEN`; (3) pre-register the most-copied extraction
 test (top 20–50 + copy-matched post-cutoff controls; open models first, then Gemini/commercial); (4) server logs,
 Anthropic AI Act summary, CATalog; (5) rotate keys.
+- Paper (user request): Finding 1 gets a 'How often each article was copied' paragraph + Table 'most-copied' (top 20 with copies, year, section, title from URL slug); 'In short' cites the copy numbers (half ≥2 copies, ~2,700 ≥43, top 1,279) and that the most-copied articles were not tested. None of the top 20 is in our test sets (checked by article ID). Paper 18 pages.

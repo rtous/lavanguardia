@@ -318,6 +318,52 @@ OLMo 2 training data (AI2) & 42 articles, exact-text search & None (the data are
 \texttt{src/dataset\_presence.py}, \texttt{src/olmo\_positive\_control.py}).}\label{tab:presence}
 \end{table}
 
+\paragraph{How often each article was copied.} Models memorize what they see many times. FineWeb-2's deduplication
+records, for every page it keeps, how many near-identical copies it found across all Common Crawl captures of
+2013--2024: repeated captures of the same page plus copies on other sites (reposts, scrapers, aggregators). We read
+this count for all 328,449 of the newspaper's pages (\texttt{src/fw2\_cluster\_sizes.py}). Of the 272,636 distinct
+articles, half have 2 copies or fewer, 10\% have 7 or more, 1\% (about 2,700) have 43 or more, 232 have 100 or more
+and 2 have more than 500. We read the text of the 30 most-copied pages and dropped one that is a ``page not found''
+error page (error pages are identical, so they cluster). Table~\ref{tab:mostcopied} lists the top 20. The most-copied
+article by far is the 2010 interview \emph{``Nosotros, como el tiempo, también nos desdoblamos''} (1,279 copies),
+followed by two \emph{La Contra} interviews on health, with Juan Gérvas (490) and \emph{``No se olvide de apagar el
+wi-fi por la noche''} (373). Most of the top 20 are 2010--2014 curiosity and health pieces that spread through
+blogs and forums (the olinguito, a Chinese zoo passing dogs off as lions, the Mayan ``end of the world''), the Pope
+Francis interview, and agency wires that many sites published too. None of these was in our test sets, which used
+recent signed articles with few copies; they are the natural targets for a memorization test (Section~\ref{sec:avenues}).
+
+\begin{table}[h]\centering\footnotesize
+\begin{tabularx}{\linewidth}{rrll>{\raggedright\arraybackslash}X}
+\toprule
+\# & Copies & Year & Section & Title (from the web address, or subject)\\
+\midrule
+1 & 1,279 & 2010 & Noticias & Nosotros, como el tiempo, también nos desdoblamos\\
+2 & 490 & 2013 & La Contra & Interview with Juan Gérvas (excess medicine)\\
+3 & 373 & 2011 & La Contra & No se olvide de apagar el wi-fi por la noche\\
+4 & 335 & 2018 & Internacional & EE.UU.: norma de datos de redes sociales para viajeros con visado (EFE)\\
+5 & 326 & 2013 & Medio ambiente & Olinguito, carnívoro descubierto en América\\
+6 & 310 & 2021 & Participación & ¿Más impuestos en España? (readers' debate)\\
+7 & 308 & 2013 & Vida & Zoo en China: perros como leones, ratas como reptiles\\
+8 & 299 & 2012 & Vida & Descubren en Tonga un barco pirata con tesoros\\
+9 & 296 & 2013 & Sucesos & Serpiente de 3 metros vuela tres horas en el ala de un avión\\
+10 & 293 & 2014 & Internacional & Entrevista al papa Francisco\\
+11 & 289 & 2013 & Internacional & Benedicto XVI: Dios me llama a la oración, no abandono la Iglesia\\
+12 & 277 & 2017 & Deportes & Iago Aspas: Celta--Deportivo\\
+13 & 259 & 2017 & Deportes & Mireia Belmonte, récord del mundo de 400 estilos\\
+14 & 259 & 2012 & Cine & Disney prepara una película de Don Quijote con Johnny Depp\\
+15 & 258 & 2012 & Vida & El calendario maya prevé el fin del mundo\\
+16 & 251 & 2012 & Sucesos & Autores de la broma a Catalina, destrozados por la muerte de la enfermera\\
+17 & 249 & 2012 & Economía & El nuevo billete de 5 euros\\
+18 & 247 & 2013 & La Contra & Interview with Catherine L'Ecuyer (children's education)\\
+19 & 245 & 2013 & Música & MC Daleste (Brazilian singer shot on stage)\\
+20 & 245 & 2013 & Internacional & Chávez sigue padeciendo insuficiencia respiratoria\\
+\bottomrule
+\end{tabularx}
+\caption{The 20 most-copied \emph{La Vanguardia} articles in FineWeb-2 (near-identical copies found across Common
+Crawl 2013--2024, summed over the article's kept documents; text checked, one error page removed).
+Full list with web addresses: \texttt{results/fw2\_most\_copied.md}.}\label{tab:mostcopied}
+\end{table}
+
 \begin{table}[h]\centering\footnotesize
 \begin{tabular}{lrrr}
 \toprule
@@ -651,9 +697,7 @@ near-identical copies its deduplication found across all Common Crawl captures o
 copies on other sites). We read this count for all 328,449 of the newspaper's pages in FineWeb-2
 (\texttt{src/fw2\_cluster\_sizes.py}). Of the 272,636 distinct articles, the median has 2 copies, 10\% have 7 or
 more, 1\% have 43 or more and 232 have 100 or more. The 20 most-copied articles, after reading their text and dropping
-one error page (\texttt{results/fw2\_most\_copied.md}), have 245 to 1,279 copies; they are mostly 2010--2014 pieces:
-three \emph{La Contra} interviews on health and pseudoscience, curiosity news (a new mammal species, a zoo passing dogs
-off as lions, the Mayan ``end of the world''), a Pope Francis interview and agency wires. They are the best targets; controls should be articles published after
+one error page, have 245 to 1,279 copies (Table~\ref{tab:mostcopied}). They are the best targets; controls should be articles published after
 the training cutoffs with a comparable number of copies (FineWeb-2 stops in 2024, so their copies must be counted in
 later Common Crawl captures). Both sets would then go through a pre-registered extraction test on open and commercial models.
 \item \textbf{More triage on paid API tiers: not needed now.} A free ``collection fingerprint'' test (does a model reproduce \emph{La
@@ -820,7 +864,10 @@ Face (language and quality filters, duplicates removed) and published as ready-m
 Vanguardia}'s articles went down that pipe: their full text is in every Common Crawl capture we checked, from 2019
 until the opt-out of March 2026, and FineWeb-2 contains about 328,000 of the newspaper's pages, captured between 2013
 and 2024. That is about 270,000 different articles (in 2019--2021, more than 100 per day of publication) plus some
-50,000 section fronts, blog posts and other pages. One open model, Apertus, publishes its training data, and that
+50,000 section fronts, blog posts and other pages. Many articles were also copied around the web: half have at least two
+copies in Common Crawl, about 2,700 have 43 or more, and the most-copied, a 2010 interview (\emph{``Nosotros, como el
+tiempo, también nos desdoblamos''}), has 1,279. Copies of La Vanguardia text on other sites are still La Vanguardia
+content for a model that learns from them. One open model, Apertus, publishes its training data, and that
 data includes FineWeb-2, so it was almost certainly trained on \emph{La Vanguardia} articles. BSC's Salamandra and ALIA are documented
 as trained on 20 Common Crawl captures, so they very likely were too. OpenAI (recent GPT models), Mistral (Large 3) and
 DeepSeek (V4) state in their EU AI Act filings that they trained on Common Crawl text. That makes it probable that \emph{La Vanguardia}
@@ -832,7 +879,7 @@ than any other model. But given a number, it cannot say which article it is. So 
 web addresses, perhaps only as links on other sites, not necessarily the articles.
 
 We could not make any model repeat an article word for word, or reveal details only the newspaper published. We did
-not test them all: GPT, Mistral Large, DeepSeek and Grok are untested. This matters because word-for-word
+not test them all, nor the most-copied articles, which are the likeliest to be memorized: GPT, Mistral Large, DeepSeek and Grok are untested. This matters because word-for-word
 reproduction (``memorization'') is the strongest legal argument, as in the German \emph{GEMA} case. A statistical
 test over thousands of articles can show training without memorization. It needs access to the model's internal
 word probabilities, so it works only on open models, not on ChatGPT, Claude or Gemini, except by court order. It
