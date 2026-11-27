@@ -14,6 +14,9 @@ Usage:
   python -I src/m12_url_reverse.py build                         -> data/m12/pairs.jsonl (deterministic; sha256 printed)
   python -I src/m12_url_reverse.py run --model gemini-3.5-flash-lite
   python -I src/m12_url_reverse.py summary                       -> results/m12_url_reverse_summary.json
+  python -I src/m12_url_reverse.py run --model ... --rerun       -> chain-of-custody re-run (docs/evidence_gaps.md):
+      same prompts/params, results in results/rerun_custody/, raw records in evidence/m12_url_reverse_rerun/
+  python -I src/m12_url_reverse.py compare                       -> results/rerun_custody/m12_compare.json
 """
 import argparse, glob, hashlib, json, os, re, sys
 from collections import defaultdict
@@ -77,14 +80,19 @@ def prompt(p, x):
             "Si no estás seguro, da igualmente tu mejor suposición.")
 
 
-def out_path(model):
-    return f"results/m12_url_reverse_{model.split('/')[-1]}.jsonl"
+RERUN_DIR = "results/rerun_custody"
 
 
-def run(model, limit):
+def out_path(model, rerun=False):
+    return f"{RERUN_DIR if rerun else 'results'}/m12_url_reverse_{model.split('/')[-1]}.jsonl"
+
+
+def run(model, limit, rerun=False):
     from probe import ask
     pairs = [json.loads(l) for l in open(PAIRS, encoding="utf-8")]
-    out = out_path(model)
+    out = out_path(model, rerun)
+    os.makedirs(os.path.dirname(out), exist_ok=True)
+    exp = EXP + "_rerun" if rerun else EXP
     done = set()
     if os.path.exists(out):
         done = {(r["pair_id"], r["side"]) for r in map(json.loads, open(out))
@@ -95,7 +103,7 @@ def run(model, limit):
         for i, (p, s) in enumerate(todo):
             x, y = p[s], p["b" if s == "a" else "a"]
             q = prompt(p, x)
-            text, rec = ask(EXP, model, q, max_tokens=100,
+            text, rec = ask(exp, model, q, max_tokens=100,
                             meta={"pair_id": p["pair_id"], "side": s, "set": p["set"], "url": x["url"]})
             err = rec["stop_reason"] == "api_error"
             r = {"pair_id": p["pair_id"], "side": s, "set": p["set"], "pub_date": p["pub_date"], "section": p["section"],
@@ -116,10 +124,10 @@ def run(model, limit):
                 print(f"  {i + 1}/{len(todo)}", flush=True)
 
 
-def summary():
+def summary(src_dir="results", out="results/m12_url_reverse_summary.json"):
     from scipy.stats import wilcoxon, mannwhitneyu, fisher_exact
     tab = {}
-    for path in sorted(glob.glob("results/m12_url_reverse_*.jsonl")):
+    for path in sorted(glob.glob(f"{src_dir}/m12_url_reverse_*.jsonl")):
         if path.endswith("_summary.json"):
             continue
         rows = {}
@@ -153,14 +161,41 @@ def summary():
         name = os.path.basename(path)[len("m12_url_reverse_"):-len(".jsonl")]
         tab[name] = res
         print(name, json.dumps(res, indent=1))
-    with open("results/m12_url_reverse_summary.json", "w") as f:
+    with open(out, "w") as f:
         json.dump(tab, f, indent=1)
+
+
+def compare():
+    """Run 1 vs chain-of-custody re-run: identical answers, and the pre-registered statistics on each run."""
+    import contextlib, io
+    res = {}
+    for p2 in sorted(glob.glob(f"{RERUN_DIR}/m12_url_reverse_*.jsonl")):
+        p1 = "results/" + os.path.basename(p2)
+        key = lambda r: (r["pair_id"], r["side"])
+        last = lambda p: {key(r): r for r in map(json.loads, open(p)) if r.get("prompt_version", 1) == PROMPT_VERSION
+                          and not r.get("api_error")}
+        r1, r2 = last(p1), last(p2)
+        both = sorted(set(r1) & set(r2))
+        same = sum(r1[k]["gen"].strip() == r2[k]["gen"].strip() for k in both)
+        same_norm = sum(norm(r1[k]["gen"]) == norm(r2[k]["gen"]) for k in both)
+        sc = lambda r: (r["ov_own"] or 0) - (r["ov_partner"] or 0)
+        res[os.path.basename(p2)] = {"n_run1": len(r1), "n_rerun": len(r2), "n_both": len(both),
+                                     "identical_text": same, "identical_normalised": same_norm,
+                                     "same_pair_side_score": sum(abs(sc(r1[k]) - sc(r2[k])) < 1e-9 for k in both)}
+    # pre-registered summary on the re-run files (temporarily point the glob at them)
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        summary(src_dir=RERUN_DIR, out=f"{RERUN_DIR}/m12_url_reverse_summary_rerun.json")
+    res["rerun_summary_file"] = f"{RERUN_DIR}/m12_url_reverse_summary_rerun.json"
+    print(json.dumps(res, indent=1))
+    json.dump(res, open(f"{RERUN_DIR}/m12_compare.json", "w"), indent=1)
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["build", "run", "summary"])
+    ap.add_argument("cmd", choices=["build", "run", "summary", "compare"])
     ap.add_argument("--model", default="gemini-3.5-flash-lite")
     ap.add_argument("--limit", type=int, default=0, help="max queries this call (0 = all)")
+    ap.add_argument("--rerun", action="store_true", help="chain-of-custody re-run (separate results + evidence)")
     a = ap.parse_args()
-    build() if a.cmd == "build" else run(a.model, a.limit) if a.cmd == "run" else summary()
+    {"build": build, "run": lambda: run(a.model, a.limit, a.rerun), "summary": summary, "compare": compare}[a.cmd]()

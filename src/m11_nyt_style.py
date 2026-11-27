@@ -15,6 +15,9 @@ syndicated, not the newspaper's wording). Per article: best LCS outside quotes o
 Usage:
   python -I src/m11_nyt_style.py run --model hf:BSC-LT/salamandra-7b-instruct
   python -I src/m11_nyt_style.py summary
+  python -I src/m11_nyt_style.py run --model ... --rerun     -> chain-of-custody re-run of the articles run 1 already
+      did (docs/evidence_gaps.md): results/rerun_custody/, raw records in evidence/m11_nyt_style_rerun/
+  python -I src/m11_nyt_style.py compare                     -> results/rerun_custody/m11_compare.json
 """
 import argparse, glob, json, os, re, sys, unicodedata
 from difflib import SequenceMatcher
@@ -69,11 +72,20 @@ def articles(tag):
     return out
 
 
-def run(model):
+RERUN_DIR = "results/rerun_custody"
+
+
+def run(model, rerun=False):
     from probe import ask_hf_samples
-    out = f"results/m11_nyt_style_{model.split('/')[-1]}.jsonl"
+    run1 = f"results/m11_nyt_style_{model.split('/')[-1]}.jsonl"
+    out = f"{RERUN_DIR}/{os.path.basename(run1)}" if rerun else run1
+    exp = EXP + "_rerun" if rerun else EXP
+    os.makedirs(os.path.dirname(out), exist_ok=True)
     done = {(r["tag"], r["id"]) for r in map(json.loads, open(out))} if os.path.exists(out) else set()
     jobs = [(t, d) for t in SETS for d in articles(t) if (t, d["id"]) not in done]
+    if rerun:  # only the articles run 1 already did, in the same order
+        did = {(r["tag"], r["id"]) for r in map(json.loads, open(run1))}
+        jobs = [(t, d) for t, d in jobs if (t, d["id"]) in did]
     print(f"{model}: {len(jobs)} articles to run", flush=True)
     with open(out, "a", encoding="utf-8") as f:
         for k, (tag, d) in enumerate(jobs):
@@ -84,7 +96,7 @@ def run(model):
             title = d["title"].split(" por ")[0] if d.get("author") else d["title"]
             fmt = dict(title=title, by=by, date=date, prefix=prefix)
             seed = int(d["id"]) % (2 ** 31)  # per-article seed: reproducible, same rule for members and controls
-            texts, rec = ask_hf_samples(EXP, model, [{"role": r, "content": c.format(**fmt)} for r, c in TURNS],
+            texts, rec = ask_hf_samples(exp, model, [{"role": r, "content": c.format(**fmt)} for r, c in TURNS],
                                         system=SYSTEM.format(**fmt), max_tokens=MAX_TOKENS, n=N_ATTEMPTS,
                                         temperature=TEMPERATURE, top_p=TOP_P, seed=seed,
                                         meta={"id": d["id"], "set": d["set"], "tag": tag})
@@ -133,9 +145,31 @@ def summary():
     json.dump(res, open("results/m11_summary.json", "w"), indent=1, ensure_ascii=False)
 
 
+def compare():
+    """Run 1 vs chain-of-custody re-run: identical attempt texts and identical scores per article."""
+    res = {}
+    for p2 in sorted(glob.glob(f"{RERUN_DIR}/m11_nyt_style_*.jsonl")):
+        p1 = "results/" + os.path.basename(p2)
+        r1 = {(r["tag"], r["id"]): r for r in map(json.loads, open(p1))}
+        r2 = {(r["tag"], r["id"]): r for r in map(json.loads, open(p2))}
+        both = sorted(set(r1) & set(r2))
+        same_best = sum(r1[k]["best_lcs_outside_quotes"] == r2[k]["best_lcs_outside_quotes"] for k in both)
+        same_att = sum(r1[k]["attempts"] == r2[k]["attempts"] for k in both)
+        same_greedy = sum(r1[k]["attempts"][0] == r2[k]["attempts"][0] for k in both)
+        res[os.path.basename(p2)] = {
+            "n_run1": len(r1), "n_rerun": len(r2), "n_both": len(both), "identical_all_attempt_scores": same_att,
+            "identical_greedy_attempt": same_greedy, "same_best_lcs_outside_quotes": same_best,
+            "max_best_lcs_outside_quotes_run1": max(r1[k]["best_lcs_outside_quotes"] for k in both) if both else None,
+            "max_best_lcs_outside_quotes_rerun": max(r2[k]["best_lcs_outside_quotes"] for k in both) if both else None,
+            "differing_ids": [k[1] for k in both if r1[k]["best_lcs_outside_quotes"] != r2[k]["best_lcs_outside_quotes"]]}
+    print(json.dumps(res, indent=1))
+    json.dump(res, open(f"{RERUN_DIR}/m11_compare.json", "w"), indent=1)
+
+
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("cmd", choices=["run", "summary"])
+    ap.add_argument("cmd", choices=["run", "summary", "compare"])
     ap.add_argument("--model")
+    ap.add_argument("--rerun", action="store_true", help="chain-of-custody re-run (separate results + evidence)")
     a = ap.parse_args()
-    run(a.model) if a.cmd == "run" else summary()
+    {"run": lambda: run(a.model, a.rerun), "summary": summary, "compare": compare}[a.cmd]()

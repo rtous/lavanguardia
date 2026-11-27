@@ -8,7 +8,8 @@ set -u
 cd "$(dirname "$0")/.."
 INTERVAL=${1:-600}
 while true; do
-  for f in results/m11_nyt_style_*.jsonl results/m11_*summary*.json results/m12_url_reverse_*.jsonl results/m12_url_reverse_summary.json; do
+  for f in results/m11_nyt_style_*.jsonl results/m11_*summary*.json results/m12_url_reverse_*.jsonl results/m12_url_reverse_summary.json \
+           results/rerun_custody/*.jsonl results/rerun_custody/*.json; do
     [ -e "$f" ] && git add "$f"  # one by one: a pattern matching nothing would make git add skip all
   done
   if ! git diff --cached --quiet; then
