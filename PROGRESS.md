@@ -728,3 +728,9 @@ Anthropic AI Act summary, CATalog; (5) rotate keys.
   "One suspicious article", Evidence item 6, In short. Report: M13 Llama/Claude/exploratory + M13b paragraph.
   **Next for this lead:** same dense probe on more articles of high copy count (next most-copied La Contra: Gérvas 490,
   wi-fi 373, Ecuyer 247) with matched controls; Gemini M13b result (running).
+- **M13c pre-registered (822a8d3) and Claude complete: NULL, Garnier does not generalize.** Next 3 most-copied La Contra
+  interviews vs 8 controls: article-level p=0.38, window p=0.53, max 7 vs 10, 0 ≥12; with Garnier p=0.19. L'Ecuyer's
+  crawled text has 7 straight `"` → M11's quote rule blanks most of it (median 0); ignoring the flag (exploratory) p=0.069.
+- **M13b Gemini (75/76): null**, p=0.37, max 6 vs 10. So the Garnier fragments are one article, one model (Claude).
+- Paper/report/status/abstract updated: Garnier = "suspicious, not generalized". Note for future scripts: the quote rule
+  is fragile with straight quotes in crawled text (paragraph-level parity); consider a per-sentence rule.

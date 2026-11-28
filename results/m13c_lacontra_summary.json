@@ -1,0 +1,175 @@
+{
+ "claude-opus-4-5-20251101": {
+  "n_articles": {
+   "member": 3,
+   "control": 8
+  },
+  "article_medians": {
+   "member": {
+    "54365145790": 5,
+    "54228364832": 3,
+    "54360763481": 0.0
+   },
+   "control": {
+    "11461087": 3.0,
+    "11480309": 4,
+    "11461945": 2.5,
+    "11462840": 3.0,
+    "11458911": 0,
+    "11460053": 3,
+    "11478598": 2,
+    "11479519": 2.0
+   }
+  },
+  "primary_article_level_p": 0.37642081391682836,
+  "secondary_window_level_p": 0.5259679944428942,
+  "windows": {
+   "member": 44,
+   "control": 116
+  },
+  "max": {
+   "member": 7,
+   "control": 10
+  },
+  "windows_ge_12": {
+   "member": 0,
+   "control": 0
+  },
+  "with_garnier_article_level_p (not confirmatory)": 0.19237109696201943,
+  "member_runs": [
+   [
+    7,
+    "54365145790",
+    400,
+    "la vacuna de la gripe no disminuye"
+   ],
+   [
+    7,
+    "54365145790",
+    200,
+    "disminuir el cáncer de cuello de útero"
+   ],
+   [
+    6,
+    "54365145790",
+    550,
+    "el cáncer de cuello de útero"
+   ],
+   [
+    6,
+    "54365145790",
+    450,
+    "el cáncer de cuello de útero"
+   ],
+   [
+    6,
+    "54365145790",
+    150,
+    "infartos se dan en personas con"
+   ],
+   [
+    6,
+    "54228364832",
+    500,
+    "hay que apagarlo por la noche"
+   ],
+   [
+    6,
+    "54228364832",
+    450,
+    "hay que apagarlo por la noche"
+   ],
+   [
+    5,
+    "54365145790",
+    650,
+    "de un cáncer que nunca"
+   ]
+  ],
+  "complete": true
+ },
+ "gemini-3.1-flash-lite": {
+  "n_articles": {
+   "member": 2,
+   "control": 4
+  },
+  "article_medians": {
+   "member": {
+    "54365145790": 5,
+    "54228364832": 4
+   },
+   "control": {
+    "11458911": 0,
+    "11460053": 4,
+    "11478598": 10,
+    "11479519": 7
+   }
+  },
+  "primary_article_level_p": 0.6807039611574901,
+  "secondary_window_level_p": 0.4598449008932487,
+  "windows": {
+   "member": 22,
+   "control": 60
+  },
+  "max": {
+   "member": 6,
+   "control": 10
+  },
+  "windows_ge_12": {
+   "member": 0,
+   "control": 0
+  },
+  "with_garnier_article_level_p (not confirmatory)": 0.6405918194923587,
+  "member_runs": [
+   [
+    6,
+    "54365145790",
+    0,
+    "el cribado de cáncer de próstata"
+   ],
+   [
+    5,
+    "54365145790",
+    650,
+    "la vacuna de la gripe"
+   ],
+   [
+    5,
+    "54365145790",
+    600,
+    "la tercera causa de muerte"
+   ],
+   [
+    5,
+    "54365145790",
+    550,
+    "la tercera causa de muerte"
+   ],
+   [
+    5,
+    "54365145790",
+    500,
+    "la tercera causa de muerte"
+   ],
+   [
+    5,
+    "54365145790",
+    250,
+    "la tercera causa de muerte"
+   ],
+   [
+    5,
+    "54365145790",
+    200,
+    "la tercera causa de muerte"
+   ],
+   [
+    5,
+    "54365145790",
+    100,
+    "embolias y cáncer de mama"
+   ]
+  ],
+  "complete": false
+ }
+}

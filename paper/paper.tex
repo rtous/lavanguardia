@@ -37,7 +37,7 @@ learned. Over about a dozen exploratory experiments on Claude, Gemini and five o
 articles from before the models' training and articles from after it as controls, we find \emph{no reproduction} of
 the newspaper's text, even with the prompting tricks of the NYT case on its most-copied articles, and no general
 knowledge of its wording. We find several weak signals: short fragments of the wording of its most-copied article in
-Claude Opus 4.5 (a pre-registered follow-up, one article), collection-level traces in
+Claude Opus 4.5 (one article; not repeated on the next three, nor by Gemini), collection-level traces in
 Google's Gemma-2 and Meta's Llama-3.1 that knowledge of the period's events can explain, and Gemini models'
 knowledge of the newspaper's article numbering, which third-party links can explain. None is evidence of use yet. Three next steps deserve investment: a collection-level test with the publisher's archive and same-period controls,
 answer-time retrieval tests on consumer AI products, and copyright traps for future content. The collection-level
@@ -492,7 +492,8 @@ Test & Models & Result\\
 Verbatim continuation (A) & Claude 4.5 and 5.5, Gemini 3.x & No reproduction, even of \emph{La Contra}\\
 NYT-style extraction (A, adversarial) & Salamandra (Qwen, Llama running) & No: at control level\\
 Most-copied 20 articles (A, adversarial) & Salamandra, Llama-3.1, Claude Opus 4.5; Gemini 3.1 FL (partial) & No; long runs only for famous quotations\\
-Garnier interview, dense (A, follow-up) & Claude Opus 4.5 (Gemini running) & Fragments of the wording, above controls ($p=0.005$); suspicious\\
+Garnier interview, dense (A, follow-up) & Claude Opus 4.5; Gemini 3.1 FL & Claude: fragments above controls ($p=0.005$); Gemini: no\\
+Next 3 most-copied interviews, dense (A) & Claude Opus 4.5 (Gemini running) & No ($p=0.38$, article level): does not generalize\\
 Sentence by sentence (A) & Llama-3.1 & No sentence reproduced\\
 Pick the original (C) & Claude 4.5, Gemini & Invalid: works equally on unseen text\\
 Newspaper-only details (C) & Gemini, 5 open models & At control level, except article numbers (Gemini; Salamandra weakly)\\
@@ -542,9 +543,14 @@ vs 10; one-sided $p=0.005$; $p=0.001$ after dropping any run that also appears i
 interview's own text, ``permite anticipar el presente a través de la memoria del futuro. En física'', continuing the
 prompt word for word. We read this as \emph{suspicious, not proof}: it is one article, its windows are not
 independent (with the article as the unit, one against four cannot be significant), the runs are short (13 words at
-most, against our 25-word threshold), and the interviewee's own vocabulary may help. It is, however, the first trace
-of the newspaper's own wording in a commercial model, and it appears where theory predicts: on the most-copied
-article.
+most, against our 25-word threshold), and the interviewee's own vocabulary may help. It was the first trace of the newspaper's own wording in a commercial model, on the most-copied article, where
+theory predicts it. Two pre-registered checks then limited it. Gemini 3.1 Flash-Lite, given the same dense prompts,
+shows nothing on Garnier ($p=0.37$; maximum 6 words). And on the three next most-copied \emph{La Contra} interviews
+(247--490 copies; M13c, \texttt{docs/prereg/m13c\_lacontra\_dense.md}), Claude scores like eight unseen interviews:
+article-level $p=0.38$, maximum 7 words against 10, longest runs topic phrases (``el cáncer de cuello de útero'').
+Without the quotation rule, which happens to blank one of the three (its crawled text has an odd number of quotation
+marks), the three lean slightly above the controls ($p=0.07$; exploratory). So the signal is specific to one article
+and one model: a lead, not a pattern.
 
 \paragraph{Recognition of the original (C).} Models pick the original passage among AI-written rewrites far above
 chance, but \emph{equally often for articles they cannot have seen}. They detect machine rewriting, not remembered
@@ -653,10 +659,11 @@ crawls, and twice gave a number almost exactly right. It cannot, however, say wh
 (pre-registered reverse test, replicated on a second Gemini model). Third-party links are one explanation; Google's own crawl of the pages is another, which
 only access to Google's crawl or training records could settle. Gemma-2, Gemini's open relative, lacks this precision
 (median error 162 days against Gemini's 2--3), so it cannot stand in for Gemini on this question; Gemma~3/4 are untested.
-\item \textbf{Claude Opus 4.5, the Garnier interview (suspicious, unproven).} On the newspaper's most-copied
-article (1,279 copies), Claude reproduces fragments of the wording (up to 13 words) more than it does for comparable
-unseen interviews (pre-registered follow-up, $p=0.005$ over windows). One article, short runs, and windows that are
-not independent: a lead to pursue (more articles of comparable copy count, other Claude versions), not proof.
+\item \textbf{Claude Opus 4.5, the Garnier interview (suspicious, unproven, not generalized).} On the newspaper's
+most-copied article (1,279 copies), Claude reproduces fragments of the wording (up to 13 words) more than it does for
+comparable unseen interviews (pre-registered follow-up, $p=0.005$ over windows). But it does not do so on the next three
+most-copied interviews ($p=0.38$, article level), and Gemini does not do it on Garnier: one article, one model, short
+runs. A lead, not proof.
 \item \textbf{Gemini, invented quotations (separate issue).} Text falsely presented as the newspaper's. Not evidence
 of copying, but possibly relevant on its own (attribution, reputation).
 \end{enumerate}
@@ -966,9 +973,9 @@ the model holds a copy, the stronger legal argument (the German \emph{GEMA} case
 they saw many times, which is rare for news, and commercial products filter out answers that recite known text, so a
 failure shows what the product says, not what the model learned. \emph{Result:} no model repeated an article, even
 with the tricks of the NYT case and on the most-copied articles; the long matches in Gemini and Claude are famous
-quotations (Pope Francis, Benedict XVI) that many outlets reprint. One exception to watch: on the most-copied
+quotations (Pope Francis, Benedict XVI) that many outlets reprint. One exception: on the most-copied
 article, a 2010 interview, Claude reproduces short fragments (up to 13 words) more than for comparable unseen
-interviews: suspicious, not proof.
+interviews, but not on the next three most-copied ones, and Gemini does not: suspicious, not a pattern.
 \end{itemize}
 
 For Gemini we have no statement. Its smaller open sibling Gemma-2 shows a weak trace, explained by

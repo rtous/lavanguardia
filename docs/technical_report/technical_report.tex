@@ -916,8 +916,19 @@ against the article outside the prompt; 4 \emph{La Contra} controls (Feb--Mar 20
 $\geq 12$: 1 vs 0; echoes 2 vs 2 (Fisher, n.s.). Robustness (not pre-registered): dropping runs that also appear in the
 prompt, $p=0.0012$. Longest run: ``permite anticipar el presente a través de la memoria del futuro. En física'' (13
 words, continuing the prompt; not found on the web outside copies of the interview). Limits: one article; windows are
-not independent (article-level, 1 vs 4 cannot be significant); short runs; the interviewee's vocabulary. Gemini
-(secondary) in progress.
+not independent (article-level, 1 vs 4 cannot be significant); short runs; the interviewee's vocabulary.
+\emph{Gemini 3.1 Flash-Lite} (secondary; 75 of 76 windows): $p=0.37$, median 5 vs 4, maximum 6 vs 10, echoes 5 vs 15.
+
+\paragraph{M13c, the next most-copied \emph{La Contra} interviews (pre-registered, \texttt{docs/prereg/m13c\_lacontra\_dense.md}).}
+Does the Garnier signal generalize? M13b's protocol on \#2 Gérvas (490 copies), \#3 wi-fi (373) and \#18 L'Ecuyer (247),
+against 8 \emph{La Contra} controls (M13b's 4 reused + 4 new; Feb--Mar 2026); Garnier excluded from the primary test.
+\emph{Claude Opus 4.5}: article medians 5, 3, 0 vs controls 0--4; \textbf{article-level $p=0.38$}; window level $p=0.53$
+(44 vs 116 windows); maximum 7 vs 10; 0 windows $\geq 12$ words; with Garnier (not confirmatory) $p=0.19$. Longest runs
+are topic phrases (``el cáncer de cuello de útero'', ``hay que apagarlo por la noche''). L'Ecuyer's median of 0 is an
+artifact of the pre-registered quote rule: its crawled text has 7 straight quotation marks, so most of it counts as
+``inside a quotation''. Ignoring the quote flag for every article (exploratory): medians 5, 3, 5 vs 2--5, $p=0.069$
+($0.048$ with Garnier). Reading: the Garnier fragments do not generalize to the next most-copied interviews at the
+pre-registered level; at most a weak tilt in the predicted direction. Gemini run in progress.
 
 \subsection{Recognition tests (M2, M2b, family C)}
 Figure~\ref{fig:rec} and Table~\ref{tab:rec} summarize M2 and M2b. Read naively, the results look like strong

@@ -68,12 +68,12 @@
  "gemini-3.1-flash-lite": {
   "n_windows": {
    "garnier": 15,
-   "control": 34
+   "control": 60
   },
-  "primary_mw_one_sided_p": 0.0010222252100951727,
+  "primary_mw_one_sided_p": 0.3712217233323364,
   "median": {
    "garnier": 5,
-   "control": 3
+   "control": 4
   },
   "max": {
    "garnier": 6,
@@ -85,8 +85,8 @@
   },
   "echo_windows": {
    "garnier": 5,
-   "control": 3,
-   "fisher_one_sided_p": 0.04657206987091031
+   "control": 15,
+   "fisher_one_sided_p": 0.36203474281778375
   },
   "garnier_runs": [
    [
