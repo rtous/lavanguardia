@@ -662,3 +662,20 @@ Anthropic AI Act summary, CATalog; (5) rotate keys.
 - Rest of the quota (~6 GB) is outside MyDrive (Gmail/Photos/Drive trash).
 - User pasted HF/Gemini/GitHub tokens into the chat again → **rotate all three**.
 **Next:** after the trash is emptied, run `src/colab_sync.sh push` once; then the session-11 next steps.
+- **M11 status found at start:** Salamandra run 1 complete (100 members / 100 controls; best LCS outside quotes median 3
+  both, max 15 members vs 8 controls; summary not yet run). Qwen 48/200 (La Contra members only). Llama 0 (no HF token).
+- **More raw records lost while Drive was full** (`docs/evidence_gaps.md` §2026-11-28): Salamandra run-1 rows 22–199, all
+  48 Qwen rows, and every raw record of amendment 1's re-run. Amendment 2 (`docs/prereg/amendment_rerun_custody2_20261128.md`,
+  a2f9b16): custody re-run 2 into `results/rerun_custody2/`, `evidence/*_rerun2/`. `src/autosave.sh` now also pushes
+  `evidence/` (own git repo) to private `rtous/lavanguardia-evidence` (needs the repo + `/root/.gh_token`).
+- `data/fw2_top_text.json` was also gone; re-fetched with `src/fw2_top_check.py` (reproduced the committed top-20 list exactly).
+- **M13 pre-registered** (`docs/prereg/m13_most_copied.md`, cfd73ec, text sha256 7f3eef1b…): M11's NYT-style protocol on
+  the 20 most-copied articles, windows every 300 words + one at the end ("parts of it"), 20 offset controls, base rate =
+  M11 controls; regurgitation threshold ≥ 25 words outside quotes. **Amendment 1** (228d468): Claude Opus 4.5 (training
+  cutoff Aug 2025) + Gemini 3.1 Flash-Lite (Jan 2025), 10 calls per window, + 40 offset-0 controls. Claude 5.5 models
+  NOT tested: training cutoff Jun 2026 is after all our controls. `src/run_colab_m13_api.sh claude|gemini` (keys in `.env`).
+- GPU: two 7B int4 models do not fit together on the T4 (Salamandra alone 8.5 GB; OOM) → one sequential queue
+  `src/run_colab_session12.sh` (M13 Salamandra → custody2 Salamandra → custody2 Qwen → M11 Qwen → M13 Qwen → Llama if token).
+- Note: `pkill -f "colab_sync.sh loop"` killed my own shell (CLAUDE.md trap, pkill variant). Kill by PID from `ps -eo pid,args`.
+**Next:** keys (GH/HF/Anthropic/Gemini via Colab Secrets) → start API runs; inspect every M13 run ≥ 15 words side by side
+(`m13_most_copied.py show`); M11 summary for Salamandra; paper section on M13 when results are in.
