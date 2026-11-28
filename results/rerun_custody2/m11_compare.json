@@ -1,0 +1,24 @@
+{
+ "m11_nyt_style_Qwen2.5-7B-Instruct.jsonl": {
+  "n_run1": 48,
+  "n_rerun": 0,
+  "n_both": 0,
+  "identical_all_attempt_scores": 0,
+  "identical_greedy_attempt": 0,
+  "same_best_lcs_outside_quotes": 0,
+  "max_best_lcs_outside_quotes_run1": null,
+  "max_best_lcs_outside_quotes_rerun": null,
+  "differing_ids": []
+ },
+ "m11_nyt_style_salamandra-7b-instruct.jsonl": {
+  "n_run1": 200,
+  "n_rerun": 9,
+  "n_both": 9,
+  "identical_all_attempt_scores": 9,
+  "identical_greedy_attempt": 9,
+  "same_best_lcs_outside_quotes": 9,
+  "max_best_lcs_outside_quotes_run1": 3,
+  "max_best_lcs_outside_quotes_rerun": 3,
+  "differing_ids": []
+ }
+}
