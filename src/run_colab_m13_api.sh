@@ -15,4 +15,5 @@ esac
 echo "=== $(date -u +%FT%TZ) M13 $M"
 python -I src/m13_most_copied.py run --model "$M"
 python -I src/m13_most_copied.py summary > /dev/null
-echo "=== $(date -u +%FT%TZ) M13 $M done"
+N=$(wc -l < "results/m13_most_copied_${M}.jsonl")
+if [ "$N" -ge 104 ]; then echo "=== $(date -u +%FT%TZ) M13 $M done"; else echo "=== $(date -u +%FT%TZ) M13 $M stopped, incomplete ($N/104 windows): rerun to resume"; fi

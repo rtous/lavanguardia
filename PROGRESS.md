@@ -679,3 +679,12 @@ Anthropic AI Act summary, CATalog; (5) rotate keys.
 - Note: `pkill -f "colab_sync.sh loop"` killed my own shell (CLAUDE.md trap, pkill variant). Kill by PID from `ps -eo pid,args`.
 **Next:** keys (GH/HF/Anthropic/Gemini via Colab Secrets) → start API runs; inspect every M13 run ≥ 15 words side by side
 (`m13_most_copied.py show`); M11 summary for Salamandra; paper section on M13 when results are in.
+- **Gemini M13 stopped on the free daily quota (429)** at 47/104 windows: all 44 most-copied windows done, 3/60 controls.
+  Resume with `./src/run_colab_m13_api.sh gemini` after ~08:00 UTC (launcher now says "stopped, incomplete" instead of "done").
+  Most-copied so far: one 26-word run (Pope Francis 2014 interview, "lata de sardinas, aunque sea de cristal"): the
+  Pope's own words, quoted by many outlets crediting LV (El Tiempo, USCCB, Opus Dei, obituaries) → a famous quotation,
+  not LV's wording; 14 words Benedict XVI quote; 13 words a scientist's name + title. 0/483 RECITATION stops.
+- Paper (user request): abstract now explains the two kinds of test (collection-level → training, limits; recitation →
+  memorization, stronger legal weight, limits); new technical premise on anti-recitation filters (Gemini RECITATION,
+  Azure protected material, OpenAI "rare bug", assistant tuning) + methods paragraph on what filters mean for (A).
+  PDF rebuilt (19 pages; texlive needs `apt-get update` first on a fresh runtime).

@@ -25,7 +25,16 @@
 \begin{abstract}
 We explore whether it is feasible to show a court that articles from the Spanish newspaper \emph{La Vanguardia}
 were used to train commercial language models. The newspaper's articles are in Common Crawl and in public
-training datasets built from it, and news content was not opted out of AI crawlers until 17 March 2026. Over about
+training datasets built from it, and news content was not opted out of AI crawlers until 17 March 2026.
+We use two kinds of test, which answer different legal questions and have different limits.
+\emph{Collection-level tests} ask whether the archive as a whole was in a model's training data, by combining a
+signal too faint for any single article over thousands of them. They can show \emph{training}, which before the
+opt-out may be covered by the text and data mining exception. They need the word probabilities that only open-weight
+models expose, and they mistake the passage of time for training unless corrected for it.
+\emph{Recitation tests} ask whether a model reproduces an article's wording. A positive result shows
+\emph{memorization}, which courts treat more severely (\emph{GEMA v.\ OpenAI} held that a model that memorized a work
+contains a copy of it). But models memorize only text they saw many times, and commercial products filter outputs
+that recite known text, so a negative result bounds what the product says, not what the model learned. Over about
 a dozen exploratory experiments on Claude, Gemini and four open-weight models (Llama, Qwen, Mistral, Gemma), using
 articles from before the models' training and articles from after it as controls, we find \emph{no reproduction} of
 the newspaper's text and \emph{no knowledge of its wording}. We find several weak signals: collection-level traces in
@@ -76,6 +85,13 @@ work: a model that learned from them was trained on \emph{La Vanguardia}'s conte
 collected). Without it, a high score can be an artifact.
 \item Old and new texts differ in topics and vocabulary, so part of any old-versus-new difference is due to time, not
 training, and must be removed.
+\item Commercial AI products \emph{filter their own outputs} against recitation. Google's Gemini API stops an answer
+with the finish reason \texttt{RECITATION} when it flags it for reciting a source \cite{geminifinish}; Microsoft sells a
+``protected material'' filter that blocks known text such as lyrics and articles (English only) \cite{azurepm}; OpenAI
+calls regurgitation ``a rare bug that we are working to drive to zero'' \cite{openaijournalism}; and assistants are
+tuned to decline long word-for-word reproduction. A recitation test on a product therefore measures what the filters
+let through, not what the model memorized. Open-weight models, run on our own computers, have no such filter and are
+the cleaner test of memorization.
 \item The most sensitive signals (the probabilities a model assigns to each word) are available only for
 \emph{open-weight} models. Commercial APIs allow only ``black-box'' tests: asking questions and reading answers.
 \item A signal too weak for one article can become clear over thousands of articles (``dataset inference'').
@@ -260,6 +276,20 @@ public interfaces (Section~\ref{sec:whichmodels}).
 \item \textbf{(F) Retrieval tests.} Check whether assistants with web access fetch and reproduce articles at answer
 time. A different legal act from training.
 \end{itemize}
+
+\paragraph{Anti-recitation filters and what they mean for extraction tests (A).} Providers check outputs for
+recited text and stop or rewrite them (see the technical premises). This matters in four ways.
+(1)~\emph{Negatives are weaker than they look}: a filter can hide an article the model has memorized. That is why we
+run extraction on open-weight models too, where nothing sits between the model and its output.
+(2)~\emph{A filter stop is not a match}: Gemini's \texttt{RECITATION} check compares the output with text Google knows
+from the web, so a stop shows that the output resembled some public text, not that the model learned it from the
+newspaper. We count stops separately for articles and controls and report them apart.
+(3)~\emph{The API is not the product}: consumer apps can add filters on top of those of the developer API that we
+query, so a result through the API need not hold in the app, in either direction.
+(4)~\emph{Getting round a filter invites the ``hacking'' objection} raised in the NYT case
+(Section~\ref{sec:legal}). We do not try to evade filters; our adversarial prompts are pre-registered and run
+identically on controls. So far, Gemini stopped 0 of 483 attempts for recitation in the most-copied test (M13,
+Section~\ref{sec:results}).
 
 %======================================================================
 \section{Data and provenance}\label{sec:data}
@@ -918,6 +948,9 @@ coding agent (Claude Code).
 \bibitem{duarte2024} A.~V.~Duarte et al. DE-COP: Detecting copyrighted content in language models training data. \emph{ICML}, 2024.
 \bibitem{maini2024} P.~Maini, H.~Jia, N.~Papernot, A.~Dziedzic. LLM dataset inference: Did you train on my dataset? \emph{NeurIPS}, 2024.
 \bibitem{meeus2024} M.~Meeus, I.~Shilov, M.~Faysse, Y.-A.~de~Montjoye. Copyright traps for large language models. \emph{ICML}, 2024.
+\bibitem{geminifinish} Google. Gemini API reference, \texttt{Candidate.FinishReason}: \texttt{RECITATION}, ``the candidate content was flagged for recitation reasons''. \url{https://ai.google.dev/api/python/google/generativeai/protos/Candidate/FinishReason}, read 2026-11-28.
+\bibitem{azurepm} Microsoft. Azure AI Content Safety: protected material detection (text). \url{https://learn.microsoft.com/azure/ai-services/content-safety/concepts/protected-material}, read 2026-11-28.
+\bibitem{openaijournalism} OpenAI. OpenAI and journalism, 8 January 2024. \url{https://openai.com/index/openai-and-journalism/}.
 \bibitem{duan2024} M.~Duan et al. Do membership inference attacks work on large language models? \emph{COLM}, 2024.
 \bibitem{das2024} D.~Das, J.~Zhang, F.~Tram\`er. Blind baselines beat membership inference attacks for foundation models. arXiv:2406.16201, 2024.
 \end{thebibliography}
