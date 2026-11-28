@@ -491,7 +491,7 @@ Test & Models & Result\\
 \midrule
 Verbatim continuation (A) & Claude 4.5 and 5.5, Gemini 3.x & No reproduction, even of \emph{La Contra}\\
 NYT-style extraction (A, adversarial) & Salamandra (Qwen, Llama running) & No: at control level\\
-Most-copied 20 articles (A, adversarial) & Salamandra, Llama-3.1, Claude Opus 4.5; Gemini 3.1 FL (partial) & No; long runs only for famous quotations\\
+Most-copied 20 articles (A, adversarial) & Salamandra, Llama-3.1, Qwen2.5, Claude Opus 4.5; Gemini 3.1 FL (partial) & No; long runs only for famous quotations\\
 Garnier interview, dense (A, follow-up) & Claude Opus 4.5; Gemini 3.1 FL & Claude: fragments above controls ($p=0.005$); Gemini: no\\
 Next 3 most-copied interviews, dense (A) & Claude Opus 4.5 (Gemini running) & No ($p=0.38$, article level): does not generalize\\
 Sentence by sentence (A) & Llama-3.1 & No sentence reproduced\\
@@ -528,7 +528,8 @@ Francis's answer in the 2014 interview, ``no puedo saludar a un pueblo y decirle
 sardinas, aunque sea de cristal''. These are the Pope's words, quoted verbatim by many outlets crediting the
 newspaper; the interviewer's text around them is not reproduced. It shows that Gemini memorized a famous quotation
 that first appeared in \emph{La Vanguardia}, not the newspaper's own writing. No attempt was stopped by Gemini's
-recitation filter (0 of 483). Llama-3.1 (mid-article windows vs controls $p=0.59$) and Claude Opus 4.5 (opening vs its
+recitation filter (0 of 483). Llama-3.1 (mid-article windows vs controls $p=0.59$), Qwen2.5 ($p=0.06$; longest runs
+topic phrases such as ``solicitar un visado para viajar a Estados Unidos'') and Claude Opus 4.5 (opening vs its
 40 controls $p=0.052$, above the pre-registered $\alpha=0.025$; mid-article $p=0.19$) also stay at control level, with
 no refusals. Every long run in either frontier model is a quoted statement of a public figure: Pope Francis (20 and 13
 words in Claude), Benedict XVI's farewell (14--26 words), a scientist's statement to the press (13--15 words).

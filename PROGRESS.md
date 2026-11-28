@@ -734,3 +734,5 @@ Anthropic AI Act summary, CATalog; (5) rotate keys.
 - **M13b Gemini (complete): null**, p=0.41, max 6 vs 10. So the Garnier fragments are one article, one model (Claude).
 - Paper/report/status/abstract updated: Garnier = "suspicious, not generalized". Note for future scripts: the quote rule
   is fragile with straight quotes in crawled text (paragraph-level parity); consider a per-sentence rule.
+- **M13 Qwen2.5 complete (null so far)**: mid windows vs offset controls p=0.055, max 9 vs 6, 0 ≥25; runs = topic phrases.
+  Primary waits for Qwen M11 controls. GPU queue now: M11 Llama-3.1 (~5 h) → M11 Qwen (152 left).
