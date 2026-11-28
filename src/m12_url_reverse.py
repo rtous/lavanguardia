@@ -80,7 +80,8 @@ def prompt(p, x):
             "Si no estás seguro, da igualmente tu mejor suposición.")
 
 
-RERUN_DIR = "results/rerun_custody"
+RERUN_DIR = os.environ.get("RERUN_DIR", "results/rerun_custody")  # custody re-run 2: results/rerun_custody2
+RERUN_SUFFIX = os.environ.get("RERUN_SUFFIX", "_rerun")  # evidence/<exp><suffix>/
 
 
 def out_path(model, rerun=False):
@@ -92,7 +93,7 @@ def run(model, limit, rerun=False):
     pairs = [json.loads(l) for l in open(PAIRS, encoding="utf-8")]
     out = out_path(model, rerun)
     os.makedirs(os.path.dirname(out), exist_ok=True)
-    exp = EXP + "_rerun" if rerun else EXP
+    exp = EXP + RERUN_SUFFIX if rerun else EXP
     done = set()
     if os.path.exists(out):
         done = {(r["pair_id"], r["side"]) for r in map(json.loads, open(out))

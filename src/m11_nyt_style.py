@@ -72,14 +72,15 @@ def articles(tag):
     return out
 
 
-RERUN_DIR = "results/rerun_custody"
+RERUN_DIR = os.environ.get("RERUN_DIR", "results/rerun_custody")  # custody re-run 2: results/rerun_custody2
+RERUN_SUFFIX = os.environ.get("RERUN_SUFFIX", "_rerun")  # evidence/<exp><suffix>/
 
 
 def run(model, rerun=False):
     from probe import ask_hf_samples
     run1 = f"results/m11_nyt_style_{model.split('/')[-1]}.jsonl"
     out = f"{RERUN_DIR}/{os.path.basename(run1)}" if rerun else run1
-    exp = EXP + "_rerun" if rerun else EXP
+    exp = EXP + RERUN_SUFFIX if rerun else EXP
     os.makedirs(os.path.dirname(out), exist_ok=True)
     done = {(r["tag"], r["id"]) for r in map(json.loads, open(out))} if os.path.exists(out) else set()
     jobs = [(t, d) for t in SETS for d in articles(t) if (t, d["id"]) not in done]

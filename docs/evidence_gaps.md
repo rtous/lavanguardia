@@ -37,3 +37,17 @@ missing raw record), but there is no raw record to check that hash against. Chec
   by a byte-for-byte reproducible re-run with full raw records in `evidence/m11_nyt_style_rerun/`.
 - **M12 Gemini: partial (free daily quota).** gemini-3.5-flash-lite 61/426 (0 identical texts, 57/61 same pair score);
   gemini-3.1-flash-lite 39/426 (39/39 identical). Resume with `./src/run_colab_rerun_custody.sh api` after ~08:00 UTC.
+
+## 2026-11-28: Google Drive quota full, then VM lost overnight
+- **What happened.** Drive (15 GB, shared with other projects) filled up on 2026-11-27; the last successful mirror is
+  stamped 21:53:52 UTC. Uploads failed silently after that, and the VM was recycled overnight. Result rows kept reaching
+  GitHub (autosave), raw records did not reach Drive.
+- **Lost raw records** (result rows intact in git; checked with `python -I src/evidence_audit.py` on 2026-11-28):
+  - `m11_nyt_style_salamandra-7b-instruct.jsonl`: 200 rows, 22 with raw record (rows 0–21), 178 without.
+  - `m11_nyt_style_Qwen2.5-7B-Instruct.jsonl`: 48 rows, 0 with raw record.
+  - **Amendment 1's re-run lost all of its raw records**: `evidence/m11_nyt_style_rerun/` and
+    `evidence/m12_url_reverse_rerun/` exist on Drive but hold no `calls.jsonl`. So the statement above ("now backed by
+    ... full raw records in `evidence/m11_nyt_style_rerun/`") no longer holds: the 117/117 identity with run 1 was
+    observed and is recorded in `results/rerun_custody/m11_compare.json`, but those records are gone.
+- **Treatment.** Custody re-run 2 (`docs/prereg/amendment_rerun_custody2_20261128.md`) into `results/rerun_custody2/`,
+  `evidence/*_rerun2/`. Storage fix: `src/autosave.sh` pushes `evidence/` to a private GitHub repository every 10 min.
