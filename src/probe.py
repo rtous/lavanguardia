@@ -27,8 +27,15 @@ def _log(experiment, record):
     os.makedirs(f"evidence/{experiment}", exist_ok=True)
     body = json.dumps({"request": record["request"], "response": record["response"]}, ensure_ascii=False, sort_keys=True)
     record["sha256"] = hashlib.sha256(body.encode("utf-8")).hexdigest()
-    with _lock, open(f"evidence/{experiment}/calls.jsonl", "a", encoding="utf-8") as f:
-        f.write(json.dumps(record, ensure_ascii=False) + "\n")
+    line = (json.dumps(record, ensure_ascii=False) + "\n").encode("utf-8")
+    # one write() on an O_APPEND descriptor: atomic for a regular file, so records from several processes writing the
+    # same log never interleave (buffered text writes split records > 8 KB into several writes)
+    with _lock:
+        fd = os.open(f"evidence/{experiment}/calls.jsonl", os.O_WRONLY | os.O_APPEND | os.O_CREAT, 0o644)
+        try:
+            assert os.write(fd, line) == len(line), "short write to evidence log"
+        finally:
+            os.close(fd)
 
 
 # Models whose thinking is always on (no "disabled"): keep effort low and give room for thinking tokens.
