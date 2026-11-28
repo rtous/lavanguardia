@@ -932,7 +932,10 @@ are topic phrases (``el cáncer de cuello de útero'', ``hay que apagarlo por la
 artifact of the pre-registered quote rule: its crawled text has 7 straight quotation marks, so most of it counts as
 ``inside a quotation''. Ignoring the quote flag for every article (exploratory): medians 5, 3, 5 vs 2--5, $p=0.069$
 ($0.048$ with Garnier). Reading: the Garnier fragments do not generalize to the next most-copied interviews at the
-pre-registered level; at most a weak tilt in the predicted direction. Gemini run in progress.
+pre-registered level; at most a weak tilt in the predicted direction. \emph{Gemini 3.1 Flash-Lite} (secondary,
+complete): article medians 5, 4, 0 vs controls 0--10, article-level $p=0.91$, window level $p\approx1$, maximum 6 vs 11,
+0 windows $\geq 12$; with Garnier $p=0.89$. Its controls score higher than Claude's (longer outputs: probe.py's
+2,048-token floor gives more chances to overlap with any article, in both groups).
 
 \subsection{Recognition tests (M2, M2b, family C)}
 Figure~\ref{fig:rec} and Table~\ref{tab:rec} summarize M2 and M2b. Read naively, the results look like strong

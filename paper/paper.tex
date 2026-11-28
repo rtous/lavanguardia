@@ -493,7 +493,7 @@ Verbatim continuation (A) & Claude 4.5 and 5.5, Gemini 3.x & No reproduction, ev
 NYT-style extraction (A, adversarial) & Salamandra (Qwen, Llama running) & No: at control level\\
 Most-copied 20 articles (A, adversarial) & Salamandra, Llama-3.1, Qwen2.5, Claude Opus 4.5, Gemini 3.1 FL & No; long runs only for famous quotations\\
 Garnier interview, dense (A, follow-up) & Claude Opus 4.5; Gemini 3.1 FL & Claude: fragments above controls ($p=0.005$); Gemini: no\\
-Next 3 most-copied interviews, dense (A) & Claude Opus 4.5 (Gemini running) & No ($p=0.38$, article level): does not generalize\\
+Next 3 most-copied interviews, dense (A) & Claude Opus 4.5; Gemini 3.1 FL & No ($p=0.38$; Gemini $p=0.91$): does not generalize\\
 Sentence by sentence (A) & Llama-3.1 & No sentence reproduced\\
 Pick the original (C) & Claude 4.5, Gemini & Invalid: works equally on unseen text\\
 Newspaper-only details (C) & Gemini, 5 open models & At control level, except article numbers (Gemini; Salamandra weakly)\\
@@ -548,7 +548,8 @@ most, against our 25-word threshold), and the interviewee's own vocabulary may h
 theory predicts it. Two pre-registered checks then limited it. Gemini 3.1 Flash-Lite, given the same dense prompts,
 shows nothing on Garnier ($p=0.41$; maximum 6 words). And on the three next most-copied \emph{La Contra} interviews
 (247--490 copies; M13c, \texttt{docs/prereg/m13c\_lacontra\_dense.md}), Claude scores like eight unseen interviews:
-article-level $p=0.38$, maximum 7 words against 10, longest runs topic phrases (``el cáncer de cuello de útero'').
+article-level $p=0.38$, maximum 7 words against 10, longest runs topic phrases (``el cáncer de cuello de útero'');
+Gemini even scores them below the controls ($p=0.91$).
 Without the quotation rule, which happens to blank one of the three (its crawled text has an odd number of quotation
 marks), the three lean slightly above the controls ($p=0.07$; exploratory). So the signal is specific to one article
 and one model: a lead, not a pattern.

@@ -90,36 +90,41 @@
  },
  "gemini-3.1-flash-lite": {
   "n_articles": {
-   "member": 2,
-   "control": 4
+   "member": 3,
+   "control": 8
   },
   "article_medians": {
    "member": {
     "54365145790": 5,
-    "54228364832": 4
+    "54228364832": 4,
+    "54360763481": 0.0
    },
    "control": {
+    "11461087": 7.0,
+    "11480309": 4,
+    "11461945": 8.0,
+    "11462840": 5.0,
     "11458911": 0,
     "11460053": 4,
     "11478598": 10,
-    "11479519": 7
+    "11479519": 7.0
    }
   },
-  "primary_article_level_p": 0.6807039611574901,
-  "secondary_window_level_p": 0.4598449008932487,
+  "primary_article_level_p": 0.9112403731092217,
+  "secondary_window_level_p": 0.9999972605044805,
   "windows": {
-   "member": 22,
-   "control": 60
+   "member": 44,
+   "control": 116
   },
   "max": {
    "member": 6,
-   "control": 10
+   "control": 11
   },
   "windows_ge_12": {
    "member": 0,
    "control": 0
   },
-  "with_garnier_article_level_p (not confirmatory)": 0.6405918194923587,
+  "with_garnier_article_level_p (not confirmatory)": 0.8869060430030662,
   "member_runs": [
    [
     6,
@@ -170,6 +175,6 @@
     "embolias y cáncer de mama"
    ]
   ],
-  "complete": false
+  "complete": true
  }
 }

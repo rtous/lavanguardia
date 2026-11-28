@@ -739,3 +739,5 @@ Anthropic AI Act summary, CATalog; (5) rotate keys.
 - **M13 Gemini 3.1 Flash-Lite complete (null)**: openings vs 40 controls p=0.15 (α=0.025; max 13 vs 9), mid p=0.56; one
   article ≥25 (Pope Francis quote, a famous quotation); 0/1,040 RECITATION. **M13 now done on all five models: all at
   control level.** Remaining: Gemini M13c (secondary), Llama/Qwen M11 (for the open models' M13 primary tests).
+- **M13c Gemini complete (null)**: article-level p=0.91, members below controls (max 6 vs 11). All API work of the session
+  is done. Remaining: GPU Llama M11 (~18:00 UTC) → Qwen M11 (~21:30), then the open models' M13 primary tests.
