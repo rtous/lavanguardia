@@ -704,3 +704,8 @@ Anthropic AI Act summary, CATalog; (5) rotate keys.
   stopped; Qwen custody re-run and the rest of the Gemini M12 re-run dropped. A re-run cannot change a result, so rows
   without raw records are reported with the gap note (`docs/evidence_gaps.md`, paper "Chain of custody, and two gaps",
   technical report). Queue now: M11 Qwen (continue from 48/200) → M13 Qwen → Llama if HF token.
+- **GPU queue reordered by expected value (user request, ~10:40 UTC)**: `src/run_colab_session12b.sh` = M13 Llama-3.1 →
+  M13 Qwen2.5 → M11 Llama-3.1 → M11 Qwen2.5 (paused at 48/200). Rationale: memorization grows with copies (M13 > M11);
+  Llama-3.1 showed a collection-level trace (Qwen did not). Open-model M13 primary tests still need each model's M11
+  controls (computed when M11 is done). HF token added (Llama licence OK). API runs (Gemini controls, Claude Opus 4.5)
+  wait on the user (billing / go-ahead).
