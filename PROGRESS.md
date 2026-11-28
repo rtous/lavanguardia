@@ -650,3 +650,15 @@ Anthropic AI Act summary, CATalog; (5) rotate keys.
 - M11 run 1: Salamandra finishing; queued relaunch with HF_TOKEN continues with Llama-3.1 then Qwen2.5 while the VM lives.
 - M12 custody re-run waits for the Gemini quota (after 08:00 UTC). Everything else of session 11 is done and pushed.
 - After resuming: run `python -I src/evidence_audit.py` (raw-record coverage), then `m11 summary` → paper; rotate keys.
+
+## 2026-11-28 — Session 12: Google Drive quota full (housekeeping only)
+- Drive at 15/15 GB, so `colab_sync.sh` pushes were failing (Drive copy stale; GitHub autosave is newer). Freed ~5 GB in the
+  Drive trash (user must empty it at drive.google.com/drive/trash to get the quota back):
+  - `lavanguardia_work/colab_state/lavanguardia/logs/colab_salamandra.log` (760 MB, 9.37 M repeated `MatMul8bitLt` warnings)
+    → replaced by `colab_salamandra.filtered.log` (40 lines, 52 KB). Console log only; `evidence/` untouched.
+  - `lavanguardia_work/colab_results/` (113 MB): byte-identical duplicates of `colab_state/.../results/` hits files. Note
+    `src/run_colab_fw2.sh` writes there by default (`DRIVE_OUT`), so a rerun recreates it.
+  - Other project: public pretrained checkpoints in `occlusion_work/weights/` (4.1 GB; record + SHA-256 in `DELETED_CHECKPOINTS.md`).
+- Rest of the quota (~6 GB) is outside MyDrive (Gmail/Photos/Drive trash).
+- User pasted HF/Gemini/GitHub tokens into the chat again → **rotate all three**.
+**Next:** after the trash is emptied, run `src/colab_sync.sh push` once; then the session-11 next steps.
