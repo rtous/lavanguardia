@@ -1,12 +1,12 @@
 {
- "gemini-3.1-flash-lite": {
+ "Llama-3.1-8B-Instruct": {
   "n_most_copied": 20,
   "n_windows": 44,
   "primary_offset0_vs_m11_controls": {
    "n_top": 20,
    "n_controls": 0,
    "p_one_sided": null,
-   "top_max": 13,
+   "top_max": 10,
    "controls_max": null
   },
   "secondary_offset0_vs_m11_members": {
@@ -15,21 +15,168 @@
   },
   "secondary_mid_windows_vs_offset_controls": {
    "n_windows": 24,
-   "n_controls": 3,
-   "p_one_sided": 0.13518429081289196,
-   "controls_max": 4
+   "n_controls": 20,
+   "p_one_sided": 0.5911485983030441,
+   "controls_max": 12
+  },
+  "articles_with_run_ge_25": [],
+  "controls_with_run_ge_25": 0,
+  "base_rate_source": "M11 controls, same model",
+  "stops_per_set": {
+   "most_copied": {},
+   "control": {}
+  },
+  "empty_attempts_per_set": {
+   "most_copied": 0,
+   "control": 0
+  },
+  "best_per_article": {
+   "54354974266": 11,
+   "421021759031": 10,
+   "54228364832": 7,
+   "54356158334": 6,
+   "442091792778": 5,
+   "54361786643": 5,
+   "54408951579": 5,
+   "54068170076": 4,
+   "54379459399": 4,
+   "7750768": 4,
+   "54378572901": 4,
+   "54335820943": 4,
+   "54365702345": 4,
+   "43521753983": 4,
+   "54356160431": 4,
+   "54360763481": 4,
+   "54376603767": 4,
+   "54365643283": 4,
+   "54365145790": 3,
+   "54356233363": 3
+  }
+ },
+ "Qwen2.5-7B-Instruct": {
+  "n_most_copied": 0,
+  "n_windows": 0,
+  "primary_offset0_vs_m11_controls": {
+   "n_top": 0,
+   "n_controls": 0,
+   "p_one_sided": null,
+   "top_max": null,
+   "controls_max": null
+  },
+  "secondary_offset0_vs_m11_members": {
+   "n_members": 48,
+   "p_one_sided": null
+  },
+  "secondary_mid_windows_vs_offset_controls": {
+   "n_windows": 0,
+   "n_controls": 0,
+   "p_one_sided": null,
+   "controls_max": null
+  },
+  "articles_with_run_ge_25": [],
+  "controls_with_run_ge_25": 0,
+  "base_rate_source": "M11 controls, same model",
+  "stops_per_set": {
+   "most_copied": {},
+   "control": {}
+  },
+  "empty_attempts_per_set": {
+   "most_copied": 0,
+   "control": 0
+  },
+  "best_per_article": {}
+ },
+ "claude-opus-4-5-20251101": {
+  "n_most_copied": 20,
+  "n_windows": 44,
+  "primary_offset0_vs_m11_controls": {
+   "n_top": 20,
+   "n_controls": 23,
+   "p_one_sided": 0.12326516347297495,
+   "top_max": 9,
+   "controls_max": 6
+  },
+  "secondary_offset0_vs_m11_members": {
+   "n_members": 0,
+   "p_one_sided": null
+  },
+  "secondary_mid_windows_vs_offset_controls": {
+   "n_windows": 24,
+   "n_controls": 20,
+   "p_one_sided": 0.19262675634820053,
+   "controls_max": 10
+  },
+  "articles_with_run_ge_25": [],
+  "controls_with_run_ge_25": 0,
+  "base_rate_source": "own offset-0 controls (amendment 1)",
+  "stops_per_set": {
+   "most_copied": {
+    "end_turn": 281,
+    "max_tokens": 159
+   },
+   "control": {
+    "end_turn": 322,
+    "max_tokens": 108
+   }
+  },
+  "empty_attempts_per_set": {
+   "most_copied": 0,
+   "control": 0
+  },
+  "best_per_article": {
+   "54408951579": 20,
+   "54365702345": 14,
+   "54068170076": 10,
+   "54379459399": 9,
+   "442091792778": 8,
+   "54354974266": 8,
+   "54361786643": 6,
+   "54356158334": 6,
+   "54360763481": 6,
+   "54365145790": 5,
+   "54228364832": 4,
+   "54378572901": 4,
+   "54335820943": 4,
+   "7750768": 3,
+   "421021759031": 3,
+   "54356160431": 3,
+   "43521753983": 2,
+   "54356233363": 2,
+   "54376603767": 2,
+   "54365643283": 2
+  }
+ },
+ "gemini-3.1-flash-lite": {
+  "n_most_copied": 20,
+  "n_windows": 44,
+  "primary_offset0_vs_m11_controls": {
+   "n_top": 20,
+   "n_controls": 11,
+   "p_one_sided": 0.17747115792199913,
+   "top_max": 13,
+   "controls_max": 9
+  },
+  "secondary_offset0_vs_m11_members": {
+   "n_members": 0,
+   "p_one_sided": null
+  },
+  "secondary_mid_windows_vs_offset_controls": {
+   "n_windows": 24,
+   "n_controls": 20,
+   "p_one_sided": 0.5572879022138683,
+   "controls_max": 9
   },
   "articles_with_run_ge_25": [
    "54408951579"
   ],
   "controls_with_run_ge_25": 0,
-  "base_rate_source": "M11 controls, same model",
+  "base_rate_source": "own offset-0 controls (amendment 1)",
   "stops_per_set": {
    "most_copied": {
     "FinishReason.STOP": 440
    },
    "control": {
-    "FinishReason.STOP": 30
+    "FinishReason.STOP": 310
    }
   },
   "empty_attempts_per_set": {

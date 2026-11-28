@@ -709,3 +709,13 @@ Anthropic AI Act summary, CATalog; (5) rotate keys.
   Llama-3.1 showed a collection-level trace (Qwen did not). Open-model M13 primary tests still need each model's M11
   controls (computed when M11 is done). HF token added (Llama licence OK). API runs (Gemini controls, Claude Opus 4.5)
   wait on the user (billing / go-ahead).
+- **M13 Llama-3.1-8B-Instruct complete (null so far)**: mid windows vs offset controls p=0.59; max 11 words on most-copied
+  (a list of banknote values) vs 12 on controls (a quoted statement); 0 runs ≥ 25. Primary test waits for Llama's M11
+  controls (queue step 3). Qwen2.5 M13 started 12:04 UTC.
+- **M13b pre-registered and running** (`docs/prereg/m13b_garnier_dense.md`, eb21011): dense probe (every 50 words, 3
+  attempts, score vs the whole article outside the prompt) of the Garnier interview vs 4 La Contra controls, on Claude
+  Opus 4.5 (primary) and Gemini 3.1 FL. Motivated by an M13 observation: Claude continued the prompt with 9 exact words in
+  10/10 attempts and echoed "en el que podemos hacer cosas cuya" (from word 204, outside prompt and scored text) in 7/10.
+- Exploratory (not pre-registered, no new queries): longest match vs the whole article outside the prompt, M13 outputs.
+  Claude: most-copied median 4, max 20 vs controls median 3, max 9; Gemini 6.5 / 26 vs 6 / 10. Every long run is a quoted
+  statement of a public figure (Pope Francis ×2, Benedict XVI, Kristofer Helgen), not LV's own reporting.
