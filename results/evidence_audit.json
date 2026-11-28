@@ -2,7 +2,7 @@
  "evidence_dirs": [
   "evidence"
  ],
- "evidence_records": 942,
+ "evidence_records": 1490,
  "files": {
   "results/m10_exclusive_salamandra-7b.jsonl": {
    "rows": 878,
@@ -2561,15 +2561,25 @@
    "note": "no evidence hash field"
   },
   "results/rerun_custody2/m11_nyt_style_salamandra-7b-instruct.jsonl": {
-   "rows": 2,
-   "backed": 2,
+   "rows": 12,
+   "backed": 12,
+   "unbacked": 0,
+   "unbacked_row_indexes": [],
+   "unbacked_keys": []
+  },
+  "results/m13_most_copied_gemini-3.1-flash-lite.jsonl": {
+   "rows": 47,
+   "backed": 47,
    "unbacked": 0,
    "unbacked_row_indexes": [],
    "unbacked_keys": []
   },
   "results/m13_most_copied_salamandra-7b-instruct.jsonl": {
-   "rows": 0,
-   "note": "no evidence hash field"
+   "rows": 64,
+   "backed": 64,
+   "unbacked": 0,
+   "unbacked_row_indexes": [],
+   "unbacked_keys": []
   }
  }
 }

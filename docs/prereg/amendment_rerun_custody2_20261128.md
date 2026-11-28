@@ -26,3 +26,8 @@ second copy. `src/evidence_audit.py` is run at the start of every session.
 never pooled; agreement with run 1 is reported; if a re-run changes a conclusion, both are reported and the fully
 recorded re-run is cited in the court-facing text. Amendment 1's re-run rows are kept and reported as a run without
 raw records.
+
+---
+**Note added 2026-11-28 10:30 UTC (after the re-run started; the plan above is unchanged).** Stopped by decision of the
+principal investigator after 12 of 200 Salamandra articles (12/12 identical to run 1); the Qwen and Gemini parts were not
+run. The affected rows are reported with the gap note (`docs/evidence_gaps.md`).

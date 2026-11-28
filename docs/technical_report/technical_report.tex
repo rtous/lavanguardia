@@ -552,7 +552,10 @@ free tier's daily quota.
 lost overnight. Raw records written after that were lost: M11 Salamandra rows 22--199 (178), all 48 Qwen2.5 rows, and
 \emph{every} raw record of the first custody re-run (so its 117/117 identity with run 1, recorded in
 \texttt{m11\_compare.json}, is no longer backed by records). A second re-run under a dated amendment
-(\texttt{docs/prereg/amendment\_rerun\_custody2\_20261128.md}) goes to \texttt{results/rerun\_custody2/}. Since
+(\texttt{docs/prereg/amendment\_rerun\_custody2\_20261128.md}, \texttt{results/rerun\_custody2/}) reproduced run 1
+exactly on the 12 Salamandra articles it ran (all attempts identical, with raw records; three of them also still have
+run 1's records) and was then \emph{stopped} by decision of the principal investigator: a re-run cannot change a result, and
+the affected rows are reported with this note instead. The Gemini part of the first re-run is not continued either. Since
 28 November, raw records are also pushed every 10 minutes to a private git repository, so a lost machine or a full
 Drive can no longer remove them once pushed.
 
@@ -1363,7 +1366,7 @@ recommend starting now, since traps cannot protect content published before thei
 extraction (M11, \texttt{docs/prereg/m11\_nyt\_style.md}: role-play prompt, 110-word opening, best of 10 attempts,
 identical for controls; an adversarial upper bound reported apart from the neutral tests): done on
 Salamandra-7B-Instruct (null), in progress on Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct needs an HF token;
-chain-of-custody re-run 2 (Section~\ref{sec:m11m13} and the evidence-gap paragraphs); finish M13 on Gemini 3.1
+finish M13 on Gemini 3.1
 Flash-Lite (quota), Qwen2.5 and Llama-3.1, then Claude Opus 4.5 (pre-registered); ask the publisher for server
 logs (which crawlers fetched the articles, and when); retrieve Anthropic's AI Act training-content summary; scan BSC's CATalog; the
 cheap article-number screening (M10) on all reachable models, to choose where to spend on extraction tests; M9 and

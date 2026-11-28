@@ -305,13 +305,15 @@ training data was collected) and 448 from September 2025--March 2026 (``controls
 sections; plus 212 interviews from \emph{La Contra}, the back-page interview series, chosen as the content most
 likely to be memorized because it is widely reposted, with 41--78 controls. Each article is stored with the exact
 Common Crawl record and its hash, so anyone can retrieve identical bytes.
-\item \textbf{Chain of custody, and one gap.} On 27 November 2026 a cloud machine was lost before its logs were
-copied, and the raw records of 911 queries (part of the M11 extraction test and of the article-number reverse test)
-did not survive; their results did. We disclose the gap (\texttt{docs/evidence\_gaps.md}) and are re-running those
-queries with full records under a dated amendment, reporting agreement between the runs. The local model's re-run
-is complete and reproduces the original outputs exactly (117 of 117 articles, every attempt identical); Gemini's
-wording varies between runs even at temperature 0, so only the statistics are compared (re-run limited by the free
-daily quota; so far 57 of 61 and 39 of 39 queries give the same result as run 1).
+\item \textbf{Chain of custody, and two gaps.} On 27 and 28 November 2026 cloud machines were lost before their logs
+reached the backup (the second time because the backup drive was full). The raw records of part of the M11 extraction
+test (178 of 200 Salamandra rows, 48 Qwen rows) and of the article-number reverse test (816 rows) did not survive;
+their results, each with the hash of its raw record, did. We disclose the gaps (\texttt{docs/evidence\_gaps.md}).
+Re-runs with identical code and seeds reproduced the local model's outputs exactly (117 of 117 articles in a first
+re-run, 12 of 12 in a second, every attempt identical); Gemini's wording varies between runs even at temperature 0,
+but 57 of 61 and 39 of 39 re-run queries gave the same result. Because a re-run does not change any result, we stopped
+re-running and report the affected rows with this note. Since 28 November raw records are also pushed every 10
+minutes to a private repository, so a lost machine can no longer remove them.
 \item \textbf{Logging.} Every model query is logged with timestamp, exact model, full prompt, full response
 and a tamper-evident hash.
 \end{itemize}

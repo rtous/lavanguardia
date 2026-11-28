@@ -700,3 +700,7 @@ Anthropic AI Act summary, CATalog; (5) rotate keys.
 - Paper (user request): "the summary" = the *In short* section; added the two-kinds-of-test paragraph there, before
   "For Gemini we have no statement". The longer version first put in the abstract by mistake is still there: asked the
   user whether to drop or shorten it.
+- **Custody re-runs stopped (user decision, 10:30 UTC):** re-run 2 reproduced 12/12 Salamandra articles exactly, then
+  stopped; Qwen custody re-run and the rest of the Gemini M12 re-run dropped. A re-run cannot change a result, so rows
+  without raw records are reported with the gap note (`docs/evidence_gaps.md`, paper "Chain of custody, and two gaps",
+  technical report). Queue now: M11 Qwen (continue from 48/200) → M13 Qwen → Llama if HF token.

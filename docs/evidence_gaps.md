@@ -51,3 +51,14 @@ missing raw record), but there is no raw record to check that hash against. Chec
     observed and is recorded in `results/rerun_custody/m11_compare.json`, but those records are gone.
 - **Treatment.** Custody re-run 2 (`docs/prereg/amendment_rerun_custody2_20261128.md`) into `results/rerun_custody2/`,
   `evidence/*_rerun2/`. Storage fix: `src/autosave.sh` pushes `evidence/` to a private GitHub repository every 10 min.
+
+## 2026-11-28 10:30 UTC: custody re-runs stopped (decision of the user / principal investigator)
+- Custody re-run 2 (Salamandra M11) ran 12 of 200 articles: **12/12 identical to run 1** (every attempt's score, greedy
+  output, best LCS; `results/rerun_custody2/m11_compare.json`), all with raw records in `evidence/m11_nyt_style_rerun2/`.
+  Rows 0–2 also still have run 1's records, so for them the identity is backed by two independent raw records.
+- Stopped there, as were the queued Qwen re-run and the remaining Gemini part of re-run 1: a re-run cannot change any
+  result (the local model reproduces run 1 exactly; Gemini gives the same statistics), so the rows without raw records
+  are **reported with this note** instead of re-run.
+- Final status of rows without a raw record (`python -I src/evidence_audit.py`): M11 Salamandra 178/200, M11 Qwen 48/48
+  (rows from before 2026-11-28; new Qwen rows are recorded), M12 3.5-FL 390/428, M12 3.1-FL 426/426.
+- From 2026-11-28 09:23 UTC every raw record is pushed to the private repository `rtous/lavanguardia-evidence`.
