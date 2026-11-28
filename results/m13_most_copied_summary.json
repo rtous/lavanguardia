@@ -54,21 +54,21 @@
   }
  },
  "Qwen2.5-7B-Instruct": {
-  "n_most_copied": 0,
-  "n_windows": 0,
+  "n_most_copied": 6,
+  "n_windows": 14,
   "primary_offset0_vs_m11_controls": {
-   "n_top": 0,
+   "n_top": 6,
    "n_controls": 0,
    "p_one_sided": null,
-   "top_max": null,
+   "top_max": 9,
    "controls_max": null
   },
   "secondary_offset0_vs_m11_members": {
    "n_members": 48,
-   "p_one_sided": null
+   "p_one_sided": 0.041151849398064246
   },
   "secondary_mid_windows_vs_offset_controls": {
-   "n_windows": 0,
+   "n_windows": 8,
    "n_controls": 0,
    "p_one_sided": null,
    "controls_max": null
@@ -84,15 +84,22 @@
    "most_copied": 0,
    "control": 0
   },
-  "best_per_article": {}
+  "best_per_article": {
+   "442091792778": 9,
+   "54228364832": 7,
+   "54068170076": 4,
+   "7750768": 4,
+   "54365145790": 3,
+   "54379459399": 3
+  }
  },
  "claude-opus-4-5-20251101": {
   "n_most_copied": 20,
   "n_windows": 44,
   "primary_offset0_vs_m11_controls": {
    "n_top": 20,
-   "n_controls": 23,
-   "p_one_sided": 0.12326516347297495,
+   "n_controls": 40,
+   "p_one_sided": 0.052287183982592425,
    "top_max": 9,
    "controls_max": 6
   },
@@ -115,8 +122,8 @@
     "max_tokens": 159
    },
    "control": {
-    "end_turn": 322,
-    "max_tokens": 108
+    "end_turn": 466,
+    "max_tokens": 134
    }
   },
   "empty_attempts_per_set": {
@@ -151,8 +158,8 @@
   "n_windows": 44,
   "primary_offset0_vs_m11_controls": {
    "n_top": 20,
-   "n_controls": 11,
-   "p_one_sided": 0.17747115792199913,
+   "n_controls": 14,
+   "p_one_sided": 0.09315822548982544,
    "top_max": 13,
    "controls_max": 9
   },
@@ -176,7 +183,7 @@
     "FinishReason.STOP": 440
    },
    "control": {
-    "FinishReason.STOP": 310
+    "FinishReason.STOP": 340
    }
   },
   "empty_attempts_per_set": {
