@@ -1,0 +1,88 @@
+{
+ "Llama-3.1-8B-Instruct": {},
+ "Qwen2.5-7B-Instruct": {},
+ "salamandra-7b-instruct": {
+  "lacontra": {
+   "n_member": 60,
+   "n_control": 60,
+   "median_best_lcs_member": 3,
+   "median_best_lcs_control": 3,
+   "max_member": 10,
+   "max_control": 8,
+   "articles_ge15_member": 0,
+   "articles_ge15_control": 0,
+   "p_mannwhitney_member_gt_control": 0.42730109526496174,
+   "p_fisher_ge15": 1.0,
+   "greedy_median_member": 2,
+   "greedy_median_control": 2,
+   "longest_member_runs": [
+    [
+     10,
+     "413037863029",
+     "un informe sobre el impacto de la caza en españa"
+    ],
+    [
+     9,
+     "54371719474",
+     "me imaginaba de mecánico y ya me estaba bien"
+    ],
+    [
+     6,
+     "47179985641",
+     "sortir de l armari dels parkinsonians"
+    ],
+    [
+     5,
+     "54437816873",
+     "su bebé de cuatro meses"
+    ],
+    [
+     5,
+     "441365510687",
+     "entre dos y cinco veces"
+    ]
+   ]
+  },
+  "random": {
+   "n_member": 40,
+   "n_control": 40,
+   "median_best_lcs_member": 4,
+   "median_best_lcs_control": 4,
+   "max_member": 15,
+   "max_control": 6,
+   "articles_ge15_member": 1,
+   "articles_ge15_control": 0,
+   "p_mannwhitney_member_gt_control": 0.3832050993082846,
+   "p_fisher_ge15": 0.5,
+   "greedy_median_member": 3,
+   "greedy_median_control": 3,
+   "longest_member_runs": [
+    [
+     15,
+     "8328831",
+     "líder de adelante andalucía no se ata vuela libre y con ella sus seguidores fieles"
+    ],
+    [
+     11,
+     "483392431322",
+     "no sería correcto que se planteara otro candidato a la presidencia"
+    ],
+    [
+     6,
+     "7779581",
+     "la buena evolución de la pandemia"
+    ],
+    [
+     6,
+     "6629184",
+     "de la presentación de la candidatura"
+    ],
+    [
+     6,
+     "6263524",
+     "la delegación del gobierno en madrid"
+    ]
+   ]
+  }
+ }
+}

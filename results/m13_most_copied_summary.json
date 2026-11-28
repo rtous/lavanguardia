@@ -75,8 +75,8 @@
   },
   "secondary_mid_windows_vs_offset_controls": {
    "n_windows": 24,
-   "n_controls": 7,
-   "p_one_sided": 0.18676857906777233,
+   "n_controls": 20,
+   "p_one_sided": 0.31442457743314284,
    "controls_max": 7
   },
   "articles_with_run_ge_25": [],
