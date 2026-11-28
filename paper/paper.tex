@@ -26,21 +26,19 @@
 We explore whether it is feasible to show a court that articles from the Spanish newspaper \emph{La Vanguardia}
 were used to train commercial language models. The newspaper's articles are in Common Crawl and in public
 training datasets built from it, and news content was not opted out of AI crawlers until 17 March 2026.
-We use two kinds of test, which answer different legal questions and have different limits.
-\emph{Collection-level tests} ask whether the archive as a whole was in a model's training data, by combining a
-signal too faint for any single article over thousands of them. They can show \emph{training}, which before the
-opt-out may be covered by the text and data mining exception. They need the word probabilities that only open-weight
-models expose, and they mistake the passage of time for training unless corrected for it.
-\emph{Recitation tests} ask whether a model reproduces an article's wording. A positive result shows
-\emph{memorization}, which courts treat more severely (\emph{GEMA v.\ OpenAI} held that a model that memorized a work
-contains a copy of it). But models memorize only text they saw many times, and commercial products filter outputs
-that recite known text, so a negative result bounds what the product says, not what the model learned. Over about
-a dozen exploratory experiments on Claude, Gemini and four open-weight models (Llama, Qwen, Mistral, Gemma), using
+We use three kinds of test, which answer different questions. \emph{Collection-level tests} combine a faint
+familiarity signal over thousands of articles to show \emph{training}; they need word probabilities, which only
+open-weight models expose. \emph{Exclusive-knowledge tests} ask for particulars found only on the newspaper's pages,
+such as its article numbers; they also point to training and work on commercial models, but little is truly
+exclusive. \emph{Recitation tests} ask a model to reproduce an article's wording; a positive shows
+\emph{memorization}, which courts treat more severely (\emph{GEMA v.\ OpenAI}), but models memorize only text seen many
+times, and commercial products filter recitations, so a negative bounds what the product says, not what the model
+learned. Over about a dozen exploratory experiments on Claude, Gemini and five open-weight models (Llama, Qwen, Mistral, Gemma, Salamandra), using
 articles from before the models' training and articles from after it as controls, we find \emph{no reproduction} of
-the newspaper's text and \emph{no knowledge of its wording}. We find several weak signals: collection-level traces in
+the newspaper's text, even with the prompting tricks of the NYT case on its most-copied articles, and \emph{no
+knowledge of its wording}. We find several weak signals: collection-level traces in
 Google's Gemma-2 and Meta's Llama-3.1 that knowledge of the period's events can explain, and Gemini models'
-knowledge of the newspaper's article numbering, which third-party links can explain. None is evidence of use yet.
-Three avenues deserve investment: a collection-level test with the publisher's archive and same-period controls,
+knowledge of the newspaper's article numbering, which third-party links can explain. None is evidence of use yet. Three next steps deserve investment: a collection-level test with the publisher's archive and same-period controls,
 answer-time retrieval tests on consumer AI products, and copyright traps for future content. The collection-level
 test, the most promising route to a sound statistical statement, needs word probabilities that ChatGPT, Claude and
 Gemini do not expose: it can be run by us only on open-weight models, and on the main commercial models only through
@@ -924,17 +922,27 @@ DeepSeek (V4) state in their EU AI Act filings that they trained on Common Crawl
 articles were in their training data, though not certain, because their filters may have dropped them, and nobody names
 specific websites.
 
-Being in the training data is one thing; proving it to a court is another. We try two kinds of test, which prove
-different things. The first looks at the \emph{whole collection}: does a model find the newspaper's articles, taken
-together, slightly more familiar than comparable articles it cannot have seen? The signal is too weak to see in any
-single article, so it is combined over thousands of them. If it works, it shows that the model was \emph{trained} on
-the archive. Its limits: it needs the model's internal word probabilities, which only open models reveal, and older
-articles look more familiar anyway, simply because the world has moved on since, which must be corrected for. And
-training before the March 2026 opt-out was probably lawful, so this test shows use, not necessarily wrongdoing. The
-second kind asks the model to \emph{recite} articles word for word. If it works, it shows \emph{memorization}: the
-model holds a copy of the text, the stronger legal argument (the German \emph{GEMA} case). Its limits: models memorize
-only text they saw many times, which is rare for a news article, and commercial products filter out answers that
-recite known text, so a failure shows what the product will say, not what the model learned.
+Being in the training data is one thing; proving it to a court is another. We try three kinds of test, which
+prove different things.
+\begin{itemize}
+\item \emph{Collection-level tests}: does a model find the newspaper's articles, taken together, slightly more familiar
+than comparable articles it cannot have seen? The signal is too weak for any single article, so it is combined over
+thousands. It can show \emph{training}. Limits: it needs the model's internal word probabilities, which only open
+models reveal (not ChatGPT, Claude or Gemini, except by court order), and older articles look more familiar anyway,
+because the world has moved on, which must be corrected for. \emph{Result:} faint traces in Gemma-2 and Llama-3.1,
+explained by knowledge of the period's events; settling it needs same-period articles that were never online.
+\item \emph{Exclusive-knowledge tests}: does the model know particulars found only on the newspaper's pages, such as an
+article's web-address number, its byline or a detail no other outlet reported? This also points to training, and works
+on commercial models with ordinary questions. Limits: almost nothing is truly exclusive (other sites link to the
+articles and report the same facts), and many details can be guessed. \emph{Result:} at the level of unseen controls,
+except the article numbers, which Gemini knows by their pattern (below).
+\item \emph{Recitation tests}: can the model be made to repeat an article word for word? This shows \emph{memorization}:
+the model holds a copy, the stronger legal argument (the German \emph{GEMA} case). Limits: models memorize only text
+they saw many times, which is rare for news, and commercial products filter out answers that recite known text, so a
+failure shows what the product says, not what the model learned. \emph{Result:} no model repeated an article, even
+with the tricks of the NYT case and on the most-copied articles; the one long match, in Gemini, is a sentence of Pope
+Francis from a 2014 interview that many outlets quote.
+\end{itemize}
 
 For Gemini we have no statement. Its smaller open sibling Gemma-2 shows a weak trace, explained by
 knowledge of the news events. Gemini itself shows one odd skill. Every article's web address carries a running
@@ -942,16 +950,11 @@ number. Given a headline and date, Gemini guesses that number to within a few da
 than any other model. But given a number, it cannot say which article it is. So it has seen many of the newspaper's
 web addresses, perhaps only as links on other sites, not necessarily the articles.
 
-We could not make any model repeat an article word for word, or reveal details only the newspaper published. We did
-not test them all: GPT, Mistral Large, DeepSeek and Grok are untested. Even the most-copied articles, the likeliest to be
-memorized, did not come back: Salamandra reproduced nothing beyond stock phrases, and Gemini (controls still running)
-only one famous sentence of Pope Francis from a 2014 interview, which many outlets quote. This matters because word-for-word
-reproduction (``memorization'') is the strongest legal argument, as in the German \emph{GEMA} case. A statistical
-test over thousands of articles can show training without memorization. It needs access to the model's internal
-word probabilities, so it works only on open models, not on ChatGPT, Claude or Gemini, except by court order. It
-could be run on their open relatives (Gemma, Llama, gpt-oss). That needs the publisher's archive and a few days of
-rented computing, and the best outcome is a high probability that a related model was trained on the archive: not
-memorization, and not direct proof about the commercial product. Finally, most of this training happened before
+We did not test every model: GPT, Mistral Large, DeepSeek and Grok are untested, and Gemini's run on the
+most-copied articles still lacks its controls. The collection-level test could be run on the open relatives of the
+commercial models (Gemma, Llama, gpt-oss). That needs the publisher's archive and a few days of rented computing, and
+the best outcome is a high probability that a related model was trained on the archive: not memorization, and not
+direct proof about the commercial product. Finally, most of this training happened before
 the opt-out of 17 March 2026, when the EU text-and-data-mining exception probably allowed it, so it was probably
 lawful. The open questions are training after the opt-out on older copies, any copies obtained unlawfully,
 memorized content, and AI assistants that fetch and reuse articles when answering.
