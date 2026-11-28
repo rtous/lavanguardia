@@ -14,11 +14,14 @@ run here (first 10 La Contra + first 10 random M11 controls with >= 660 words, o
 
 Usage:
   python -I src/m13_most_copied.py run --model hf:BSC-LT/salamandra-7b-instruct    # members + offset controls
+  python -I src/m13_most_copied.py run --model claude-opus-4-5-20251101    # API models: amendment 1 (+40 offset-0 controls)
+  python -I src/m13_most_copied.py run --model gemini-3.1-flash-lite
   python -I src/m13_most_copied.py summary                                         # -> results/m13_most_copied_summary.json
   python -I src/m13_most_copied.py show --id 54068170076 --model salamandra-7b-instruct   # side by side, best attempt
 Text: data/fw2_top_text.json (from src/fw2_top_check.py; FineWeb-2 copy of each article, the text models trained on).
 """
 import argparse, hashlib, json, os, sys
+from collections import Counter
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from m11_nyt_style import SYSTEM, TURNS, PREFIX, TRUE_WORDS, N_ATTEMPTS, MAX_TOKENS, TEMPERATURE, TOP_P, score, articles  # noqa: E402
@@ -76,19 +79,44 @@ def prompt(d, a, b, mid):
     return SYSTEM.format(**fmt), [{"role": r, "content": c.format(**fmt)} for r, c in turns]
 
 
-def jobs():
+API_CONTROLS = 20  # amendment 1: offset-0 controls per M11 set for API models (no M11 run exists on them)
+
+
+def jobs(api=False):
     for d in members():
         for a, b, e in windows(d["text"].split()):
             yield d, a, b, e
     for d in offset_controls():
         yield d, CONTROL_OFFSET, CONTROL_OFFSET + PREFIX, CONTROL_OFFSET + PREFIX + TRUE_WORDS
+    if api:
+        for tag in ("lacontra", "random"):
+            for d in [x for x in articles(tag) if x["set"] == "control"][:API_CONTROLS]:
+                yield dict(d, tag=tag), 0, PREFIX, PREFIX + TRUE_WORDS
+
+
+def ask_api(model, msgs, system, seed, meta):
+    """Amendment 1: one call per attempt. Claude: 10 default-decoding samples (sampling params rejected by the API).
+    Gemini: attempt 1 at temperature 0, attempts 2-10 at T/top_p with seed + i. Returns (texts, records)."""
+    from probe import ask, ask_gemini
+    texts, recs = [], []
+    for i in range(N_ATTEMPTS):
+        m = dict(meta, attempt=i)
+        if model.startswith("gemini"):
+            kw = {} if i == 0 else dict(temperature=TEMPERATURE, top_p=TOP_P, seed=(seed + i) % (2 ** 31))
+            t, r = ask_gemini(EXP, model, msgs, system=system, max_tokens=MAX_TOKENS, meta=m, **kw)
+        else:
+            t, r = ask(EXP, model, msgs, system=system, max_tokens=MAX_TOKENS, meta=m)
+        if r["stop_reason"] == "api_error" and any(k in json.dumps(r["response"]) for k in ("per day", "limit: 0", "credit", "billing")):
+            sys.exit(f"quota/billing error, stopping: {json.dumps(r['response'])[:300]}")
+        texts.append(t); recs.append(r)
+    return texts, recs
 
 
 def run(model):
-    from probe import ask_hf_samples
+    api = not model.startswith("hf:")
     out = f"results/m13_most_copied_{model.split('/')[-1]}.jsonl"
     done = {(r["id"], r["offset"]) for r in map(json.loads, open(out))} if os.path.exists(out) else set()
-    todo = [j for j in jobs() if (j[0]["id"], j[1]) not in done]
+    todo = [j for j in jobs(api) if (j[0]["id"], j[1]) not in done]
     print(f"{model}: {len(todo)} windows to run", flush=True)
     with open(out, "a", encoding="utf-8") as f:
         for k, (d, a, b, e) in enumerate(todo):
@@ -96,16 +124,25 @@ def run(model):
             true = " ".join(w[b:e])
             system, msgs = prompt(d, a, b, mid=a > 0)
             seed = (int(d["id"]) + a) % (2 ** 31)
-            texts, rec = ask_hf_samples(EXP, model, msgs, system=system, max_tokens=MAX_TOKENS, n=N_ATTEMPTS,
-                                        temperature=TEMPERATURE, top_p=TOP_P, seed=seed,
-                                        meta={"id": d["id"], "set": d["set"], "offset": a})
+            meta = {"id": d["id"], "set": d["set"], "offset": a}
+            if api:
+                texts, recs = ask_api(model, msgs, system, seed, meta)
+                rec = {"model_reported": sorted({str(r["model_reported"]) for r in recs}), "request": {"precision": "api"},
+                       "sha256": [r["sha256"] for r in recs], "latency_s": round(sum(r["latency_s"] for r in recs), 1)}
+                stops = [str(r["stop_reason"]) for r in recs]
+            else:
+                from probe import ask_hf_samples
+                texts, rec = ask_hf_samples(EXP, model, msgs, system=system, max_tokens=MAX_TOKENS, n=N_ATTEMPTS,
+                                            temperature=TEMPERATURE, top_p=TOP_P, seed=seed, meta=meta)
+                stops = None
             att = [score(t, true) for t in texts]
             own = [x["lcs_words"] for x in att if not x["lcs_in_quotes"]] or [0]
             row = {"id": d["id"], "set": d["set"], "rank": d.get("rank"), "copies": d.get("copies"), "tag": d.get("tag"),
                    "offset": a, "prefix_words": b - a, "true_words": e - b, "pub_date": d["pub_date"], "model": model,
                    "model_reported": rec["model_reported"], "precision": rec["request"]["precision"], "sha256": rec["sha256"],
                    "greedy_lcs": att[0]["lcs_words"], "best_lcs": max(x["lcs_words"] for x in att),
-                   "best_lcs_outside_quotes": max(own), "attempts": att}
+                   "best_lcs_outside_quotes": max(own), "attempts": att, "stop_reasons": stops,
+                   "empty_attempts": sum(not t.strip() for t in texts)}
             f.write(json.dumps(row, ensure_ascii=False) + "\n"); f.flush()
             flag = "LONG " if row["best_lcs_outside_quotes"] >= LONG else ""
             print(f"{flag}{k + 1}/{len(todo)} {d['set']} {d['id']} off={a} best={row['best_lcs_outside_quotes']} "
@@ -127,9 +164,10 @@ def summary():
         for r in R:
             if r["set"] == "most_copied":
                 topall[r["id"]] = max(topall.get(r["id"], 0), r["best_lcs_outside_quotes"])
-        c0 = [r["best_lcs_outside_quotes"] for r in M11 if r["set"] == "control"]
+        own0 = [r["best_lcs_outside_quotes"] for r in R if r["set"] == "control" and r["offset"] == 0]  # API models
+        c0 = own0 or [r["best_lcs_outside_quotes"] for r in M11 if r["set"] == "control"]
         m0 = [r["best_lcs_outside_quotes"] for r in M11 if r["set"] == "member"]
-        coff = [r["best_lcs_outside_quotes"] for r in R if r["set"] == "control"]
+        coff = [r["best_lcs_outside_quotes"] for r in R if r["set"] == "control" and r["offset"] > 0]
         top_mid = [r["best_lcs_outside_quotes"] for r in R if r["set"] == "most_copied" and r["offset"] > 0]
         mw = lambda x, y: float(mannwhitneyu(x, y, alternative="greater").pvalue) if x and y else None
         res[name] = {
@@ -141,6 +179,10 @@ def summary():
                                                           "p_one_sided": mw(top_mid, coff), "controls_max": max(coff, default=None)},
             "articles_with_run_ge_%d" % LONG: sorted(i for i, v in topall.items() if v >= LONG),
             "controls_with_run_ge_%d" % LONG: sum(v >= LONG for v in c0 + coff),
+            "base_rate_source": "own offset-0 controls (amendment 1)" if own0 else "M11 controls, same model",
+            "stops_per_set": {s: dict(Counter(x for r in R if r["set"] == s for x in (r.get("stop_reasons") or [])))
+                              for s in ("most_copied", "control")},
+            "empty_attempts_per_set": {s: sum(r.get("empty_attempts", 0) for r in R if r["set"] == s) for s in ("most_copied", "control")},
             "best_per_article": dict(sorted(topall.items(), key=lambda kv: -kv[1])),
         }
     json.dump(res, open("results/m13_most_copied_summary.json", "w"), indent=1)

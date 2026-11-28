@@ -12,7 +12,7 @@ Output: results/evidence_audit.json (counts + ids of unbacked rows). Read-only o
 import argparse, glob, json, os
 
 DEFAULT_FILES = ["results/m10_exclusive_salamandra-7b.jsonl", "results/m11_nyt_style_*.jsonl",
-                 "results/m12_url_reverse_*.jsonl"]
+                 "results/m12_url_reverse_*.jsonl", "results/rerun_custody*/*.jsonl", "results/m13_most_copied_*.jsonl"]
 
 
 def load_evidence(dirs):
@@ -49,7 +49,9 @@ def main():
             if field is None:
                 report["files"][path] = {"rows": len(rows), "note": "no evidence hash field"}
                 continue
-            missing = [i for i, r in enumerate(rows) if r.get(field) not in shas]
+            # a row backed by several records (M13 API: one call per attempt) needs all of them
+            backed = lambda h: all(x in shas for x in h) if isinstance(h, list) else h in shas
+            missing = [i for i, r in enumerate(rows) if not backed(r.get(field))]
             report["files"][path] = {
                 "rows": len(rows), "backed": len(rows) - len(missing), "unbacked": len(missing),
                 "unbacked_row_indexes": missing, "unbacked_keys": [row_key(rows[i]) for i in missing]}

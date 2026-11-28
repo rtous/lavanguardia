@@ -53,13 +53,16 @@ GEMINI_TOOLS = {"google_search": lambda t: t.Tool(google_search=t.GoogleSearch()
                 "url_context": lambda t: t.Tool(url_context=t.UrlContext())}
 
 
-def ask_gemini(experiment, model, user, system=None, max_tokens=1024, meta=None, tools=()):
-    """tools: names from GEMINI_TOOLS (retrieval tests, M4). Empty = no browsing (default)."""
+def ask_gemini(experiment, model, user, system=None, max_tokens=1024, meta=None, tools=(), temperature=0,
+               top_p=None, seed=None):
+    """tools: names from GEMINI_TOOLS (retrieval tests, M4). Empty = no browsing (default).
+    temperature/top_p/seed: sampling (M13 amendment 1); defaults = the temperature-0 setting of all earlier runs."""
     from google.genai import types
     contents = user if isinstance(user, str) else [
         types.Content(role="model" if m["role"] == "assistant" else "user", parts=[types.Part(text=m["content"])]) for m in user]
     params = {"model": model, "contents": user, "tools": list(tools),
-              "config": {"temperature": 0, "max_output_tokens": max(max_tokens, 2048),
+              "config": {"temperature": temperature, "max_output_tokens": max(max_tokens, 2048),
+                         **({"top_p": top_p} if top_p is not None else {}), **({"seed": seed} if seed is not None else {}),
                          **({"system_instruction": system} if system else {})}}
     t0 = time.time()
     raw, text, rmodel, stop, rid = None, "", None, None, None
