@@ -287,7 +287,7 @@ newspaper. We count stops separately for articles and controls and report them a
 query, so a result through the API need not hold in the app, in either direction.
 (4)~\emph{Getting round a filter invites the ``hacking'' objection} raised in the NYT case
 (Section~\ref{sec:legal}). We do not try to evade filters; our adversarial prompts are pre-registered and run
-identically on controls. So far, Gemini stopped 0 of 483 attempts for recitation in the most-copied test (M13,
+identically on controls. Gemini stopped none of its 1,040 attempts for recitation in the most-copied test (M13,
 Section~\ref{sec:results}).
 
 %======================================================================
@@ -491,7 +491,7 @@ Test & Models & Result\\
 \midrule
 Verbatim continuation (A) & Claude 4.5 and 5.5, Gemini 3.x & No reproduction, even of \emph{La Contra}\\
 NYT-style extraction (A, adversarial) & Salamandra (Qwen, Llama running) & No: at control level\\
-Most-copied 20 articles (A, adversarial) & Salamandra, Llama-3.1, Qwen2.5, Claude Opus 4.5; Gemini 3.1 FL (partial) & No; long runs only for famous quotations\\
+Most-copied 20 articles (A, adversarial) & Salamandra, Llama-3.1, Qwen2.5, Claude Opus 4.5, Gemini 3.1 FL & No; long runs only for famous quotations\\
 Garnier interview, dense (A, follow-up) & Claude Opus 4.5; Gemini 3.1 FL & Claude: fragments above controls ($p=0.005$); Gemini: no\\
 Next 3 most-copied interviews, dense (A) & Claude Opus 4.5 (Gemini running) & No ($p=0.38$, article level): does not generalize\\
 Sentence by sentence (A) & Llama-3.1 & No sentence reproduced\\
@@ -523,12 +523,12 @@ random articles). Its single 15-word run is the article's subtitle, which was al
 the same test at the \textbf{20 most-copied articles} (245--1,279 copies each in FineWeb-2), prompting each at several
 points so that every part of the text is tried (M13). Salamandra again scores at control level ($p=0.57$): the longest
 run is 10 words, a stock sports phrase, and the article copied 1,279 times yields at most 4. Gemini 3.1 Flash-Lite
-(partial run: all 20 articles done, controls pending) produced one 26-word verbatim run, in 7 of 10 attempts: Pope
+(openings vs its 40 controls $p=0.15$, mid-article $p=0.56$, both at control level) produced one 26-word verbatim run, in 7 of 10 attempts: Pope
 Francis's answer in the 2014 interview, ``no puedo saludar a un pueblo y decirle que lo quiero dentro de una lata de
 sardinas, aunque sea de cristal''. These are the Pope's words, quoted verbatim by many outlets crediting the
 newspaper; the interviewer's text around them is not reproduced. It shows that Gemini memorized a famous quotation
 that first appeared in \emph{La Vanguardia}, not the newspaper's own writing. No attempt was stopped by Gemini's
-recitation filter (0 of 483). Llama-3.1 (mid-article windows vs controls $p=0.59$), Qwen2.5 ($p=0.06$; longest runs
+recitation filter (0 of 1,040). Llama-3.1 (mid-article windows vs controls $p=0.59$), Qwen2.5 ($p=0.06$; longest runs
 topic phrases such as ``solicitar un visado para viajar a Estados Unidos'') and Claude Opus 4.5 (opening vs its
 40 controls $p=0.052$, above the pre-registered $\alpha=0.025$; mid-article $p=0.19$) also stay at control level, with
 no refusals. Every long run in either frontier model is a quoted statement of a public figure: Pope Francis (20 and 13
@@ -778,8 +778,9 @@ more, 1\% have 43 or more and 232 have 100 or more. The 20 most-copied articles,
 one error page, have 245 to 1,279 copies (Table~\ref{tab:mostcopied}). They are the best targets; controls should be articles published after
 the training cutoffs with a comparable number of copies (FineWeb-2 stops in 2024, so their copies must be counted in
 later Common Crawl captures). Pre-registered as M13 (\texttt{docs/prereg/m13\_most\_copied.md}), with ordinary post-cutoff
-controls: Salamandra null; Gemini 3.1 Flash-Lite partial (one famous quotation, see Section~\ref{sec:results}); Claude
-Opus 4.5 next. The current Claude models (Opus, Sonnet and Haiku 5.5) cannot be tested with our controls: their training
+controls: done on five models (Salamandra, Llama-3.1, Qwen2.5, Claude Opus 4.5, Gemini 3.1 Flash-Lite), all at control
+level; the long runs are famous quotations, and the one article where Claude reproduced fragments (Garnier) did not
+generalize to the next three most-copied interviews (Section~\ref{sec:results}). The current Claude models (Opus, Sonnet and Haiku 5.5) cannot be tested with our controls: their training
 data runs to June 2026, past every control article we have.
 \item \textbf{More triage on paid API tiers: not needed now.} A free ``collection fingerprint'' test (does a model reproduce \emph{La
 Contra}'s format and the newspaper's house style, such as ``en el 2023'' or ``Catalunya'', when asked to write like
@@ -985,8 +986,7 @@ number. Given a headline and date, Gemini guesses that number to within a few da
 than any other model. But given a number, it cannot say which article it is. So it has seen many of the newspaper's
 web addresses, perhaps only as links on other sites, not necessarily the articles.
 
-We did not test every model: GPT, Mistral Large, DeepSeek and Grok are untested, and Gemini's run on the
-most-copied articles is still finishing its controls. The collection-level test could be run on the open relatives of the
+We did not test every model: GPT, Mistral Large, DeepSeek and Grok are untested. The collection-level test could be run on the open relatives of the
 commercial models (Gemma, Llama, gpt-oss). That needs the publisher's archive and a few days of rented computing, and
 the best outcome is a high probability that a related model was trained on the archive: not memorization, and not
 direct proof about the commercial product. Finally, most of this training happened before

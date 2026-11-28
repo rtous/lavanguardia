@@ -10,8 +10,8 @@
    "controls_max": null
   },
   "secondary_offset0_vs_m11_members": {
-   "n_members": 0,
-   "p_one_sided": null
+   "n_members": 38,
+   "p_one_sided": 0.04285233434333107
   },
   "secondary_mid_windows_vs_offset_controls": {
    "n_windows": 24,
@@ -172,8 +172,8 @@
   "n_windows": 44,
   "primary_offset0_vs_m11_controls": {
    "n_top": 20,
-   "n_controls": 22,
-   "p_one_sided": 0.18133073128097515,
+   "n_controls": 40,
+   "p_one_sided": 0.14705605763894164,
    "top_max": 13,
    "controls_max": 9
   },
@@ -197,7 +197,7 @@
     "FinishReason.STOP": 440
    },
    "control": {
-    "FinishReason.STOP": 420
+    "FinishReason.STOP": 600
    }
   },
   "empty_attempts_per_set": {

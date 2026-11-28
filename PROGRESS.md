@@ -736,3 +736,6 @@ Anthropic AI Act summary, CATalog; (5) rotate keys.
   is fragile with straight quotes in crawled text (paragraph-level parity); consider a per-sentence rule.
 - **M13 Qwen2.5 complete (null so far)**: mid windows vs offset controls p=0.055, max 9 vs 6, 0 ≥25; runs = topic phrases.
   Primary waits for Qwen M11 controls. GPU queue now: M11 Llama-3.1 (~5 h) → M11 Qwen (152 left).
+- **M13 Gemini 3.1 Flash-Lite complete (null)**: openings vs 40 controls p=0.15 (α=0.025; max 13 vs 9), mid p=0.56; one
+  article ≥25 (Pope Francis quote, a famous quotation); 0/1,040 RECITATION. **M13 now done on all five models: all at
+  control level.** Remaining: Gemini M13c (secondary), Llama/Qwen M11 (for the open models' M13 primary tests).
