@@ -719,3 +719,12 @@ Anthropic AI Act summary, CATalog; (5) rotate keys.
 - Exploratory (not pre-registered, no new queries): longest match vs the whole article outside the prompt, M13 outputs.
   Claude: most-copied median 4, max 20 vs controls median 3, max 9; Gemini 6.5 / 26 vs 6 / 10. Every long run is a quoted
   statement of a public figure (Pope Francis ×2, Benedict XVI, Kristofer Helgen), not LV's own reporting.
+- **M13 Claude Opus 4.5 complete (n.s.)**: opening vs 40 own controls p=0.052 (α=0.025), mid p=0.19, 0 ≥25, no refusals;
+  long runs = Pope Francis (20, 13), Benedict XVI (14), Garnier (10).
+- **M13b Claude complete: first article-specific positive (suspicious, not proof).** Garnier vs 4 La Contra controls:
+  median 4 vs 2, max 13 vs 10, MW p=0.0046 (0.0012 dropping runs found in the prompt); 13-word run "permite anticipar el
+  presente a través de la memoria del futuro. En física" (prompt continuation). Limits: one article; windows not
+  independent (1 vs 4 articles); runs ≤ 13 words; interviewee vocabulary. Paper: results table row, new paragraph
+  "One suspicious article", Evidence item 6, In short. Report: M13 Llama/Claude/exploratory + M13b paragraph.
+  **Next for this lead:** same dense probe on more articles of high copy count (next most-copied La Contra: Gérvas 490,
+  wi-fi 373, Ecuyer 247) with matched controls; Gemini M13b result (running).

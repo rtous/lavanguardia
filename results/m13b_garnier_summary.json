@@ -1,0 +1,134 @@
+{
+ "claude-opus-4-5-20251101": {
+  "n_windows": {
+   "garnier": 15,
+   "control": 61
+  },
+  "primary_mw_one_sided_p": 0.004611866659152551,
+  "median": {
+   "garnier": 4,
+   "control": 2
+  },
+  "max": {
+   "garnier": 13,
+   "control": 10
+  },
+  "windows_ge_12": {
+   "garnier": 1,
+   "control": 0
+  },
+  "echo_windows": {
+   "garnier": 2,
+   "control": 2,
+   "fisher_one_sided_p": 0.1724663380034685
+  },
+  "garnier_runs": [
+   [
+    13,
+    350,
+    "permite anticipar el presente a través de la memoria del futuro en física"
+   ],
+   [
+    9,
+    300,
+    "tiempo imperceptible en el que podemos hacer cosas cuya"
+   ],
+   [
+    6,
+    150,
+    "un futuro potencial lo memorizo y"
+   ],
+   [
+    6,
+    50,
+    "de planetoides al sistema solar quiere"
+   ],
+   [
+    5,
+    400,
+    "teoría del desdoblamiento del tiempo"
+   ],
+   [
+    5,
+    250,
+    "ir a buscar informaciones a"
+   ],
+   [
+    5,
+    100,
+    "teoría del desdoblamiento del tiempo"
+   ],
+   [
+    4,
+    650,
+    "el desdoblamiento del tiempo"
+   ]
+  ]
+ },
+ "gemini-3.1-flash-lite": {
+  "n_windows": {
+   "garnier": 15,
+   "control": 34
+  },
+  "primary_mw_one_sided_p": 0.0010222252100951727,
+  "median": {
+   "garnier": 5,
+   "control": 3
+  },
+  "max": {
+   "garnier": 6,
+   "control": 10
+  },
+  "windows_ge_12": {
+   "garnier": 0,
+   "control": 0
+  },
+  "echo_windows": {
+   "garnier": 5,
+   "control": 3,
+   "fisher_one_sided_p": 0.04657206987091031
+  },
+  "garnier_runs": [
+   [
+    6,
+    700,
+    "la teoría del desdoblamiento del tiempo"
+   ],
+   [
+    6,
+    450,
+    "y es ese intercambio el que"
+   ],
+   [
+    6,
+    400,
+    "la teoría del desdoblamiento del tiempo"
+   ],
+   [
+    6,
+    350,
+    "la teoría del desdoblamiento del tiempo"
+   ],
+   [
+    6,
+    300,
+    "la teoría del desdoblamiento del tiempo"
+   ],
+   [
+    6,
+    50,
+    "la teoría del desdoblamiento del tiempo"
+   ],
+   [
+    5,
+    650,
+    "que nos permite anticipar el"
+   ],
+   [
+    5,
+    500,
+    "a través de la memoria"
+   ]
+  ]
+ }
+}

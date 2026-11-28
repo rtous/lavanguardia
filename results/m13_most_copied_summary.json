@@ -54,10 +54,10 @@
   }
  },
  "Qwen2.5-7B-Instruct": {
-  "n_most_copied": 6,
-  "n_windows": 14,
+  "n_most_copied": 7,
+  "n_windows": 15,
   "primary_offset0_vs_m11_controls": {
-   "n_top": 6,
+   "n_top": 7,
    "n_controls": 0,
    "p_one_sided": null,
    "top_max": 9,
@@ -65,7 +65,7 @@
   },
   "secondary_offset0_vs_m11_members": {
    "n_members": 48,
-   "p_one_sided": 0.041151849398064246
+   "p_one_sided": 0.02992650857647976
   },
   "secondary_mid_windows_vs_offset_controls": {
    "n_windows": 8,
@@ -89,6 +89,7 @@
    "54228364832": 7,
    "54068170076": 4,
    "7750768": 4,
+   "54378572901": 4,
    "54365145790": 3,
    "54379459399": 3
   }

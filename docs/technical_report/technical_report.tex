@@ -896,7 +896,28 @@ a USCCB quotation list, Opus Dei and La Jornada pieces, 2025--2026 obituaries). 
 quotation that first appeared in \emph{La Vanguardia}, not the newspaper's own wording: the interviewer's text around
 it is not reproduced. Next longest: 14 words (Benedict XVI's farewell words, a quotation) and 13 (a scientist's name and
 title). 0 of 483 attempts stopped for \texttt{RECITATION}.
+\item \emph{Llama-3.1-8B-Instruct, complete}: mid-article windows vs offset controls $p=0.59$; maximum 11 words (a list of
+banknote values) vs 12 on controls (a quoted statement); primary test pending Llama's M11 controls.
+\item \emph{Claude Opus 4.5, complete} (amendment 1; 40 own offset-0 controls + 20 offset controls): opening vs controls
+$p=0.052$ (maximum 9 vs 6; pre-registered $\alpha=0.025$, not significant); mid-article $p=0.19$; 0 runs $\geq 25$; no
+refusals (all 1,040 answers are continuations). Longest runs: Pope Francis 20 and 13 words, Benedict XVI 14, the
+Garnier interview 10 (below).
+\item \emph{Exploratory, not pre-registered} (no new queries): longest run against the whole article outside the prompt.
+Claude: most-copied median 4, maximum 20 vs controls 3 and 9; Gemini 6.5 and 26 vs 6 and 10. Every run above 12 words is a
+quoted statement of a public figure.
 \end{itemize}
+
+\paragraph{M13b, the Garnier interview (pre-registered follow-up, \texttt{docs/prereg/m13b\_garnier\_dense.md}).} In M13,
+Claude continued the prompt at word 300 of the most-copied article with the original's next 9 words in 10 of 10
+attempts and, in 7 of 10, echoed ``en el que podemos hacer cosas cuya'' from word 204 (neither in the prompt nor in the
+scored text). M13b re-tests this with new queries: 110-word prompts every 50 words, 3 attempts, score = longest run
+against the article outside the prompt; 4 \emph{La Contra} controls (Feb--Mar 2026), 15--16 windows each.
+\emph{Claude Opus 4.5}: Garnier median 4 vs controls 2, maximum 13 vs 10, one-sided Mann--Whitney $p=0.0046$; windows
+$\geq 12$: 1 vs 0; echoes 2 vs 2 (Fisher, n.s.). Robustness (not pre-registered): dropping runs that also appear in the
+prompt, $p=0.0012$. Longest run: ``permite anticipar el presente a través de la memoria del futuro. En física'' (13
+words, continuing the prompt; not found on the web outside copies of the interview). Limits: one article; windows are
+not independent (article-level, 1 vs 4 cannot be significant); short runs; the interviewee's vocabulary. Gemini
+(secondary) in progress.
 
 \subsection{Recognition tests (M2, M2b, family C)}
 Figure~\ref{fig:rec} and Table~\ref{tab:rec} summarize M2 and M2b. Read naively, the results look like strong

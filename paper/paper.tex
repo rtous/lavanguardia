@@ -35,8 +35,9 @@ exclusive. \emph{Recitation tests} ask a model to reproduce an article's wording
 times, and commercial products filter recitations, so a negative bounds what the product says, not what the model
 learned. Over about a dozen exploratory experiments on Claude, Gemini and five open-weight models (Llama, Qwen, Mistral, Gemma, Salamandra), using
 articles from before the models' training and articles from after it as controls, we find \emph{no reproduction} of
-the newspaper's text, even with the prompting tricks of the NYT case on its most-copied articles, and \emph{no
-knowledge of its wording}. We find several weak signals: collection-level traces in
+the newspaper's text, even with the prompting tricks of the NYT case on its most-copied articles, and no general
+knowledge of its wording. We find several weak signals: short fragments of the wording of its most-copied article in
+Claude Opus 4.5 (a pre-registered follow-up, one article), collection-level traces in
 Google's Gemma-2 and Meta's Llama-3.1 that knowledge of the period's events can explain, and Gemini models'
 knowledge of the newspaper's article numbering, which third-party links can explain. None is evidence of use yet. Three next steps deserve investment: a collection-level test with the publisher's archive and same-period controls,
 answer-time retrieval tests on consumer AI products, and copyright traps for future content. The collection-level
@@ -490,7 +491,8 @@ Test & Models & Result\\
 \midrule
 Verbatim continuation (A) & Claude 4.5 and 5.5, Gemini 3.x & No reproduction, even of \emph{La Contra}\\
 NYT-style extraction (A, adversarial) & Salamandra (Qwen, Llama running) & No: at control level\\
-Most-copied 20 articles (A, adversarial) & Salamandra; Gemini 3.1 FL (partial) & Salamandra no; Gemini: one famous quote\\
+Most-copied 20 articles (A, adversarial) & Salamandra, Llama-3.1, Claude Opus 4.5; Gemini 3.1 FL (partial) & No; long runs only for famous quotations\\
+Garnier interview, dense (A, follow-up) & Claude Opus 4.5 (Gemini running) & Fragments of the wording, above controls ($p=0.005$); suspicious\\
 Sentence by sentence (A) & Llama-3.1 & No sentence reproduced\\
 Pick the original (C) & Claude 4.5, Gemini & Invalid: works equally on unseen text\\
 Newspaper-only details (C) & Gemini, 5 open models & At control level, except article numbers (Gemini; Salamandra weakly)\\
@@ -525,7 +527,24 @@ Francis's answer in the 2014 interview, ``no puedo saludar a un pueblo y decirle
 sardinas, aunque sea de cristal''. These are the Pope's words, quoted verbatim by many outlets crediting the
 newspaper; the interviewer's text around them is not reproduced. It shows that Gemini memorized a famous quotation
 that first appeared in \emph{La Vanguardia}, not the newspaper's own writing. No attempt was stopped by Gemini's
-recitation filter (0 of 483).
+recitation filter (0 of 483). Llama-3.1 (mid-article windows vs controls $p=0.59$) and Claude Opus 4.5 (opening vs its
+40 controls $p=0.052$, above the pre-registered $\alpha=0.025$; mid-article $p=0.19$) also stay at control level, with
+no refusals. Every long run in either frontier model is a quoted statement of a public figure: Pope Francis (20 and 13
+words in Claude), Benedict XVI's farewell (14--26 words), a scientist's statement to the press (13--15 words).
+
+\paragraph{One suspicious article: the Garnier interview.} On the most-copied article (\emph{La Contra}, 2010, 1,279
+copies), Claude continued one prompt with the original's next 9 words in all 10 attempts, and in 7 of them went on
+with an unusual phrase from an earlier part of the article that was not in the prompt. We pre-registered a follow-up
+before querying again (M13b, \texttt{docs/prereg/m13b\_garnier\_dense.md}): prompts every 50 words, scored against
+the whole article outside the prompt, against four \emph{La Contra} interviews published after the model's training
+data. Claude reproduces more of the Garnier wording than of the controls (median best run 4 vs 2 words, maximum 13
+vs 10; one-sided $p=0.005$; $p=0.001$ after dropping any run that also appears in the prompt). Its longest run is the
+interview's own text, ``permite anticipar el presente a través de la memoria del futuro. En física'', continuing the
+prompt word for word. We read this as \emph{suspicious, not proof}: it is one article, its windows are not
+independent (with the article as the unit, one against four cannot be significant), the runs are short (13 words at
+most, against our 25-word threshold), and the interviewee's own vocabulary may help. It is, however, the first trace
+of the newspaper's own wording in a commercial model, and it appears where theory predicts: on the most-copied
+article.
 
 \paragraph{Recognition of the original (C).} Models pick the original passage among AI-written rewrites far above
 chance, but \emph{equally often for articles they cannot have seen}. They detect machine rewriting, not remembered
@@ -634,10 +653,14 @@ crawls, and twice gave a number almost exactly right. It cannot, however, say wh
 (pre-registered reverse test, replicated on a second Gemini model). Third-party links are one explanation; Google's own crawl of the pages is another, which
 only access to Google's crawl or training records could settle. Gemma-2, Gemini's open relative, lacks this precision
 (median error 162 days against Gemini's 2--3), so it cannot stand in for Gemini on this question; Gemma~3/4 are untested.
+\item \textbf{Claude Opus 4.5, the Garnier interview (suspicious, unproven).} On the newspaper's most-copied
+article (1,279 copies), Claude reproduces fragments of the wording (up to 13 words) more than it does for comparable
+unseen interviews (pre-registered follow-up, $p=0.005$ over windows). One article, short runs, and windows that are
+not independent: a lead to pursue (more articles of comparable copy count, other Claude versions), not proof.
 \item \textbf{Gemini, invented quotations (separate issue).} Text falsely presented as the newspaper's. Not evidence
 of copying, but possibly relevant on its own (attribution, reputation).
 \end{enumerate}
-No model reproduced the newspaper's text or showed knowledge of its wording, including the most reposted interviews.
+No model reproduced the newspaper's text at length; the one partial exception is item~6.
 
 \paragraph{How far a result on an open model carries to a commercial one.} We grade the transfer by what links the
 two. \emph{High}: the commercial product runs on the same model family, trained on the same data (Llama~3/3.1 and
@@ -942,8 +965,10 @@ except the article numbers, which Gemini knows by their pattern (below).
 the model holds a copy, the stronger legal argument (the German \emph{GEMA} case). Limits: models memorize only text
 they saw many times, which is rare for news, and commercial products filter out answers that recite known text, so a
 failure shows what the product says, not what the model learned. \emph{Result:} no model repeated an article, even
-with the tricks of the NYT case and on the most-copied articles; the one long match, in Gemini, is a sentence of Pope
-Francis from a 2014 interview that many outlets quote.
+with the tricks of the NYT case and on the most-copied articles; the long matches in Gemini and Claude are famous
+quotations (Pope Francis, Benedict XVI) that many outlets reprint. One exception to watch: on the most-copied
+article, a 2010 interview, Claude reproduces short fragments (up to 13 words) more than for comparable unseen
+interviews: suspicious, not proof.
 \end{itemize}
 
 For Gemini we have no statement. Its smaller open sibling Gemma-2 shows a weak trace, explained by
@@ -953,7 +978,7 @@ than any other model. But given a number, it cannot say which article it is. So 
 web addresses, perhaps only as links on other sites, not necessarily the articles.
 
 We did not test every model: GPT, Mistral Large, DeepSeek and Grok are untested, and Gemini's run on the
-most-copied articles still lacks its controls. The collection-level test could be run on the open relatives of the
+most-copied articles is still finishing its controls. The collection-level test could be run on the open relatives of the
 commercial models (Gemma, Llama, gpt-oss). That needs the publisher's archive and a few days of rented computing, and
 the best outcome is a high probability that a related model was trained on the archive: not memorization, and not
 direct proof about the commercial product. Finally, most of this training happened before
