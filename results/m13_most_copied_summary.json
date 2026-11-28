@@ -1,0 +1,116 @@
+{
+ "gemini-3.1-flash-lite": {
+  "n_most_copied": 20,
+  "n_windows": 44,
+  "primary_offset0_vs_m11_controls": {
+   "n_top": 20,
+   "n_controls": 0,
+   "p_one_sided": null,
+   "top_max": 13,
+   "controls_max": null
+  },
+  "secondary_offset0_vs_m11_members": {
+   "n_members": 0,
+   "p_one_sided": null
+  },
+  "secondary_mid_windows_vs_offset_controls": {
+   "n_windows": 24,
+   "n_controls": 3,
+   "p_one_sided": 0.13518429081289196,
+   "controls_max": 4
+  },
+  "articles_with_run_ge_25": [
+   "54408951579"
+  ],
+  "controls_with_run_ge_25": 0,
+  "base_rate_source": "M11 controls, same model",
+  "stops_per_set": {
+   "most_copied": {
+    "FinishReason.STOP": 440
+   },
+   "control": {
+    "FinishReason.STOP": 30
+   }
+  },
+  "empty_attempts_per_set": {
+   "most_copied": 0,
+   "control": 0
+  },
+  "best_per_article": {
+   "54408951579": 26,
+   "54365702345": 14,
+   "54379459399": 13,
+   "442091792778": 9,
+   "421021759031": 9,
+   "54356233363": 9,
+   "54354974266": 8,
+   "54228364832": 7,
+   "43521753983": 7,
+   "54356160431": 7,
+   "54365643283": 7,
+   "54365145790": 6,
+   "54068170076": 5,
+   "7750768": 5,
+   "54361786643": 5,
+   "54356158334": 5,
+   "54360763481": 5,
+   "54376603767": 5,
+   "54335820943": 4,
+   "54378572901": 3
+  }
+ },
+ "salamandra-7b-instruct": {
+  "n_most_copied": 20,
+  "n_windows": 44,
+  "primary_offset0_vs_m11_controls": {
+   "n_top": 20,
+   "n_controls": 100,
+   "p_one_sided": 0.5680482532748649,
+   "top_max": 10,
+   "controls_max": 8
+  },
+  "secondary_offset0_vs_m11_members": {
+   "n_members": 100,
+   "p_one_sided": 0.6234200040649082
+  },
+  "secondary_mid_windows_vs_offset_controls": {
+   "n_windows": 24,
+   "n_controls": 7,
+   "p_one_sided": 0.18676857906777233,
+   "controls_max": 7
+  },
+  "articles_with_run_ge_25": [],
+  "controls_with_run_ge_25": 0,
+  "base_rate_source": "M11 controls, same model",
+  "stops_per_set": {
+   "most_copied": {},
+   "control": {}
+  },
+  "empty_attempts_per_set": {
+   "most_copied": 0,
+   "control": 0
+  },
+  "best_per_article": {
+   "421021759031": 10,
+   "54228364832": 7,
+   "442091792778": 5,
+   "54408951579": 5,
+   "54356158334": 5,
+   "54068170076": 4,
+   "7750768": 4,
+   "54354974266": 4,
+   "54360763481": 4,
+   "54365145790": 3,
+   "54379459399": 3,
+   "54361786643": 3,
+   "54365702345": 3,
+   "43521753983": 3,
+   "54376603767": 3,
+   "54365643283": 3,
+   "54378572901": 2,
+   "54356160431": 2,
+   "54356233363": 2,
+   "54335820943": 1
+  }
+ }
+}
