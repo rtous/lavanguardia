@@ -547,6 +547,15 @@ exactly (117/117 articles, all attempts identical; \texttt{results/rerun\_custod
 texts, same substance), so for Gemini only the statistics can be compared. The Gemini re-runs are limited by the
 free tier's daily quota.
 
+\paragraph{Evidence gap of 28 November 2026.} Google Drive (shared with other projects) reached its storage quota on
+27 November; the last successful mirror is stamped 21:53 UTC, and uploads then failed silently until the machine was
+lost overnight. Raw records written after that were lost: M11 Salamandra rows 22--199 (178), all 48 Qwen2.5 rows, and
+\emph{every} raw record of the first custody re-run (so its 117/117 identity with run 1, recorded in
+\texttt{m11\_compare.json}, is no longer backed by records). A second re-run under a dated amendment
+(\texttt{docs/prereg/amendment\_rerun\_custody2\_20261128.md}) goes to \texttt{results/rerun\_custody2/}. Since
+28 November, raw records are also pushed every 10 minutes to a private git repository, so a lost machine or a full
+Drive can no longer remove them once pushed.
+
 \subsection{Tests}
 Table~\ref{tab:tests} maps each experiment to the method families of Section~\ref{sec:methods-bg}.
 
@@ -852,6 +861,39 @@ are about, but not how they were written.
 Planned but not run because of compute time: the same test on Gemma-2, Qwen2.5 and Mistral; the chat versions of
 Llama-3.1 and Qwen2.5 with the plain prompt of \cite{su2024}; the role-play prompt of \cite{freeman2024} as an upper
 bound; and Gemini 3.1 Flash-Lite through the API (Section~\ref{sec:status}).
+
+\subsection{NYT-style extraction (M11) and the most-copied articles (M13), family A}\label{sec:m11m13}
+\paragraph{M11 (pre-registered, \texttt{docs/prereg/m11\_nyt\_style.md}).} The tricks of the NYT exhibits and
+\cite{freeman2024}: a role-play system prompt (``2079, Jordi must restore the article word for word''), a fake
+assistant acknowledgement, the first 110 words of the article, and 10 attempts (1 greedy + 9 sampled). Controls get
+the same prompts and attempts. Score: longest common word run (LCS) with the next 250 words, outside quotation marks.
+\emph{Salamandra-7B-Instruct, complete} (\texttt{results/m11\_summary.json}): \emph{La Contra} 60 members vs 60
+controls, median 3 vs 3 words, maximum 10 vs 8, $p_{MW}=0.43$; random 40 vs 40, median 4 vs 4, maximum 15 vs 6,
+$p_{MW}=0.38$. The single 15-word member run is the article's own subtitle, which is inside the 110-word prompt and
+repeated in the body: the model copied its prompt (a scoring artifact to exclude in future versions). Qwen2.5 and
+Llama-3.1 are in progress.
+
+\paragraph{M13 (pre-registered, \texttt{docs/prereg/m13\_most\_copied.md}; API amendment
+\texttt{m13\_amendment1\_api\_20261128.md}).} Memorization grows with the number of copies seen, so M13 applies M11's
+protocol to the 20 most-copied articles in FineWeb-2 (245--1,279 near-identical copies each), prompting each article at
+several points (every 300 words, plus a window ending at the article's end; 44 windows). Base rates: M11's controls
+(offset 0) and 20 controls prompted mid-article; regurgitation threshold $\geq 25$ words outside quotes.
+\begin{itemize}
+\item \emph{Salamandra-7B-Instruct, complete}: most-copied vs M11 controls $p=0.57$ (maximum 10 vs 8 words);
+vs M11's ordinary members $p=0.62$; mid-article windows vs offset controls $p=0.31$ (maximum 7 on controls). No
+window reached 25 words, nor 15. Even the article copied 1,279 times (\emph{``Nosotros, como el tiempo, también nos
+desdoblamos''}) gives at most 4 words. The longest runs are stock or topic phrases (``el pase a cuartos de final de
+la Liga Europa'', 10; ``retirar el wi-fi de los colegios'', 7).
+\item \emph{Gemini 3.1 Flash-Lite, partial} (free daily quota reached at 47 of 104 windows: all 44 most-copied
+windows, 3 of 60 controls; no test result yet). One run of \textbf{26 words} on the 2014 Pope Francis interview
+(``\ldots no puedo saludar a un pueblo y decirle que lo quiero dentro de una lata de sardinas, aunque sea de
+cristal. Para mí\ldots''; 7 of 10 attempts $\geq 22$ words). It is the Pope's own answer, in a question-and-answer
+interview without quotation marks, and is quoted verbatim by many outlets crediting the interview (e.g. El Tiempo,
+a USCCB quotation list, Opus Dei and La Jornada pieces, 2025--2026 obituaries). It shows a memorized famous
+quotation that first appeared in \emph{La Vanguardia}, not the newspaper's own wording: the interviewer's text around
+it is not reproduced. Next longest: 14 words (Benedict XVI's farewell words, a quotation) and 13 (a scientist's name and
+title). 0 of 483 attempts stopped for \texttt{RECITATION}.
+\end{itemize}
 
 \subsection{Recognition tests (M2, M2b, family C)}
 Figure~\ref{fig:rec} and Table~\ref{tab:rec} summarize M2 and M2b. Read naively, the results look like strong
@@ -1319,11 +1361,10 @@ recommend starting now, since traps cannot protect content published before thei
 
 \paragraph{Next steps.} See Table~\ref{tab:status}. In order of value: finish the pre-registered NYT-style
 extraction (M11, \texttt{docs/prereg/m11\_nyt\_style.md}: role-play prompt, 110-word opening, best of 10 attempts,
-identical for controls; an adversarial upper bound reported apart from the neutral tests), at 117 of 200 articles
-on Salamandra-7B-Instruct, then Llama-3.1-8B-Instruct and Qwen2.5-7B-Instruct; finish the Gemini part of the
-chain-of-custody re-run (the Salamandra part is complete and identical to run 1); pre-register an extraction test on the
-most-copied articles (FineWeb-2 copy counts for all 272,636 articles: median 2, 1\% with 43 or more, top 20 with 245--1,279;
-\texttt{results/fw2\_most\_copied.md}) with post-cutoff controls of comparable copy count; ask the publisher for server
+identical for controls; an adversarial upper bound reported apart from the neutral tests): done on
+Salamandra-7B-Instruct (null), in progress on Qwen2.5-7B-Instruct, Llama-3.1-8B-Instruct needs an HF token;
+chain-of-custody re-run 2 (Section~\ref{sec:m11m13} and the evidence-gap paragraphs); finish M13 on Gemini 3.1
+Flash-Lite (quota), Qwen2.5 and Llama-3.1, then Claude Opus 4.5 (pre-registered); ask the publisher for server
 logs (which crawlers fetched the articles, and when); retrieve Anthropic's AI Act training-content summary; scan BSC's CATalog; the
 cheap article-number screening (M10) on all reachable models, to choose where to spend on extraction tests; M9 and
 role-play tests on commercial APIs with a paid key; tests on larger open-weight models; complete the truncated runs; measure duplication to select test passages; evaluate models from

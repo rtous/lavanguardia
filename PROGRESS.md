@@ -688,3 +688,15 @@ Anthropic AI Act summary, CATalog; (5) rotate keys.
   memorization, stronger legal weight, limits); new technical premise on anti-recitation filters (Gemini RECITATION,
   Azure protected material, OpenAI "rare bug", assistant tuning) + methods paragraph on what filters mean for (A).
   PDF rebuilt (19 pages; texlive needs `apt-get update` first on a fresh runtime).
+- **M11 Salamandra run 1 summarized (NULL)** (`results/m11_summary.json`): La Contra 60 vs 60 median 3 vs 3, max 10 vs 8,
+  p=0.43; random 40 vs 40 median 4 vs 4, max 15 vs 6, p=0.38. The one ≥15 member run (8328831, Teresa Rodríguez) is the
+  article's subtitle, inside the 110-word prompt and repeated in the body → copied from the prompt (scoring artifact:
+  future versions should drop runs present in the prefix).
+- **M13 Salamandra complete (NULL)**: most-copied vs M11 controls p=0.57 (max 10 vs 8), vs ordinary members p=0.62, mid
+  windows vs offset controls p=0.31 (controls max 7); 0 runs ≥ 25 (or ≥ 15). Top article (1,279 copies) max 4 words.
+  `results/m13_most_copied_summary.json`.
+- Docs: technical report (new §M11/M13, evidence gap of 28 Nov, next steps), experiment_status (M11 row, new M13 row),
+  paper (results table rows, "Adversarial extraction, NYT style" paragraph, In short, avenues). Both PDFs rebuilt.
+- Paper (user request): "the summary" = the *In short* section; added the two-kinds-of-test paragraph there, before
+  "For Gemini we have no statement". The longer version first put in the abstract by mistake is still there: asked the
+  user whether to drop or shorten it.

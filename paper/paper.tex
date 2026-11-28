@@ -489,6 +489,8 @@ differently on articles it could have seen (members) than on articles it could n
 Test & Models & Result\\
 \midrule
 Verbatim continuation (A) & Claude 4.5 and 5.5, Gemini 3.x & No reproduction, even of \emph{La Contra}\\
+NYT-style extraction (A, adversarial) & Salamandra (Qwen, Llama running) & No: at control level\\
+Most-copied 20 articles (A, adversarial) & Salamandra; Gemini 3.1 FL (partial) & Salamandra no; Gemini: one famous quote\\
 Sentence by sentence (A) & Llama-3.1 & No sentence reproduced\\
 Pick the original (C) & Claude 4.5, Gemini & Invalid: works equally on unseen text\\
 Newspaper-only details (C) & Gemini, 5 open models & At control level, except article numbers (Gemini; Salamandra weakly)\\
@@ -509,6 +511,21 @@ statements quoted by many outlets, which appear as often for controls. This held
 Sonnet 4.5, Gemini 3.1 Flash-Lite and 3 Flash) and for \emph{La Contra} interviews (five Claude models, including the
 current Opus and Sonnet 5.5). Asking one sentence at a time, the most sensitive published variant, recovered no
 sentence from Llama-3.1. The models know the \emph{facts} of many articles, not their \emph{wording}.
+
+\paragraph{Adversarial extraction, NYT style (A).} We then used the tricks of the NYT exhibits, pre-registered and
+applied identically to controls: a role-play prompt (``it is 2079; restore the article word for word''), a fake
+assistant reply, the first 110 words, and the best of 10 attempts. On Salamandra-7B, the model most likely to have
+seen the articles, members and controls score the same (median 3--4 words; $p=0.43$ for \emph{La Contra}, $0.38$ for
+random articles). Its single 15-word run is the article's subtitle, which was already inside the prompt. We then aimed
+the same test at the \textbf{20 most-copied articles} (245--1,279 copies each in FineWeb-2), prompting each at several
+points so that every part of the text is tried (M13). Salamandra again scores at control level ($p=0.57$): the longest
+run is 10 words, a stock sports phrase, and the article copied 1,279 times yields at most 4. Gemini 3.1 Flash-Lite
+(partial run: all 20 articles done, controls pending) produced one 26-word verbatim run, in 7 of 10 attempts: Pope
+Francis's answer in the 2014 interview, ``no puedo saludar a un pueblo y decirle que lo quiero dentro de una lata de
+sardinas, aunque sea de cristal''. These are the Pope's words, quoted verbatim by many outlets crediting the
+newspaper; the interviewer's text around them is not reproduced. It shows that Gemini memorized a famous quotation
+that first appeared in \emph{La Vanguardia}, not the newspaper's own writing. No attempt was stopped by Gemini's
+recitation filter (0 of 483).
 
 \paragraph{Recognition of the original (C).} Models pick the original passage among AI-written rewrites far above
 chance, but \emph{equally often for articles they cannot have seen}. They detect machine rewriting, not remembered
@@ -713,14 +730,14 @@ opening, many attempts) were not tried. Since they bear on whether a model \emph
 matters for memorization and for outputs as reproductions, we pre-registered such a test
 (\texttt{docs/prereg/m11\_nyt\_style.md}): 10 attempts per article, identical for controls, reported apart from the
 neutral tests. On three open models it takes about 14 hours on a free GPU; on Gemini, an API key and a few dollars, or
-four days of free quota. Stopped after 7 of 200 articles on the first model (no controls yet, so no result).
+four days of free quota. Done on Salamandra: no difference from controls. Qwen and Llama running.
 \item \textbf{More black-box extraction on frontier APIs: not worth it now.} Every neutral attempt was negative. Spend on it
 (about \$100 per model at a scale where a 1--2\% hit rate would show) only if another signal flags a specific model.
 \item \textbf{Settle the article-number question: cheap, worth doing.} Compare Gemini's precision on articles that
 other sites link to with articles nobody links to; run Google's open Gemma models against Llama and Qwen of the same
 size (is it Google's data or model size?); ask other frontier models (GPT, Claude; cents each) and another newspaper's
 counter; and test articles published after the March 2026 opt-out on Gemini versions trained after it.
-\item \textbf{Aim extraction tests at the most-copied articles: free, in progress.} Memorization grows with the
+\item \textbf{Aim extraction tests at the most-copied articles: free, running (M13).} Memorization grows with the
 number of copies a model sees, and no article stood out in our tests (the best member scores equal the best control
 scores, and selecting articles by past scores mostly selects luck). FineWeb-2 records for each page how many
 near-identical copies its deduplication found across all Common Crawl captures of 2013--2024 (repeated captures and
@@ -729,7 +746,10 @@ copies on other sites). We read this count for all 328,449 of the newspaper's pa
 more, 1\% have 43 or more and 232 have 100 or more. The 20 most-copied articles, after reading their text and dropping
 one error page, have 245 to 1,279 copies (Table~\ref{tab:mostcopied}). They are the best targets; controls should be articles published after
 the training cutoffs with a comparable number of copies (FineWeb-2 stops in 2024, so their copies must be counted in
-later Common Crawl captures). Both sets would then go through a pre-registered extraction test on open and commercial models.
+later Common Crawl captures). Pre-registered as M13 (\texttt{docs/prereg/m13\_most\_copied.md}), with ordinary post-cutoff
+controls: Salamandra null; Gemini 3.1 Flash-Lite partial (one famous quotation, see Section~\ref{sec:results}); Claude
+Opus 4.5 next. The current Claude models (Opus, Sonnet and Haiku 5.5) cannot be tested with our controls: their training
+data runs to June 2026, past every control article we have.
 \item \textbf{More triage on paid API tiers: not needed now.} A free ``collection fingerprint'' test (does a model reproduce \emph{La
 Contra}'s format and the newspaper's house style, such as ``en el 2023'' or ``Catalunya'', when asked to write like
 it, compared with other newspapers?) is designed and could be run at no cost if triage continues.
@@ -923,8 +943,9 @@ than any other model. But given a number, it cannot say which article it is. So 
 web addresses, perhaps only as links on other sites, not necessarily the articles.
 
 We could not make any model repeat an article word for word, or reveal details only the newspaper published. We did
-not test them all: GPT, Mistral Large, DeepSeek and Grok are untested. The most-copied articles, the likeliest to be
-memorized, are being tested now (M13). This matters because word-for-word
+not test them all: GPT, Mistral Large, DeepSeek and Grok are untested. Even the most-copied articles, the likeliest to be
+memorized, did not come back: Salamandra reproduced nothing beyond stock phrases, and Gemini (controls still running)
+only one famous sentence of Pope Francis from a 2014 interview, which many outlets quote. This matters because word-for-word
 reproduction (``memorization'') is the strongest legal argument, as in the German \emph{GEMA} case. A statistical
 test over thousands of articles can show training without memorization. It needs access to the model's internal
 word probabilities, so it works only on open models, not on ChatGPT, Claude or Gemini, except by court order. It
