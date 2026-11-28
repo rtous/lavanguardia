@@ -902,14 +902,29 @@ data includes FineWeb-2, so it was almost certainly trained on \emph{La Vanguard
 as trained on 20 Common Crawl captures, so they very likely were too. OpenAI (recent GPT models), Mistral (Large 3) and
 DeepSeek (V4) state in their EU AI Act filings that they trained on Common Crawl text. That makes it probable that \emph{La Vanguardia}
 articles were in their training data, though not certain, because their filters may have dropped them, and nobody names
-specific websites. For Gemini we have no statement. Its smaller open sibling Gemma-2 shows a weak trace, explained by
+specific websites.
+
+Being in the training data is one thing; proving it to a court is another. We try two kinds of test, which prove
+different things. The first looks at the \emph{whole collection}: does a model find the newspaper's articles, taken
+together, slightly more familiar than comparable articles it cannot have seen? The signal is too weak to see in any
+single article, so it is combined over thousands of them. If it works, it shows that the model was \emph{trained} on
+the archive. Its limits: it needs the model's internal word probabilities, which only open models reveal, and older
+articles look more familiar anyway, simply because the world has moved on since, which must be corrected for. And
+training before the March 2026 opt-out was probably lawful, so this test shows use, not necessarily wrongdoing. The
+second kind asks the model to \emph{recite} articles word for word. If it works, it shows \emph{memorization}: the
+model holds a copy of the text, the stronger legal argument (the German \emph{GEMA} case). Its limits: models memorize
+only text they saw many times, which is rare for a news article, and commercial products filter out answers that
+recite known text, so a failure shows what the product will say, not what the model learned.
+
+For Gemini we have no statement. Its smaller open sibling Gemma-2 shows a weak trace, explained by
 knowledge of the news events. Gemini itself shows one odd skill. Every article's web address carries a running
 number. Given a headline and date, Gemini guesses that number to within a few days' worth of articles, far better
 than any other model. But given a number, it cannot say which article it is. So it has seen many of the newspaper's
 web addresses, perhaps only as links on other sites, not necessarily the articles.
 
 We could not make any model repeat an article word for word, or reveal details only the newspaper published. We did
-not test them all, nor the most-copied articles, which are the likeliest to be memorized: GPT, Mistral Large, DeepSeek and Grok are untested. This matters because word-for-word
+not test them all: GPT, Mistral Large, DeepSeek and Grok are untested. The most-copied articles, the likeliest to be
+memorized, are being tested now (M13). This matters because word-for-word
 reproduction (``memorization'') is the strongest legal argument, as in the German \emph{GEMA} case. A statistical
 test over thousands of articles can show training without memorization. It needs access to the model's internal
 word probabilities, so it works only on open models, not on ChatGPT, Claude or Gemini, except by court order. It
