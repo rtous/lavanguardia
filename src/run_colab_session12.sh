@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Session 12 GPU queue (2026-11-28), one sequential script (no pgrep waits; CLAUDE.md). Runs alongside the custody
-# re-run 2 of Salamandra (started separately; logs/rerun_custody2_gpu.log). Two int4 7B models fit on a T4.
+# Strictly sequential: two models do NOT fit on the T4 (Salamandra int4 alone takes 8.5 GB; OOM on 2026-11-28).
 #   FETCH_PID=<pid of src/fw2_top_check.py> nohup ./src/run_colab_session12.sh >> logs/colab_session12.log 2>&1 &
 # 1. wait for the FineWeb-2 re-fetch; check that it reproduced the committed top-20 list; put the text hash in the
 #    M13 prereg and commit it BEFORE any M13 query;
-# 2. M13 Salamandra; 3. custody re-run 2 of Qwen's run-1 rows; 4. M11 run 1 Qwen (continue); 5. M13 Qwen;
+# 2. M13 Salamandra; 2b. custody re-run 2 of Salamandra (amendment 2); 3. custody re-run 2 of Qwen's run-1 rows; 4. M11 run 1 Qwen (continue); 5. M13 Qwen;
 # 6. Llama-3.1 (M11 + M13) only if an HF token is present; 7. summaries.
 set -u
 cd "$(dirname "$0")/.."
@@ -20,13 +20,15 @@ H=$(sha256sum data/fw2_top_text.json | cut -d' ' -f1)
 sed -i "s/TEXT_SHA256_PLACEHOLDER/$H/" docs/prereg/m13_most_copied.md
 sed -i "s/^TEXT_SHA256 = None.*/TEXT_SHA256 = \"$H\"  # pre-registered (docs\/prereg\/m13_most_copied.md)/" src/m13_most_copied.py
 git add docs/prereg/m13_most_copied.md src/m13_most_copied.py src/run_colab_session12.sh src/autosave.sh
-git commit -qm "Pre-register M13 (NYT-style extraction of the 20 most-copied LV articles), text sha256 $H
+git diff --cached --quiet || git commit -qm "Pre-register M13 (NYT-style extraction of the 20 most-copied LV articles), text sha256 $H
 
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" && echo "$(ts) M13 prereg committed $(git rev-parse --short HEAD)"
 
 echo "=== $(ts) M13 salamandra"
 python -I src/m13_most_copied.py run --model hf:BSC-LT/salamandra-7b-instruct 2>&1 | quiet
 
+echo "=== $(ts) custody re-run 2: Salamandra run-1 rows"
+RERUN_DIR=results/rerun_custody2 RERUN_SUFFIX=_rerun2 python -I src/m11_nyt_style.py run --model hf:BSC-LT/salamandra-7b-instruct --rerun 2>&1 | quiet
 echo "=== $(ts) custody re-run 2: Qwen run-1 rows"
 RERUN_DIR=results/rerun_custody2 RERUN_SUFFIX=_rerun2 python -I src/m11_nyt_style.py run --model hf:Qwen/Qwen2.5-7B-Instruct --rerun 2>&1 | quiet
 echo "=== $(ts) M11 run 1 Qwen (continue)"
