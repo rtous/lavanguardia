@@ -4,7 +4,7 @@
 #   FETCH_PID=<pid of src/fw2_top_check.py> nohup ./src/run_colab_session12.sh >> logs/colab_session12.log 2>&1 &
 # 1. wait for the FineWeb-2 re-fetch; check that it reproduced the committed top-20 list; put the text hash in the
 #    M13 prereg and commit it BEFORE any M13 query;
-# 2. M13 Salamandra; 2b. custody re-run 2 of Salamandra (amendment 2); 3. custody re-run 2 of Qwen's run-1 rows; 4. M11 run 1 Qwen (continue); 5. M13 Qwen;
+# 2. M13 Salamandra; (custody re-run 2 dropped, see below); 4. M11 run 1 Qwen (continue); 5. M13 Qwen;
 # 6. Llama-3.1 (M11 + M13) only if an HF token is present; 7. summaries.
 set -u
 cd "$(dirname "$0")/.."
@@ -27,10 +27,8 @@ Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" && echo "$(ts) M13 prer
 echo "=== $(ts) M13 salamandra"
 python -I src/m13_most_copied.py run --model hf:BSC-LT/salamandra-7b-instruct 2>&1 | quiet
 
-echo "=== $(ts) custody re-run 2: Salamandra run-1 rows"
-RERUN_DIR=results/rerun_custody2 RERUN_SUFFIX=_rerun2 python -I src/m11_nyt_style.py run --model hf:BSC-LT/salamandra-7b-instruct --rerun 2>&1 | quiet
-echo "=== $(ts) custody re-run 2: Qwen run-1 rows"
-RERUN_DIR=results/rerun_custody2 RERUN_SUFFIX=_rerun2 python -I src/m11_nyt_style.py run --model hf:Qwen/Qwen2.5-7B-Instruct --rerun 2>&1 | quiet
+# Custody re-run 2 (amendment 2) STOPPED 2026-11-28 10:30 UTC at the user's decision (Salamandra at 10/200, Qwen not
+# started): results are unchanged by a re-run, so the rows without raw records are reported with the gap note instead.
 echo "=== $(ts) M11 run 1 Qwen (continue)"
 python -I src/m11_nyt_style.py run --model hf:Qwen/Qwen2.5-7B-Instruct 2>&1 | quiet
 echo "=== $(ts) M13 Qwen"
